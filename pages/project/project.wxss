@@ -1,0 +1,53 @@
+/* pages/project/project.wxss */
+.section{
+  margin-bottom: 10px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.generalData{
+  display: flex;
+  flex-direction: column;
+}
+
+.FlexDirectionRow{
+  display: flex;
+  flex-direction: row;
+}
+
+.data{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px #C4C4C4 solid;
+}
+
+.buttonsBar{
+  border-top: 1px #BBBBBB solid;
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonLeft{
+  background-color: green;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  width: 16%;
+}
+
+.buttonCar{
+  background-color: orangered;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  width: 42%;
+}
+
+.buttonRight{
+  background-color: red;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  width: 42%;
+}

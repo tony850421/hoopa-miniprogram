@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/user/user",
-    "pages/finance/finance"
+    "pages/finance/finance",
+    "pages/project/project",
+    "pages/projects/projects"
   ],
   "window": {
     "backgroundColor": "#EFEFF4",

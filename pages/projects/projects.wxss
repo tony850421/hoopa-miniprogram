@@ -1,0 +1,49 @@
+/* pages/projects/projects.wxss */
+.imageProjects{
+  width: 100%;
+}
+
+.section{
+  margin-bottom: 10px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.generalData{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-bottom: 1px #C4C4C4 solid;
+  padding: 5px;
+}
+
+@media(max-width: 480px){
+  .imageProjects{
+    height: 170px;
+  }
+}
+
+@media(max-width: 414px){
+  .imageProjects{
+    height: 160px;
+  }
+}
+
+@media(max-width: 375px){
+  .imageProjects{
+    height: 140px;
+  }
+}
+
+@media(max-width: 360px){
+  .imageProjects{
+    height: 140px;
+  }
+}
+
+@media(max-width: 320px){
+  .imageProjects{
+    height: 120px;
+  }
+}

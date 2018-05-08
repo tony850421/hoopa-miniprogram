@@ -1,0 +1,80 @@
+<!--pages/project/project.wxml-->
+<view class="page">
+  <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper"bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+  <swiper indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='section'>
+        <view class='generalData'>
+          <text>Name of product</text>
+          <view class='FlexDirectionRow'>
+            <text>Price:</text>
+            <text>121223.123</text>
+          </view>
+          <view class='FlexDirectionRow'>
+            <text>Ofertas</text>
+            <text>8 persons</text>
+            <text class='callText'>Call</text>
+          </view>
+        </view>
+    </view>
+    <view class='section'>
+        <view class='generalData'>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+        </view>
+    </view>
+    <view class='section'>
+        <view class='generalData'>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+          <view class='data'>
+            <text>Data</text>
+            <text>Data</text>
+          </view>
+        </view>
+    </view>
+  </scroll-view>
+  <view class='buttonsBar'>
+    <button class='buttonLeft'>B</button>
+    <button class='buttonCar'>Button1</button>
+    <button class='buttonRight'>Button2</button>
+  </view>  
+</view>

@@ -24,5 +24,15 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+  },
+  goToProject: function(){
+    wx.navigateTo({
+      url: '../project/project',
+    })
+  },
+  goToProjects: function () {
+    wx.navigateTo({
+      url: '../projects/projects',
+    })
   }
 });
