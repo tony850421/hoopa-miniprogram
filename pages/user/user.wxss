@@ -1,7 +1,9 @@
 /* pages/user/user.wxss */
 .userinfo {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
+  align-items: center;
+  background-color: #4764B5;
 }
 
 .userinfo-avatar {
@@ -13,4 +15,37 @@
 
 .userinfo-nickname {
   color: #aaa;
+}
+
+.info{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.infoData{
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+  align-items: center;
+}
+
+.oferts{
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.pull-right{
+  float: right;
+}
+
+.imageCar{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 5%;
+  right: 15px;
 }

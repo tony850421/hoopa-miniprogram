@@ -1,0 +1,69 @@
+/* pages/contact/contact.wxss */
+.textArray{
+  width: 100%;
+  position: static;
+}
+
+.inputSend{
+  border: 1px #BBBBBB solid;
+  border-radius: 20px;
+  height: 27px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.send{
+  width: 27px;
+  height: 27px;
+  margin-top: -28px;
+  position: absolute;
+}
+
+page{
+  overflow-y: hidden;
+}
+
+.commentStyle{
+  background-color: #E3E3E3;
+  border: 1px #E3E3E3 solid;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 15px;
+}
+
+.textBar{
+  padding-top: 5px;
+  border-top: 1px #BBBBBB solid;
+}
+
+.imageAvatar{
+  width: 50px;
+  height: 50px;
+}
+
+.contentComment{
+  display: flex !important;
+  flex-direction: column;
+}
+
+.comments{
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex !important;
+  flex-direction: row;
+}
+
+.dateText{
+  font-size: 11px;
+  text-align: end;
+  margin-top: 5px;
+}
+
+.pike{
+  position: absolute;
+  z-index: -1;
+  width: 20px;
+  height: 20px;
+  margin-left:-25px;
+  margin-top:-10px;
+}

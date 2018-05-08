@@ -5,7 +5,10 @@
     "pages/user/user",
     "pages/finance/finance",
     "pages/project/project",
-    "pages/projects/projects"
+    "pages/projects/projects",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/contact/contact"
   ],
   "window": {
     "backgroundColor": "#EFEFF4",
@@ -15,7 +18,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "backgroundColor": "#F0F0F0",
+    "backgroundColor": "#EFEFF4",
     "borderStyle": "#D3D3D3",
     "selectedColor": "#D03232",
     "color": "#131313",
@@ -27,10 +30,10 @@
         "text": "Home"
       },
       {
-        "pagePath": "pages/finance/finance",
+        "pagePath": "pages/contact/contact",
         "iconPath": "images/map.png",
         "selectedIconPath": "images/mapSelected.png",
-        "text": "Maps"
+        "text": "Contact"
       },
       {
         "pagePath": "pages/user/user",

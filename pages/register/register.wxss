@@ -1,0 +1,54 @@
+/* pages/register/register.wxss */
+
+.login{
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: white;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.phone{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px #EFEFf4 solid;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+.confirm{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px #EFEFf4 solid;  
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+.buttonLogin{
+  margin-top: 15px;
+  width: 100%;
+  background-color: blue;
+}
+.textRegister{  
+  margin-top: 15px;
+  color: blue;
+}
+.inputLogin{
+  padding-left: 15px;
+}
+.textConfirm{
+  padding-left: 10px;
+  border-left: 1px #EFEFf4 solid;
+}
+.textHalf{
+  padding-top: 10px;
+  padding-right: 10px;
+}
+page{
+  height: 100% !important;
+}

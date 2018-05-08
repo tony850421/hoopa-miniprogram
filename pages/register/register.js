@@ -1,20 +1,26 @@
-// pages/user/user.js
-
-const app = getApp()
-
+// pages/register/register.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    height: '',
+    widht: '320',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          height: res.windowHeight,
+          widht: res.windowWidth
+        })
+      },
+    })
   },
 
   /**
