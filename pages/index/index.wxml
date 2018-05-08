@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class='weui-search-bar'>
+  <form class='weui-search-bar__form'>
+    <view class='weui-search-bar__box'>
+      <icon class='weui-icon-search'></icon>
+      <input class='weui-search-bar__input'></input>
+    </view>
+  </form>
+</view>

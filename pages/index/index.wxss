@@ -1,0 +1,6 @@
+/**index.wxss**/
+@import "../../common/lib/weui.wxss";
+
+.weui-search-bar__input{
+  height: 20px !important;
+}
