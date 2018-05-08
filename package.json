@@ -1,0 +1,25 @@
+{
+  "name": "hoopa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tony850421/hoopa-miniprogram.git"
+  },
+  "keywords": [
+    "hoopa"
+  ],
+  "author": "hoopa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tony850421/hoopa-miniprogram/issues"
+  },
+  "homepage": "https://github.com/tony850421/hoopa-miniprogram#readme",
+  "dependencies": {
+    "weui-wxss": "^1.1.1"
+  }
+}
