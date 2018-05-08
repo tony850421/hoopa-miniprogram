@@ -1,12 +1,41 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/user/user",
+    "pages/finance/finance"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundColor": "#EFEFF4",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Hoopa",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#F0F0F0",
+    "borderStyle": "#D3D3D3",
+    "selectedColor": "#D03232",
+    "color": "#131313",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homeSelected.png",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/finance/finance",
+        "iconPath": "images/map.png",
+        "selectedIconPath": "images/mapSelected.png",
+        "text": "Maps"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/userSelected.png",
+        "text": "User"
+      }
+    ]
   }
 }

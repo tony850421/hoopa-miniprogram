@@ -18,7 +18,61 @@
             <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
         </view>        
     </view>
-    <view class='videoHome'>
-      <video src='' poster=''></video>
+    <view>
+    <video class="videoHome" controls='true' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/a83666d30482b79683b4.mp4'></video>
+    </view>
+    <view class="section">
+      <view class="buttonsMarginTop">
+        <view class='buttonsBox'>
+          <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
+          <text>Comerce</text>
+        </view>
+        <view class='buttonsBox'>
+          <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+          <text>Health</text>
+        </view>
+        <view class='buttonsBox'>
+          <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
+          <text>Tourism</text>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="buttonsMarginTop">
+        <view class='buttonsBox'>
+          <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
+          <text>Comerce</text>
+        </view>
+        <view class='buttonsBox'>
+          <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+          <text>Health</text>
+        </view>
+        <view class='buttonsBox'>
+          <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
+          <text>Tourism</text>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="buttonsMarginTop">
+        <view class='buttonsBox'>
+          <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
+          <text>Comerce</text>
+        </view>
+        <view class='buttonsBox'>
+          <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+          <text>Health</text>
+        </view>
+        <view class='buttonsBox'>
+          <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
+          <text>Tourism</text>
+        </view>
+      </view>
+    </view>
+    <view class='imagePosterButton'>
+      <image class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/80d89c9ee8bda9436ea0.jpg'></image>
+      <view class='projectList'>
+        
+      </view>
     </view>
 </view>

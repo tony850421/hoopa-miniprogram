@@ -1,4 +1,12 @@
 /**index.wxss**/
+.section{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .searchbar-result{
     margin-top: 0;
     font-size: 14px;
@@ -8,4 +16,83 @@
 }
 .weui-cell{
     padding: 12px 15px 12px 35px;
+}
+.videoHome{
+  width: 100%;
+}
+
+.imageProjects{
+  width: 100%;    
+}
+
+@media(max-width: 480px){
+  .videoHome{
+    height: 250px;
+  }
+
+  .imageProjects{
+    height: 170px;
+  }
+}
+
+@media(max-width: 414px){
+  .videoHome{
+    height: 220px;
+  }
+
+  .imageProjects{
+    height: 160px;
+  }
+}
+
+@media(max-width: 375px){
+  .videoHome{
+    height: 200px;
+  }
+
+  .imageProjects{
+    height: 140px;
+  }
+}
+
+@media(max-width: 360px){
+  .videoHome{
+    height: 200px;
+  }
+
+  .imageProjects{
+    height: 140px;
+  }
+}
+
+@media(max-width: 320px){
+  .videoHome{
+    height: 160px;
+  }
+
+  .imageProjects{
+    height: 120px;
+  }
+}
+
+.buttonsMarginTop{
+  margin-top: 10px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.buttonsBox{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 33.3%;
+}
+
+.IconsButtons{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;  
 }
