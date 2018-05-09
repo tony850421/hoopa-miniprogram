@@ -1,20 +1,27 @@
-// pages/user/user.js
-
-const app = getApp()
-
+// pages/shop-cart/shop-cart.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    item: '',
+    height: '',
+    widht: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          height: res.windowHeight,
+          widht: res.windowWidth
+        })
+      },
+    })
   },
 
   /**
@@ -65,14 +72,9 @@ Page({
   onShareAppMessage: function () {
   
   },
-  goToLogin: function(){
-    wx.navigateTo({
-      url: '../login/login',
-    })
-  },
-  goToCar: function(){
-    wx.navigateTo({
-      url: '../shop-car/shop-car',
+  checked: function(e){
+    this.setData({
+      item: !this.data.item
     })
   }
 })

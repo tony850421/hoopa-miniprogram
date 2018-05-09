@@ -8,7 +8,8 @@
     "pages/projects/projects",
     "pages/login/login",
     "pages/register/register",
-    "pages/contact/contact"
+    "pages/contact/contact",
+    "pages/shop-car/shop-car"
   ],
   "window": {
     "backgroundColor": "#EFEFF4",

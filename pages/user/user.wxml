@@ -5,7 +5,7 @@
         <image bindtap="goToLogin" class="userinfo-avatar" src="../../images/userAvatar.png" background-size="cover"></image>
         <text bindtap="goToLogin" class="userinfo-nickname">Login</text>       
       </block>
-      <image class='imageCar' src='../../images/car.png'></image>
+      <image bindtap='goToCar' class='imageCar' src='../../images/car.png'></image>
   </view>
   <view class='info'>
     <view class='infoData'>
