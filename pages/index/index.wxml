@@ -28,8 +28,8 @@
           <text>Finance</text>
         </view>
         <view class='buttonsBox'>
-          <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-          <text>Health</text>
+          <image bindtap='goToPartners' mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+          <text>Partners</text>
         </view>
         <view class='buttonsBox'>
           <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>

@@ -1,0 +1,4 @@
+/* pages/partners/partners.wxss */
+map{
+  width: 100% !important;
+}

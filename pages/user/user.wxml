@@ -2,8 +2,8 @@
 <view class='page'>
   <view class="userinfo">
       <block>
-        <image bindtap="goToLogin" class="userinfo-avatar" src="../../images/userAvatar.png" background-size="cover"></image>
-        <text bindtap="goToLogin" class="userinfo-nickname">Login</text>       
+        <image bindtap="goToRegister" class="userinfo-avatar" src="../../images/userAvatar.png" background-size="cover"></image>
+        <text bindtap="goToRegister" class="userinfo-nickname">点击登录</text>
       </block>
       <image bindtap='goToCar' class='imageCar' src='../../images/car.png'></image>
   </view>
