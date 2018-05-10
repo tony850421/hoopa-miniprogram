@@ -37,12 +37,25 @@ Page({
     context.lineTo(20, 180);
     context.moveTo(20, 180);
     context.lineTo(300, 180);
+    
+    context.moveTo(15, 40);
+    context.lineTo(25, 40);
+    context.lineTo(20, 30);
+    context.lineTo(15, 40);
+
+    context.moveTo(290, 175);
+    context.lineTo(290, 185);
+    context.lineTo(300, 180);
+    context.lineTo(290, 175);
+
+    context.setFillStyle = "#4764B5";
+    context.fill();
 
     var date = new Date();
     context.setFontSize(12);
 
-    var functionLine = [200, 102, 87, 150, 33, 100, 170];
-    var functionLineOrd = [200, 102, 87, 150, 33, 100, 170];
+    var functionLine = [1000,5000,2000,2500,3200,1800,5100];
+    var functionLineOrd = [1000, 5000, 2000, 2500, 3200, 1800, 5100];
 
     for (var i = 0; i < functionLineOrd.length - 1; i++) {
       for (var x = i; x < functionLineOrd.length; x++) {
