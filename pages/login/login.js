@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    phone: '',
+    error: '',
+    focusPhone: false
   },
 
   /**
@@ -67,5 +69,16 @@ Page({
     wx.navigateTo({
       url: '../register/register',
     })
+  },
+  sendCodeEvent: function(){
+    if (this.data.phone == ''){
+      this.setData({
+        error: '介绍您的手机',
+        focusPhone: true
+      })
+    }
+  },
+  loginEvent: function(){
+    
   }
 })

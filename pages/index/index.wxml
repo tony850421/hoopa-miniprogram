@@ -23,9 +23,9 @@
     </view>
     <view class="section">
       <view class="buttonsMarginTop">
-        <view class='buttonsBox'>
+        <view class='buttonsBox' bindtap='goToFinance'>
           <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-          <text>Comerce</text>
+          <text>Finance</text>
         </view>
         <view class='buttonsBox'>
           <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>

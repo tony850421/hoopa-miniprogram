@@ -34,5 +34,10 @@ Page({
     wx.navigateTo({
       url: '../projects/projects',
     })
+  },
+  goToFinance: function () {
+    wx.navigateTo({
+      url: '../finance/finance',
+    })
   }
 });

@@ -2,13 +2,14 @@
 <view class='login'>
   <view class='phone'>
     <text>电话</text>
-    <input class='inputLogin' placeholder='咯给咯给'></input>
+    <input focus='{{focusPhone}}' type='number' value='{{phone}}' class='inputLogin' placeholder='咯给咯给'></input>
   </view>
   <view class='confirm'>
     <text>电话</text>
-    <input class='inputLogin' placeholder='咯给咯给'></input>
-    <text class='textConfirm'>咯给</text>
+    <input type='number' class='inputLogin' placeholder='咯给咯给'></input>
+    <text bindtap='sendCodeEvent' class='textConfirm'>咯给</text>
   </view>
-  <button class='buttonLogin'>咯给</button>
+  <text class='emptyPhoneInput'>{{error}}</text>
+  <button bindtap='loginEvent' class='buttonLogin'>咯给</button>
   <text bindtap='goToRegister' class='textRegister'>咯给</text>
 </view>
