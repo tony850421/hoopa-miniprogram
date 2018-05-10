@@ -1,5 +1,7 @@
 //app.js
+// const AV = require('./utils/av-weapp-min');
 const AV = require('./utils/av-live-query-weapp-min');
+const bind = require('./utils/live-query-binding');
 
 AV.init({
   appId: 'qPv1WNQew34FTEuaGxEKHzqt-gzGzoHsz',

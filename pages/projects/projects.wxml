@@ -1,88 +1,20 @@
 <!--pages/projects/projects.wxml-->
 <view class="page">  
    <image mode='aspectFill' class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
-    <view class='generalData'>
-      <text>Name of product</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>121223.123</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
-      </view>
-    </view> 
-    <view class='generalData'>
-      <text>Name of product</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>121223.123</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
-      </view>
-    </view> 
-    <view class='generalData'>
-      <text>Name of product</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>121223.123</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
-      </view>
-    </view> 
-    <view class='generalData'>
-      <text>Name of product</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>121223.123</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
-      </view>
-    </view> 
-    <view class='generalData'>
-      <text>Name of product</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>121223.123</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
-      </view>
-    </view> 
-    <view class='generalData'>
-      <text>Name of product</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>121223.123</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
-      </view>
-    </view> 
-    <view class='generalData'>
-      <text>Name of product</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>121223.123</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
-      </view>
-    </view> 
+
+      <block wx:for="{{products}}" wx:for-item="product">
+        <view class='generalData'>
+          <text>{{product.title}}</text>
+          <view class='FlexDirectionRow'>
+            <text>Price:</text>
+            <text>{{product.price}}</text>
+          </view>
+          <view class='FlexDirectionRow'>
+            <text>Ofertas</text>
+            <text>8 persons</text>
+            <text class='callText'>Call</text>
+          </view>
+        </view>
+      </block>
+      
 </view>
