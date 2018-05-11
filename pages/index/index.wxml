@@ -1,234 +1,85 @@
 <!--index.wxml-->
 <view class="page">
-    <view class="page__bd">
-        <view class="weui-search-bar">
-            <view class="weui-search-bar__form">
-                <view class="weui-search-bar__box">
-                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                        <icon type="clear" size="14"></icon>
-                    </view>
-                </view>
-                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-                    <icon class="weui-icon-search" type="search" size="14"></icon>
-                    <view class="weui-search-bar__text">搜索</view>
-                </label>
-            </view>
-            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-        </view>        
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
-    <view>
+  </view>
+  <view>
     <video class="videoHome" controls='true' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/a83666d30482b79683b4.mp4'></video>
-    </view>
-    <view class="section">
-      <view class="buttonsMarginTop">
-        <view class='buttonsBox' bindtap='goToFinance'>
-          <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-          <text>Finance</text>
-        </view>
-        <view class='buttonsBox'>
-          <image bindtap='goToPartners' mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-          <text>Partners</text>
-        </view>
-        <view class='buttonsBox'>
-          <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-          <text>Tourism</text>
-        </view>
+  </view>
+  <view class="section">
+    <view class="buttonsMarginTop">
+      <view class='buttonsBox' bindtap='goToFinance'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
+        <text>Finance</text>
+      </view>
+      <view class='buttonsBox'>
+        <image bindtap='goToPartners' mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+        <text>Partners</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
+        <text>Tourism</text>
       </view>
     </view>
-    <view class="section">
-      <view class="buttonsMarginTop">
-        <view class='buttonsBox'>
-          <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-          <text>Comerce</text>
-        </view>
-        <view class='buttonsBox'>
-          <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-          <text>Health</text>
-        </view>
-        <view class='buttonsBox'>
-          <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-          <text>Tourism</text>
-        </view>
+  </view>
+  <view class="section">
+    <view class="buttonsMarginTop">
+      <view class='buttonsBox'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
+        <text>Comerce</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+        <text>Health</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
+        <text>Tourism</text>
       </view>
     </view>
-    <view class="section">
-      <view class="buttonsMarginTop">
-        <view class='buttonsBox'>
-          <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-          <text>Comerce</text>
-        </view>
-        <view class='buttonsBox'>
-          <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-          <text>Health</text>
-        </view>
-        <view class='buttonsBox'>
-          <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-          <text>Tourism</text>
-        </view>
+  </view>
+  <view class="section">
+    <view class="buttonsMarginTop">
+      <view class='buttonsBox'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
+        <text>Comerce</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+        <text>Health</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
+        <text>Tourism</text>
       </view>
     </view>
-    <view class='section sectionProjects'>
-      <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
-      <view>
-        <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+  </view>
+  <view class='section sectionProjects'>
+    <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
+    <view>
+      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList'>
-          <view class="project" bindtap='goToProject'>
-            <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-            <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-          <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
+          <view class="project" id="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
+            <text>{{product.title}}</text>
+            <text>{{product.price}}</text>
           </view>
         </view>
-        </scroll-view>
-      </view>
+      </scroll-view>
     </view>
-    <view class='section sectionProjects'>
-      <image class='imageProjects' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/80d89c9ee8bda9436ea0.jpg'></image>
-      <view>
-        <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList'>
-          <view class="project">
-            <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-            <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-           <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-          <view class="project">
-          <text>Name</text>
-            <text>Price</text>
-            <view class='tagsList'>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-              <text class='tag'>tag1</text>
-            </view>
-          </view>
-        </view>
-        </scroll-view>
-      </view>
-    </view>
+  </view>
 </view>

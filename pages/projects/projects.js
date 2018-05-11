@@ -18,8 +18,7 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-  
+  },  
   fetchProducts: function (user) {
     console.log('uid', user.id);
     const query = new AVLive.Query('Project');
@@ -35,7 +34,6 @@ Page({
     }).catch(error => console.error(error.message));
   },
   onReady: function () {
-    console.log('page ready');
     const user = AV.User.current();
     this.fetchProducts(user);
   },

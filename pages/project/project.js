@@ -1,4 +1,6 @@
 // pages/project/project.js
+const AV = require('../../utils/av-weapp-min');
+
 Page({
   data: {
     imgUrls: [
@@ -12,6 +14,7 @@ Page({
     duration: 1000,
     height: '',
     widht: '320',
+    product: {}
   },
   onLoad: function (options) {
     wx.getSystemInfo({
@@ -22,8 +25,21 @@ Page({
         })
       },
     })
+    wx.getStorage({
+      key: 'projectID',
+      success: res => {
+        var query = new AV.Query("Project");        
+        query.get(res.data).then(
+          project => this.setData({
+            product: project
+          })
+        ).catch(
+          console.error
+        )
+      }
+    })
   },
-  goToOffer: function(){
+  goToOffer: function () {
     wx.navigateTo({
       url: '../offer/offer',
     })
