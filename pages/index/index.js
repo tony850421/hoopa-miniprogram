@@ -1,7 +1,6 @@
 //index.js
 
-const AV = require('../../utils/av-live-query-weapp-min');
-const bind = require('../../utils/live-query-binding');
+const AV = require('../../utils/av-weapp-min');
 
 const appInstance = getApp()
 
