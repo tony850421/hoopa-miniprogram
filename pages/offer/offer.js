@@ -88,18 +88,22 @@ Page({
     if (user) {
       var offer = new AV.Object('Offert');
       offer.set('user', user);
-      // offer.set('project', project);
-      offer.set('amount', this.data.offer);
-      offer.set('description', this.data.description);
-      offer.save();
-      wx.showToast({
-        title: '留言送',
-        icon: 'success',
-        duration: 2000,
-        success: function (res) {
-          wx.navigateBack({
-            delta: 1
-          })
+      wx.getStorage({
+        key: 'projectID',
+        success: res => {
+          var query = new AV.Query("Project");
+          query.get(res.data).then(
+            project => {
+              offer.set('project', project)
+              offer.set('amount', this.data.offer);
+              offer.set('description', this.data.description);
+              offer.save();
+              wx.navigateBack({
+                delta: 1
+              })
+            }).catch(
+            console.error
+            )
         }
       })
     }

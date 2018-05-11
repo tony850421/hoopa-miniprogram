@@ -177,15 +177,8 @@ Page({
     user.save();
 
     AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
-      wx.showToast({
-        title: '留言送',
-        icon: 'success',
-        duration: 2000,
-        success: function (res) {
-          wx.switchTab({
-            url: '../user/user'
-          })
-        }
+      wx.switchTab({
+        url: '../user/user'
       })
     }, function (err) {
       console.log(err)
