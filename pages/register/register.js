@@ -183,7 +183,7 @@ Page({
         duration: 2000,
         success: function (res) {
           wx.switchTab({
-            url: '../user/user',
+            url: '../user/user'
           })
         }
       })
