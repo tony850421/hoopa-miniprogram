@@ -2,28 +2,28 @@
 <view class='page'>
   <view class='login'>
     <view class='phone'>
-      <text>电话</text>
-      <input class='inputLogin' placeholder='咯给咯给'></input>
+      <text>全名</text>
+      <input value='{{name}}' bindinput='inputName' class='inputLogin' placeholder='介绍您的全名'></input>
     </view>
     <view class='phone'>
-      <text>电话</text>
-      <input class='inputLogin' placeholder='咯给咯给'></input>
+      <text>识别</text>
+      <input value='{{ci}}' bindinput='inputCI' class='inputLogin' placeholder='介绍您的标识'></input>
     </view>
-    <text class='textHalf'>咯给咯给咯给咯给</text>
+    <!-- <text class='textHalf'>咯给咯给咯给咯给</text> -->
     <view class='phone'>
-      <text>电话</text>
-      <input class='inputLogin' placeholder='咯给咯给'></input>
+      <text>公司</text>
+      <input value='{{company}}' bindinput='inputCompany' class='inputLogin' placeholder='介绍您的公司'></input>
     </view>
     <view class='phone'>
-      <text>电话</text>
-      <input type='number' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='咯给咯给'></input>
+      <text>手机</text>
+      <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='介绍您的手机'></input>
     </view>
     <view class='confirm'>
-      <text>电话</text>
-      <input value='{{code}}' bindinput='codeConfirm' type='number' class='inputLogin' placeholder='咯给咯给'></input>
-      <text bindtap='senCode' class='textConfirm'>咯给</text>
+      <text class='codeConfirmText'>代码</text>
+      <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='介绍代码'></input>
+      <button disabled='{{buttonSendCodeDisabled}}' bindtap='senCode' class='textConfirm'>发送</button>
     </view>
-    <text bindtap='goToLogin' class='textHalf'>咯给</text>
-    <button bindtap='register' class='buttonLogin'>咯给</button>
+    <text class='textHalf'>安全策略</text>
+    <button bindtap='register' disabled='{{butonRegisterDisable}}' class='buttonLogin'>注册</button>
   </view>
 </view>

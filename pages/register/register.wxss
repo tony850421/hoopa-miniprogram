@@ -17,7 +17,8 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 100%;
+  align-items: center;
+  height: 40px;
 }
 .confirm{
   display: flex;
@@ -26,8 +27,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
+  align-items: center;
 }
 .buttonLogin{
   margin-top: 15px;
@@ -42,8 +42,8 @@
   padding-left: 15px;
 }
 .textConfirm{
-  padding-left: 10px;
-  border-left: 1px #EFEFf4 solid;
+  padding: 0;
+  width: 60px;
 }
 .textHalf{
   padding-top: 10px;
@@ -51,4 +51,7 @@
 }
 page{
   height: 100% !important;
+}
+.codeConfirmText{
+  width: 33px;
 }
