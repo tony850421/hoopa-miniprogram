@@ -1,7 +1,6 @@
 // pages/register/register.js
 
-const AV = require('../../utils/av-live-query-weapp-min');
-const bind = require('../../utils/live-query-binding');
+const AV = require('../../utils/av-weapp-min');
 
 Page({
 
@@ -30,7 +29,7 @@ Page({
           height: res.windowHeight,
           widht: res.windowWidth
         })
-      },
+      }
     })
   },
 
@@ -38,76 +37,84 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
-  senCode: function(){
+  sendCode: function () {
     var phoneAux = this.data.phone;
     var user = AV.User.current();
-    if (user) {      
+
+    if (user) {
       user.setMobilePhoneNumber(phoneAux);
-      user.save();
-      AV.User.requestMobilePhoneVerify(phoneAux).then(function () {
-        // toaster when send message to phone number
-        wx.showToast({
-          title: 'Message sended',
-          icon: 'success',
-          duration: 2000
-        })
-        this.setData({
-          buttonSendCodeDisabled: true
-        })
+      user.save().then(function () {
+        AV.Cloud.requestSmsCode({
+          mobilePhoneNumber: phoneAux,
+          name: '应用名称',
+          op: '某种操作',
+          ttl: 2
+        }).then(function () {
+          wx.showToast({
+            title: '留言送',
+            icon: 'success',
+            duration: 2000
+          })
+          this.setData({
+            buttonSendCodeDisabled: true
+          })
+        }, function (err) {
+          console.log(err)
+        });
       }, function (err) {
         console.log(err)
-      });      
-    }    
+      });
+    }
   },
-  inputPhone: function(e){
+  inputPhone: function (e) {
     this.setData({
       phone: e.detail.value
     })
-    if(e.detail.value.length == 11){
+    if (e.detail.value.length == 11) {
       this.setData({
         buttonSendCodeDisabled: false
       })
@@ -116,17 +123,17 @@ Page({
         buttonSendCodeDisabled: true
       })
     }
-    if(this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != ''){
+    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         butonRegisterDisable: false
       })
     }
   },
-  codeConfirm: function(e){
+  codeConfirm: function (e) {
     this.setData({
       code: e.detail.value
     })
-    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '') {
+    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         butonRegisterDisable: false
       })
@@ -136,7 +143,7 @@ Page({
     this.setData({
       name: e.detail.value
     })
-    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '') {
+    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         butonRegisterDisable: false
       })
@@ -146,7 +153,7 @@ Page({
     this.setData({
       ci: e.detail.value
     })
-    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '') {
+    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         butonRegisterDisable: false
       })
@@ -156,24 +163,32 @@ Page({
     this.setData({
       company: e.detail.value
     })
-    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '') {
+    if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         butonRegisterDisable: false
       })
     }
   },
-  register: function(){
+  register: function () {
     var user = AV.User.current();
-    if (user) {
-      user.set('fullName', this.data.name);
-      user.set('ci', this.data.name);
-      user.set('company', this.data.name);      
-    }
+    user.set('fullName', this.data.name);
+    user.set('ci', this.data.ci);
+    user.set('company', this.data.company);
+    user.save();
 
-    // AV.User.verifyMobilePhone(this.data.code).then(function () {
-    //   console.log("good")
-    // }, function (err) {
-    //   console.log("bad")
-    // });
+    AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
+      wx.showToast({
+        title: '留言送',
+        icon: 'success',
+        duration: 2000,
+        success: function (res) {
+          wx.switchTab({
+            url: '../user/user',
+          })
+        }
+      })
+    }, function (err) {
+      console.log(err)
+    });
   }
 })

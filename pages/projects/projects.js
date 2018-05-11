@@ -81,5 +81,8 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  makeAnOffer: function(){
+    
   }
 })

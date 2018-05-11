@@ -73,8 +73,15 @@
     </view>
   </scroll-view>
   <view class='buttonsBar'>
-    <button class='buttonLeft'>B</button>
-    <button class='buttonCar'>Button1</button>
-    <button class='buttonRight'>Button2</button>
+    <view class='buttonLeft'>
+      <image class='imageButtonOffers' src='../../images/car.png'></image>
+      <text class='textOffers'>我的报价</text>
+    </view>
+    <view class='buttonCar'>
+      <text class='textButtonPorjectBottom'>添加到我的列表中</text>
+    </view>
+    <view class='buttonRight'  bindtap='makeAnOffer'>
+      <text class='textButtonPorjectBottom'>提出建议</text>
+    </view>
   </view>  
 </view>

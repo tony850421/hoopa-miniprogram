@@ -21,7 +21,7 @@
     <view class='confirm'>
       <text class='codeConfirmText'>代码</text>
       <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='介绍代码'></input>
-      <button disabled='{{buttonSendCodeDisabled}}' bindtap='senCode' class='textConfirm'>发送</button>
+      <button disabled='{{buttonSendCodeDisabled}}' bindtap='sendCode' class='textConfirm'>发送</button>
     </view>
     <text class='textHalf'>安全策略</text>
     <button bindtap='register' disabled='{{butonRegisterDisable}}' class='buttonLogin'>注册</button>
