@@ -1,0 +1,41 @@
+/* pages/offer/offer.wxss */
+.offer{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  font-size: 12px;
+}
+
+.inputOffer{
+  display: flex;
+  flex-direction: row;
+  border-top: 1px #EFEFF4 solid;
+  margin-top: 10px;
+  padding-top: 2%;
+}
+
+.descriptionOffer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  border-top: 1px #EFEFF4 solid;
+  padding-top: 2%;
+}
+
+.inputOfferNumber{
+  margin-left: 10px;
+}
+
+.textAreaOffer{
+  margin-top: 10px;
+  border: 1px #EFEFF4 solid;
+  width: 90% !important;
+  padding: 5%;
+}
+
+.buttonsOffer{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: 10px;
+}

@@ -1,0 +1,15 @@
+<!--pages/offer/offer.wxml-->
+<view class='offer'>
+  <view class='inputOffer'>
+    <text>提供</text>
+    <input bindinput='inputOffer' value='{{offer}}' class='inputOfferNumber' placeholder='输入您的报价' type='number'></input>
+  </view>
+  <view class='descriptionOffer'>
+    <text>描述</text>
+    <textarea bindinput='inputDescription' value='{{description}}' class='textAreaOffer' placeholder='介绍您的报价说明'></textarea>
+  </view>
+  <view class='buttonsOffer'>
+    <button bindtap='cancel' class='buttonCancel'>取消</button>
+    <button bindtap='makeOffer' type='primary' class='buttonSuccess'>提供</button>
+  </view>
+</view>

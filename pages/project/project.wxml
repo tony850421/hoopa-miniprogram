@@ -80,7 +80,7 @@
     <view class='buttonCar'>
       <text class='textButtonPorjectBottom'>添加到我的列表中</text>
     </view>
-    <view class='buttonRight'  bindtap='makeAnOffer'>
+    <view class='buttonRight'  bindtap='goToOffer'>
       <text class='textButtonPorjectBottom'>提出建议</text>
     </view>
   </view>  

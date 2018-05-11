@@ -9,7 +9,8 @@
     "pages/register/register",
     "pages/contact/contact",
     "pages/shop-car/shop-car",
-    "pages/partners/partners"
+    "pages/partners/partners",
+    "pages/offer/offer"
   ],
   "window": {
     "backgroundColor": "#EFEFF4",

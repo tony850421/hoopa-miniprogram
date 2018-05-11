@@ -22,5 +22,10 @@ Page({
         })
       },
     })
+  },
+  goToOffer: function(){
+    wx.navigateTo({
+      url: '../offer/offer',
+    })
   }
 })
