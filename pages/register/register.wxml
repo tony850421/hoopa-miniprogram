@@ -16,14 +16,14 @@
     </view>
     <view class='phone'>
       <text>电话</text>
-      <input class='inputLogin' placeholder='咯给咯给'></input>
+      <input type='number' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='咯给咯给'></input>
     </view>
     <view class='confirm'>
       <text>电话</text>
-      <input class='inputLogin' placeholder='咯给咯给'></input>
-      <text class='textConfirm'>咯给</text>
+      <input value='{{code}}' bindinput='codeConfirm' type='number' class='inputLogin' placeholder='咯给咯给'></input>
+      <text bindtap='senCode' class='textConfirm'>咯给</text>
     </view>
     <text bindtap='goToLogin' class='textHalf'>咯给</text>
-    <button class='buttonLogin'>咯给</button>
+    <button bindtap='register' class='buttonLogin'>咯给</button>
   </view>
 </view>

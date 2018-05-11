@@ -1,4 +1,8 @@
 // pages/register/register.js
+
+const AV = require('../../utils/av-live-query-weapp-min');
+const bind = require('../../utils/live-query-binding');
+
 Page({
 
   /**
@@ -7,6 +11,8 @@ Page({
   data: {
     height: '',
     widht: '320',
+    phone: '',
+    code: ''
   },
 
   /**
@@ -75,5 +81,35 @@ Page({
     wx.navigateTo({
       url: '../login/login',
     })
+  },
+  senCode: function(){
+    var phoneAux = this.data.phone;
+    var user = AV.User.current();
+    if (user) {      
+      user.setMobilePhoneNumber(phoneAux);
+      user.save();
+      AV.User.requestMobilePhoneVerify(phoneAux).then(function () {
+        console.log("mando " + phoneAux);
+      }, function (err) {
+        console.log(err)
+      });      
+    }    
+  },
+  inputPhone: function(e){
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  codeConfirm: function(e){
+    this.setData({
+      code: e.detail.value
+    })
+  },
+  register: function(){
+    AV.User.verifyMobilePhone(this.data.code).then(function () {
+      console.log("good")
+    }, function (err) {
+      console.log("bad")
+    });
   }
 })

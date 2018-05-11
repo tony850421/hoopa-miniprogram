@@ -1,20 +1,47 @@
-// pages/user/user.js
-
-const app = getApp()
-
+// pages/partners/partners.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    heightScreen: '',
+    latitude: '',
+    longitude: '',
+    speed: '',
+    accuracy: '',
+    markers: [{
+      iconPath: "../../images/markerWork.png",
+      id: 0,
+      latitude: 31.3466800,
+      longitude: 121.596730,
+      width: 50,
+      height: 50
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          heightScreen: res.windowHeight
+        })
+      },
+    })
+    wx.getLocation({
+      type: 'wgs84',
+      success: res => {
+        this.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+          speed: res.speed,
+          accuracy: res.accuracy
+        })
+      }
+    })
   },
 
   /**
@@ -64,15 +91,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  goToRegister: function(){
-    wx.navigateTo({
-      url: '../register/register',
-    })
-  },
-  goToCar: function(){
-    wx.navigateTo({
-      url: '../shop-car/shop-car',
-    })
   }
 })
