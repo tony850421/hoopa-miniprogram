@@ -13,13 +13,20 @@
         <view class='generalData'>
           <text>{{product.title}}</text>
           <view class='FlexDirectionRow'>
-            <text>Price:</text>
+            <text>Price: </text>
             <text>{{product.price}}</text>
           </view>
+          <view wx:if="{{myOffer}}" class='FlexDirectionRow'>
+            <text>My Offer: </text>
+            <text>{{myOffer}}</text>
+          </view>
           <view class='FlexDirectionRow'>
-            <text>Ofertas</text>
-            <text>8 persons</text>
-            <text class='callText'>Call</text>
+            <text>Offers: </text>
+            <text>{{offer}}</text>
+          </view>
+          <view class='FlexDirectionRow'>
+            <text>Visits: </text>
+            <text>{{visit}}</text>
           </view>
         </view>
     </view>

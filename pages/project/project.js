@@ -14,7 +14,10 @@ Page({
     duration: 1000,
     height: '',
     widht: '320',
-    product: {}
+    product: {},
+    offer: 0,
+    visit: 0,
+    myOffer: ''
   },
   onLoad: function (options) {
     wx.getSystemInfo({
@@ -23,25 +26,78 @@ Page({
           height: res.windowHeight,
           widht: res.windowWidth
         })
-      },
-    })
-    wx.getStorage({
-      key: 'projectID',
-      success: res => {
-        var query = new AV.Query("Project");        
-        query.get(res.data).then(
-          project => this.setData({
-            product: project
-          })
-        ).catch(
-          console.error
-        )
       }
     })
+
+    const user = AV.User.current();
+    if (user) {
+      var visit = new AV.Object('ProjectVisit');
+      visit.set('user', user);
+      wx.getStorage({
+        key: 'projectID',
+        success: res => {
+          var query = new AV.Query("Project");
+          query.get(res.data).then(
+            project => {
+              visit.set('project', project)
+              visit.save();
+            }).catch(console.error)
+        }
+      })
+    }
   },
   goToOffer: function () {
     wx.navigateTo({
       url: '../offer/offer',
+    })
+  },
+  onShow: function (options) {
+    wx.getStorage({
+      key: 'projectID',
+      success: res => {
+        var query = new AV.Query("Project");
+        query.get(res.data).then(
+          project => {
+            this.setData({
+              product: project
+            })
+
+            var query = new AV.Query('Offert');
+            query.equalTo('project', project);
+            query.find().then(
+              offers => {
+                this.setData({
+                  offer: offers.length
+                })
+              }
+            )
+
+            var query = new AV.Query('ProjectVisit');
+            query.equalTo('project', project);
+            query.find().then(
+              visits => {
+                this.setData({
+                  visit: visits.length
+                })
+              }
+            )
+
+            var query = new AV.Query('Offert');
+            query.equalTo('project', project);
+            query.equalTo('user', AV.User.current());
+            query.descending('createdAt');
+            query.find().then(
+              offers => {
+                if (offers.length > 0) {
+                  this.setData({
+                    myOffer: offers[0].attributes.amount
+                  })
+                }                
+              }
+            )
+          }
+        ).catch(console.error)
+      }
     })
   }
 })

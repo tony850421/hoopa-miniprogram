@@ -81,8 +81,6 @@ Page({
   },
 
   makeOffer: function () {
-    console.log(this.data.offer + " " + this.data.description)
-
     //we need to ask about roles, only official users are be able to make and offer
     const user = AV.User.current();
     if (user) {
@@ -101,9 +99,7 @@ Page({
               wx.navigateBack({
                 delta: 1
               })
-            }).catch(
-            console.error
-            )
+            }).catch(console.error)
         }
       })
     }

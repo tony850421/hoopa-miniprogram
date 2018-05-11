@@ -82,5 +82,14 @@ Page({
   },
   makeAnOffer: function(){
     
+  },
+  goToProject: function (e) {
+    wx.setStorage({
+      key: "projectID",
+      data: e.currentTarget.id
+    })
+    wx.navigateTo({
+      url: '../project/project',
+    })
   }
 })
