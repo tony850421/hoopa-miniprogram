@@ -11,10 +11,10 @@
     </swiper>
     <view class='section'>
         <view class='generalData'>
-          <text>Name of product</text>
+          <text>{{product.title}}</text>
           <view class='FlexDirectionRow'>
             <text>Price:</text>
-            <text>121223.123</text>
+            <text>{{product.price}}</text>
           </view>
           <view class='FlexDirectionRow'>
             <text>Ofertas</text>
