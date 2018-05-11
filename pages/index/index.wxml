@@ -73,12 +73,12 @@
     <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList'>
+         <view class='projectList'> 
           <view class="project" id="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
-            <text>{{product.title}}</text>
-            <text>{{product.price}}</text>
+              <text>{{product.title}}</text>
+              <text>{{product.price}}</text>
           </view>
-        </view>
+         </view> 
       </scroll-view>
     </view>
   </view>

@@ -98,18 +98,19 @@
 
 .project{
   border: 1px #C4C4C4 solid;
-  width: 130px !important;
-  height: 80px !important;
   background-color: white;
   margin-left: 5px;
+  padding: 5px;
+  width: 130px;
+  height: 80px;
   display: flex;
   flex-direction: column;
-  padding: 5px;
 }
 
 .projectList{
   display: flex;
   flex-direction: row;
+  width: 700px !important;
 }
 
 .scrollHorizontal{
