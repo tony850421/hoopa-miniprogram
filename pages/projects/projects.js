@@ -4,13 +4,16 @@ const AV = require('../../utils/av-weapp-min');
 const AVLive = require('../../utils/av-live-query-weapp-min');
 const bind = require('../../utils/live-query-binding');
 
+var offersProduct = [];
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    products: []
+    products: [],
+    offers: []
   },
 
   /**
@@ -18,9 +21,8 @@ Page({
    */
   onLoad: function (options) {
 
-  },  
+  },
   fetchProducts: function (user) {
-    console.log('uid', user.id);
     const query = new AVLive.Query('Project');
     query.include('creator');
     query.include('image');
@@ -31,6 +33,21 @@ Page({
       this.subscription = subscription;
       if (this.unbind) this.unbind();
       this.unbind = bind(subscription, products, setProducts);
+
+      // for (var i = 0; i < products.length; i++) {
+      //   var query = new AV.Query("Project");
+      //   query.get(products[i].id).then(
+      //     project => {
+      //       var query = new AV.Query('Offert');
+      //       query.equalTo('project', project);
+      //       query.find().then(
+      //         offer => {
+      //           offersProduct.push(offer.length)
+      //         }
+      //       )
+      //     }
+      //   )
+      // }
     }).catch(error => console.error(error.message));
   },
   onReady: function () {
@@ -47,7 +64,6 @@ Page({
     this.fetchProducts(user).catch(error => console.error(error.message)).then(wx.stopPullDownRefresh);
   },
   setProducts: function (products) {
-    console.log(products);
     this.setData({
       products,
     });
@@ -57,31 +73,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
-  makeAnOffer: function(){
-    
+  makeAnOffer: function () {
+
   },
   goToProject: function (e) {
     wx.setStorage({

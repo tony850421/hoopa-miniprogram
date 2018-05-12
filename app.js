@@ -24,10 +24,8 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log('wx login')
         AV.User.loginWithWeapp().then(user => {
           this.globalData.user = user.toJSON();
-          console.log(user);
         }).catch(console.error);
       }
     })

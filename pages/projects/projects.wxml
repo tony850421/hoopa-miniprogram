@@ -1,7 +1,7 @@
 <!--pages/projects/projects.wxml-->
 <view>
   <image mode='aspectFill' class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
-  <block wx:for="{{products}}" wx:for-item="product">
+  <block wx:for="{{products}}" wx:for-item="product" wx:key="{{product.objectId}}">
     <view class='generalData' id="{{product.objectId}}" bindtap='goToProject'>
       <text>{{product.title}}</text>
       <view class='FlexDirectionRow'>
@@ -9,9 +9,8 @@
         <text>{{product.price}}</text>
       </view>
       <view class='FlexDirectionRow'>
-        <text>Ofertas</text>
-        <text>8 persons</text>
-        <text class='callText'>Call</text>
+        <text>Offers</text>
+        <text>{{offers[index]}}</text>
       </view>
     </view>
   </block>

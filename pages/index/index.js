@@ -100,7 +100,6 @@ Page({
     })
   },
   fetchProducts: function (user) {
-    console.log('uid', user.id);
     const query = new AVLive.Query('Project');
     query.include('creator');
     query.include('image');
@@ -127,7 +126,6 @@ Page({
     this.fetchProducts(user).catch(error => console.error(error.message)).then(wx.stopPullDownRefresh);
   },
   setProducts: function (products) {
-    console.log(products);
     this.setData({
       products,
     });
