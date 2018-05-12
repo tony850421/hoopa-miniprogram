@@ -15,56 +15,56 @@ Page({
       id: 0,
       latitude: 45.759068,
       longitude: 126.605935,
-      width: 50,
+      width: 33,
       height: 50
     }, {
       iconPath: "../../images/markerWork.png",
       id: 1,
       latitude: 31.553973,
       longitude: 120.253013,
-      width: 50,
+      width: 33,
       height: 50
     }, {
       iconPath: "../../images/markerWork.png",
       id: 2,
       latitude: 34.767745,
       longitude: 113.756223,
-      width: 50,
+      width: 33,
       height: 50
     }, {
       iconPath: "../../images/markerWork.png",
       id: 3,
       latitude: 32.046944,
       longitude: 118.800583,
-      width: 50,
+      width: 33,
       height: 50
     }, {
       iconPath: "../../images/markerWork.png",
       id: 4,
       latitude: 23.124425,
       longitude: 113.328309,
-      width: 50,
+      width: 33,
       height: 50
     }, {
       iconPath: "../../images/markerWork.png",
       id: 5,
       latitude: 30.246225,
       longitude: 120.212576,
-      width: 50,
+      width: 33,
       height: 50
     }, {
       iconPath: "../../images/markerWork.png",
       id: 6,
       latitude: 28.201072,
       longitude: 112.995415,
-      width: 50,
+      width: 33,
       height: 50
     }, {
       iconPath: "../../images/markerWork.png",
       id: 7,
       latitude: 31.855039,
       longitude: 117.293235,
-      width: 50,
+      width: 33,
       height: 50
     }]
   },

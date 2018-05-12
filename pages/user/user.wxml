@@ -1,5 +1,5 @@
 <!--pages/user/user.wxml-->
-<view class='page'>
+<view>
   <view class="userinfo">
       <block>
         <image bindtap="goToRegister" class="userinfo-avatar" src="../../images/userAvatar.png" background-size="cover"></image>
@@ -21,8 +21,9 @@
       <view>Text</view>
     </view>
   </view>
-  <view class='oferts'>
-    <text>text</text>
-    <text class='pull-right'>v1.2</text>
+  <view class='offers'>
+  <view wx:for="{{offers}}" wx:for-item="offer">
+    <text>{{offer.amount}}</text>
+  </view>    
   </view>
 </view>

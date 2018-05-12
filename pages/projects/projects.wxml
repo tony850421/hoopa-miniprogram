@@ -1,5 +1,5 @@
 <!--pages/projects/projects.wxml-->
-<view class="page">
+<view>
   <image mode='aspectFill' class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
   <block wx:for="{{products}}" wx:for-item="product">
     <view class='generalData' id="{{product.objectId}}" bindtap='goToProject'>

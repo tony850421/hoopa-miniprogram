@@ -1,5 +1,5 @@
 <!--pages/project/project.wxml-->
-<view class="page">
+<view>
   <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper"bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
   <swiper indicator-dots="{{indicatorDots}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -29,55 +29,7 @@
             <text>{{visit}}</text>
           </view>
         </view>
-    </view>
-    <view class='section'>
-        <view class='generalData'>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-        </view>
-    </view>
-    <view class='section'>
-        <view class='generalData'>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-          <view class='data'>
-            <text>Data</text>
-            <text>Data</text>
-          </view>
-        </view>
-    </view>
+    </view>    
   </scroll-view>
   <view class='buttonsBar'>
     <view class='buttonLeft'>

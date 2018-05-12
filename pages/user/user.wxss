@@ -32,9 +32,8 @@
   align-items: center;
 }
 
-.oferts{
-  background-color: white;
-  padding: 10px;
+.offers{
+  padding: 15px;
   margin-bottom: 10px;
 }
 

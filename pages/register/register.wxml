@@ -1,5 +1,5 @@
 <!--pages/register/register.wxml-->
-<view class='page'>
+<view>
   <view class='login'>
     <view class='phone'>
       <text>全名</text>
