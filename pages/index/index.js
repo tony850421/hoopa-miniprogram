@@ -33,7 +33,7 @@ Page({
       inputVal: e.detail.value
     });
   },
-  goToProject: function (e) {    
+  goToProject: function (e) {
     wx.setStorage({
       key: "projectID",
       data: e.currentTarget.id
@@ -50,48 +50,6 @@ Page({
   goToFinance: function () {
     wx.navigateTo({
       url: '../finance/finance',
-    })
-  },
-  onReady: function () {
-    wx.getUserInfo({
-      success: res => {
-        var user = AV.User.current();
-        if (user) {
-          user.set('nickName', res.userInfo.nickName);
-          user.set('avatarUrl', res.userInfo.avatarUrl);
-          user.set('gender', res.userInfo.gender);
-          user.set('province', res.userInfo.province);
-          user.set('city', res.userInfo.city);
-          user.save();
-
-          var roleQuery = new AV.Query(AV.Role);
-          roleQuery.equalTo('users', user);
-          roleQuery.find().then(function (results) {
-            if (results.length > 0) {
-              var role = results[0];
-            } else {
-              var roleQueryGuest = new AV.Query(AV.Role);
-              roleQueryGuest.equalTo('name', 'guest');
-              roleQueryGuest.find().then(function (results) {
-                var role = results[0];
-                var relation = role.getUsers();
-                relation.add(user);
-                return role.save();
-              }).then(function (role) {
-              }).catch(function (error) {
-                console.log(error);
-              });
-            }
-          }).then(function (administratorRole) {
-
-          }).catch(function (error) {
-            console.log(error);
-          });
-        }
-        if (this.userInfoReadyCallback) {
-          this.userInfoReadyCallback(res)
-        }
-      }
     })
   },
   goToPartners: function () {
@@ -113,6 +71,58 @@ Page({
     }).catch(error => console.error(error.message));
   },
   onReady: function () {
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.record']) {
+          wx.authorize({
+            scope: 'scope.userInfo',
+            success() {
+              wx.getUserInfo({
+                success: res => {
+                  var user = AV.User.current();
+                  if (user) {
+                    user.set('nickName', res.userInfo.nickName);
+                    user.set('avatarUrl', res.userInfo.avatarUrl);
+                    user.set('gender', res.userInfo.gender);
+                    user.set('province', res.userInfo.province);
+                    user.set('city', res.userInfo.city);
+                    user.save();
+
+                    var roleQuery = new AV.Query(AV.Role);
+                    roleQuery.equalTo('users', user);
+                    roleQuery.find().then(function (results) {
+                      if (results.length > 0) {
+                        var role = results[0];
+                      } else {
+                        var roleQueryGuest = new AV.Query(AV.Role);
+                        roleQueryGuest.equalTo('name', 'guest');
+                        roleQueryGuest.find().then(function (results) {
+                          var role = results[0];
+                          var relation = role.getUsers();
+                          relation.add(user);
+                          return role.save();
+                        }).then(function (role) {
+                        }).catch(function (error) {
+                          console.log(error);
+                        });
+                      }
+                    }).then(function (administratorRole) {
+
+                    }).catch(function (error) {
+                      console.log(error);
+                    });
+                  }
+                  if (this.userInfoReadyCallback) {
+                    this.userInfoReadyCallback(res)
+                  }
+                }
+              })
+            }
+          })
+        }
+      }
+    })
+
     const user = AV.User.current();
     this.fetchProducts(user);
   },

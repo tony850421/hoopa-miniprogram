@@ -77,6 +77,13 @@ Page({
 
   },
   goToRegister: function () {
+    wx.setStorage({
+      key: 'redirect',
+      data: '../user/user',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
     wx.navigateTo({
       url: '../register/register',
     })

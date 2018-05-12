@@ -47,9 +47,31 @@ Page({
     }
   },
   goToOffer: function () {
-    wx.navigateTo({
-      url: '../offer/offer',
-    })
+    var roleQuery = new AV.Query(AV.Role);
+    roleQuery.equalTo('name', 'official');
+    roleQuery.equalTo('users', AV.User.current());
+    roleQuery.find().then(function (results) {
+      console.log('roleQuery');
+      console.log(results.length);
+      if (results.length > 0) {
+        wx.navigateTo({
+          url: '../offer/offer',
+        })
+      } else {
+        wx.setStorage({
+          key: 'redirect',
+          data: '../offer/offer',
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+        wx.navigateTo({
+          url: '../register/register',
+        })
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });    
   },
   onShow: function (options) {
     wx.getStorage({
