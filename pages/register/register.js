@@ -16,7 +16,8 @@ Page({
     ci: '',
     company: '',
     buttonSendCodeDisabled: true,
-    butonRegisterDisable: true
+    butonRegisterDisable: true,
+    codeText: '发送'
   },
 
   /**
@@ -30,7 +31,7 @@ Page({
           widht: res.windowWidth
         })
       }
-    })
+    })    
   },
 
   /**
@@ -83,25 +84,50 @@ Page({
   },
   sendCode: function () {
     var phoneAux = this.data.phone;
-    var user = AV.User.current();
+    var that = this
 
+    console.log(this.data.codeText)
+
+    var user = AV.User.current();
     if (user) {
       user.setMobilePhoneNumber(phoneAux);
-      user.save().then(function () {
+      user.save().then(function () {  
         AV.Cloud.requestSmsCode({
           mobilePhoneNumber: phoneAux,
           name: '应用名称',
           op: '某种操作',
           ttl: 2
         }).then(function () {
+
+          that.setData({
+            buttonSendCodeDisabled: true
+          })
+
+          var timer = 59, seconds;
+          var intervalStart = setInterval(function () {
+            seconds = parseInt(timer % 60, 10);
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (--timer <= 0) {
+              seconds = '发送'
+              that.setData({
+                buttonSendCodeDisabled: false,
+                butonRegisterDisable: true,
+                code: ''
+              })
+              clearInterval(intervalStart)
+            }
+
+            that.setData({
+              codeText: seconds
+            })
+          }, 1000);
+
           wx.showToast({
             title: '留言送',
             icon: 'success',
             duration: 2000
-          })
-          this.setData({
-            buttonSendCodeDisabled: true
-          })
+          })    
         }, function (err) {
           console.log(err)
         });
