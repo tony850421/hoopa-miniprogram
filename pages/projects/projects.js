@@ -34,20 +34,25 @@ Page({
       if (this.unbind) this.unbind();
       this.unbind = bind(subscription, products, setProducts);
 
-      // for (var i = 0; i < products.length; i++) {
-      //   var query = new AV.Query("Project");
-      //   query.get(products[i].id).then(
-      //     project => {
-      //       var query = new AV.Query('Offert');
-      //       query.equalTo('project', project);
-      //       query.find().then(
-      //         offer => {
-      //           offersProduct.push(offer.length)
-      //         }
-      //       )
-      //     }
-      //   )
-      // }
+      const length = products.length
+      for (let i = 0; i < length; i++) {
+        var query = new AV.Query("Project");
+        query.get(products[i].id).then(
+          project => {
+            var query = new AV.Query('Offert');
+            query.equalTo('project', project);
+            query.find().then(
+              offer => {
+                const count = Math.floor(i)
+                this.data.products[count] = [{ offers: offer.length }].concat({ title: this.data.products[count].attributes.title }).concat({ price: this.data.products[count].attributes.price })
+                this.setData({
+                  products: this.data.products
+                })
+              }
+            )
+          }
+        )
+      }
     }).catch(error => console.error(error.message));
   },
   onReady: function () {
