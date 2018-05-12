@@ -177,6 +177,18 @@ Page({
     user.save();
 
     AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
+      var roleQuery = new AV.Query(AV.Role);
+      roleQuery.equalTo('name', 'official');
+      roleQuery.find().then(function (results) {
+        var role = results[0];
+        var relation = role.getUsers();
+        relation.add(AV.User.current());
+        return role.save();
+      }).then(function (role) {
+        console.log("role asigned ok");
+      }).catch(function (error) {
+        console.log(error);
+      });
       wx.switchTab({
         url: '../user/user'
       })
