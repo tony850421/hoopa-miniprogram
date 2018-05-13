@@ -41,7 +41,6 @@ Page({
             that.setData({
               products: array
             })
-            console.log(that.data.products)
           }, function (error) {
             // error is an instance of AVError.
           });
