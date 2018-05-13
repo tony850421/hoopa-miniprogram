@@ -52,9 +52,16 @@
     margin-top: 0;
     font-size: 14px;
 }
+
 .searchbar-result:before{
     display: none;
 }
+
 .weui-cell{
     padding: 12px 15px 12px 35px;
+}
+
+.weui-search-bar__form,
+.weui-search-bar__label{
+  border-radius: 20px !important;
 }
