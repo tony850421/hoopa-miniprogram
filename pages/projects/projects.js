@@ -44,7 +44,7 @@ Page({
             query.find().then(
               offer => {
                 const count = Math.floor(i)
-                this.data.products[count] = [{ offers: offer.length }].concat({ title: this.data.products[count].attributes.title }).concat({ price: this.data.products[count].attributes.price })
+                this.data.products[count] = { offers: offer.length, title: this.data.products[count].attributes.title, price: this.data.products[count].attributes.price }
                 this.setData({
                   products: this.data.products
                 })

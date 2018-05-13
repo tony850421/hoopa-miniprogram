@@ -3,14 +3,14 @@
   <image mode='aspectFill' class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
   <block wx:for="{{products}}" wx:for-item="product" wx:key="{{product.objectId}}">
     <view class='generalData' id="{{product.objectId}}" bindtap='goToProject'>
-      <text>{{product[1].title}}</text>
+      <text>{{product.title}}</text>
       <view class='FlexDirectionRow'>
         <text>Price:</text>
-        <text>{{product[2].price}}</text>
+        <text>{{product.price}}</text>
       </view>
       <view class='FlexDirectionRow'>
         <text>Offers:</text>
-        <text>{{product[0].offers}}</text>
+        <text>{{product.offers}}</text>
       </view>
     </view>
   </block>

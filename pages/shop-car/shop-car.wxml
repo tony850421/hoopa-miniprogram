@@ -3,12 +3,12 @@
   <view>
     <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper"bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
       <view class='section'>
-        <view class='product' wx:for="{{products}}" wx:for-item="product">
+        <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
           <view class='flex-item'>
-            <radio bindtap='checked' checked='{{item}}' id="item1"/>
+            <radio bindtap='checked' checked='{{product.checked}}' data-id='{{product.id}}'/>
           </view>
           <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
+            <image class='imageProductCar' mode='aspectFill' src='{{product.url.url}}'></image>
           </view>
           <view class='flex-item'>
             <view class='productInformation'>
