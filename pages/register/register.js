@@ -86,8 +86,6 @@ Page({
     var phoneAux = this.data.phone;
     var that = this
 
-    console.log(this.data.codeText)
-
     var user = AV.User.current();
     if (user) {
       user.setMobilePhoneNumber(phoneAux);

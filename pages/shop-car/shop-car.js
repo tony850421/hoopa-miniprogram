@@ -1,4 +1,7 @@
 // pages/shop-cart/shop-cart.js
+
+const AV = require('../../utils/av-weapp-min');
+
 Page({
 
   /**
@@ -7,7 +10,8 @@ Page({
   data: {
     item: '',
     height: '',
-    widht: ''
+    widht: '',
+    products: []
   },
 
   /**
@@ -22,6 +26,30 @@ Page({
         })
       },
     })
+
+    var that = this
+    var array = []
+    array = that.data.products
+
+    var query = new AV.Query('ShopCar');
+    query.equalTo('user', AV.User.current());
+    query.find().then(
+      projects => {
+        for (var i =0; i< projects.length; i++){
+          var queryProject = new AV.Query('Project')
+          var id = projects[i].get('project').id          
+          queryProject.get(id).then(function (object) {
+            array.push(object)
+            that.setData({
+              products: array
+            })
+            console.log(that.data.products)
+          }, function (error) {
+            // error is an instance of AVError.
+          });
+        }        
+      }
+    )
   },
 
   /**

@@ -32,11 +32,11 @@
     </view>    
   </scroll-view>
   <view class='buttonsBar'>
-    <view class='buttonLeft'>
+    <view class='buttonLeft' bindtap='goToCar'>
       <image class='imageButtonOffers' src='../../images/car.png'></image>
       <text class='textOffers'>我的报价</text>
     </view>
-    <view class='buttonCar'>
+    <view class='buttonCar' bindtap='sendToShopCar'>
       <text class='textButtonPorjectBottom'>添加到我的列表中</text>
     </view>
     <view class='buttonRight'  bindtap='goToOffer'>

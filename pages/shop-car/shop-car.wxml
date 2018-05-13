@@ -3,104 +3,20 @@
   <view>
     <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper"bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
       <view class='section'>
-        <view class='product'>
+        <view class='product' wx:for="{{products}}" wx:for-item="product">
           <view class='flex-item'>
             <radio bindtap='checked' checked='{{item}}' id="item1"/>
           </view>
           <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/c8ea64d214285c5a4aee.jpg'></image>
+            <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
           </view>
           <view class='flex-item'>
             <view class='productInformation'>
-              <text>这是有关产品的信息</text>
-              <text>100000.20</text>
+              <text>{{product.title}}</text>
+              <text>{{product.price}}</text>
             </view>
           </view>
-        </view>
-        <view class='product'>
-          <view class='flex-item'>
-            <radio bindtap='checked' checked='{{item}}' id="item1"/>
-          </view>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/c8ea64d214285c5a4aee.jpg'></image>
-          </view>
-          <view class='flex-item'>
-            <view class='productInformation'>
-              <text>这是有关产品的信息</text>
-              <text>100000.20</text>
-            </view>
-          </view>
-        </view>
-        <view class='product'>
-          <view class='flex-item'>
-            <radio bindtap='checked' checked='{{item}}' id="item1"/>
-          </view>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/c8ea64d214285c5a4aee.jpg'></image>
-          </view>
-          <view class='flex-item'>
-            <view class='productInformation'>
-              <text>这是有关产品的信息</text>
-              <text>100000.20</text>
-            </view>
-          </view>
-        </view>
-        <view class='product'>
-          <view class='flex-item'>
-            <radio bindtap='checked' checked='{{item}}' id="item1"/>
-          </view>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/c8ea64d214285c5a4aee.jpg'></image>
-          </view>
-          <view class='flex-item'>
-            <view class='productInformation'>
-              <text>这是有关产品的信息</text>
-              <text>100000.20</text>
-            </view>
-          </view>
-        </view>
-        <view class='product'>
-          <view class='flex-item'>
-            <radio bindtap='checked' checked='{{item}}' id="item1"/>
-          </view>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/c8ea64d214285c5a4aee.jpg'></image>
-          </view>
-          <view class='flex-item'>
-            <view class='productInformation'>
-              <text>这是有关产品的信息</text>
-              <text>100000.20</text>
-            </view>
-          </view>
-        </view>
-        <view class='product'>
-          <view class='flex-item'>
-            <radio bindtap='checked' checked='{{item}}' id="item1"/>
-          </view>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/c8ea64d214285c5a4aee.jpg'></image>
-          </view>
-          <view class='flex-item'>
-            <view class='productInformation'>
-              <text>这是有关产品的信息</text>
-              <text>100000.20</text>
-            </view>
-          </view>
-        </view>
-        <view class='product'>
-          <view class='flex-item'>
-            <radio bindtap='checked' checked='{{item}}' id="item1"/>
-          </view>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/c8ea64d214285c5a4aee.jpg'></image>
-          </view>
-          <view class='flex-item'>
-            <view class='productInformation'>
-              <text>这是有关产品的信息</text>
-              <text>100000.20</text>
-            </view>
-          </view>
-        </view>
+        </view>        
       </view>
     </scroll-view>
     <view class='barShop'>

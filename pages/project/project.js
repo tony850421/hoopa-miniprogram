@@ -121,5 +121,24 @@ Page({
         ).catch(console.error)
       }
     })
+  },
+  sendToShopCar: function(){
+    const user = AV.User.current()
+    if (user) {
+      var shop = new AV.Object('ShopCar')
+      shop.set('user', user)
+      shop.set('project', this.data.product)
+      shop.save()
+      wx.showToast({
+        title: '留言送',
+        icon: 'success',
+        duration: 2000
+      })
+    }
+  },
+  goToCar: function(){
+    wx.navigateTo({
+      url: '../shop-car/shop-car',
+    })
   }
 })
