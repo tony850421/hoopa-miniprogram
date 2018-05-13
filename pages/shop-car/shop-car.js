@@ -43,7 +43,7 @@ Page({
             })
           }, function (error) {
             // error is an instance of AVError.
-          });          
+          });
         }        
       }
     )
