@@ -15,7 +15,8 @@ Page({
         direction: '广州市天河区金穗路3号汇美大厦1201A',
         show: true,
         latitude: 45.759068,
-        longitude: 126.605935
+        longitude: 126.605935,
+        phone: 13818354127
       },
       {
         id: '1',
@@ -23,7 +24,8 @@ Page({
         direction: '中国上海市南京西路1366号恒隆广场2座4501及4703- 4705室邮编200040',
         show: false,
         latitude: 31.553973,
-        longitude: 120.253013
+        longitude: 120.253013,
+        phone: 13818354121
       },
       {
         id: '2',
@@ -31,7 +33,8 @@ Page({
         direction: '上海市黄浦区湖滨路222号企业天地一号楼15层',
         show: false,
         latitude: 34.767745,
-        longitude: 113.756223
+        longitude: 113.756223,
+        phone: 13818354122
       },
       {
         id: '3',
@@ -39,7 +42,8 @@ Page({
         direction: '上海市黄浦区湖滨路222号企业天地一号楼15层',
         show: false,
         latitude: 32.046944,
-        longitude: 118.800583
+        longitude: 118.800583,
+        phone: 13818354123
       },
       {
         id: '4',
@@ -47,7 +51,8 @@ Page({
         direction: '上海市黄浦区湖滨路222号企业天地一号楼15层',
         show: false,
         latitude: 23.124425,
-        longitude: 113.328309
+        longitude: 113.328309,
+        phone: 13818354124
       },
       {
         id: '5',
@@ -55,65 +60,108 @@ Page({
         direction: '上海市黄浦区湖滨路222号企业天地一号楼15层',
         show: false,
         latitude: 30.246225,
-        longitude: 120.212576
+        longitude: 120.212576,
+        phone: 13818354125
       }
     ],
     markers: [{
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 0,
       latitude: 45.759068,
       longitude: 126.605935,
       width: 33,
-      height: 50
+      height: 50,
+      callout: {
+        content: '海岸投资',
+        display: 'BYCLICK',
+        padding: 10,
+        bgColor: '#EFEFA0'
+      }
     }, {
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 1,
       latitude: 31.553973,
       longitude: 120.253013,
       width: 33,
-      height: 50
+      height: 50,
+      callout: {
+        content: '海岸投资',
+        display: 'BYCLICK',
+        padding: 10,
+        bgColor: '#EFEFA0'
+      }
     }, {
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 2,
       latitude: 34.767745,
       longitude: 113.756223,
       width: 33,
-      height: 50
+      height: 50,
+      callout: {
+        content: '海岸投资',
+        display: 'BYCLICK',
+        padding: 10,
+        bgColor: '#EFEFA0'
+      }
     }, {
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 3,
       latitude: 32.046944,
       longitude: 118.800583,
       width: 33,
-      height: 50
+      height: 50,
+      callout: {
+        content: '海岸投资',
+        display: 'BYCLICK',
+        padding: 10,
+        bgColor: '#EFEFA0'
+      }
     }, {
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 4,
       latitude: 23.124425,
       longitude: 113.328309,
       width: 33,
-      height: 50
+      height: 50,
+      callout: {
+        content: '海岸投资',
+        display: 'BYCLICK',
+        padding: 10,
+        bgColor: '#EFEFA0'
+      }
     }, {
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 5,
       latitude: 30.246225,
       longitude: 120.212576,
       width: 33,
       height: 50
     }, {
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 6,
       latitude: 28.201072,
       longitude: 112.995415,
       width: 33,
-      height: 50
+      height: 50,
+      callout: {
+        content: '海岸投资',
+        display: 'BYCLICK',
+        padding: 10,
+        bgColor: '#EFEFA0'
+      }
     }, {
-      iconPath: "../../images/markerWork.png",
+      iconPath: "../../images/markerPartner.png",
       id: 7,
       latitude: 31.855039,
       longitude: 117.293235,
       width: 33,
-      height: 50
+      height: 50,
+      callout: {
+        content: '海岸投资',
+        display: 'BYCLICK',
+        padding: 10,
+        bgColor: '#EFEFA0'
+      }
     }]
   },
 
@@ -205,8 +253,13 @@ Page({
       latitudeSelected: this.data.latitudeSelected,
       longitudeSelected: this.data.longitudeSelected
     })
-    console.log(this.data.partners)
-    console.log(this.data.latitudeSelected)
-    console.log(this.data.longitudeSelected)
+  },
+  markertap:function(e){
+    console.log(e.markerId)
+  },
+  callPhone: function(e){
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone.toString()
+    })
   }
 })

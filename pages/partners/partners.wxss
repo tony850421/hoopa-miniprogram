@@ -7,8 +7,8 @@ map{
 .partnertList{
   display: flex;
   flex-direction: column;
-  padding:15px;
-  width:90%;
+  padding:5px;
+  width:80%;
 }
 
 .fontWeight{
@@ -20,8 +20,9 @@ map{
 }
 
 .iconPosition{
-  width: 30px;
-  height: 30px;
+  width:25px;
+  height:38px;
+  margin-left:8%;
 }
 
 .flexRow{
@@ -30,4 +31,16 @@ map{
   background-color:white;
   align-items: center;
   border-bottom:1px #EFEFF4 solid
+}
+
+.buttonCall{
+  padding-top:7px !important;
+  right:10px;
+  width: 20%;
+  border: 0px !important;
+}
+
+.imageCall{
+  width:25px;
+  height:25px;
 }
