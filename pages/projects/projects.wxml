@@ -17,7 +17,7 @@
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
   </view>
 </view>
-<view>
+<view hidden='{{inputShowed}}'>
   <image mode='aspectFill' class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
   <block wx:for="{{products}}" wx:for-item="product" wx:key="{{product.objectId}}">
     <view class='generalData' id="{{product.objectId}}" bindtap='goToProject'>
@@ -29,6 +29,26 @@
       <view class='FlexDirectionRow'>
         <text>Offers:</text>
         <text>{{product.offers}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+<view hidden='{{!inputShowed}}'>
+  <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+    <view class="kind-list__item">
+      <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+        <view class="weui-flex__item">{{item.name}}</view>
+        <image class="kind-list__img" src="../../images/icon_nav_{{item.id}}.png"></image>
+      </view>
+      <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+        <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+          <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+            <navigator url="{{page}}/{{page}}" class="weui-cell weui-cell_access">
+              <view class="weui-cell__bd">{{page}}</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+          </block>
+        </view>
       </view>
     </view>
   </block>

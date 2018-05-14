@@ -13,7 +13,42 @@ Page({
    */
   data: {
     products: [],
-    offers: []
+    offers: [],
+    inputShowed: false,
+    inputVal: "",
+    products: [],
+    list: [
+      {
+        id: 'form',
+        name: '表单',
+        open: false,
+        pages: ['button', 'list', 'input', 'slider', 'uploader']
+      },
+      {
+        id: 'widget',
+        name: '基础组件',
+        open: false,
+        pages: ['article', 'badge', 'flex', 'footer', 'gallery', 'grid', 'icons', 'loadmore', 'panel', 'preview', 'progress']
+      },
+      {
+        id: 'feedback',
+        name: '操作反馈',
+        open: false,
+        pages: ['actionsheet', 'dialog', 'msg', 'picker', 'toast']
+      },
+      {
+        id: 'nav',
+        name: '导航相关',
+        open: false,
+        pages: ['navbar', 'tabbar']
+      },
+      {
+        id: 'search',
+        name: '搜索相关',
+        open: false,
+        pages: ['searchbar']
+      }
+    ]
   },
 
   /**
@@ -112,5 +147,39 @@ Page({
     wx.navigateTo({
       url: '../project/project',
     })
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+  kindToggle: function (e) {
+    var id = e.currentTarget.id, list = this.data.list;
+    for (var i = 0, len = list.length; i < len; ++i) {
+      if (list[i].id == id) {
+        list[i].open = !list[i].open
+      } else {
+        list[i].open = false
+      }
+    }
+    this.setData({
+      list: list
+    });
   }
 })

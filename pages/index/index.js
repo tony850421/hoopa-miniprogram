@@ -57,6 +57,11 @@ Page({
       url: '../partners/partners',
     })
   },
+  goToBranches: function () {
+    wx.navigateTo({
+      url: '../branches/branches',
+    })
+  },
   fetchProducts: function (user) {
     const query = new AVLive.Query('Project');
     query.include('creator');

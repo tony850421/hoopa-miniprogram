@@ -22,17 +22,17 @@
 </view>
 <view class="section">
   <view class="buttonsMarginTop">
-    <view class='buttonsBox' bindtap='goToFinance'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-      <text>Finance</text>
-    </view>
     <view class='buttonsBox'>
-      <image bindtap='goToPartners' mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
+      <text>News</text>
+    </view>
+    <view class='buttonsBox' bindtap='goToPartners'>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
       <text>Partners</text>
     </view>
     <view class='buttonsBox'>
       <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-      <text>Tourism</text>
+      <text>Team</text>
     </view>
   </view>
 </view>
@@ -40,15 +40,15 @@
   <view class="buttonsMarginTop">
     <view class='buttonsBox'>
       <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-      <text>Comerce</text>
+      <text>Services</text>
     </view>
     <view class='buttonsBox'>
       <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-      <text>Health</text>
+      <text>About Us</text>
     </view>
-    <view class='buttonsBox'>
+    <view class='buttonsBox' bindtap='goToBranches'>
       <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-      <text>Tourism</text>
+      <text>Branches</text>
     </view>
   </view>
 </view>
@@ -56,15 +56,15 @@
   <view class="buttonsMarginTop">
     <view class='buttonsBox'>
       <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-      <text>Comerce</text>
+      <text>Recomended</text>
     </view>
-    <view class='buttonsBox'>
+    <view class='buttonsBox' bindtap='goToFinance'>
       <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-      <text>Health</text>
+      <text>Finances</text>
     </view>
     <view class='buttonsBox'>
       <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-      <text>Tourism</text>
+      <text>Products</text>
     </view>
   </view>
 </view>
