@@ -62,6 +62,11 @@ Page({
       url: '../branches/branches',
     })
   },
+  goToNews: function () {
+    wx.navigateTo({
+      url: '../news/news',
+    })
+  },
   fetchProducts: function (user) {
     const query = new AVLive.Query('Project');
     query.include('creator');

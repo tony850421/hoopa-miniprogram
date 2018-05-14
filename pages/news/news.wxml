@@ -1,0 +1,6 @@
+<!--pages/news/news.wxml-->
+<view class="page-body">
+  <view class="page-section page-section-gap">
+    <web-view src="http://open.wechat.com/cgi-bin/newreadtemplate?t=overseas_open/index"></web-view>
+  </view>
+</view>

@@ -1,1 +1,33 @@
 /* pages/partners/partners.wxss */
+map{
+  height: 250px;
+  width: 100%;
+}
+
+.partnertList{
+  display: flex;
+  flex-direction: column;
+  padding:15px;
+  width:90%;
+}
+
+.fontWeight{
+  font-weight:bold;
+}
+
+.textDirection{
+  font-size: 13px;
+}
+
+.iconPosition{
+  width: 30px;
+  height: 30px;
+}
+
+.flexRow{
+  display: flex;
+  flex-direction: row;  
+  background-color:white;
+  align-items: center;
+  border-bottom:1px #EFEFF4 solid
+}

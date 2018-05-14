@@ -22,7 +22,7 @@
 </view>
 <view class="section">
   <view class="buttonsMarginTop">
-    <view class='buttonsBox'>
+    <view class='buttonsBox' bindtap='goToNews'>
       <image mode='aspectFit' class='IconsButtons' src='../../images/news.png'></image>
       <text>新闻</text>
     </view>

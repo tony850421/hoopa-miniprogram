@@ -1,2 +1,15 @@
 <!--pages/partners/partners.wxml-->
-<text>pages/partners/partners.wxml</text>
+<scroll-view scroll-y="true" style="height: {{height-250}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+  <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
+    <view class='flexRow'>
+      <view class='partnertList'>
+        <text class='fontWeight'>{{partner.name}}</text>
+        <text class='textDirection'>{{partner.direction}}</text>
+      </view>
+      <view wx:if="{{partner.show}}">
+        <image src='../../images/position.png' class='iconPosition'></image>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<map id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{markers}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true'></map>
