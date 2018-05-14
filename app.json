@@ -15,7 +15,7 @@
     "pages/branches/branches"
   ],
   "window": {
-    "backgroundColor": "#EFEFF4",
+    "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Hoopa",

@@ -11,6 +11,6 @@
   box-sizing: border-box;
 }
 
-.page{
-  background-color: #EFEFF4;
+page{
+  background-color: #EFEFF4 !important;
 }
