@@ -19,8 +19,8 @@
 </view>
 <view hidden='{{inputShowed}}'>
   <image mode='aspectFill' class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
-  <block wx:for="{{products}}" wx:for-item="product" wx:key="{{product.objectId}}">
-    <view class='generalData' id="{{product.objectId}}" bindtap='goToProject'>
+  <block wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}">
+    <view class='generalData' id="{{product.id}}" bindtap='goToProject'>
       <text>{{product.title}}</text>
       <view class='FlexDirectionRow'>
         <text>Price:</text>

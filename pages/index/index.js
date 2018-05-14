@@ -145,5 +145,11 @@ Page({
       products,
     });
     return products;
+  },
+  onShow: function(){
+    // wx.setTabBarBadge({
+    //   index: 1,
+    //   text: '1'
+    // })
   }
 });

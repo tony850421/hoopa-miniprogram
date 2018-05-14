@@ -79,7 +79,7 @@ Page({
             query.find().then(
               offer => {
                 const count = Math.floor(i)
-                this.data.products[count] = { offers: offer.length, title: this.data.products[count].attributes.title, price: this.data.products[count].attributes.price }
+                this.data.products[count] = { offers: offer.length, title: this.data.products[count].attributes.title, price: this.data.products[count].attributes.price, id: project.id}
                 this.setData({
                   products: this.data.products
                 })

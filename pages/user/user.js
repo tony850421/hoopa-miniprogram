@@ -10,7 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    offers: []
+    offers: [],
+    user: '',
+    rol: false
   },
 
   /**
@@ -24,7 +26,26 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      user: AV.User.current()
+    })
+    if (this.data.user){
+      var roleQuery = new AV.Query(AV.Role);
+      roleQuery.equalTo('users', this.data.user);
+      roleQuery.find().then(
+        roles => {
+          if (roles[0].attributes.name == "official"){
+            this.setData({
+              rol: true
+            })
+          } else {
+            this.setData({
+              rol: true
+            })
+          }          
+        }
+      )
+    }
   },
 
   /**
@@ -91,6 +112,11 @@ Page({
   goToCar: function () {
     wx.navigateTo({
       url: '../shop-car/shop-car',
+    })
+  },
+  goToUserInformation: function(){
+    wx.navigateTo({
+      url: '../userInformation/userInformation',
     })
   }
 })

@@ -17,7 +17,8 @@ Page({
     company: '',
     buttonSendCodeDisabled: true,
     butonRegisterDisable: true,
-    codeText: '发送'
+    codeText: '发送',
+    user: {}
   },
 
   /**
@@ -45,7 +46,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      user: AV.User.current()
+    })
+    if (this.data.user){
+      console.log(this.data.user)
+      var roleQuery = new AV.Query(AV.Role);
+      roleQuery.equalTo('users', this.data.user);
+      roleQuery.find().then(
+        roles => {
+          if (roles[0].attributes.name == "official") {
+            this.setData({
+              phone: this.data.user.attributes.mobilePhoneNumber,
+              name: this.data.user.attributes.fullName,
+              ci: this.data.user.attributes.ci,
+              company: this.data.user.attributes.company
+            })
+          }
+        }
+      )
+    }
   },
 
   /**
@@ -86,10 +106,10 @@ Page({
     var phoneAux = this.data.phone;
     var that = this
 
-    var user = AV.User.current();
-    if (user) {
-      user.setMobilePhoneNumber(phoneAux);
-      user.save().then(function () {  
+    // var user = AV.User.current();
+    if (that.data.user) {
+      that.data.user.setMobilePhoneNumber(phoneAux);
+      that.data.user.save().then(function () {  
         AV.Cloud.requestSmsCode({
           mobilePhoneNumber: phoneAux,
           name: '应用名称',
@@ -194,11 +214,11 @@ Page({
     }
   },
   register: function () {
-    var user = AV.User.current();
-    user.set('fullName', this.data.name);
-    user.set('ci', this.data.ci);
-    user.set('company', this.data.company);
-    user.save();
+    // var user = AV.User.current();
+    that.data.user.set('fullName', this.data.name);
+    that.data.user.set('ci', this.data.ci);
+    that.data.user.set('company', this.data.company);
+    that.data.user.save();
 
     AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
       var roleQuery = new AV.Query(AV.Role);
@@ -206,7 +226,7 @@ Page({
       roleQuery.find().then(function (results) {
         var role = results[0];
         var relation = role.getUsers();
-        relation.add(AV.User.current());
+        relation.add(that.data.user);
         return role.save();
       }).then(function (role) {
         console.log("role asigned ok");

@@ -91,9 +91,8 @@
 }
 
 .IconsButtons{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;  
+  width: 30px;
+  height: 30px;
 }
 
 .project{
@@ -139,4 +138,10 @@
 .weui-search-bar__form,
 .weui-search-bar__label{
   border-radius: 20px !important;
+}
+
+.userinfo-avatar{
+  width:128rpx;
+  height:128rpx;
+  margin:20rpx;
 }

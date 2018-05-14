@@ -23,48 +23,48 @@
 <view class="section">
   <view class="buttonsMarginTop">
     <view class='buttonsBox'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-      <text>News</text>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/news.png'></image>
+      <text>新闻</text>
     </view>
     <view class='buttonsBox' bindtap='goToPartners'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-      <text>Partners</text>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/partners.png'></image>
+      <text>合作 伙伴</text>
     </view>
     <view class='buttonsBox'>
-      <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-      <text>Team</text>
+      <image mode='widthFix' class='IconsButtons' src='../../images/team.png'></image>
+      <text>团队</text>
     </view>
   </view>
 </view>
 <view class="section">
   <view class="buttonsMarginTop">
     <view class='buttonsBox'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-      <text>Services</text>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
+      <text>服务</text>
     </view>
     <view class='buttonsBox'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-      <text>About Us</text>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
+      <text>关于我们</text>
     </view>
     <view class='buttonsBox' bindtap='goToBranches'>
-      <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-      <text>Branches</text>
+      <image mode='widthFix' class='IconsButtons' src='../../images/branch.png'></image>
+      <text>分支机构</text>
     </view>
   </view>
 </view>
 <view class="section">
   <view class="buttonsMarginTop">
     <view class='buttonsBox'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/comerce.png'></image>
-      <text>Recomended</text>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/recommended.png'></image>
+      <text>推荐</text>
     </view>
     <view class='buttonsBox' bindtap='goToFinance'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/health.png'></image>
-      <text>Finances</text>
+      <image mode='aspectFit' class='IconsButtons' src='../../images/statistics.png'></image>
+      <text>统计</text>
     </view>
     <view class='buttonsBox'>
-      <image mode='widthFix' class='IconsButtons' src='../../images/travel.png'></image>
-      <text>Products</text>
+      <image mode='widthFix' class='IconsButtons' src='../../images/projects.png'></image>
+      <text>项目</text>
     </view>
   </view>
 </view>

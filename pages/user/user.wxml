@@ -1,11 +1,19 @@
 <!--pages/user/user.wxml-->
 <view>
-  <view class="userinfo">
-      <block>
-        <image bindtap="goToRegister" class="userinfo-avatar" src="../../images/userAvatar.png" background-size="cover"></image>
-        <text bindtap="goToRegister" class="userinfo-nickname">点击登录</text>
-      </block>
-      <image bindtap='goToCar' class='imageCar' src='../../images/car.png'></image>
+  <view class="userinfo" wx:if="{{!rol}}">
+    <block>
+      <image bindtap="goToRegister" class="userinfo-avatar" src="../../images/userSelected.png"
+        background-size="cover"></image>
+      <text bindtap="goToRegister" class="userinfo-nickname">点击登录</text>
+    </block>
+  </view>
+  <view class="userinfo" wx:if="{{rol}}">
+    <block>
+      <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}"
+        background-size="cover"></image>
+      <text bindtap="goToUserInformation" class="userinfo-nickname">{{user.fullName}}</text>
+    </block>
+    <image bindtap='goToCar' class='imageCar' src='../../images/car.png'></image>
   </view>
   <view class='info'>
     <view class='infoData'>

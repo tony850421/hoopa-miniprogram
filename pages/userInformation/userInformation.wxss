@@ -1,4 +1,4 @@
-/* pages/user/user.wxss */
+/* pages/userInformation/userInformation.wxss */
 .userinfo {
   display: flex;
   flex-direction: row;
@@ -22,7 +22,7 @@
   flex-direction: row;
   background-color: white;
   padding: 10px;
-  margin-bottom: 10px;
+  border-bottom: 1px #EFEFf4 solid;
 }
 
 .infoData{
@@ -47,4 +47,26 @@
   position: absolute;
   top: 5%;
   right: 15px;
+}
+
+.displayFlexHorizontal{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px #EFEFf4 solid;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+  height: 40px;
+}
+
+.marginLeftData{
+  margin-left: 15px;
+}
+
+.buttonSave{
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
 }

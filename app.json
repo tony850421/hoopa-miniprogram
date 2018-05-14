@@ -10,7 +10,9 @@
     "pages/contact/contact",
     "pages/shop-car/shop-car",
     "pages/partners/partners",
-    "pages/offer/offer"
+    "pages/offer/offer",
+    "pages/userInformation/userInformation",
+    "pages/branches/branches"
   ],
   "window": {
     "backgroundColor": "#EFEFF4",
@@ -33,8 +35,8 @@
       },
       {
         "pagePath": "pages/contact/contact",
-        "iconPath": "images/map.png",
-        "selectedIconPath": "images/mapSelected.png",
+        "iconPath": "images/contact.png",
+        "selectedIconPath": "images/contactSelected.png",
         "text": "Contact"
       },
       {
