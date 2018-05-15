@@ -13,7 +13,8 @@
     "pages/userInformation/userInformation",
     "pages/branches/branches",
     "pages/news/news",
-    "pages/partners/partners"
+    "pages/partners/partners",
+    "pages/partnersView/partnersView"
   ],
   "window": {
     "backgroundColor": "#ffffff",

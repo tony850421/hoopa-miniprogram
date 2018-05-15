@@ -9,6 +9,7 @@ map{
   flex-direction: column;
   padding:5px;
   width:80%;
+  margin-left: 10px;
 }
 
 .fontWeight{
@@ -21,8 +22,8 @@ map{
 
 .iconPosition{
   width:25px;
-  height:38px;
-  margin-left:8%;
+  height:25px;
+  margin-left:30%;
 }
 
 .flexRow{

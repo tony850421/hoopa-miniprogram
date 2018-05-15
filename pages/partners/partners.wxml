@@ -3,14 +3,14 @@
   <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
     <view class='flexRow'>
       <view wx:if="{{partner.show}}">
-        <image src='../../images/markerPartner.png' class='iconPosition'></image>
+        <image src='../../images/locationMap.png' class='iconPosition'></image>
       </view>
       <view class='partnertList'>
         <text class='fontWeight'>{{partner.name}}</text>
         <text class='textDirection'>{{partner.direction}}</text>
       </view>
-      <button data-phone='{{partner.phone}}' bindtap='callPhone' class='buttonCall' size='mini' class='buttonCall' plain='true'>
-        <image class='imageCall' src='../../images/call.png'></image>
+      <button data-url='{{partner.url}}' bindtap='goToWeb' class='buttonCall' size='mini' class='buttonCall' plain='true'>
+        <image class='imageCall' src='../../images/goToWeb.png'></image>
       </button>
     </view>
   </view>
