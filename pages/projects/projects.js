@@ -74,6 +74,7 @@ Page({
         var query = new AV.Query("Project");
         query.get(products[i].id).then(
           project => {
+            
             var query = new AV.Query('Offert');
             query.equalTo('project', project);
             query.find().then(

@@ -75,3 +75,8 @@ page{
   margin-left:-25px;
   margin-top:-10px;
 }
+
+.bottom{
+  width: 100%;
+  height: 5px;
+}

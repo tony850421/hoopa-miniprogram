@@ -1,34 +1,31 @@
-<!--pages/contact/contact.wxml-->
+<!-- pages/contact/contact.wxml -->
 <view class='section'>
   <view>
-    <scroll-view scroll-y="true" style="height: {{height-34}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-      <view class='section'>
-        <view style='padding-bottom: 5px'>
-          <view wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.id}}">
-            <view wx:if="{{!message.typeMessage}}" class='comments'>
-              <view class='imageAvatar'>
-                <image src='{{message.avatarUrl}}' class='imageAvatar'></image>
-              </view>
-              <view style='width: {{widht-110}}px' class='commentStyle'>
-              <view class='contentComment'>
-                <text class='content'>{{message.content}}</text>
-                <text class='dateText'>{{message.date}}</text>
-              </view>
-            </view>
+    <scroll-view scroll-y="true" style="height: {{height-34}}px" scroll-into-view="A{{intoView}}" scroll-top="100" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+      <view wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.objectId}}" id="A{{message.objectId}}">
+        <view wx:if="{{message.sender.objectId == sender.objectId}}" class='comments'>
+          <view class='imageAvatar'>
+            <image src='{{sender.avatarUrl}}' class='imageAvatar'></image>
           </view>
-          <view wx:if="{{message.typeMessage}}" class='comments'>
-              <view style='width: {{widht-110}}px' class='commentStyleRight'>
-                <view class='contentComment'>
-                  <text class='content'>{{message.content}}</text>
-                  <text class='dateText'>{{message.date}}</text>
-                </view>
-              </view>
-              <view class='imageAvatar'>
-                <image src='{{message.avatarUrl}}' class='imageAvatar'></image>
-              </view>
+          <view style='width: {{widht-110}}px' class='commentStyle'>
+            <view class='contentComment'>
+              <text class='content'>{{message.content}}</text>
+              <text class='dateText'>{{message.date}}</text>
             </view>
           </view>
         </view>
+        <view wx:if="{{message.sender.objectId != sender.objectId}}" class='comments'>
+          <view style='width: {{widht-110}}px' class='commentStyleRight'>
+            <view class='contentComment'>
+              <text class='content'>{{message.content}}</text>
+              <text class='dateText'>{{message.date}}</text>
+            </view>
+          </view>
+          <view class='imageAvatar'>
+            <image src='{{user.avatarUrl}}' class='imageAvatar'></image>
+          </view>
+        </view>
+        <view wx:if="{{index == messages.length -1 }}" class='bottom'></view>
       </view>
     </scroll-view>
     <view class='textBar'>

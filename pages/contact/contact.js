@@ -1,6 +1,8 @@
 // pages/contact/contact.js
-Page({
 
+const AV = require('../../utils/av-weapp-min');
+
+Page({
   /**
    * 页面的初始数据
    */
@@ -9,25 +11,32 @@ Page({
     widht: '',
     inputText: '',
     focus: false,
-    messages: [{
-      id:'',
-      typeMessage: false,
-      content: 'AAAAA',
-      date: '',
-      avatarUrl: '../../images/user.png'
-    }, {
-      id: '',
-      typeMessage: true,
-      content: 'BBBB',
-      date: '',
-      avatarUrl: '../../images/userSelected.png'
-    }]
+    messages: [],
+    sender: {},
+    user: {},
+    intoView: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      user: AV.User.current()
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     wx.getSystemInfo({
       success: res => {
         this.setData({
@@ -36,55 +45,87 @@ Page({
         })
       },
     })
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
     wx.hideKeyboard()
+
+    if (this.data.user) {
+      var query = new AV.Query('Message')
+      query.equalTo('sender', this.data.user)
+      var queryAux = new AV.Query('Message')
+      queryAux.equalTo('receiver', this.data.user);
+      var compoundQuery = AV.Query.or(query, queryAux);
+      compoundQuery.find().then(
+        message => {
+          this.setData({
+            messages: message,
+            intoView: message[message.length-1].id
+          })
+
+          var querySender = new AV.Query('_User')
+          if (message[0].attributes.sender.id == this.data.user.id) {
+            querySender.get(message[0].attributes.receiver.id).then(
+              send => {
+                this.setData({
+                  sender: send
+                })
+              })
+          } else {
+            querySender.get(message[0].attributes.sender.id).then(
+              send => {
+                this.setData({
+                  sender: send
+                })
+              })
+          }
+
+          for (var i = 0; i < message.length; i++) {
+            if (message[i].attributes.receiver.id == this.data.user.id) {
+              message[i].set('readed', true)
+              message[i].save()
+            }
+          }
+
+          wx.removeTabBarBadge({
+            index: 1,
+          })
+        }
+      )
+    }    
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
   bindKeyInput: function (e) {
     this.setData({
@@ -92,24 +133,46 @@ Page({
     })
   },
   confirmText: function () {
-    wx.getStorage({
-      key: 'Commerce',
-      success: res => {
-        var article = AV.Object.createWithoutData('Article', res.data)
+    if (this.data.user) {
+      var newMessage = new AV.Object('Message');
+      newMessage.set('sender', this.data.user);
+      var receiver = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
+      newMessage.set('receiver', receiver);
+      newMessage.set('content', this.data.inputText);
+      newMessage.set('readed', false);
 
-        var ccomment = new AV.Object('Comment');
-        ccomment.set('content', text + this.data.inputText);
-        ccomment.set('avatarUrl', this.data.userInfo.avatarUrl);
-        ccomment.set('nickName', this.data.userInfo.nickName);
-        ccomment.set('owner', article);
-        ccomment.save();
+      var acl = new AV.ACL();
+      acl.setPublicReadAccess(true);
+      acl.setWriteAccess(this.data.user, true);
+      acl.setWriteAccess(this.data.sender, true);
+      newMessage.setACL(acl);
 
-        this.setData({
-          inputText: '',
-          focus: true
-        })
-      },
+      newMessage.save().then(res => {
+        var query = new AV.Query('Message')
+        query.equalTo('sender', this.data.user)
+        var queryAux = new AV.Query('Message')
+        queryAux.equalTo('receiver', this.data.user);
+        var compoundQuery = AV.Query.or(query, queryAux);
+        compoundQuery.find().then(
+          message => {
+            this.setData({
+              messages: message,
+              intoView: message[message.length - 1].id
+            })
+            wx.showToast({
+              title: '留言送',
+              icon: 'success',
+              duration: 2000
+            })  
+          }
+        )
+      })
+    }
+
+    this.setData({
+      inputText: ''
     })
+    this.hideKeyboard()
   },
   sendText: function () {
     this.confirmText()

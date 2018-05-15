@@ -151,10 +151,24 @@ Page({
     });
     return products;
   },
-  onShow: function(){
-    // wx.setTabBarBadge({
-    //   index: 1,
-    //   text: '1'
-    // })
+  onShow: function () {
+    
+  },
+  onLoad: function () {
+    const user = AV.User.current()
+    if (user) {
+      var query = new AV.Query('Message')
+      query.equalTo('receiver', user)
+      query.equalTo('readed', false)
+      query.count().then(
+        count => {
+          if (count > 0) {
+            wx.setTabBarBadge({
+              index: 1,
+              text: count.toString()
+            })
+          }          
+        })
+    }
   }
 });
