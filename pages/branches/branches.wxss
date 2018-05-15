@@ -1,4 +1,47 @@
 /* pages/partners/partners.wxss */
 map{
-  width: 100% !important;
+  height: 250px;
+  width: 100%;
+}
+
+.partnertList{
+  display: flex;
+  flex-direction: column;
+  padding:5px;
+  width:80%;
+  margin-left: 10px;
+}
+
+.fontWeight{
+  font-weight:bold;
+}
+
+.textDirection{
+  font-size: 13px;
+}
+
+.iconPosition{
+  width:25px;
+  height:25px;
+  margin-left:30%;
+}
+
+.flexRow{
+  display: flex;
+  flex-direction: row;  
+  background-color:white;
+  align-items: center;
+  border-bottom:1px #EFEFF4 solid
+}
+
+.buttonCall{
+  padding-top:7px !important;
+  right:10px;
+  width: 20%;
+  border: 0px !important;
+}
+
+.imageCall{
+  width:35px;
+  height:35px;
 }

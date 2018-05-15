@@ -8,7 +8,20 @@ Page({
     height: '',
     widht: '',
     inputText: '',
-    focus: true
+    focus: false,
+    messages: [{
+      id:'',
+      typeMessage: false,
+      content: 'AAAAA',
+      date: '',
+      avatarUrl: '../../images/user.png'
+    }, {
+      id: '',
+      typeMessage: true,
+      content: 'BBBB',
+      date: '',
+      avatarUrl: '../../images/userSelected.png'
+    }]
   },
 
   /**
@@ -36,7 +49,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.hideKeyboard()
   },
 
   /**

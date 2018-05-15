@@ -1,2 +1,18 @@
 <!--pages/partners/partners.wxml-->
-<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location='true' style='height: {{heightScreen}}px'></map>
+<scroll-view scroll-y="true" style="height: {{height-250}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+  <view wx:for="{{markers}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
+    <view class='flexRow'>
+      <view wx:if="{{partner.show}}">
+        <image src='../../images/partnerSelected.png' class='iconPosition'></image>
+      </view>
+      <view class='partnertList'>
+        <text class='fontWeight'>{{partner.name}}</text>
+        <text class='textDirection'>{{partner.direction}}</text>
+      </view>
+      <button data-phone='{{partner.phone}}' bindtap='callPhone' class='buttonCall' size='mini' class='buttonCall' plain='true'>
+        <image class='imageCall' src='../../images/call.png'></image>
+      </button>
+    </view>
+  </view>
+</scroll-view>
+<map bindcallouttap='markertap' id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{markers}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true'></map>

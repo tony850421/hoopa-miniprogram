@@ -186,8 +186,8 @@ Page({
       type: 'wgs84',
       success: res => {
         this.setData({
-          latitude: res.latitude,
-          longitude: res.longitude,
+          longitudeSelected: res.latitude,
+          longitudeSelected: res.longitude,
           speed: res.speed,
           accuracy: res.accuracy
         })

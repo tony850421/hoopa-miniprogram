@@ -15,4 +15,4 @@
     </view>
   </view>
 </scroll-view>
-<map bindcallouttap='markertap' id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{markers}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true'></map>
+<map bindcallouttap='markertap' id="mapPartners" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{markers}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true'></map>

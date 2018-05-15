@@ -31,8 +31,16 @@ page{
   padding: 15px;
 }
 
+.commentStyleRight{
+  background-color: #E3E3E3;
+  border: 1px #E3E3E3 solid;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 15px;
+}
+
 .textBar{
-  padding-top: 5px;
+  padding-top: 2px;
   border-top: 1px #BBBBBB solid;
 }
 
