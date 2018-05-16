@@ -1,35 +1,51 @@
 /* pages/project/project.wxss */
-.section{
-  margin-bottom: 10px;
+
+.section {
   background-color: white;
-  padding-top: 5px;
+}
+
+.generalData {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+.margin-bottom-5{
+  margin-bottom: 5px;
+}
+
+.mainInformation {
+  margin-bottom: 10px;
+  border-bottom: 1px #c4c4c4 solid;
   padding-bottom: 5px;
 }
 
-.generalData{
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
+.imageLocation {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
 }
 
-.FlexDirectionRow{
-  display: flex;
-  flex-direction: row;
-}
-
-.data{
-  display: flex;
-  flex-direction: row;
-  border-bottom: 1px #C4C4C4 solid;
-}
-
-.buttonsBar{
-  border-top: 1px #BBBBBB solid;
+.FlexDirectionRow {
   display: flex;
   flex-direction: row;
 }
 
-.buttonLeft{
+.data {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px #c4c4c4 solid;
+}
+
+.buttonsBar {
+  border-top: 1px #bbb solid;
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonLeft {
   background-color: green;
   width: 16%;
   align-items: center;
@@ -37,30 +53,48 @@
   flex-direction: column;
 }
 
-.buttonCar{
+.buttonCar {
   background-color: orangered;
   width: 42%;
   text-align: center;
   padding-top: 2%;
 }
 
-.buttonRight{
+.buttonRight {
   background-color: red;
   width: 42%;
   text-align: center;
   padding-top: 2%;
 }
 
-.imageButtonOffers{
-  width:20px;
-  height:20px;
-  margin-top:5px;
+.imageButtonOffers {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
 }
 
-.textOffers{
-  font-size: 11px;
-}  
+.textData {
+  font-size: 13px;
+}
 
-.textButtonPorjectBottom{
+.font-size-11 {
   font-size: 11px;
+}
+
+.FlexDirectionColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.margin-left-5{
+  margin-left: 5px;
+}
+
+.mapProject{
+  width:100%; 
+  height:120px
+}
+
+.margin-bottom-0{
+  margin-bottom: 0px !important;
 }

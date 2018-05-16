@@ -1,46 +1,163 @@
 <!--pages/project/project.wxml-->
 <view>
-  <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper"bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-  <swiper indicator-dots="{{indicatorDots}}"
-      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+          <image src="{{item}}" class="slide-image" width="355" height="150" />
         </swiper-item>
       </block>
     </swiper>
     <view class='section'>
-        <view class='generalData'>
-          <text>{{product.title}}</text>
-          <view class='FlexDirectionRow'>
-            <text>Price: </text>
-            <text>{{product.price}}</text>
-          </view>
-          <view wx:if="{{myOffer}}" class='FlexDirectionRow'>
-            <text>My Offer: </text>
-            <text>{{myOffer}}</text>
-          </view>
-          <view class='FlexDirectionRow'>
-            <text>Offers: </text>
-            <text>{{offer}}</text>
-          </view>
-          <view class='FlexDirectionRow'>
-            <text>Visits: </text>
-            <text>{{visit}}</text>
+      <view class='generalData'>
+
+        <view class='mainInformation'>
+          <text class='margin-bottom-5'>{{product.title}}</text>
+          <view class='FlexDirectionColumn'>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>债权本金: </text>
+              <text class='textData margin-left-5'>7845232.00</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>债权本息: </text>
+              <text class='textData margin-left-5'>1845232.00</text>
+            </view>
+            <!-- <view class='FlexDirectionRow'>
+              <text class='textData'>广州市天河区金穗路3号汇美大厦1201A</text>
+              <image class='imageLocation' src='../../images/position.png'></image>
+            </view> -->
           </view>
         </view>
-    </view>    
+
+        <!--project manager  -->
+        <view class='mainInformation'>
+          <view class='FlexDirectionColumn'>
+            <text class='textData'>项目经理</text>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>名字</text>
+              <text class='textData'>王额</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <view class='FlexDirectionRow'>
+                <text class='textData'>电话</text>
+                <text class='textData margin-left-5' bindtap='callPhoneNumber'>15423668954</text>
+                <image class='imageLocation margin-left-5' src='../../images/call.png' bindtap='callPhoneNumber'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='mainInformation'>
+          <view class='FlexDirectionColumn'>
+            <text class='textData'>法律进度</text>
+            <view class='FlexDirectionRow'>
+              <view class='FlexDirectionRow'>
+                <text class='textData'>是否有报价: </text>
+                <text class='textData margin-left-5'>是</text>
+              </view>
+              <view class='FlexDirectionRow'>
+                <text class='textData'>关注数: </text>
+                <text class='textData margin-left-5'>7 人</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='mainInformation'>
+          <view class='FlexDirectionColumn'>
+            <text class='textData'>借款人信息</text>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>债权本金: </text>
+              <text class='textData margin-left-5'>234</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>债权利息: </text>
+              <text class='textData margin-left-5'>465</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>本息合计: </text>
+              <text class='textData margin-left-5'>1398</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='mainInformation'>
+          <view class='FlexDirectionColumn'>
+            <view class='FlexDirectionRow margin-bottom-5'>
+              <text class='textData'>广州市天河区金穗路3号汇美大厦1201A</text>
+              <!-- <image class='imageLocation' src='../../images/position.png'></image> -->
+            </view>
+            <map class='mapProject margin-bottom-5' id="mapDirection" longitude="126.605935" latitude="45.759068" scale="16"></map>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>质:</text>
+              <text class='textData margin-left-5'>非常好</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>建筑面积:</text>
+              <text class='textData margin-left-5'>123m</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>土地面积:</text>
+              <text class='textData margin-left-5'>231m</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='mainInformation'>
+          <view class='FlexDirectionColumn'>
+            <text class='textData'>赞助商</text>
+            <!--list of sponsors  -->
+            <view class='FlexDirectionRow'>
+              <text class='textData'>保证人:</text>
+              <text class='textData margin-left-5'>李王</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>类型</text>
+              <text class='textData margin-left-5'>个人</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>担保金额</text>
+              <text class='textData margin-left-5'>12312</text>
+            </view>
+
+            <view class='FlexDirectionRow'>
+              <text class='textData'>后哦怕:</text>
+              <text class='textData margin-left-5'>李王</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>类型</text>
+              <text class='textData margin-left-5'>企业</text>
+            </view>
+            <view class='FlexDirectionRow'>
+              <text class='textData'>担保金额</text>
+              <text class='textData margin-left-5'>12312</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='mainInformation margin-bottom-0'>
+          <view class='FlexDirectionColumn'>
+            <text class='textData'>描述</text>
+            <text class='textData'>胡巴资产专业提供不良资产收购、处置、资金配套服务；核心管理团队有10年不良资产行业管理经验；所管理处置的不良债权总额累计过200亿；诚实信用、最大程度为投资人实现价值是我们的宗旨</text>
+          </view>
+        </view>
+
+        <view class='mainInformation'>
+          <text bindtap='goToNearby' class='textData'>周围的其它资产</text>
+        </view>
+      </view>
+    </view>
   </scroll-view>
   <view class='buttonsBar'>
     <view class='buttonLeft' bindtap='goToCar'>
       <image class='imageButtonOffers' src='../../images/car.png'></image>
-      <text class='textOffers'>我的报价</text>
+      <text class='font-size-11'>我的报价</text>
     </view>
     <view class='buttonCar' bindtap='sendToShopCar'>
-      <text class='textButtonPorjectBottom'>添加到我的列表中</text>
+      <text class='font-size-11 '>添加到我的列表中</text>
     </view>
-    <view class='buttonRight'  bindtap='goToOffer'>
-      <text class='textButtonPorjectBottom'>提出建议</text>
+    <view class='buttonRight' bindtap='goToOffer'>
+      <text class='font-size-11'>提出建议</text>
     </view>
-  </view>  
+  </view>
 </view>

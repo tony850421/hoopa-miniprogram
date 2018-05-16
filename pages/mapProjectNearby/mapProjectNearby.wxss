@@ -1,0 +1,4 @@
+/* pages/mapProjectNearby/mapProjectNearby.wxss */
+map{
+  width: 100%;
+}

@@ -14,10 +14,7 @@ Page({
     duration: 1000,
     height: '',
     widht: '320',
-    product: {},
-    offer: 0,
-    visit: 0,
-    myOffer: ''
+    product: {}
   },
   onLoad: function (options) {
     wx.getSystemInfo({
@@ -31,17 +28,19 @@ Page({
 
     const user = AV.User.current();
     if (user) {
-      var visit = new AV.Object('ProjectVisit');
-      visit.set('user', user);
+      // var visit = new AV.Object('ProjectVisit');
+      // visit.set('user', user);
       wx.getStorage({
         key: 'projectID',
         success: res => {
           var query = new AV.Query("Project");
           query.get(res.data).then(
             project => {
-              visit.set('project', project)
-              visit.save();
-            }).catch(console.error)
+              this.setData({
+                product: project
+              })
+            }
+          ).catch(console.error)
         }
       })
     }
@@ -84,39 +83,39 @@ Page({
               product: project
             })
 
-            var query = new AV.Query('Offert');
-            query.equalTo('project', project);
-            query.find().then(
-              offers => {
-                this.setData({
-                  offer: offers.length
-                })
-              }
-            )
+            // var query = new AV.Query('Offert');
+            // query.equalTo('project', project);
+            // query.find().then(
+            //   offers => {
+            //     this.setData({
+            //       offer: offers.length
+            //     })
+            //   }
+            // )
 
-            var query = new AV.Query('ProjectVisit');
-            query.equalTo('project', project);
-            query.find().then(
-              visits => {
-                this.setData({
-                  visit: visits.length
-                })
-              }
-            )
+            // var query = new AV.Query('ProjectVisit');
+            // query.equalTo('project', project);
+            // query.find().then(
+            //   visits => {
+            //     this.setData({
+            //       visit: visits.length
+            //     })
+            //   }
+            // )
 
-            var query = new AV.Query('Offert');
-            query.equalTo('project', project);
-            query.equalTo('user', AV.User.current());
-            query.descending('createdAt');
-            query.find().then(
-              offers => {
-                if (offers.length > 0) {
-                  this.setData({
-                    myOffer: offers[0].attributes.amount
-                  })
-                }                
-              }
-            )
+            // var query = new AV.Query('Offert');
+            // query.equalTo('project', project);
+            // query.equalTo('user', AV.User.current());
+            // query.descending('createdAt');
+            // query.find().then(
+            //   offers => {
+            //     if (offers.length > 0) {
+            //       this.setData({
+            //         myOffer: offers[0].attributes.amount
+            //       })
+            //     }                
+            //   }
+            // )
           }
         ).catch(console.error)
       }
@@ -138,7 +137,18 @@ Page({
   },
   goToCar: function(){
     wx.navigateTo({
-      url: '../shop-car/shop-car',
+      url: '../shop-car/shop-car'
     })
+  },
+  goToNearby: function(){
+    wx.navigateTo({
+      url: '../mapProjectNearby/mapProjectNearby'
+    })
+  },
+  callPhoneNumber: function(){
+    console.log("call")
+    // wx.makePhoneCall({
+    //   phoneNumber: this.data.product.phone.toString()
+    // })
   }
 })

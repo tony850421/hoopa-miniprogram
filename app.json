@@ -14,7 +14,8 @@
     "pages/branches/branches",
     "pages/news/news",
     "pages/partners/partners",
-    "pages/partnersView/partnersView"
+    "pages/partnersView/partnersView",
+    "pages/mapProjectNearby/mapProjectNearby"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -25,9 +26,9 @@
   },
   "tabBar": {
     "backgroundColor": "#EFEFF4",
-    "borderStyle": "#D3D3D3",
-    "selectedColor": "#D03232",
-    "color": "#131313",
+    "borderStyle": "#D6DADB",
+    "selectedColor": "#FF6801",
+    "color": "#010101",
     "list": [
       {
         "pagePath": "pages/index/index",

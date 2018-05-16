@@ -1,37 +1,58 @@
 <!--pages/user/user.wxml-->
 <view>
-  <view class="userinfo" wx:if="{{!rol}}">
+  <view class="userinfo BackgorundProfile" wx:if="{{!rol}}">
     <block>
-      <image bindtap="goToRegister" class="userinfo-avatar" src="../../images/userSelected.png"
-        background-size="cover"></image>
-      <text bindtap="goToRegister" class="userinfo-nickname">点击登录</text>
+      <view class='dataUserInfoCover'>
+        <view class='imageContainer'>
+          <image bindtap="goToRegister" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
+        </view>
+        <text bindtap="goToRegister" class="userinfo-nickname font-size-13">点击登录</text>
+      </view>
     </block>
   </view>
-  <view class="userinfo" wx:if="{{rol}}">
+  <view class="userinfo BackgorundProfile" wx:if="{{rol}}">
     <block>
-      <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}"
-        background-size="cover"></image>
-      <text bindtap="goToUserInformation" class="userinfo-nickname">{{user.fullName}}</text>
+      <view class='dataUserInfoCover'>
+        <view class='imageContainer'>
+          <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+        </view>
+        <text bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
+        <view class='locationUser'>
+          <image class='imageLocationUser' src='../../images/userLocation.png'></image>
+          <text bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.city}}, {{user.province}}</text>
+        </view>
+      </view>
     </block>
-    <image bindtap='goToCar' class='imageCar' src='../../images/car.png'></image>
   </view>
   <view class='info'>
     <view class='infoData'>
-      <view>0</view>
-      <view>Text</view>
+      <image class='imageIconUserNotification' src='../../images/recommended.png'></image>
+      <text class='font-size-13'>推荐</text>
     </view>
     <view class='infoData'>
-      <view>0</view>
-      <view>Text</view>
+      <image class='imageIconUserNotification' src='../../images/notifications.png'></image>
+      <text class='font-size-13'>通知</text>
     </view>
-    <view class='infoData'>
-      <view>0</view>
-      <view>Text</view>
+    <view class='infoData' bindtap='goToCar'>
+      <image class='imageIconUserCar' src='../../images/car.png'></image>
+      <text class='font-size-13'>我的报价</text>
     </view>
   </view>
-  <view class='offers'>
-  <view wx:for="{{offers}}" wx:for-item="offer">
-    <text>{{offer.amount}}</text>
-  </view>    
+  <!-- <view class='offers'>
+    <view wx:for="{{offers}}" wx:for-item="offer">
+      <text>{{offer.amount}}</text>
+    </view>
+  </view> -->
+  <view class='information'>
+    <view class='projectsGroup'>
+      <view class='projectTitleGroup'>
+        <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+        <text class='font-size-13'>我的产品</text>
+      </view>
+      <image class='lineV' src='../../images/lineV.jpg'></image>
+      <view class='projectTextGroup'>
+        <text class='font-size-13'>15产品</text>
+      </view>
+    </view>
   </view>
 </view>

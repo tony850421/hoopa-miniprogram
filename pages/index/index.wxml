@@ -1,83 +1,68 @@
 <!--index.wxml-->
-<!-- <view class="page__bd">
-  <view class="weui-search-bar">
-    <view class="weui-search-bar__form">
-      <view class="weui-search-bar__box">
-        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-          <icon type="clear" size="14"></icon>
-        </view>
-      </view>
-      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-        <icon class="weui-icon-search" type="search" size="14"></icon>
-        <view class="weui-search-bar__text">搜索</view>
-      </label>
-    </view>
-    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-  </view>
-</view> -->
 <view>
-  <video class="videoHome" poster='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg' controls='true' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/a83666d30482b79683b4.mp4'></video>
+  <video class="videoHome" poster='http://lc-qpv1wnqe.cn-n1.lcfile.com/0bac82a3973b34702c9e.jpg' controls='true' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/a83666d30482b79683b4.mp4'></video>
 </view>
-<view class="section">
-  <view class="buttonsMarginTop">
-    <view class='buttonsBox' bindtap='goToNews'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/news.png'></image>
-      <text>新闻</text>
-    </view>
-    <view class='buttonsBox' bindtap='goToPartners'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/partners.png'></image>
-      <text>合作 伙伴</text>
-    </view>
-    <view class='buttonsBox'>
-      <image mode='widthFix' class='IconsButtons' src='../../images/team.png'></image>
-      <text>团队</text>
-    </view>
-  </view>
-</view>
-<view class="section">
-  <view class="buttonsMarginTop">
-    <view class='buttonsBox'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
-      <text>服务</text>
-    </view>
-    <view class='buttonsBox'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
-      <text>关于我们</text>
-    </view>
-    <view class='buttonsBox' bindtap='goToBranches'>
-      <image mode='widthFix' class='IconsButtons' src='../../images/branch.png'></image>
-      <text>分支机构</text>
-    </view>
-  </view>
-</view>
-<view class="section">
-  <view class="buttonsMarginTop">
-    <view class='buttonsBox'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/recommended.png'></image>
-      <text>推荐</text>
-    </view>
-    <view class='buttonsBox' bindtap='goToFinance'>
-      <image mode='aspectFit' class='IconsButtons' src='../../images/statistics.png'></image>
-      <text>统计</text>
-    </view>
-    <view class='buttonsBox'>
-      <image mode='widthFix' class='IconsButtons' src='../../images/projects.png'></image>
-      <text>项目</text>
-    </view>
-  </view>
-</view>
-<view class='section sectionProjects'>
-  <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
-  <view>
-    <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-      <view class='projectList'>
-        <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
-          <text>{{product.title}}</text>
-          <text>{{product.price}}</text>
-        </view>
+<view class='HomePage'>
+  <view class="section">
+    <view class="buttonsGroup">
+      <view class='buttonsBox' bindtap='goToNews'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/news.png'></image>
+        <text class='font-size-13'>新闻</text>
       </view>
-    </scroll-view>
+      <view class='buttonsBox' bindtap='goToPartners'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/partners.png'></image>
+        <text class='font-size-13'>合作伙伴</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='widthFix' class='IconsButtons' src='../../images/team.png'></image>
+        <text class='font-size-13'>团队</text>
+      </view>
+    </view>
+  </view>
+  <view class="section">
+    <view class="buttonsGroup">
+      <view class='buttonsBox'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
+        <text class='font-size-13'>服务</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
+        <text class='font-size-13'>关于我们</text>
+      </view>
+      <view class='buttonsBox' bindtap='goToBranches'>
+        <image mode='widthFix' class='IconsButtons' src='../../images/branch.png'></image>
+        <text class='font-size-13'>分支机构</text>
+      </view>
+    </view>
+  </view>
+  <view class="section">
+    <view class="buttonsGroup">
+      <view class='buttonsBox'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/recommended.png'></image>
+        <text class='font-size-13'>推荐</text>
+      </view>
+      <view class='buttonsBox' bindtap='goToFinance'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/statistics.png'></image>
+        <text class='font-size-13'>统计</text>
+      </view>
+      <view class='buttonsBox'>
+        <image mode='widthFix' class='IconsButtons' src='../../images/projects.png'></image>
+        <text class='font-size-13'>项目</text>
+      </view>
+    </view>
+  </view>
+  <view class='sectionProjects'>
+    <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view>
+      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+        <view class='projectList'>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
+            <text class='font-size-13 margin-top-10'>{{product.title}}</text>
+            <image class='imageLine' src='../../images/line.jpg'></image>
+            <text class='font-size-13 colorTextPrimary'>{{product.price}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
   </view>
 </view>

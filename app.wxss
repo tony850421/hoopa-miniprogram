@@ -14,3 +14,7 @@
 page{
   background-color: #EFEFF4 !important;
 }
+
+.colorTextPrimary{
+  color: #FF6801;
+}
