@@ -1,47 +1,55 @@
 /* pages/userInformation/userInformation.wxss */
+
 .userinfo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #4764B5;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 230rpx;
+  height: 230rpx;
+  margin: 5rpx;
+  border-radius: 50%;
+}
+
+.imageContainer {
+  background-color: white;
+  width: 240rpx;
+  height: 240rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: white !important;
 }
 
-.info{
+.info {
   display: flex;
   flex-direction: row;
   background-color: white;
-  padding: 10px;
-  border-bottom: 1px #EFEFf4 solid;
 }
 
-.infoData{
+.infoData {
   display: flex;
   flex-direction: column;
   width: 33.3%;
   align-items: center;
+  border-bottom: 1px #d6dadb solid;
+  height: 80px;
 }
 
-.offers{
+.offers {
   padding: 15px;
   margin-bottom: 10px;
 }
 
-.pull-right{
+.pull-right {
   float: right;
 }
 
-.imageCar{
+.imageCar {
   width: 25px;
   height: 25px;
   position: absolute;
@@ -49,24 +57,116 @@
   right: 15px;
 }
 
-.displayFlexHorizontal{
-  display: flex;
-  flex-direction: row;
-  border-bottom: 1px #EFEFf4 solid;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  align-items: center;
-  height: 40px;
+@media (max-width: 480px) {
+  .BackgorundProfile {
+    height: 280px;
+  }
 }
 
-.marginLeftData{
-  margin-left: 15px;
+@media (max-width: 414px) {
+  .BackgorundProfile {
+    height: 280px;
+    background-color: #ff6801;
+  }
+}
+
+@media (max-width: 375px) {
+  .BackgorundProfile {
+    height: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .BackgorundProfile {
+    height: 240px;
+  }
+}
+
+@media (max-width: 320px) {
+  .BackgorundProfile {
+    height: 200px;
+  }
+}
+
+.dataUserInfoCover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.locationUser {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageLocationUser {
+  width: 15px;
+  height: 20px;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+.font-size-13 {
+  font-size: 13px;
+}
+
+.imageIconUserCar {
+  width: 40px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.imageIconUserNotification {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.information {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectTitleGroup {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding:10px;
+  margin-top: 5px;
+}
+
+.projectTextGroup {
+  width: 75%;
+  margin-left: 10px;
+}
+
+.lineV {
+  width: 9px;
+  height: 20px;
 }
 
 .buttonSave{
-  float: right;
-  margin-top: 10px;
-  margin-right: 10px;
+  background-color: #ff6801;
+  color: white;
+  border-radius: 5px;
+  width: 70px !important;
+}
+
+.saveBox{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
 }

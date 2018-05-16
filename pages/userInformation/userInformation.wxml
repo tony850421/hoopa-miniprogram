@@ -1,52 +1,60 @@
 <!--pages/userInformation/userInformation.wxml-->
-<!--pages/user/user.wxml-->
 <view>
-  <view class="userinfo">
+  <view class="userinfo BackgorundProfile">
     <block>
-      <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}"
-        background-size="cover"></image>
-      <text bindtap="goToUserInformation" class="userinfo-nickname">{{user.fullName}}</text>
+      <view class='dataUserInfoCover'>
+        <view class='imageContainer'>
+          <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+        </view>
+        <text bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
+        <view class='locationUser'>
+          <image class='imageLocationUser' src='../../images/userLocation.png'></image>
+          <text bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.city}}, {{user.province}}</text>
+        </view>
+      </view>
     </block>
-    <image bindtap='goToCar' class='imageCar' src='../../images/car.png'></image>
-  </view>  
+  </view>
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>名字</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <input placeholder='名字' value='{{user.fullName}}'></input>
+    </view>
+  </view>
+
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>电话</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <input placeholder='电话' value='{{user.mobilePhoneNumber}}'></input>
+    </view>
+  </view>
+
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>识别</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <input placeholder='识别' value='{{user.ci}}'></input>
+    </view>
+  </view>
+
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>公司</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <input placeholder='公司' value='{{user.company}}'></input>
+    </view>
+  </view>
+
+  <view class='saveBox'>
+    <button size='mini' class='buttonSave'>救</button>
+  </view>
 </view>
-<view class='info'>
-    <view class='infoData'>
-      <view>0</view>
-      <view>Text</view>
-    </view>
-    <view class='infoData'>
-      <view>0</view>
-      <view>Text</view>
-    </view>
-    <view class='infoData'>
-      <view>0</view>
-      <view>Text</view>
-    </view>
-  </view>
-  <view>
-    <view class='displayFlexHorizontal'>
-      <text>公司</text>
-      <input class='marginLeftData' value='{{user.mobilePhoneNumber}}'></input>
-    </view>
-    <view class='displayFlexHorizontal'>
-      <text>公司</text>
-      <input class='marginLeftData' value='{{user.ci}}'></input>
-    </view>
-    <view class='displayFlexHorizontal'>
-      <text>公司</text>
-      <input class='marginLeftData' value='{{user.company}}'></input>
-    </view>
-    <view class='displayFlexHorizontal'>
-      <text>公司</text>
-      <input class='marginLeftData' value='{{user.city}}'></input>
-    </view>
-    <view class='displayFlexHorizontal'>
-      <text>公司</text>
-      <input class='marginLeftData' value='{{user.province}}'></input>
-    </view>
-  </view>
-  <view>
-    <button bindtap='saveUser' size='mini' class='buttonSave'>Save</button>
-    <button bindtap='cancel' size='mini' class='buttonSave'>Back</button>
-  </view>

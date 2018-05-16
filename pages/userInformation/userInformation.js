@@ -33,7 +33,6 @@ Page({
     this.setData({
       user: AV.User.current()
     })
-    console.log(this.data.user.attributes)
   },
 
   /**
