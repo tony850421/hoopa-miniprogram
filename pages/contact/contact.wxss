@@ -1,82 +1,116 @@
 /* pages/contact/contact.wxss */
-.textArray{
-  width: 100%;
-  position: static;
-}
-
-.inputSend{
-  border: 1px #BBBBBB solid;
-  border-radius: 20px;
-  height: 27px;
+.inputSend {
+  border: 1px #d6dadb solid;
+  border-radius: 5px;
+  height: 35px;
   padding-left: 7px;
   padding-right: 7px;
+  background-color: white;
+  margin-right: 5px;
 }
 
-.send{
-  width: 27px;
-  height: 27px;
-  margin-top: -28px;
-  position: absolute;
+.send {
+  width: 30px;
+  height: 30px;
 }
 
-page{
+page {
   overflow-y: hidden;
 }
 
-.commentStyle{
-  background-color: #E3E3E3;
-  border: 1px #E3E3E3 solid;
-  border-radius: 3px;
+.commentStyle {
+  background-color: #ff6801;
+  border: 1px #ff6801 solid;
+  border-radius: 5px;
   margin-left: 10px;
-  padding: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 
-.commentStyleRight{
-  background-color: #E3E3E3;
-  border: 1px #E3E3E3 solid;
-  border-radius: 3px;
+.commentStyleRight {
+  background-color: white;
+  border: 1px #d6dadb solid;
+  border-radius: 5px;
   margin-right: 10px;
-  padding: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 
-.textBar{
+.textBar {
   padding-top: 2px;
-  border-top: 1px #BBBBBB solid;
+  border-top: 1px #d6dadb solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
-.imageAvatar{
+.imageAvatar {
   width: 50px;
   height: 50px;
+  border-radius: 5px;
 }
 
-.contentComment{
+.contentComment {
   display: flex !important;
   flex-direction: column;
 }
 
-.comments{
-  margin-top: 10px;
+.comments {
   margin-left: 10px;
   display: flex !important;
   flex-direction: row;
 }
 
-.dateText{
-  font-size: 11px;
-  text-align: end;
-  margin-top: 5px;
+.dateText {
+  font-size:9px;
+  text-align:end;
+  margin-top:5px;
+  margin-left:24%;
 }
 
-.pike{
-  position: absolute;
-  z-index: -1;
-  width: 20px;
-  height: 20px;
-  margin-left:-25px;
-  margin-top:-10px;
+.dateTextRight {
+  font-size:9px;
+  text-align:end;
+  margin-top:5px;
+  margin-left:5%;
 }
 
-.bottom{
+.bottom {
   width: 100%;
   height: 5px;
+}
+
+.pike {
+  position: absolute;
+  margin-top: 2%;
+  width: 20px;
+  height: 20px;
+  z-index: -1;
+  margin-left: -8%;
+}
+
+.pikeWhite {
+  margin-top: 5%;
+  width: 20px;
+  height: 20px;
+  z-index: -1;
+  margin-left: -7%;
+  margin-right: 1%;
+}
+
+.inputGroup {
+  width:82%;
+  margin-right:5%;
+}
+
+.buttonSendGroup {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

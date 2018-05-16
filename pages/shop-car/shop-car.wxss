@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px #D6DADB solid;
+  border: 1px #D6DADB solid;
   background-color: white;
   border-radius: 5px;
   margin-bottom: 5px;

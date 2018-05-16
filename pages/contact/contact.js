@@ -56,6 +56,10 @@ Page({
       var compoundQuery = AV.Query.or(query, queryAux);
       compoundQuery.find().then(
         message => {
+          for (var i=0; i<message.length; i++){
+            message[i].createdAt = message[i].createdAt.toLocaleDateString('zh-CN') + " " + message[i].createdAt.toLocaleTimeString('zh-CN') 
+          }
+          
           this.setData({
             messages: message,
             intoView: message[message.length-1].id

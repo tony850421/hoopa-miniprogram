@@ -12,7 +12,7 @@
 }
 
 page{
-  background-color: #EFEFF4 !important;
+  background-color: #EFEEF4 !important;
 }
 
 .colorTextPrimary{
