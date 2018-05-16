@@ -1,27 +1,35 @@
 <!--pages/shop-cart/shop-cart.wxml-->
-<view class='section'>
-  <view>
-    <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper"bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-      <view class='section'>
-        <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product.id}}">
-          <view class='flex-item'>
-            <radio bindtap='checked' checked='{{product.checked}}' data-id='{{product.id}}'/>
-          </view>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='{{product.url.url}}'></image>
-          </view>
-          <view class='flex-item'>
-            <view class='productInformation'>
-              <text>{{product.title}}</text>
-              <text>{{product.price}}</text>
-            </view>
-          </view>
-        </view>        
-      </view>
-    </scroll-view>
-    <view class='barShop'>
-      <view class='textShop'></view>
-      <view class='shop'></view>
-    </view> 
+<view class='topNavBarShopCar'>
+  <view class='textBar'>
+    <text>我的报价</text>
   </view>
+  <image src='../../images/lineV.jpg' class='lineV'></image>
+  <view class='infoData' bindtap='goToCar'>
+    <image class='imageIconUserCar' src='../../images/car.png'></image>
+    <text class='font-size-13'>我的报价</text>
+  </view>
+</view>
+<view class='shopCarBody'>
+  <scroll-view scroll-y="true" style="height: {{height-147}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+    <view class='section'>
+      <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product.id}}">
+        <view class='flex-item'>
+          <image class='imageProductCar' mode='aspectFill' src='{{product.url.url}}'></image>
+        </view>
+        <view class='flex-item widthText'>
+          <view class='productInformation'>
+            <text>{{product.title}}</text>
+            <text>{{product.price}}</text>
+          </view>
+        </view>
+        <view class='flex-item'>
+          <radio bindtap='checked' checked='{{product.checked}}' data-id='{{product.id}}' />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class='barShop'>
+  <view class='textShop'></view>
+  <view class='shop'></view>
 </view>

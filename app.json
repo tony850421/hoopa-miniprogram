@@ -20,9 +20,9 @@
   "window": {
     "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#030303",
     "navigationBarTitleText": "Hoopa",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "backgroundColor": "#EFEFF4",
