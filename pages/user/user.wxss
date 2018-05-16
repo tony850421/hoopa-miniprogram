@@ -3,7 +3,8 @@
 .userinfo {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center;  
+  border-bottom: 1px #d6dadb solid;
 }
 
 .userinfo-avatar {
@@ -36,7 +37,6 @@
   flex-direction: column;
   width: 33.3%;
   align-items: center;
-  border-bottom: 1px #d6dadb solid;
   height: 80px;
 }
 
@@ -103,7 +103,6 @@
 .imageLocationUser {
   width: 15px;
   height: 20px;
-  margin-top: 3px;
   margin-right: 5px;
 }
 
@@ -143,6 +142,7 @@
   background-color: white;
   border-radius: 5px;
   padding:10px;
+  border: 1px #d6dadb solid;
 }
 
 .projectTextGroup {
@@ -153,4 +153,10 @@
 .lineV {
   width: 9px;
   height: 50px;
+}
+
+.lineVBar{
+  width: 9px;
+  height: 50px;
+  margin-top: 15px;
 }

@@ -29,10 +29,12 @@
       <image class='imageIconUserNotification' src='../../images/recommended.png'></image>
       <text class='font-size-13'>推荐</text>
     </view>
+    <image class='lineVBar' src='../../images/lineV.jpg'></image>
     <view class='infoData'>
       <image class='imageIconUserNotification' src='../../images/notifications.png'></image>
       <text class='font-size-13'>通知</text>
     </view>
+    <image class='lineVBar' src='../../images/lineV.jpg'></image>
     <view class='infoData' bindtap='goToCar'>
       <image class='imageIconUserCar' src='../../images/car.png'></image>
       <text class='font-size-13'>我的报价</text>
