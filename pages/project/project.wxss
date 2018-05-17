@@ -1,9 +1,5 @@
 /* pages/project/project.wxss */
 
-.section {
-  background-color: white;
-}
-
 .generalData {
   display: flex;
   flex-direction: column;
@@ -12,7 +8,7 @@
   padding-top: 15px;
 }
 
-.margin-bottom-5{
+.margin-bottom-5 {
   margin-bottom: 5px;
 }
 
@@ -23,9 +19,13 @@
 }
 
 .imageLocation {
+  width: 17px;
+  height: 20px;
+}
+
+.imageCall{
   width: 20px;
   height: 20px;
-  margin-left: 5px;
 }
 
 .FlexDirectionRow {
@@ -46,7 +46,7 @@
 }
 
 .buttonLeft {
-  background-color: green;
+  background-color: white;
   width: 16%;
   align-items: center;
   display: flex;
@@ -54,17 +54,19 @@
 }
 
 .buttonCar {
-  background-color: orangered;
+  background-color: #ff6801;
   width: 42%;
   text-align: center;
   padding-top: 2%;
+  color: white !important;
 }
 
 .buttonRight {
-  background-color: red;
+  background-color: #ff413d;
   width: 42%;
   text-align: center;
   padding-top: 2%;
+  color: white !important;
 }
 
 .imageButtonOffers {
@@ -86,15 +88,95 @@
   flex-direction: column;
 }
 
-.margin-left-5{
+.margin-left-5 {
   margin-left: 5px;
 }
 
-.mapProject{
-  width:100%; 
-  height:120px
+.mapProject {
+  width: 100%;
+  height: 120px;
 }
 
-.margin-bottom-0{
+.margin-bottom-0 {
   margin-bottom: 0px !important;
+}
+
+.lineV {
+  width: 3px;
+  height: 20px;
+}
+
+.projectTitleGroup {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: center;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.projectsLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.phoneNumber {
+  width: 85%;
+}
+
+.nearbyProjects {
+  width: 90%;
+}
+
+.callPhoneNumber {
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+
+.userLocationGroup{
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.projectTextGroup {
+  width: 75%;
+  margin-left: 10px;
+  display: flex;
+}
+
+.desciptionGroup {
+  width: 100%;
+  display: flex;
+}
+
+.paddingSpecialDropdown {
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+}
+
+.margin-top-5 {
+  margin-top: 5px !important;
+}
+
+.weui-cells {
+  background-color: #efeef4 !important;
+}
+
+.kind-list__item-bd {
+  border-top: 1px #d6dadb solid;
 }

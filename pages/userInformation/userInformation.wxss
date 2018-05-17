@@ -129,23 +129,6 @@
   flex-direction: column;
 }
 
-.projectTitleGroup {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  align-items: center;
-}
-
-.projectsGroup {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: white;
-  border-radius: 5px;
-  padding:10px;
-  margin-top: 5px;
-}
-
 .projectTextGroup {
   width: 75%;
   margin-left: 10px;
@@ -169,4 +152,20 @@
   flex-direction: row;
   align-items: center;
   margin-top: 20px;
+}
+
+.projectTitleGroup {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  padding:10px;
+  margin-top: 5px;
 }

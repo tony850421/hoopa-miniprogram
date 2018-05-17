@@ -20,7 +20,7 @@ Page({
         phone: 13818354127,
         avatar: '../../images/LogoHoopa.png',
         iconPath: "../../images/markerWork.png",
-        width: 40,
+        width: 42,
         height: 50,
         callout: {
           content: '单击以调用',
@@ -42,7 +42,7 @@ Page({
         avatar: '../../images/LogoHoopa.png',
         iconPath: "../../images/markerWork.png",
         id: 1,
-        width: 40,
+        width: 42,
         height: 50,
         callout: {
           content: '单击以调用',
@@ -64,7 +64,7 @@ Page({
         avatar: '../../images/LogoHoopa.png',
         iconPath: "../../images/markerWork.png",
         id: 2,
-        width: 40,
+        width: 42,
         height: 50,
         callout: {
           content: '单击以调用',
@@ -86,7 +86,7 @@ Page({
         avatar: '../../images/LogoHoopa.png',
         iconPath: "../../images/markerWork.png",
         id: 3,
-        width: 40,
+        width: 42,
         height: 50,
         callout: {
           content: '单击以调用',
@@ -108,7 +108,7 @@ Page({
         avatar: '../../images/LogoHoopa.png',
         iconPath: "../../images/markerWork.png",
         id: 4,
-        width: 40,
+        width: 42,
         height: 50,
         callout: {
           content: '单击以调用',
@@ -130,7 +130,7 @@ Page({
         avatar: '../../images/LogoHoopa.png',
         iconPath: "../../images/markerWork.png",
         id: 5,
-        width: 40,
+        width: 42,
         height: 50,
         callout: {
           content: '单击以调用',

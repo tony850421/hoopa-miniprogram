@@ -14,7 +14,8 @@ Page({
     duration: 1000,
     height: '',
     widht: '320',
-    product: {}
+    product: {},
+    open: false
   },
   onLoad: function (options) {
     wx.getSystemInfo({
@@ -58,9 +59,9 @@ Page({
         wx.setStorage({
           key: 'redirect',
           data: '../offer/offer',
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {},
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
         })
         wx.navigateTo({
           url: '../register/register',
@@ -68,7 +69,7 @@ Page({
       }
     }).catch(function (error) {
       console.log(error);
-    });    
+    });
   },
   onShow: function (options) {
     wx.getStorage({
@@ -119,7 +120,7 @@ Page({
       }
     })
   },
-  sendToShopCar: function(){
+  sendToShopCar: function () {
     const user = AV.User.current()
     if (user) {
       var shop = new AV.Object('ShopCar')
@@ -133,20 +134,38 @@ Page({
       })
     }
   },
-  goToCar: function(){
+  goToCar: function () {
     wx.navigateTo({
       url: '../shop-car/shop-car'
     })
   },
-  goToNearby: function(){
+  goToNearby: function () {
     wx.navigateTo({
       url: '../mapProjectNearby/mapProjectNearby'
     })
   },
-  callPhoneNumber: function(){
+  callPhoneNumber: function () {
     console.log("call")
     // wx.makePhoneCall({
     //   phoneNumber: this.data.product.phone.toString()
     // })
+  },
+  kindToggle: function (e) {
+    // var id = e.currentTarget.id
+    // list = this.data.list
+
+    // for (var i = 0, len = list.length; i < len; ++i) {
+    //   if (list[i].id == id) {
+    //     list[i].open = !list[i].open
+    //   } else {
+    //     list[i].open = false
+    //   }
+    // }
+    // this.setData({
+    //   list: list
+    // });
+    this.setData({
+      open: !this.data.open
+    })
   }
 })
