@@ -213,7 +213,7 @@ Page({
     }
   },
   register: function () {
-    // var user = AV.User.current();
+    var that = this
     that.data.user.set('fullName', this.data.name);
     that.data.user.set('ci', this.data.ci);
     that.data.user.set('company', this.data.company);

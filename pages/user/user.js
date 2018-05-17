@@ -115,8 +115,26 @@ Page({
     })
   },
   goToUserInformation: function(){
-    wx.navigateTo({
-      url: '../userInformation/userInformation',
-    })
+    var roleQuery = new AV.Query(AV.Role);
+    roleQuery.equalTo('name', 'official');
+    roleQuery.equalTo('users', this.data.user);
+    roleQuery.find().then(function (results) {
+      if (results.length <= 0) {
+        wx.setStorage({
+          key: 'redirect',
+          data: '../user/user',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+        wx.navigateTo({
+          url: '../register/register',
+        })
+      } else {
+        wx.navigateTo({
+          url: '../userInformation/userInformation',
+        })
+      }
+    })    
   }
 })

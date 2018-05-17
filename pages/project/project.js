@@ -15,7 +15,7 @@ Page({
     height: '',
     widht: '320',
     product: {},
-    open: false
+    open: true
   },
   onLoad: function (options) {
     wx.getSystemInfo({

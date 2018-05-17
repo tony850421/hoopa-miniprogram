@@ -85,7 +85,7 @@
       </view>
       <image class='lineV' src='../../images/lineV.jpg'></image>
       <view class='textSendCode'>
-        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' bindtap='sendCode' class='font-size-13 buttonSenCode'>注册</button>
+        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' bindtap='sendCode' class='font-size-13 buttonSenCode'>{{codeText}}</button>
       </view>
     </view>
   </view>
