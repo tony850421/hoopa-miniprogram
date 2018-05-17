@@ -152,7 +152,7 @@
 }
 
 .lineV {
-  width: 9px;
+  width: 3px;
   height: 20px;
 }
 

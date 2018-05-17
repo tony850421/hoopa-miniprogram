@@ -4,31 +4,3 @@ map {
   height: 250px;
   width: 100%;
 }
-
-.font-size-13 {
-  font-size: 13px;
-}
-
-.product {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 1px #d6dadb solid;
-  background-color: white;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-.imageProductCar {
-  width: 100px;
-  height: 80px;
-  padding-left: 6px;
-  padding-top: 6px;
-  border-radius: 5px;
-}
-
-.productInformation {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
-}
