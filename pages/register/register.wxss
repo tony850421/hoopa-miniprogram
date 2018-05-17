@@ -1,57 +1,146 @@
 /* pages/register/register.wxss */
+@media (max-width: 480px) {
+  .BackgorundProfile {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.login{
+  .imageLogoHoopa {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 414px) {
+  .BackgorundProfile {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageLogoHoopa {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .BackgorundProfile {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageLogoHoopa {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .BackgorundProfile {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageLogoHoopa {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .BackgorundProfile {
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageLogoHoopa {
+    margin-top: 10px;
+  }
+}
+
+.imageLogoHoopa {
+  width: 260px;
+  height: 140px;
+}
+
+.projectsGroup {
   display: flex;
-  flex-direction: column;
-  padding-left: 15px;
-  padding-right: 15px;
+  flex-direction: row;
+  align-items: center;
   background-color: white;
-  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 10px;
   margin-top: 5px;
 }
-.phone{
+
+.projectTextGroup {
+  width: 80%;
+  margin-left: 10px;
+}
+
+.projectSendCodeGroup {
+  width: 80%;
+  margin-left: 10px;
   display: flex;
   flex-direction: row;
-  border-bottom: 1px #EFEFf4 solid;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
   align-items: center;
-  height: 40px;
 }
-.confirm{
+
+.inputSendCode {
+  width: 85%;
+}
+
+.textSendCode {
+  width: 15%;
+  text-align: center;
   display: flex;
-  flex-direction: row;
-  border-bottom: 1px #EFEFf4 solid;  
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  align-items: center;
 }
-.buttonLogin{
-  margin-top: 15px;
+
+.font-size-13 {
+  font-size: 13px;
+}
+
+.lineV {
+  width: 9px;
+  height: 20px;
+}
+
+.registerPadding {
+  padding: 10px;
+}
+
+.buttonSenCode {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.buttonSave {
+  background-color: #ff6801 !important;
+  color: white !important;
+  border-radius: 5px;
+  width: 70px !important;
+}
+
+.saveBox {
   width: 100%;
-  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
 }
-.textRegister{  
-  margin-top: 15px;
-  color: blue;
-}
-.inputLogin{
-  padding-left: 15px;
-}
-.textConfirm{
-  padding: 0;
-  width: 60px;
-}
-.textHalf{
-  padding-top: 10px;
-  padding-right: 10px;
-}
-page{
-  height: 100% !important;
-}
-.codeConfirmText{
-  width: 33px;
+
+.home {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
 }

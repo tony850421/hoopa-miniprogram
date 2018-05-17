@@ -50,8 +50,6 @@ Page({
     roleQuery.equalTo('name', 'official');
     roleQuery.equalTo('users', AV.User.current());
     roleQuery.find().then(function (results) {
-      console.log('roleQuery');
-      console.log(results.length);
       if (results.length > 0) {
         wx.navigateTo({
           url: '../offer/offer',

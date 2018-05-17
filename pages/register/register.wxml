@@ -1,29 +1,96 @@
 <!--pages/register/register.wxml-->
+<image bindtap='goToHome' class='home' src='../../images/homeSelected.png'></image>
 <view>
-  <view class='login'>
-    <view class='phone'>
-      <text>全名</text>
+  <view class="userinfo BackgorundProfile">
+    <block>
+      <image class='imageLogoHoopa' src='../../images/LogoHoopa.png'></image>
+    </block>
+  </view>
+</view>
+<!-- <view class='login'>
+  <view class='phone'>
+    <text>全名</text>
+    <input value='{{name}}' bindinput='inputName' class='inputLogin' placeholder='介绍您的全名'></input>
+  </view>
+  <view class='phone'>
+    <text>识别</text>
+    <input value='{{ci}}' bindinput='inputCI' class='inputLogin' placeholder='介绍您的标识'></input>
+  </view>
+  <view class='phone'>
+    <text>公司</text>
+    <input value='{{company}}' bindinput='inputCompany' class='inputLogin' placeholder='介绍您的公司'></input>
+  </view>
+  <view class='phone'>
+    <text>手机</text>
+    <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='介绍您的手机'></input>
+  </view>
+  <view class='confirm'>
+    <text class='codeConfirmText'>代码</text>
+    <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='介绍代码'></input>
+    <button disabled='{{buttonSendCodeDisabled}}' bindtap='sendCode' class='textConfirm'>{{codeText}}</button>
+  </view>
+  <text class='textHalf'>安全策略</text>
+  <button bindtap='register' disabled='{{butonRegisterDisable}}' class='buttonLogin'>注册</button>
+</view> -->
+
+<view class='registerPadding'>
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>名字</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
       <input value='{{name}}' bindinput='inputName' class='inputLogin' placeholder='介绍您的全名'></input>
     </view>
-    <view class='phone'>
-      <text>识别</text>
+  </view>
+
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>识别</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
       <input value='{{ci}}' bindinput='inputCI' class='inputLogin' placeholder='介绍您的标识'></input>
     </view>
-    <!-- <text class='textHalf'>咯给咯给咯给咯给</text> -->
-    <view class='phone'>
-      <text>公司</text>
+  </view>
+
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>公司</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
       <input value='{{company}}' bindinput='inputCompany' class='inputLogin' placeholder='介绍您的公司'></input>
     </view>
-    <view class='phone'>
-      <text>手机</text>
+  </view>
+
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>电话</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
       <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='介绍您的手机'></input>
     </view>
-    <view class='confirm'>
-      <text class='codeConfirmText'>代码</text>
-      <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='介绍代码'></input>
-      <button disabled='{{buttonSendCodeDisabled}}' bindtap='sendCode' class='textConfirm'>{{codeText}}</button>
+  </view>
+
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <text class='font-size-13'>代码</text>
     </view>
-    <text class='textHalf'>安全策略</text>
-    <button bindtap='register' disabled='{{butonRegisterDisable}}' class='buttonLogin'>注册</button>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectSendCodeGroup'>
+      <view class='inputSendCode'>
+        <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='介绍代码'></input>
+      </view>
+      <image class='lineV' src='../../images/lineV.jpg'></image>
+      <view class='textSendCode'>
+        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' bindtap='sendCode' class='font-size-13 buttonSenCode'>注册</button>
+      </view>
+    </view>
+  </view>
+
+  <view class='saveBox'>
+    <button bindtap='register' disabled='{{butonRegisterDisable}}' size='mini' class='buttonSave'>注册</button>
   </view>
 </view>

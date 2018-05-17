@@ -50,7 +50,6 @@ Page({
       user: AV.User.current()
     })
     if (this.data.user){
-      console.log(this.data.user)
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('users', this.data.user);
       roleQuery.find().then(
@@ -255,5 +254,10 @@ Page({
     }, function (err) {
       console.log(err)
     });
+  },
+  goToHome: function(){
+    wx.switchTab({
+      url: '../index/index',
+    })
   }
 })

@@ -46,55 +46,73 @@ Page({
       },
     })
 
-    wx.hideKeyboard()
+    var roleQuery = new AV.Query(AV.Role);
+    roleQuery.equalTo('name', 'official');
+    roleQuery.equalTo('users', this.data.user);
+    roleQuery.find().then(function (results) {
+      if (results.length <= 0) {
+        wx.setStorage({
+          key: 'redirect',
+          data: '../contact/contact',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+        wx.navigateTo({
+          url: '../register/register',
+        })
+      } else {
+        if (this.data.user) {
+          var query = new AV.Query('Message')
+          query.equalTo('sender', this.data.user)
+          var queryAux = new AV.Query('Message')
+          queryAux.equalTo('receiver', this.data.user);
+          var compoundQuery = AV.Query.or(query, queryAux);
+          compoundQuery.find().then(
+            message => {
+              for (var i = 0; i < message.length; i++) {
+                message[i].createdAt = message[i].createdAt.toLocaleDateString('zh-CN') + " " + message[i].createdAt.toLocaleTimeString('zh-CN')
+              }
 
-    if (this.data.user) {
-      var query = new AV.Query('Message')
-      query.equalTo('sender', this.data.user)
-      var queryAux = new AV.Query('Message')
-      queryAux.equalTo('receiver', this.data.user);
-      var compoundQuery = AV.Query.or(query, queryAux);
-      compoundQuery.find().then(
-        message => {
-          for (var i=0; i<message.length; i++){
-            message[i].createdAt = message[i].createdAt.toLocaleDateString('zh-CN') + " " + message[i].createdAt.toLocaleTimeString('zh-CN') 
-          }
-          
-          this.setData({
-            messages: message,
-            intoView: message[message.length-1].id
-          })
-
-          var querySender = new AV.Query('_User')
-          if (message[0].attributes.sender.id == this.data.user.id) {
-            querySender.get(message[0].attributes.receiver.id).then(
-              send => {
-                this.setData({
-                  sender: send
-                })
+              this.setData({
+                messages: message,
+                intoView: message[message.length - 1].id
               })
-          } else {
-            querySender.get(message[0].attributes.sender.id).then(
-              send => {
-                this.setData({
-                  sender: send
-                })
-              })
-          }
 
-          for (var i = 0; i < message.length; i++) {
-            if (message[i].attributes.receiver.id == this.data.user.id) {
-              message[i].set('readed', true)
-              message[i].save()
+              var querySender = new AV.Query('_User')
+              if (message[0].attributes.sender.id == this.data.user.id) {
+                querySender.get(message[0].attributes.receiver.id).then(
+                  send => {
+                    this.setData({
+                      sender: send
+                    })
+                  })
+              } else {
+                querySender.get(message[0].attributes.sender.id).then(
+                  send => {
+                    this.setData({
+                      sender: send
+                    })
+                  })
+              }
+
+              for (var i = 0; i < message.length; i++) {
+                if (message[i].attributes.receiver.id == this.data.user.id) {
+                  message[i].set('readed', true)
+                  message[i].save()
+                }
+              }
+
+              wx.removeTabBarBadge({
+                index: 1,
+              })
             }
-          }
-
-          wx.removeTabBarBadge({
-            index: 1,
-          })
-        }
-      )
-    }    
+          )
+        }  
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });      
   },
 
   /**
