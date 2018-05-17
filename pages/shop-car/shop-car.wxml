@@ -22,8 +22,8 @@
           </view>
           <view class='flex-item widthText'>
             <view class='productInformation'>
-              <text>{{product.title}}</text>
-              <text>{{product.price}}</text>
+              <text class='font-size-13'>{{product.title}}</text>
+              <text class='font-size-13'>{{product.price}}</text>
             </view>
           </view>
         </view>

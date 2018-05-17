@@ -18,3 +18,12 @@ page{
 .colorTextPrimary{
   color: #FF6801;
 }
+
+.branchesSelected{
+  background-color: #FF6801 !important;
+  color: white !important;
+}
+
+.branchesUnselected{
+  background-color: white !important;
+}

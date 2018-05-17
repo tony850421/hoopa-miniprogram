@@ -24,7 +24,7 @@
   border-radius: 5px;
 }
 
-.radioProduct{
+.radioProduct {
   margin-left: 6px;
 }
 
@@ -58,13 +58,13 @@
   align-items: center;
 }
 
-.textDelete{
+.textDelete {
   width: 60%;
   color: white !important;
   text-align: end;
 }
 
-.textDeleteCount{
+.textDeleteCount {
   width: 40%;
   color: white !important;
   margin-left: 2px;
@@ -75,7 +75,7 @@
   height: 45px;
   display: flex;
   flex-direction: row;
-  border-top: 1px #D6DADB solid;
+  border-top: 1px #d6dadb solid;
   background-color: white;
 }
 
@@ -124,7 +124,7 @@
   width: 53%;
 }
 
-.groupId{
+.groupId {
   display: flex;
   flex-direction: row;
   align-items: center;

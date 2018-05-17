@@ -1,7 +1,7 @@
 <!--pages/partners/partners.wxml-->
 <scroll-view scroll-y="true" style="height: {{height-250}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-  <view wx:for="{{markers}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
-    <view class='flexRow'>
+  <!-- <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'> -->
+  <!-- <view class='flexRow'>
       <view wx:if="{{partner.show}}">
         <image src='../../images/partnerSelected.png' class='iconPosition'></image>
       </view>
@@ -13,6 +13,20 @@
         <image class='imageCall' src='../../images/call.png'></image>
       </button>
     </view>
+  </view> -->
+
+  <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
+    <view class='product {{partner.classSelected}}'>
+      <view class='flex-item'>
+        <image class='imageProductCar' mode='aspectFill' src='{{partner.avatar}}'></image>
+      </view>
+      <view class='flex-item widthText'>
+        <view class='productInformation'>
+          <text class='font-size-13'>{{partner.name}}</text>
+          <text class='font-size-13'>{{partner.direction}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </scroll-view>
-<map bindcallouttap='markertap' id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{markers}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true'></map>
+<map bindcallouttap='markertap' id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{partners}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true'></map>
