@@ -1,50 +1,85 @@
 /* pages/shop-cart/shop-cart.wxss */
-.product{
+
+.product {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px #D6DADB solid;
+  border: 1px #d6dadb solid;
   background-color: white;
   border-radius: 5px;
   margin-bottom: 5px;
 }
 
-.productInformation{
+.productInformation {
   display: flex;
   flex-direction: column;
   padding-left: 10px;
 }
 
-.imageProductCar{
+.imageProductCar {
   width: 100px;
   height: 80px;
   padding-left: 6px;
-  padding-top:6px;
+  padding-top: 6px;
   border-radius: 5px;
 }
 
-.textShop{
+.radioProduct{
+  margin-left: 6px;
+}
+
+.textShop {
   width: 70%;
   padding: 0;
   height: 45px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.shop{
+.selectAll {
+  margin-left: 10px;
+  width: 60%;
+}
+
+.count {
+  width: 40%;
+  text-align: end;
+  margin-right: 10px;
+}
+
+.delete {
   width: 30%;
-  background-color: red;
+  background-color: #ff413d;
   padding: 0;
   height: 45px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.barShop{
+.textDelete{
+  width: 60%;
+  color: white !important;
+  text-align: end;
+}
+
+.textDeleteCount{
+  width: 40%;
+  color: white !important;
+  margin-left: 2px;
+}
+
+.barShop {
   width: 100%;
   height: 45px;
   display: flex;
   flex-direction: row;
-  border-top: 1px #EFEFF4 solid;
+  border-top: 1px #D6DADB solid;
+  background-color: white;
 }
 
-.topNavBarShopCar{
+.topNavBarShopCar {
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -63,7 +98,7 @@
   width: 33.3%;
   align-items: center;
   height: 80px;
-  margin-left:5%;
+  margin-left: 5%;
 }
 
 .imageIconUserCar {
@@ -76,15 +111,22 @@
   font-size: 13px;
 }
 
-.textBar{
+.textBar {
   width: 50%;
   text-align: center;
 }
 
-.shopCarBody{
+.shopCarBody {
   padding: 10px;
 }
 
-.widthText{
+.widthText {
   width: 53%;
+}
+
+.groupId{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }

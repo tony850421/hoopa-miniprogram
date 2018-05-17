@@ -14,22 +14,35 @@
     <view class='section'>
       <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product.id}}">
         <view class='flex-item'>
-          <image class='imageProductCar' mode='aspectFill' src='{{product.url.url}}'></image>
+          <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.id}}' />
         </view>
-        <view class='flex-item widthText'>
-          <view class='productInformation'>
-            <text>{{product.title}}</text>
-            <text>{{product.price}}</text>
+        <view bindtap='goToProject' class='groupId' id='{{product.id}}'>
+          <view class='flex-item'>
+            <image class='imageProductCar' mode='aspectFill' src='{{product.url.url}}'></image>
           </view>
-        </view>
-        <view class='flex-item'>
-          <radio bindtap='checked' checked='{{product.checked}}' data-id='{{product.id}}' />
+          <view class='flex-item widthText'>
+            <view class='productInformation'>
+              <text>{{product.title}}</text>
+              <text>{{product.price}}</text>
+            </view>
+          </view>
         </view>
       </view>
     </view>
   </scroll-view>
 </view>
 <view class='barShop'>
-  <view class='textShop'></view>
-  <view class='shop'></view>
+  <view class='textShop'>
+    <view class='selectAll'>
+      <radio bindtap='checkedAllTap' checked='{{checkedAll}}' class='font-size-13'>全部选择</radio>
+    </view>
+    <view class='count font-size-13'>
+      <text>总:</text>
+      <text wx:if="{{total > 0}}">({{total}})</text>
+    </view>
+  </view>
+  <view class='delete font-size-13'>
+    <text class='textDelete'>删除</text>
+    <text class='textDeleteCount' wx:if="{{countCar > 0}}">({{countCar}})</text>
+  </view>
 </view>

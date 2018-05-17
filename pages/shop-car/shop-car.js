@@ -10,7 +10,10 @@ Page({
   data: {
     height: '',
     widht: '',
-    products: []
+    products: [],
+    countCar: 0,
+    checkedAll: false,
+    total: 0
   },
 
   /**
@@ -99,14 +102,69 @@ Page({
   },
   checked: function (e) {
     var that = this
+    this.setData({
+      countCar: 0,
+      total: 0
+    })
     
     for (var i = 0; i < that.data.products.length; i++) {
       if (that.data.products[i].id == e.target.dataset.id){
-        that.data.products[i].checked = !that.data.products[i].checked
+        that.data.products[i].checked = !that.data.products[i].checked        
+      }
+      if (that.data.products[i].checked){
+        that.data.countCar = that.data.countCar + 1
+        that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].price)
       }
     }
     this.setData({
-      products: that.data.products
+      products: that.data.products,
+      countCar: that.data.countCar,
+      total: that.data.total
+    })
+
+    if (that.data.countCar == that.data.products.length){
+      this.setData({
+        checkedAll: true
+      }) 
+    } else {
+      this.setData({
+        checkedAll: false
+      }) 
+    }
+  },
+  checkedAllTap: function(){
+    var that = this
+    this.setData({
+      countCar: 0,
+      total: 0
+    })
+
+    if (this.data.checkedAll) {
+      for (var i = 0; i < that.data.products.length; i++) {
+        that.data.products[i].checked = false
+      }
+    } else {
+      for (var i = 0; i < that.data.products.length; i++) {
+        that.data.products[i].checked = true
+        that.data.countCar = that.data.countCar + 1
+        that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].price)
+      }      
+    }
+
+    this.setData({
+      products: that.data.products,
+      countCar: that.data.countCar,
+      checkedAll: !that.data.checkedAll,
+      total: that.data.total
+    })
+  },
+  goToProject: function(e){
+    wx.setStorage({
+      key: "projectID",
+      data: e.currentTarget.id
+    })
+    wx.navigateTo({
+      url: '../project/project',
     })
   }
 })
