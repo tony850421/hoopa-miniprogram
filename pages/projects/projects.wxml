@@ -17,24 +17,28 @@
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
   </view>
 </view>
-<view hidden='{{inputShowed}}'>
-  <image mode='aspectFill' class='imageProjects' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/3aca4f015b846c455e64.jpg'></image>
-  <block wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}">
-    <view class='generalData' id="{{product.id}}" bindtap='goToProject'>
-      <text>{{product.title}}</text>
-      <view class='FlexDirectionRow'>
-        <text>Price:</text>
-        <text>{{product.price}}</text>
-      </view>
-      <view class='FlexDirectionRow'>
-        <text>Offers:</text>
-        <text>{{product.offers}}</text>
+<view class='padding-10' hidden='{{inputShowed}}'>
+  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
+    <view class='flex-item'>
+      <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
+    </view>
+    <view class='flex-item widthText'>
+      <view class='productInformation'>
+        <text>{{product.title}}</text>
+        <view class='displayFlexRow font-size-13'>
+          <text>价格：</text>
+          <text class='colorTextPrimary'>{{product.price}}</text>
+        </view>
+        <view class='displayFlexRow font-size-13'>
+          <text>提供：</text>
+          <text class='colorTextPrimary'>{{product.offers}}</text>
+        </view>
       </view>
     </view>
-  </block>
+  </view>
 </view>
 <view hidden='{{!inputShowed}}'>
-  <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+  <!-- <block wx:for-items="{{list}}" wx:key="{{item.id}}">
     <view class="kind-list__item">
       <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
         <view class="weui-flex__item">{{item.name}}</view>
@@ -51,5 +55,5 @@
         </view>
       </view>
     </view>
-  </block>
+  </block> -->
 </view>

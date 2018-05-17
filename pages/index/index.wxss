@@ -170,10 +170,6 @@
   flex-direction: column;
 }
 
-.font-size-13 {
-  font-size: 13px;
-}
-
 .imageLine {
   width: 70px;
   height: 20px;

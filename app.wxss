@@ -55,3 +55,13 @@ page{
   flex-direction: column;
   padding-left: 10px;
 }
+
+.displayFlexRow{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.padding-10{
+  padding: 10px;
+}

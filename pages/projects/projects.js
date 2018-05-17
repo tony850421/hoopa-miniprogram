@@ -74,13 +74,12 @@ Page({
         var query = new AV.Query("Project");
         query.get(products[i].id).then(
           project => {
-            
+            this.data.products[i] = project
             var query = new AV.Query('Offert');
             query.equalTo('project', project);
             query.find().then(
               offer => {
-                const count = Math.floor(i)
-                this.data.products[count] = { offers: offer.length, title: this.data.products[count].attributes.title, price: this.data.products[count].attributes.price, id: project.id}
+                this.data.products[i].attributes.offers = offer.length
                 this.setData({
                   products: this.data.products
                 })
