@@ -61,6 +61,9 @@ Page({
         })
       }
     )
+    this.setData({
+      user: AV.User.current()
+    })
   },
 
   /**

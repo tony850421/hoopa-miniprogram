@@ -46,9 +46,11 @@ Page({
       },
     })
 
+    var user = AV.User.current()
+
     var roleQuery = new AV.Query(AV.Role);
     roleQuery.equalTo('name', 'official');
-    roleQuery.equalTo('users', this.data.user);
+    roleQuery.equalTo('users', user);
     roleQuery.find().then(function (results) {
       if (results.length <= 0) {
         wx.setStorage({
@@ -62,11 +64,11 @@ Page({
           url: '../register/register',
         })
       } else {
-        if (this.data.user) {
+        if (user) {
           var query = new AV.Query('Message')
-          query.equalTo('sender', this.data.user)
+          query.equalTo('sender', user)
           var queryAux = new AV.Query('Message')
-          queryAux.equalTo('receiver', this.data.user);
+          queryAux.equalTo('receiver', user);
           var compoundQuery = AV.Query.or(query, queryAux);
           compoundQuery.find().then(
             message => {
@@ -80,7 +82,7 @@ Page({
               })
 
               var querySender = new AV.Query('_User')
-              if (message[0].attributes.sender.id == this.data.user.id) {
+              if (message[0].attributes.sender.id == user.id) {
                 querySender.get(message[0].attributes.receiver.id).then(
                   send => {
                     this.setData({
@@ -97,7 +99,7 @@ Page({
               }
 
               for (var i = 0; i < message.length; i++) {
-                if (message[i].attributes.receiver.id == this.data.user.id) {
+                if (message[i].attributes.receiver.id == user.id) {
                   message[i].set('readed', true)
                   message[i].save()
                 }
@@ -166,7 +168,7 @@ Page({
       var acl = new AV.ACL();
       acl.setPublicReadAccess(true);
       acl.setWriteAccess(this.data.user, true);
-      acl.setWriteAccess(this.data.sender, true);
+      acl.setWriteAccess(receiver, true);
       newMessage.setACL(acl);
 
       newMessage.save().then(res => {

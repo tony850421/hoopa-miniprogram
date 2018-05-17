@@ -4,13 +4,13 @@
     <block>
       <view class='dataUserInfoCover'>
         <view class='imageContainer'>
-          <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+          <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
         </view>
-        <text wx:if="{{user.fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
-        <text wx:if="{{!user.fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.nickName}}</text>
+        <text wx:if="{{fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{fullName}}</text>
+        <text wx:if="{{!fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{nickName}}</text>
         <view class='locationUser'>
           <image class='imageLocationUser' src='../../images/userLocation.png'></image>
-          <text bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.city}}, {{user.province}}</text>
+          <text bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{city}}, {{province}}</text>
         </view>
       </view>
     </block>
@@ -21,11 +21,11 @@
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
-      <input placeholder='名字' value='{{user.fullName}}'></input>
+      <input bindinput='bindInputFullName' placeholder='名字' value='{{fullName}}'></input>
     </view>
   </view>
 
-  <view class='projectsGroup'>
+  <!-- <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>电话</text>
     </view>
@@ -33,7 +33,7 @@
     <view class='projectTextGroup'>
       <input placeholder='电话' value='{{user.mobilePhoneNumber}}'></input>
     </view>
-  </view>
+  </view> -->
 
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
@@ -41,7 +41,7 @@
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
-      <input placeholder='识别' value='{{user.ci}}'></input>
+      <input bindinput='bindInputCI' placeholder='识别' value='{{ci}}'></input>
     </view>
   </view>
 
@@ -51,11 +51,11 @@
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
-      <input placeholder='公司' value='{{user.company}}'></input>
+      <input bindinput='bindInputCompany' placeholder='公司' value='{{company}}'></input>
     </view>
   </view>
 
   <view class='saveBox'>
-    <button size='mini' class='buttonSave'>救</button>
+    <button bindtap='saveUser' size='mini' class='buttonSave'>救</button>
   </view>
 </view>
