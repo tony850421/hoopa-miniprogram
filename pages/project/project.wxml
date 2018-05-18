@@ -25,7 +25,7 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5 colorTextPrimary'>7845232.00</text>
+          <text class='margin-left-5 colorTextPrimary'>{{product.debitAmount}}</text>
         </view>
       </view>
 
@@ -35,7 +35,17 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>1845232.00</text>
+          <text class='margin-left-5'>{{product.debitPricipalInterest}}</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>受理法院</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5'>{{product.court}}</text>
         </view>
       </view>
 
@@ -52,7 +62,7 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>王额</text>
+          <text class='margin-left-5'>{{projectManager.name}}</text>
         </view>
       </view>
 
@@ -63,10 +73,10 @@
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
           <view class='phoneNumber'>
-            <text bindtap='callPhoneNumber' class='margin-left-5'>15423668954</text>
+            <text bindtap='callPhoneNumber' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{projectManager.phone}}</text>
           </view>
           <view class='callPhoneNumber'>
-            <image bindtap='callPhoneNumber' class='imageCall margin-left-5' src='../../images/call.png'></image>
+            <image bindtap='callPhoneNumber' data-phone="{{projectManager.phone}}" class='imageCall margin-left-5' src='../../images/call.png'></image>
           </view>
         </view>
       </view>
@@ -84,7 +94,8 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>是</text>
+          <text wx:if="{{product.quotation == 1}}" class='margin-left-5'>是</text>
+          <text wx:if="{{product.quotation == 0}}" class='margin-left-5'>否</text>
         </view>
       </view>
 
@@ -111,7 +122,7 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>234</text>
+          <text class='margin-left-5'>{{product.borrowerPrincipalDebit}}</text>
         </view>
       </view>
 
@@ -121,7 +132,7 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>465</text>
+          <text class='margin-left-5'>{{product.borrowerInterestCreditor}}</text>
         </view>
       </view>
 
@@ -131,50 +142,52 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>1398</text>
+          <text class='margin-left-5'>{{product.borrowerTotalInterest}}</text>
         </view>
       </view>
 
-      <!--maps  -->
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>方向</text>
+      <view wx:for="{{assetsList}}" wx:for-item="asset">
+        <!--maps  -->
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>方向</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{asset.address.plain}}</text>
+          </view>
         </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>广州市天河区金穗路3号汇美大厦1201A</text>
-        </view>
-      </view>
 
-      <map class='mapProject margin-bottom-5' id="mapDirection" longitude="126.605935" latitude="45.759068" scale="16"></map>
+        <map class='mapProject margin-bottom-5' id="mapDirection" longitude="{{asset.address.location.longitude}}" latitude="{{asset.address.location.latitude}}" scale="16"></map>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>质</text>
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>质</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{asset.typeArrival}}</text>
+          </view>
         </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>非常好</text>
-        </view>
-      </view>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>建筑面积</text>
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>建筑面积</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{asset.constructionArea}}</text>
+          </view>
         </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>123m</text>
-        </view>
-      </view>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>土地面积</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>231m</text>
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>土地面积</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{asset.landArea}}</text>
+          </view>
         </view>
       </view>
 
@@ -185,39 +198,41 @@
         </view>
       </view>
 
-      <!--list of sponsors  -->
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>保证人</text>
+      <view wx:for="{{sponsorsList}}" wx:for-item="sponsor">
+        <!--list of sponsors  -->
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>保证人</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{sponsor.name}}</text>
+          </view>
         </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>李王</text>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>类型</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{sponsor.type}}</text>
+          </view>
+        </view>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>担保金额</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{sponsor.amount}}</text>
+          </view>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>类型</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>个人</text>
-        </view>
-      </view>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>担保金额</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>12312</text>
-        </view>
-      </view>
-
-
-      <!-- borrower progress  -->
+      <!-- description  -->
       <view class='projectsLabel font-size-13'>
         <view class='projectTitleGroup'>
           <text>描述</text>
@@ -226,7 +241,7 @@
 
       <view class='projectsGroup font-size-13'>
         <view class='desciptionGroup'>
-          <text class='margin-left-5'>胡巴资产专业提供不良资产收购、处置、资金配套服务；核心管理团队有10年不良资产行业管理经验；所管理处置的不良债权总额累计过200亿；诚实信用、最大程度为投资人实现价值是我们的宗旨</text>
+          <text class='margin-left-5'>{{product.description}}</text>
         </view>
       </view>
 

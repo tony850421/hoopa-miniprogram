@@ -101,8 +101,28 @@ Page({
                     var roleQuery = new AV.Query(AV.Role);
                     roleQuery.equalTo('users', user);
                     roleQuery.find().then(function (results) {
+                      
+                      var officialFlag = false;
+                      for (var i =0; i<results.length; i++){
+                        if (results[i].attributes.name == "official"){
+                          officialFlag = true;
+                        }
+                      }
+
+                      if (officialFlag){
+                        wx.setStorage({
+                          key: 'role',
+                          data: 'official',
+                        })
+                      } else {
+                        wx.setStorage({
+                          key: 'role',
+                          data: 'guest',
+                        })
+                      }
+
                       if (results.length > 0) {
-                        var role = results[0];
+                        var role = results[0];                        
                       } else {
                         var roleQueryGuest = new AV.Query(AV.Role);
                         roleQueryGuest.equalTo('name', 'guest');

@@ -15,7 +15,9 @@ Page({
     height: '',
     widht: '320',
     product: {},
-    open: true
+    projectManager: {},
+    sponsorsList: [],
+    assetsList: []
   },
   onLoad: function (options) {
     wx.getSystemInfo({
@@ -29,16 +31,33 @@ Page({
 
     const user = AV.User.current();
     if (user) {
-      // var visit = new AV.Object('ProjectVisit');
-      // visit.set('user', user);
       wx.getStorage({
         key: 'projectID',
         success: res => {
-          var query = new AV.Query("Project");
+          var query = new AV.Query("Project")
+          query.include('projectManager')
           query.get(res.data).then(
             project => {
               this.setData({
-                product: project
+                product: project,
+                projectManager: project.get('projectManager')
+              })
+
+              var query1 = new AV.Query("Sponsorship")
+              query1.equalTo('project', project)
+              query1.find().then(sponsors => {
+                this.setData({
+                  sponsorsList: sponsors
+                })
+              })
+
+              var query2 = new AV.Query("Asset")
+              query2.include('address')
+              query2.equalTo('project', project)
+              query2.find().then(assets => {
+                this.setData({
+                  assetsList: assets
+                })
               })
             }
           ).catch(console.error)
@@ -144,28 +163,9 @@ Page({
       url: '../mapProjectNearby/mapProjectNearby'
     })
   },
-  callPhoneNumber: function () {
-    console.log("call")
-    // wx.makePhoneCall({
-    //   phoneNumber: this.data.product.phone.toString()
-    // })
-  },
-  kindToggle: function (e) {
-    // var id = e.currentTarget.id
-    // list = this.data.list
-
-    // for (var i = 0, len = list.length; i < len; ++i) {
-    //   if (list[i].id == id) {
-    //     list[i].open = !list[i].open
-    //   } else {
-    //     list[i].open = false
-    //   }
-    // }
-    // this.setData({
-    //   list: list
-    // });
-    this.setData({
-      open: !this.data.open
+  callPhoneNumber: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: e.target.dataset.phone.toString()
     })
   }
 })

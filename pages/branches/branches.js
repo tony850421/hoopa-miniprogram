@@ -156,7 +156,7 @@ Page({
           height: res.windowHeight
         })
       },
-    })    
+    })
   },
 
   /**

@@ -37,6 +37,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    wx.getStorage({
+      key: 'role',
+      success: function (res) {
+        if (res.data != "official") {
+          wx.setStorage({
+            key: 'redirect',
+            data: '../contact/contact',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+          wx.navigateTo({
+            url: '../register/register',
+          })
+        }
+      }
+    }) 
+
     wx.getSystemInfo({
       success: res => {
         this.setData({
@@ -47,74 +66,55 @@ Page({
     })
 
     var user = AV.User.current()
+    if (user) {
+      var query = new AV.Query('Message')
+      query.equalTo('sender', user)
+      var queryAux = new AV.Query('Message')
+      queryAux.equalTo('receiver', user);
+      var compoundQuery = AV.Query.or(query, queryAux);
+      compoundQuery.include('sender')
+      compoundQuery.include('receiver')
+      compoundQuery.find().then(
+        message => {
+          for (var i = 0; i < message.length; i++) {
+            message[i].createdAt = message[i].createdAt.toLocaleDateString('zh-CN') + " " + message[i].createdAt.toLocaleTimeString('zh-CN')
+          }
+          
+          this.setData({
+            messages: message,
+            intoView: message[message.length - 1].id
+          })
 
-    var roleQuery = new AV.Query(AV.Role);
-    roleQuery.equalTo('name', 'official');
-    roleQuery.equalTo('users', user);
-    roleQuery.find().then(function (results) {
-      if (results.length <= 0) {
-        wx.setStorage({
-          key: 'redirect',
-          data: '../contact/contact',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-        wx.navigateTo({
-          url: '../register/register',
-        })
-      } else {
-        if (user) {
-          var query = new AV.Query('Message')
-          query.equalTo('sender', user)
-          var queryAux = new AV.Query('Message')
-          queryAux.equalTo('receiver', user);
-          var compoundQuery = AV.Query.or(query, queryAux);
-          compoundQuery.find().then(
-            message => {
-              for (var i = 0; i < message.length; i++) {
-                message[i].createdAt = message[i].createdAt.toLocaleDateString('zh-CN') + " " + message[i].createdAt.toLocaleTimeString('zh-CN')
-              }
-
-              this.setData({
-                messages: message,
-                intoView: message[message.length - 1].id
+          var querySender = new AV.Query('_User')
+          if (message[0].attributes.sender.id == user.id) {
+            querySender.get(message[0].attributes.receiver.id).then(
+              send => {
+                this.setData({
+                  sender: send
+                })
               })
-
-              var querySender = new AV.Query('_User')
-              if (message[0].attributes.sender.id == user.id) {
-                querySender.get(message[0].attributes.receiver.id).then(
-                  send => {
-                    this.setData({
-                      sender: send
-                    })
-                  })
-              } else {
-                querySender.get(message[0].attributes.sender.id).then(
-                  send => {
-                    this.setData({
-                      sender: send
-                    })
-                  })
-              }
-
-              for (var i = 0; i < message.length; i++) {
-                if (message[i].attributes.receiver.id == user.id) {
-                  message[i].set('readed', true)
-                  message[i].save()
-                }
-              }
-
-              wx.removeTabBarBadge({
-                index: 1,
+          } else {
+            querySender.get(message[0].attributes.sender.id).then(
+              send => {
+                this.setData({
+                  sender: send
+                })
               })
+          }
+
+          for (var i = 0; i < message.length; i++) {
+            if (message[i].attributes.receiver.id == user.id) {
+              message[i].set('readed', true)
+              message[i].save()
             }
-          )
-        }  
-      }
-    }).catch(function (error) {
-      console.log(error);
-    });      
+          }
+
+          wx.removeTabBarBadge({
+            index: 1,
+          })
+        }
+      )
+    }
   },
 
   /**

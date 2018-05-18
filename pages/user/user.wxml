@@ -1,4 +1,5 @@
 <!--pages/user/user.wxml-->
+<image bindtap='goToUserInformation' src="../../images/config.png" class='home'></image>
 <view>
   <view class="userinfo BackgorundProfile" wx:if="{{!rol}}">
     <block>
