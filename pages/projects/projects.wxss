@@ -57,3 +57,29 @@
 .searchbar-result:before {
   display: none;
 }
+
+.topBarSearch{
+  display: flex;
+  flex-direction: row;
+}
+
+.itemBarSeatch{
+  width: 25%;
+}
+
+.kind-list__item-hd{
+  padding: 5px !important;
+}
+
+.kind-list__img{
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.kind-list__item{
+  margin: 0px !important;
+}
+
+.weui-cell__bd{
+  padding: 5px;
+}

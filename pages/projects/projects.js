@@ -20,9 +20,9 @@ Page({
     list: [
       {
         id: 'form',
-        name: '表单',
+        name: '级分类',
         open: false,
-        pages: ['button', 'list', 'input', 'slider', 'uploader']
+        pages: ['机动车','房产','资产','土地','工程','矿权','无形资产','林权','其他','全部']
       },
       {
         id: 'widget',
@@ -41,12 +41,6 @@ Page({
         name: '导航相关',
         open: false,
         pages: ['navbar', 'tabbar']
-      },
-      {
-        id: 'search',
-        name: '搜索相关',
-        open: false,
-        pages: ['searchbar']
       }
     ]
   },

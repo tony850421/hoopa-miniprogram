@@ -38,6 +38,25 @@
   </view>
 </view>
 <view hidden='{{!inputShowed}}'>
+  <view class='topBarSearch'>
+    <view class='itemBarSeatch' wx:for="{{list}}" wx:for-item="item">
+      <view class="kind-list__item">
+        <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+          <view class="weui-flex__item font-size-13">{{item.name}}</view>
+          <image wx:if="{{!item.open}}" class="kind-list__img" src="../../images/angle_right.png"></image>
+          <image wx:if="{{item.open}}" class="kind-list__img" src="../../images/angle_down.png"></image>
+        </view>
+        <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+          <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+            <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+              <view class="weui-cell__bd font-size-13">{{page}}</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
   <!-- <block wx:for-items="{{list}}" wx:key="{{item.id}}">
     <view class="kind-list__item">
       <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
