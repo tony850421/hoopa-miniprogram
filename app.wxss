@@ -19,6 +19,11 @@ page{
   color: #FF6801;
 }
 
+.backgroundColorPrimary{
+  background-color: #FF6801;
+}
+
+
 .branchesSelected{
   background-color: #FF6801 !important;
   color: white !important;
@@ -130,4 +135,8 @@ kind-list__item:first-child {
 
 .kind-list__item-bd_show {
   height: auto;
+}
+
+.backgroundWhite{
+  background-color: white;
 }

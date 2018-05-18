@@ -1,15 +1,27 @@
 <!--pages/offer/offer.wxml-->
 <view class='offer'>
-  <view class='inputOffer'>
-    <text>提供</text>
-    <input bindinput='inputOffer' value='{{offer}}' class='inputOfferNumber' placeholder='输入您的报价' type='number'></input>
+  <view class='projectsGroup font-size-13'>
+    <view class='projectTitleGroup'>
+      <text>提供</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <input bindinput='inputOffer' value='{{offer}}' placeholder='输入您的报价' type='number'></input>
+    </view>
   </view>
-  <view class='descriptionOffer'>
-    <text>描述</text>
-    <textarea bindinput='inputDescription' value='{{description}}' class='textAreaOffer' placeholder='介绍您的报价说明'></textarea>
+
+  <view class='projectsLabel font-size-13'>
+    <view class='projectTitleGroup'>
+      <text>描述</text>
+    </view>
   </view>
-  <view class='buttonsOffer'>
-    <button bindtap='cancel' class='buttonCancel'>取消</button>
-    <button bindtap='makeOffer' type='primary' class='buttonSuccess'>提供</button>
+
+  <view class='backgroundWhite'>
+    <textarea class='textAreaOffer' bindinput='inputDescription' value='{{description}}' placeholder='介绍您的报价说明'></textarea>
+  </view>
+
+  <view class='saveBox'>
+    <button bindtap='cancel' size='mini' class='buttonCancel'>取消</button>
+    <button bindtap='makeOffer' size='mini' class='buttonSave backgroundColorPrimary'>提供</button>
   </view>
 </view>

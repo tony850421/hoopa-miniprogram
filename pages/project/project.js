@@ -165,7 +165,20 @@ Page({
   },
   callPhoneNumber: function (e) {
     wx.makePhoneCall({
-      phoneNumber: e.target.dataset.phone.toString()
+      phoneNumber: e.currentTarget.dataset.phone.toString()
+    })
+  },
+  goToAsset: function (e) {
+    wx.setStorage({
+      key: 'latitude',
+      data: e.currentTarget.dataset.latitude,
+    })
+    wx.setStorage({
+      key: 'longitude',
+      data: e.currentTarget.dataset.longitude,
+    })
+    wx.navigateTo({
+      url: '../assetsMap/assetsMap'
     })
   }
 })

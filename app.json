@@ -17,7 +17,8 @@
     "pages/partnersView/partnersView",
     "pages/mapProjectNearby/mapProjectNearby",
     "pages/aboutUs/aboutUs",
-    "pages/team/team"
+    "pages/team/team",
+    "pages/assetsMap/assetsMap"
   ],
   "window": {
     "backgroundColor": "#ffffff",

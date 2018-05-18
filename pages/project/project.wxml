@@ -4,7 +4,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" width="355" height="150" />
+          <image mode='aspectFill' src="{{item}}" class="slide-image" />
         </swiper-item>
       </block>
     </swiper>
@@ -148,17 +148,23 @@
 
       <view wx:for="{{assetsList}}" wx:for-item="asset">
         <!--maps  -->
+        
         <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
-            <text>方向</text>
+        <view class='projectTitleGroup'>
+          <text>方向</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <view class='phoneNumber' >
+            <text bindtap='callPhoneNumber' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{asset.address.plain}}</text>
           </view>
-          <image class='lineV' src='../../images/lineV.jpg'></image>
-          <view class='projectTextGroup'>
-            <text class='margin-left-5'>{{asset.address.plain}}</text>
+          <view class='userLocationGroup' data-latitude="{{asset.address.location.latitude}}" data-longitude="{{asset.address.location.longitude}}" bindtap='goToAsset'>
+            <image class='imageLocation' src='../../images/userLocation.png'></image>
           </view>
         </view>
+      </view>
 
-        <map class='mapProject margin-bottom-5' id="mapDirection" longitude="{{asset.address.location.longitude}}" latitude="{{asset.address.location.latitude}}" scale="16"></map>
+        <!-- <map class='mapProject margin-bottom-5' id="mapDirection" longitude="{{asset.address.location.longitude}}" latitude="{{asset.address.location.latitude}}" scale="16"></map> -->
 
         <view class='projectsGroup font-size-13'>
           <view class='projectTitleGroup'>
@@ -192,7 +198,7 @@
       </view>
 
       <!-- sponsors  -->
-      <view class='projectsLabel font-size-13'>
+      <view wx:if="{{sponsorsList.length > 0}}" class='projectsLabel font-size-13'>
         <view class='projectTitleGroup'>
           <text>赞助商</text>
         </view>

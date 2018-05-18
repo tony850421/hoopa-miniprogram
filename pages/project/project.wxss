@@ -180,3 +180,8 @@
 .kind-list__item-bd {
   border-top: 1px #d6dadb solid;
 }
+
+.slide-image{
+  width: 100%;
+  height: 100%;
+}

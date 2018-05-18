@@ -1,0 +1,2 @@
+<!--pages/assetsMap/assetsMap.wxml-->
+<map id="mapAsset" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers='{{partners}}' show-location='true' style='height:{{height}}px; width: 100%;' controls='true'></map>
