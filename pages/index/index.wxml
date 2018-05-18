@@ -13,7 +13,7 @@
         <image mode='aspectFit' class='IconsButtons' src='../../images/partners.png'></image>
         <text class='font-size-13'>合作伙伴</text>
       </view>
-      <view class='buttonsBox'>
+      <view class='buttonsBox' bindtap='goToTeam'>
         <image mode='widthFix' class='IconsButtons' src='../../images/team.png'></image>
         <text class='font-size-13'>团队</text>
       </view>
@@ -25,7 +25,7 @@
         <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
         <text class='font-size-13'>服务</text>
       </view>
-      <view class='buttonsBox'>
+      <view class='buttonsBox' bindtap='goToAboutUs'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
         <text class='font-size-13'>关于我们</text>
       </view>
@@ -45,7 +45,7 @@
         <image mode='aspectFit' class='IconsButtons' src='../../images/statistics.png'></image>
         <text class='font-size-13'>统计</text>
       </view>
-      <view class='buttonsBox'>
+      <view class='buttonsBox' bindtap='goToProjects'>
         <image mode='widthFix' class='IconsButtons' src='../../images/projects.png'></image>
         <text class='font-size-13'>项目</text>
       </view>

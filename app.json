@@ -15,7 +15,9 @@
     "pages/news/news",
     "pages/partners/partners",
     "pages/partnersView/partnersView",
-    "pages/mapProjectNearby/mapProjectNearby"
+    "pages/mapProjectNearby/mapProjectNearby",
+    "pages/aboutUs/aboutUs",
+    "pages/team/team"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -34,19 +36,19 @@
         "pagePath": "pages/index/index",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/homeSelected.png",
-        "text": "Home"
+        "text": "家"
       },
       {
         "pagePath": "pages/contact/contact",
         "iconPath": "images/contact.png",
         "selectedIconPath": "images/contactSelected.png",
-        "text": "Contact"
+        "text": "联系我们"
       },
       {
         "pagePath": "pages/user/user",
         "iconPath": "images/user.png",
         "selectedIconPath": "images/userSelected.png",
-        "text": "User"
+        "text": "用户"
       }
     ]
   }

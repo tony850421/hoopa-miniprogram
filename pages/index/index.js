@@ -48,9 +48,9 @@ Page({
     })
   },
   goToFinance: function () {
-    wx.navigateTo({
-      url: '../finance/finance',
-    })
+    // wx.navigateTo({
+    //   url: '../finance/finance',
+    // })
   },
   goToPartners: function () {
     wx.navigateTo({
@@ -65,6 +65,16 @@ Page({
   goToNews: function () {
     wx.navigateTo({
       url: '../news/news',
+    })
+  },
+  goToAboutUs: function () {
+    wx.navigateTo({
+      url: '../aboutUs/aboutUs',
+    })
+  },
+  goToTeam: function () {
+    wx.navigateTo({
+      url: '../team/team',
     })
   },
   fetchProducts: function (user) {

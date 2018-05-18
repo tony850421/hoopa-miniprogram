@@ -1,2 +1,2 @@
 <!--pages/mapProjectNearby/mapProjectNearby.wxml-->
-<map bindcallouttap='markertap' id="mapPartners" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{partners}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true' style='height:{{height}}px'></map>
+<map bindcallouttap='markertap' id="mapPartners" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{partners}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true' style='height:{{height}}px' controls='true'></map>

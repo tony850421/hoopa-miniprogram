@@ -1,0 +1,6 @@
+<!--pages/team/team.wxml-->
+<view class="page-body">
+  <view class="page-section page-section-gap">
+    <web-view src="http://www.hoopa.cn/index.php/jtyx.html"></web-view>
+  </view>
+</view>

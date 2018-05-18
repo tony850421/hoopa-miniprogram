@@ -1,0 +1,6 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<view class="page-body">
+  <view class="page-section page-section-gap">
+    <web-view src="http://www.hoopa.cn/index.php/culture.html"></web-view>
+  </view>
+</view>

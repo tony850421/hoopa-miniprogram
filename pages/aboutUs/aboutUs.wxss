@@ -1,0 +1,5 @@
+/* pages/aboutUs/aboutUs.wxss */
+.page-section-gap{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+} 

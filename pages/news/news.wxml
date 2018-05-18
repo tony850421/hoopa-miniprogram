@@ -1,6 +1,6 @@
 <!--pages/news/news.wxml-->
 <view class="page-body">
   <view class="page-section page-section-gap">
-    <web-view src="http://open.wechat.com/cgi-bin/newreadtemplate?t=overseas_open/index"></web-view>
+    <web-view src="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3MTY3NDE1Mg==&scene=123&from=groupmessage#wechat_redirect"></web-view>
   </view>
 </view>
