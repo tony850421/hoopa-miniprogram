@@ -34,7 +34,7 @@
     </scroll-view>
     <view class='textBar'>
       <view class='inputGroup'>
-        <input bindinput='bindKeyInput' bindconfirm='confirmText' value='{{inputText}}' class='inputSend' type='text' focus='{{focus}}'></input>
+        <input bindinput='bindKeyInput' bindconfirm='confirmText' value='{{inputText}}' class='inputSend' type='text' auto-focus='true'></input>
       </view>
       <view class='buttonSendGroup'>
         <image bindtap='sendText' class='send' src='../../images/send.png'></image>

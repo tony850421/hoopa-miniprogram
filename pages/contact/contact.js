@@ -10,7 +10,6 @@ Page({
     height: '',
     widht: '',
     inputText: '',
-    focus: false,
     messages: [],
     sender: {},
     user: {},

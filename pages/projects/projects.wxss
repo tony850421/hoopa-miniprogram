@@ -4,21 +4,6 @@
   width: 100%;
 }
 
-.section {
-  margin-bottom: 10px;
-  background-color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.generalData {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border-bottom: 1px #c4c4c4 solid;
-  padding: 5px;
-}
-
 @media (max-width: 480px) {
   .imageProjects {
     height: 170px;
@@ -61,10 +46,15 @@
 .topBarSearch{
   display: flex;
   flex-direction: row;
+  margin-top: 5px;
+}
+
+.projectSearch{
+  margin-top: 5px;
 }
 
 .itemBarSeatch{
-  width: 25%;
+  width: 33.3%;
 }
 
 .kind-list__item-hd{
@@ -82,4 +72,28 @@
 
 .weui-cell__bd{
   padding: 5px;
+}
+
+.iconsFilters{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listIconFilter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.iconFilter{
+  width: 20%;
+  height: 80px;
+  border: 1px #D6DADB solid;
+}
+
+.kind-list__item-bd_show{
+  position: absolute;
+  z-index: 10 !important;
 }

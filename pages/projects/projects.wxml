@@ -17,27 +17,47 @@
     <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
   </view>
 </view>
+
 <view class='padding-10' hidden='{{inputShowed}}'>
-  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
-    <view class='flex-item'>
-      <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
-    </view>
-    <view class='flex-item widthText'>
-      <view class='productInformation'>
-        <text>{{product.title}}</text>
-        <view class='displayFlexRow font-size-13'>
-          <text>价格：</text>
-          <text class='colorTextPrimary'>{{product.price}}</text>
-        </view>
-        <view class='displayFlexRow font-size-13'>
-          <text>提供：</text>
-          <text class='colorTextPrimary'>{{product.offers}}</text>
+  <scroll-view scroll-y="true" style="height: {{height-68}}px" scroll-top="100">
+    <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
+      <view class='flex-item'>
+        <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
+      </view>
+      <view class='flex-item widthText'>
+        <view class='productInformation'>
+          <text>{{product.title}}</text>
+          <view class='displayFlexRow font-size-13'>
+            <text>价格：</text>
+            <text class='colorTextPrimary'>{{product.price}}</text>
+          </view>
+          <view class='displayFlexRow font-size-13'>
+            <text>提供：</text>
+            <text class='colorTextPrimary'>{{product.offers}}</text>
+          </view>
         </view>
       </view>
     </view>
-  </view>
+  </scroll-view>
 </view>
+
 <view hidden='{{!inputShowed}}'>
+  <view class='iconsFilters'>
+    <view class='listIconFilter'>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+    </view>
+    <view class='listIconFilter'>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+      <view class='iconFilter'></view>
+    </view>
+  </view>
   <view class='topBarSearch'>
     <view class='itemBarSeatch' wx:for="{{list}}" wx:for-item="item">
       <view class="kind-list__item">
@@ -48,31 +68,36 @@
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-            <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
-              <view class="weui-cell__bd font-size-13">{{page}}</view>
-            </block>
+            <scroll-view scroll-y="true" style="max-height: 160px" scroll-top="100">
+              <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+                <view class="weui-cell__bd font-size-13" bindtap='selectFilter' data-filterHeader="{{item.id}}" data-filter="{{index}}">{{page}}</view>
+              </block>
+            </scroll-view>
           </view>
         </view>
       </view>
     </view>
   </view>
-
-  <!-- <block wx:for-items="{{list}}" wx:key="{{item.id}}">
-    <view class="kind-list__item">
-      <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-        <view class="weui-flex__item">{{item.name}}</view>
-        <image class="kind-list__img" src="../../images/icon_nav_{{item.id}}.png"></image>
-      </view>
-      <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-        <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-          <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
-            <navigator url="{{page}}/{{page}}" class="weui-cell weui-cell_access">
-              <view class="weui-cell__bd">{{page}}</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-          </block>
+  <view class='projectSearch'>
+    <scroll-view scroll-y="true" style="height: {{height-228}}px" scroll-top="100">
+      <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
+        <view class='flex-item'>
+          <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
+        </view>
+        <view class='flex-item widthText'>
+          <view class='productInformation'>
+            <text>{{product.title}}</text>
+            <view class='displayFlexRow font-size-13'>
+              <text>价格：</text>
+              <text class='colorTextPrimary'>{{product.price}}</text>
+            </view>
+            <view class='displayFlexRow font-size-13'>
+              <text>提供：</text>
+              <text class='colorTextPrimary'>{{product.offers}}</text>
+            </view>
+          </view>
         </view>
       </view>
-    </view>
-  </block> -->
+    </scroll-view>
+  </view>
 </view>

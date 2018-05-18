@@ -10,7 +10,7 @@
   </view>
 </view>
 <view class='shopCarBody'>
-  <scroll-view scroll-y="true" style="height: {{height-147}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+  <scroll-view scroll-y="true" style="height: {{height-147}}px" scroll-top="100">
     <view class='section'>
       <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product.id}}">
         <view class='flex-item'>
