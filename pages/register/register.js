@@ -228,10 +228,15 @@ Page({
         relation.add(that.data.user);
         return role.save();
       }).then(function (role) {
-        console.log("role asigned ok");
+        //save role official in the storage
+        wx.setStorage({
+          key: 'role',
+          data: 'official',
+        })
       }).catch(function (error) {
         console.log(error);
-      });
+      });      
+
       // redirect to:
       wx.getStorage({
         key: 'redirect',
