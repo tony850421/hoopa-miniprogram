@@ -18,7 +18,8 @@
     "pages/mapProjectNearby/mapProjectNearby",
     "pages/aboutUs/aboutUs",
     "pages/team/team",
-    "pages/assetsMap/assetsMap"
+    "pages/assetsMap/assetsMap",
+    "pages/services/services"
   ],
   "window": {
     "backgroundColor": "#ffffff",

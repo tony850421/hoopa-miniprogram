@@ -156,15 +156,13 @@
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
           <view class='phoneNumber' >
-            <text bindtap='callPhoneNumber' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{asset.address.plain}}</text>
+            <text bindtap='goToAsset' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{asset.plainAddress}}</text>
           </view>
-          <view class='userLocationGroup' data-latitude="{{asset.address.location.latitude}}" data-longitude="{{asset.address.location.longitude}}" bindtap='goToAsset'>
+          <view class='userLocationGroup' data-latitude="{{asset.location.latitude}}" data-longitude="{{asset.location.longitude}}" bindtap='goToAsset'>
             <image class='imageLocation' src='../../images/userLocation.png'></image>
           </view>
         </view>
       </view>
-
-        <!-- <map class='mapProject margin-bottom-5' id="mapDirection" longitude="{{asset.address.location.longitude}}" latitude="{{asset.address.location.latitude}}" scale="16"></map> -->
 
         <view class='projectsGroup font-size-13'>
           <view class='projectTitleGroup'>

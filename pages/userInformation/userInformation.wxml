@@ -11,7 +11,7 @@
         <text wx:if="{{!fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{nickName}}</text>
         <view class='locationUser'>
           <image class='imageLocationUser' src='../../images/userLocation.png'></image>
-          <text bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{city}}, {{province}}</text>
+          <text bindtap="goToUserInformation" class="userinfo-nickname font-size-11">{{city}}, {{province}}</text>
         </view>
       </view>
     </block>

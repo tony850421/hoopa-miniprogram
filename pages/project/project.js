@@ -52,7 +52,6 @@ Page({
               })
 
               var query2 = new AV.Query("Asset")
-              query2.include('address')
               query2.equalTo('project', project)
               query2.find().then(assets => {
                 this.setData({
@@ -168,7 +167,7 @@ Page({
       phoneNumber: e.currentTarget.dataset.phone.toString()
     })
   },
-  goToAsset: function (e) {
+  goToAsset: function (e) {    
     wx.setStorage({
       key: 'latitude',
       data: e.currentTarget.dataset.latitude,

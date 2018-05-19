@@ -156,3 +156,7 @@ kind-list__item:first-child {
 .font-size-12{
   font-size: 12px;
 }
+
+.callout{
+  border: 1px #FF6801 solid;
+}

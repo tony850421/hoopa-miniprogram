@@ -1,33 +1,19 @@
 <!--pages/partners/partners.wxml-->
 <scroll-view scroll-y="true" style="height: {{height-250}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-  <!-- <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
-    <view class='flexRow'>
-      <view wx:if="{{partner.show}}">
-        <image src='../../images/locationMap.png' class='iconPosition'></image>
-      </view>
-      <view class='partnertList'>
-        <text class='fontWeight'>{{partner.name}}</text>
-        <text class='textDirection'>{{partner.direction}}</text>
-      </view>
-      <button data-url='{{partner.url}}' bindtap='goToWeb' class='buttonCall' size='mini' class='buttonCall' plain='true'>
-        <image class='imageCall' src='../../images/goToWeb.png'></image>
-      </button>
-    </view>
-  </view> -->
-
-  <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
-    <view class='product {{partner.classSelected}}'>
-      <view class='flex-item'>
-        <image class='imageProductCar' mode='aspectFill' src='{{partner.avatar}}'></image>
-      </view>
-      <view class='flex-item widthText'>
-        <view class='productInformation'>
-          <text class='font-size-13'>{{partner.name}}</text>
-          <text class='font-size-13'>{{partner.direction}}</text>
+  <view class='padding-10'>
+    <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
+      <view class='product {{partner.classSelected}}'>
+        <view class='flex-item'>
+          <image class='imageProductCar' mode='aspectFill' src='{{partner.avatar}}'></image>
+        </view>
+        <view class='flex-item widthText'>
+          <view class='productInformation'>
+            <text class='font-size-13'>{{partner.name}}</text>
+            <text class='font-size-13'>{{partner.direction}}</text>
+          </view>
         </view>
       </view>
     </view>
   </view>
-
 </scroll-view>
 <map bindcallouttap='markertap' id="mapPartners" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" bindcontroltap="controltap" markers='{{partners}}' bindmarkertap="markertap" bindregionchange="regionchange" show-location='true'></map>
