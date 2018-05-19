@@ -19,7 +19,7 @@
 </view>
 
 <view class='padding-10' hidden='{{inputShowed}}'>
-  <scroll-view scroll-y="true" style="height: {{height-68}}px" scroll-top="100">
+  <!-- <scroll-view scroll-y="true" style="height: {{height-68}}px" scroll-top="100"> -->
     <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
       <view class='flex-item'>
         <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
@@ -38,7 +38,7 @@
         </view>
       </view>
     </view>
-  </scroll-view>
+  <!-- </scroll-view> -->
 </view>
 
 <view hidden='{{!inputShowed}}'>
@@ -89,10 +89,10 @@
     </view>
   </view> -->
   <view class='topBarSearch'>
-    <view class='itemBarSeatch' wx:for="{{list}}" wx:for-item="item">
+    <view class='itemBarSeatch_{{index}}' wx:for="{{list}}" wx:for-item="item">
       <view class="kind-list__item">
         <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-          <view class="weui-flex__item font-size-13">{{item.name}}</view>
+          <view class="weui-flex__item font-size-11">{{item.name}}</view>
           <image wx:if="{{!item.open}}" class="kind-list__img" src="../../images/angle_right.png"></image>
           <image wx:if="{{item.open}}" class="kind-list__img" src="../../images/angle_down.png"></image>
         </view>
@@ -100,7 +100,7 @@
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
             <scroll-view scroll-y="true" style="max-height: 160px" scroll-top="100">
               <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
-                <view class="weui-cell__bd font-size-13" bindtap='selectFilter' data-filterHeader="{{item.id}}" data-filter="{{index}}">{{page}}</view>
+                <view class="weui-cell__bd font-size-11" bindtap='selectFilter' data-filterHeader="{{item.id}}" data-filter="{{index}}">{{page}}</view>
               </block>
             </scroll-view>
           </view>
@@ -108,8 +108,8 @@
       </view>
     </view>
   </view>
-  <view class='projectSearch'>
-    <scroll-view scroll-y="true" style="height: {{height-228}}px" scroll-top="100">
+  <view class='projectSearch padding-10'>
+    <!-- <scroll-view scroll-y="true" style="height: {{height-228}}px" scroll-top="100"> -->
       <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
         <view class='flex-item'>
           <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
@@ -128,6 +128,6 @@
           </view>
         </view>
       </view>
-    </scroll-view>
+    <!-- </scroll-view> -->
   </view>
 </view>

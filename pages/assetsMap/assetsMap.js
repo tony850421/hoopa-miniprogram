@@ -12,7 +12,7 @@ Page({
       name: '海岸投资',
       direction: '广州市天河区金穗路3号汇美大厦1201A',
       avatar: '../../images/LogoHoopa.png',
-      iconPath: "../../images/projectBlue.png",
+      iconPath: "../../images/project.png",
       width: 42,
       height: 50,
       longitude: '',

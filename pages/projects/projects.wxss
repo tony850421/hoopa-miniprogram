@@ -46,19 +46,30 @@
 .topBarSearch {
   display: flex;
   flex-direction: row;
-  margin-top: 5px;
 }
 
 .projectSearch {
   margin-top: 5px;
 }
 
-.itemBarSeatch {
-  width: 25%;
+.itemBarSeatch_0 {
+  width: 35%;
+}
+
+.itemBarSeatch_1 {
+  width: 17%;
+}
+
+.itemBarSeatch_2 {
+  width: 27%;
+}
+
+.itemBarSeatch_3 {
+  width: 21%;
 }
 
 .kind-list__item-hd {
-  padding: 5px !important;
+  padding: 2px !important;
 }
 
 .kind-list__img {
@@ -71,7 +82,7 @@
 }
 
 .weui-cell__bd {
-  padding: 5px;
+  padding: 2px;
 }
 
 .iconsFilters {

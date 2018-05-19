@@ -1,2 +1,71 @@
 <!--pages/services/services.wxml-->
-<text>pages/services/services.wxml</text>
+<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/da9ff27c053a28514c20.jpg'></image>
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/1.png'></image>
+    <image class='lineService' src='../../images/lineService.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13'>价值发现服务</text>
+      <image class='dots' src='../../images/dots.png'></image>
+      <text class='font-size-12'>(a) 发现不良资产包投资机会</text>
+      <text class='font-size-12'>(b) 配对不同风险偏好投资者</text>
+    </view>
+  </view>
+</view>
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/2.png'></image>
+    <image class='lineService' src='../../images/lineService.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13'>尽调评估服务</text>
+      <image class='dots' src='../../images/dots.png'></image>
+      <text class='font-size-12'>(a) 尽职调查，对债权操作性提供意见</text>
+      <text class='font-size-12'>(b) 评估定价，评估不良资产收回机会</text>
+    </view>
+  </view>
+</view>
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/3.png'></image>
+    <image class='lineService' src='../../images/lineService.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13'>资产增值服务</text>
+      <image class='dots' src='../../images/dots.png'></image>
+      <text class='font-size-12'>(a) 实地调查相关人经营财务状况</text>
+      <text class='font-size-12'>(b) 查封相关人有效资产，提升资产价值</text>
+    </view>
+  </view>
+</view>
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/4.png'></image>
+    <image class='lineService' src='../../images/lineService.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13'>资产处置服务</text>
+      <image class='dots' src='../../images/dots.png'></image>
+      <text class='font-size-12'>(a) 针对不同资产制定处置策略</text>
+      <text class='font-size-12'>(b) 通过多种方式回收资金，获取收益</text>
+    </view>
+  </view>
+</view>
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/5.png'></image>
+    <image class='lineService' src='../../images/lineService.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13'>配套资金服务</text>
+      <image class='dots' src='../../images/dots.png'></image>
+      <text class='font-size-12'>围绕不良资产投资各环节的资金配套服务</text>
+    </view>
+  </view>
+</view>

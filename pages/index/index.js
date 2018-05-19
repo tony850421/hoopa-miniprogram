@@ -42,6 +42,11 @@ Page({
       url: '../project/project',
     })
   },
+  goToServices: function () {
+    wx.navigateTo({
+      url: '../services/services',
+    })
+  },
   goToProjects: function () {
     wx.navigateTo({
       url: '../projects/projects',
