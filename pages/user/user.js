@@ -117,6 +117,16 @@ Page({
       url: '../shop-car/shop-car',
     })
   },
+  goToContact: function () {
+    wx.switchTab({
+      url: '../contact/contact',
+    })
+  },
+  goToRecommended: function () {
+    wx.navigateTo({
+      url: '../inProgress/inProgress',
+    })
+  },
   goToUserInformation: function(){
     var roleQuery = new AV.Query(AV.Role);
     roleQuery.equalTo('name', 'official');

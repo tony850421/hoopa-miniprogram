@@ -28,7 +28,7 @@ Page({
         id: 'province',
         name: '安徽省',
         open: false,
-        pages: ['安徽省', '北京市', '重庆市', '福建省', '广东省']
+        pages: ['安徽省', '北京市', '重庆市', '福建省', '广东省', '甘肃省', '广西壮族自治区', '贵州省', '河南省', '湖北省', '河北省', '海南省', '香港特别行政区', '黑龙江省', '湖南省', '吉林省', '江苏省', '江西省', '辽宁省', '澳门特别行政区', '內蒙古自治区','宁夏回族自治区', '青海省', '四川省', '山东省', '上海市', '陕西省', '山西省', '天津市', '台湾省', '新疆维吾尔自治区', '西藏自治区', '云南省', '浙江省']
       },
       {
         id: 'price',
@@ -58,6 +58,7 @@ Page({
       this.setData({
         products: res
       })
+      console.log(this.data.products)
     })
   },
   onReady: function () {
@@ -163,11 +164,14 @@ Page({
       list: this.data.list
     })
 
+    var queryType = new AV.Query('Project')
+    queryType.contains('typeArrivalString', this.data.list[0].name)
+
     var queryProvince = new AV.Query('Project');
-    queryProvince.equalTo('province', this.data.list[0].name);
+    queryProvince.equalTo('province', this.data.list[1].name);
 
     var query = '';
-    switch (this.data.list[1].name) {
+    switch (this.data.list[2].name) {
       case '不':
         query = new AV.Query('Project');
         break;
@@ -261,7 +265,7 @@ Page({
         break;
     }
 
-    var queryAnd = AV.Query.and(queryProvince, query);
+    var queryAnd = AV.Query.and(queryProvince, query, queryType);
 
     queryAnd.find().then(res => {
       this.setData({

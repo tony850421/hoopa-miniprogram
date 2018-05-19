@@ -252,7 +252,7 @@
 
       <view class='projectsGroup font-size-13' bindtap='goToNearby'>
         <view class='nearbyProjects'>
-          <text bindtap='callPhoneNumber' class='margin-left-5'>周围的其它资产</text>
+          <text class='margin-left-5'>周围的其它资产</text>
         </view>
         <view class='userLocationGroup'>
           <image class='imageLocation' src='../../images/userLocation.png'></image>

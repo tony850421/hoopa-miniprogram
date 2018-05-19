@@ -25,17 +25,6 @@
       <input bindinput='bindInputFullName' placeholder='名字' value='{{fullName}}'></input>
     </view>
   </view>
-
-  <!-- <view class='projectsGroup'>
-    <view class='projectTitleGroup'>
-      <text class='font-size-13'>电话</text>
-    </view>
-    <image class='lineV' src='../../images/lineV.jpg'></image>
-    <view class='projectTextGroup'>
-      <input placeholder='电话' value='{{user.mobilePhoneNumber}}'></input>
-    </view>
-  </view> -->
-
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>识别</text>
@@ -45,7 +34,6 @@
       <input bindinput='bindInputCI' placeholder='识别' value='{{ci}}'></input>
     </view>
   </view>
-
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>公司</text>

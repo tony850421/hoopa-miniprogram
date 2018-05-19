@@ -29,11 +29,11 @@
           <text>{{product.title}}</text>
           <view class='displayFlexRow font-size-13'>
             <text>价格：</text>
-            <text class='colorTextPrimary'>{{product.price}}</text>
+            <text class='colorTextPrimary'>{{product.debitAmount}}</text>
           </view>
           <view class='displayFlexRow font-size-13'>
             <text>提供：</text>
-            <text class='colorTextPrimary'>{{product.offers}}</text>
+            <text>{{product.companyName}}</text>
           </view>
         </view>
       </view>
@@ -41,53 +41,7 @@
   <!-- </scroll-view> -->
 </view>
 
-<view hidden='{{!inputShowed}}'>
-  <!-- <view class='iconsFilters'>
-    <view class='listIconFilter'>
-      <view data-id="动产" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-03.png'></image>
-        <text class='font-size-13'>动产</text>
-      </view>
-      <view data-id="项目信息" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-04.png'></image>
-        <text class='font-size-13'>项目信息</text>
-      </view>
-      <view data-id="金融账户" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-05.png'></image>
-        <text class='font-size-13'>金融账户</text>
-      </view>
-      <view data-id="股权信息" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-06.png'></image>
-        <text class='font-size-13'>股权信息</text>
-      </view>
-      <view data-id="应收账款" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-07.png'></image>
-        <text class='font-size-13'>应收账款</text>
-      </view>
-    </view>
-    <view class='listIconFilter'>
-      <view data-id="承租权" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-08.png'></image>
-        <text class='font-size-13'>承租权</text>
-      </view>
-      <view data-id="特许经营权" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-09.png'></image>
-        <text class='font-size-13'>特许经营权</text>
-      </view>
-      <view data-id="知识产权" class='iconFilter' bindtap='tapFilterGeneral' >
-        <image class='imageIconFilter' src='../../images/search/01-10.png'></image>
-        <text class='font-size-13'>知识产权</text>
-      </view>
-      <view data-id="土地+房产" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-11.png'></image>
-        <text class='font-size-13'>土地+房产</text>
-      </view>
-      <view data-id="1" class='iconFilter' bindtap='tapFilterGeneral'>
-        <image class='imageIconFilter' src='../../images/search/01-12.png'></image>
-        <text class='font-size-13'>商业</text>
-      </view>
-    </view>
-  </view> -->
+<view hidden='{{!inputShowed}}'>  
   <view class='topBarSearch'>
     <view class='itemBarSeatch_{{index}}' wx:for="{{list}}" wx:for-item="item">
       <view class="kind-list__item">
@@ -119,11 +73,11 @@
             <text>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
               <text>价格：</text>
-              <text class='colorTextPrimary'>{{product.price}}</text>
+              <text class='colorTextPrimary'>{{product.debitAmount}}</text>
             </view>
             <view class='displayFlexRow font-size-13'>
               <text>提供：</text>
-              <text class='colorTextPrimary'>{{product.offers}}</text>
+              <text>{{product.companyName}}</text>
             </view>
           </view>
         </view>

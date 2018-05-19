@@ -1,5 +1,5 @@
 <!--pages/services/services.wxml-->
-<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/da9ff27c053a28514c20.jpg'></image>
+<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1cabee4e3d7641183327.jpg'></image>
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
     <image class='imageNumber' src='../../images/1.png'></image>

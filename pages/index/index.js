@@ -42,6 +42,11 @@ Page({
       url: '../project/project',
     })
   },
+  goToRecommended: function (e) {    
+    wx.navigateTo({
+      url: '../inProgress/inProgress',
+    })
+  },
   goToServices: function () {
     wx.navigateTo({
       url: '../services/services',
@@ -53,9 +58,9 @@ Page({
     })
   },
   goToFinance: function () {
-    // wx.navigateTo({
-    //   url: '../finance/finance',
-    // })
+    wx.navigateTo({
+      url: '../inProgress/inProgress',
+    })
   },
   goToPartners: function () {
     wx.navigateTo({
@@ -69,7 +74,7 @@ Page({
   },
   goToNews: function () {
     wx.navigateTo({
-      url: '../news/news',
+      url: '../inProgress/inProgress',
     })
   },
   goToAboutUs: function () {
@@ -79,7 +84,7 @@ Page({
   },
   goToTeam: function () {
     wx.navigateTo({
-      url: '../team/team',
+      url: '../inProgress/inProgress',
     })
   },
   fetchProducts: function (user) {

@@ -1,6 +1,10 @@
 <!--pages/aboutUs/aboutUs.wxml-->
-<view class="page-body">
-  <view class="page-section page-section-gap">
-    <web-view src="http://www.hoopa.cn/index.php/culture.html"></web-view>
+<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1cabee4e3d7641183327.jpg'></image>
+<view class='aboutus margin-bottom-5'>
+  <view class='projectsGroup'>
+    <text class='font-size-12'>杭州胡巴资产管理有限公司坐落于杭州中央金融商务区——钱江新城核心区，自2009年进入不良资产管理行业以来，目前已处置管理的债权总额累计超过300亿元，现管理债权金额约100亿元。为国内外众多投资机构及民营资本提供全价值链金融服务。</text>
+    <text class='font-size-12'>目前团队已有100多人，核心成员具有多年不良资产管理实战经验，均来自于银行、AMC、律所、会计事务所、阿里巴巴及其他大型金融机构。</text>
+    <text class='font-size-12'>主营业务包括不良资产投资管理处置 、不良资产衍生产品投资管理 、与不良资产关联的特殊投资管理 、与不良资产关联的抵押物、抵债资产、司法拍卖物的收购处置。</text>
+    <text class='font-size-12'>未来，胡巴人将秉承“勤奋、简单、学习、坚韧”的企业文化，与各界朋友精诚合作，为不良资产行业贡献更多力量！</text>
   </view>
 </view>

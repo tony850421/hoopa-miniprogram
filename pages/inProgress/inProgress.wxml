@@ -1,0 +1,4 @@
+<!--pages/inProgress/inProgress.wxml-->
+<image style='height: {{height}}px; width: {{width}}px' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d28081a18e9207b8ab09.jpg'></image>
+<text class='textComingSoon'>即将推出</text>
+<image bindtap='cancel' src="../../images/homeWhite.png" class='home'></image>

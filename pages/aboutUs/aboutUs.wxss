@@ -1,5 +1,22 @@
 /* pages/aboutUs/aboutUs.wxss */
-.page-section-gap{
-  box-sizing: border-box;
-  padding: 0 30rpx;
-} 
+.projectsGroup {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  width: 93%;
+}
+
+.imageService {
+  height: 220rpx;
+  width: 100%;
+}
+
+.aboutus{
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}

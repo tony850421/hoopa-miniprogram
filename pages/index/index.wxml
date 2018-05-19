@@ -37,7 +37,7 @@
   </view>
   <view class="section">
     <view class="buttonsGroup">
-      <view class='buttonsBox'>
+      <view class='buttonsBox' bindtap='goToRecommended'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/recommended.png'></image>
         <text class='font-size-13'>推荐</text>
       </view>

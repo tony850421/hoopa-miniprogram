@@ -19,7 +19,8 @@
     "pages/aboutUs/aboutUs",
     "pages/team/team",
     "pages/assetsMap/assetsMap",
-    "pages/services/services"
+    "pages/services/services",
+    "pages/inProgress/inProgress"
   ],
   "window": {
     "backgroundColor": "#ffffff",
