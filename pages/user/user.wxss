@@ -150,6 +150,8 @@
 }
 
 .projectTextGroup {
+  display: flex;
+  flex-direction: column;
   width: 55%;
   text-align: center;
 }

@@ -53,6 +53,7 @@ Page({
    */
   onShow: function () {
     var query = new AV.Query('Offert');
+    query.include('project')
     query.equalTo('user', AV.User.current());
     query.find().then(
       offer => {
@@ -149,5 +150,14 @@ Page({
         })
       }
     })    
+  },
+  goToProject: function(e){
+    wx.setStorage({
+      key: 'projectID',
+      data: e.currentTarget.dataset.id,
+    })
+    wx.navigateTo({
+      url: '../project/project'
+    })
   }
 })

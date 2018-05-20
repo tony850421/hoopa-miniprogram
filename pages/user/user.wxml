@@ -43,14 +43,15 @@
     </view>
   </view>
   <view class='information'>
-    <view class='projectsGroup' bindtap='goToCar'>
+    <view class='projectsGroup' wx:for="{{offers}}" wx:for-item="offer" data-id='{{offer.project.objectId}}' bindtap='goToProject'>
       <view class='projectTitleGroup'>
         <image class='imageIconUserNotification' src='../../images/projects.png'></image>
-        <text class='font-size-13'>优惠数量</text>
+        <text class='font-size-13'>{{offer.project.title}}</text>
       </view>
       <image class='lineV' src='../../images/lineV.jpg'></image>
       <view class='projectTextGroup'>
-        <text class='font-size-13'>{{offers.length}} 提供</text>
+        <text class='font-size-13'>{{offer.amount}}</text>
+        <text class='font-size-13'>{{offer.description}}</text>
       </view>
     </view>
   </view>

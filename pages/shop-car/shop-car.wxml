@@ -12,21 +12,21 @@
 <view class='shopCarBody'>
   <scroll-view scroll-y="true" style="height: {{height-147}}px" scroll-top="100">
     <view class='section'>
-      <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product.id}}">
-        <view class='flex-item'>
-          <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.id}}' />
-        </view>
-        <view bindtap='goToProject' class='groupId' id='{{product.id}}'>
+      <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
           <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='{{product.url.url}}'></image>
+          <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.product.id}}' />
+        </view>
+        <view bindtap='goToProject' class='groupId' id='{{product.product.id}}'>
+          <view class='flex-item'>
+            <image class='imageProductCar' mode='aspectFill' src='{{product.project.image.url}}'></image>
           </view>
           <view class='flex-item widthText'>
             <view class='productInformation'>
-              <text class='font-size-13'>{{product.title}}</text>
-              <text class='font-size-13'>{{product.price}}</text>
+              <text class='font-size-13'>{{product.project.title}}</text>
+              <text class='font-size-13'>{{product.project.debitAmount}}</text>
             </view>
-          </view>
-        </view>
+          </view> 
+        </view> 
       </view>
     </view>
   </scroll-view>
