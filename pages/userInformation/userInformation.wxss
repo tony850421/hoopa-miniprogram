@@ -9,14 +9,14 @@
 .userinfo-avatar {
   width: 230rpx;
   height: 230rpx;
-  margin: 5rpx;
+  margin: 7rpx;
   border-radius: 50%;
 }
 
 .imageContainer {
   background-color: white;
-  width: 240rpx;
-  height: 240rpx;
+  width: 242rpx;
+  height: 242rpx;
   margin: 20rpx;
   border-radius: 50%;
 }

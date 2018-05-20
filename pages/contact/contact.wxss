@@ -41,12 +41,13 @@ page {
 }
 
 .textBar {
-  padding-top: 2px;
   border-top: 1px #d6dadb solid;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  height: 44px !important;
 }
 
 .imageAvatar {
@@ -113,4 +114,9 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.contactOrder{
+  display: flex;
+  flex-direction: column;
 }

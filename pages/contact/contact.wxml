@@ -1,44 +1,42 @@
 <!-- pages/contact/contact.wxml -->
-<view class='section'>
-  <view>
-    <scroll-view scroll-y="true" style="height: {{height-44}}px" scroll-into-view="A{{intoView}}" scroll-top="100" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
-      <view wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.objectId}}" id="A{{message.objectId}}">
-      <text wx:if="{{message.sender.objectId == sender.objectId}}" class='dateText'>{{message.createdAt}}</text>
-      <text wx:if="{{message.sender.objectId != sender.objectId}}" class='dateTextRight'>{{message.createdAt}}</text>
-        <view wx:if="{{message.sender.objectId == sender.objectId}}" class='comments'>
-          <view class='imageAvatar'>
-            <image src='../../images/icono-02.png' class='imageAvatar'></image>
-          </view>
-          <view style='width: {{widht-110}}px' class='commentStyle'>
-            <!-- <image src='../../images/pike.png' class='pike'></image> -->
-            <view class='contentComment'>
-              <text class='content'>{{message.content}}</text>
-              <!-- <text class='dateText'>{{message.date}}</text> -->
+<view class="contactOrder">
+  <view style="height: {{height-44}}px">
+    <scroll-view scroll-y="true" style="height: {{height-44}}px" scroll-into-view="A{{intoView}}" scroll-top="100">
+      <view class='section'>
+        <view wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.objectId}}" id="A{{message.objectId}}">
+          <text wx:if="{{message.sender.objectId == sender.objectId}}" class='dateText'>{{message.createdAt}}</text>
+          <text wx:if="{{message.sender.objectId != sender.objectId}}" class='dateTextRight'>{{message.createdAt}}</text>
+          <view wx:if="{{message.sender.objectId == sender.objectId}}" class='comments'>
+            <view class='imageAvatar'>
+              <image src='../../images/icono-02.png' class='imageAvatar'></image>
+            </view>
+            <view style='width: {{widht-110}}px' class='commentStyle'>
+              <view>
+                <text class='content'>{{message.content}}</text>
+              </view>
             </view>
           </view>
-        </view>
-        <view wx:if="{{message.sender.objectId != sender.objectId}}" class='comments'>
-          <view style='width: {{widht-110}}px' class='commentStyleRight'>
-            <view class='contentComment'>
-              <text class='content'>{{message.content}}</text>
-              <!-- <text class='dateText'>{{message.date}}</text> -->
+          <view wx:if="{{message.sender.objectId != sender.objectId}}" class='comments'>
+            <view style='width: {{widht-110}}px' class='commentStyleRight'>
+              <view class='contentComment'>
+                <text class='content'>{{message.content}}</text>
+              </view>
+            </view>
+            <view class='imageAvatar'>
+              <image src='{{user.avatarUrl}}' class='imageAvatar'></image>
             </view>
           </view>
-          <!-- <image src='../../images/pike.png' class='pikeWhite'></image>  -->
-          <view class='imageAvatar'>
-            <image src='{{user.avatarUrl}}' class='imageAvatar'></image>
-          </view>
+          <view wx:if="{{index == messages.length -1 }}" class='bottom'></view>
         </view>
-        <view wx:if="{{index == messages.length -1 }}" class='bottom'></view>
       </view>
     </scroll-view>
-    <view class='textBar'>
-      <view class='inputGroup'>
-        <input bindinput='bindKeyInput' bindconfirm='confirmText' value='{{inputText}}' class='inputSend' type='text' auto-focus='true'></input>
-      </view>
-      <view class='buttonSendGroup'>
-        <image bindtap='sendText' class='send' src='../../images/send.png'></image>
-      </view>
+  </view>
+  <view class='textBar'>
+    <view class='inputGroup'>
+      <input bindinput='bindKeyInput' bindconfirm='confirmText' value='{{inputText}}' class='inputSend' type='text'></input>
+    </view>
+    <view class='buttonSendGroup'>
+      <image bindtap='sendText' class='send' src='../../images/send.png'></image>
     </view>
   </view>
 </view>

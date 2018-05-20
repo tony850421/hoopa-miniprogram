@@ -9,7 +9,6 @@ Page({
    */
   data: {
     height: '',
-    widht: '',
     products: [],
     countCar: 0,
     checkedAll: false,
@@ -20,15 +19,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSystemInfo({
-      success: res => {
-        this.setData({
-          height: res.windowHeight,
-          widht: res.windowWidth
-        })
-      },
-    })
-
     var that = this
 
     var query = new AV.Query('ShopCar');
@@ -39,20 +29,6 @@ Page({
         that.setData({
           products: projects
         })
-        console.log(that.data.products)
-        // for (var i = 0; i < projects.length; i++) {
-        //   var queryProject = new AV.Query('Project')
-        //   var id = projects[i].get('project').id
-        //   queryProject.get(id).then(function (object) {
-        //     var array = { checked: false, url: object.attributes.image, title: object.attributes.title, price: object.attributes.price, id: object.id }
-        //     that.data.products.push(array)
-        //     that.setData({
-        //       products: that.data.products
-        //     })
-        //   }, function (error) {
-        //     // error is an instance of AVError.
-        //   });
-        // }        
       }
     )
   },
@@ -61,14 +37,20 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          height: res.windowHeight
+        })
+      },
+    })
   },
 
   /**
@@ -111,12 +93,12 @@ Page({
       countCar: 0,
       total: 0
     })
-    
+
     for (var i = 0; i < that.data.products.length; i++) {
-      if (that.data.products[i].id == e.currentTarget.dataset.id){
-        that.data.products[i].attributes.checked = !that.data.products[i].attributes.checked       
+      if (that.data.products[i].id == e.currentTarget.dataset.id) {
+        that.data.products[i].attributes.checked = !that.data.products[i].attributes.checked
       }
-      if (that.data.products[i].attributes.checked){
+      if (that.data.products[i].attributes.checked) {
         that.data.countCar = that.data.countCar + 1
         that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].attributes.project.attributes.debitAmount)
       }
@@ -127,17 +109,17 @@ Page({
       total: that.data.total
     })
 
-    if (that.data.countCar == that.data.products.length){
+    if (that.data.countCar == that.data.products.length) {
       this.setData({
         checkedAll: true
-      }) 
+      })
     } else {
       this.setData({
         checkedAll: false
-      }) 
+      })
     }
   },
-  checkedAllTap: function(){
+  checkedAllTap: function () {
     var that = this
     this.setData({
       countCar: 0,
@@ -153,7 +135,7 @@ Page({
         this.data.products[i].attributes.checked = true
         this.data.countCar = this.data.countCar + 1
         this.data.total = parseFloat(this.data.total) + parseFloat(this.data.products[i].attributes.project.attributes.debitAmount)
-      }      
+      }
     }
 
     this.setData({
@@ -163,13 +145,57 @@ Page({
       total: this.data.total
     })
   },
-  goToProject: function(e){
+  goToProject: function (e) {
     wx.setStorage({
       key: "projectID",
       data: e.currentTarget.id
     })
     wx.navigateTo({
       url: '../project/project',
+    })
+  },
+  deleteShopCarItem: function () {
+    var that = this
+    wx.showModal({
+      title: '删除',
+      content: '你真的想删除你的清单愿望项目吗',
+      success: function (res) {
+        if (res.confirm) {
+          for (var i = 0; i < that.data.products.length; i++) {
+            if (that.data.products[i].attributes.checked) {
+              var product = AV.Object.createWithoutData('ShopCar', that.data.products[i].id);
+              product.destroy().then(function (prod) {
+                wx.showToast({
+                  title: '项目正确删除',
+                  icon: 'success',
+                  duration: 2000
+                })
+
+                var query = new AV.Query('ShopCar');
+                query.equalTo('user', AV.User.current());
+                query.include('project')
+                query.find().then(
+                  projects => {
+                    that.setData({
+                      products: projects
+                    })
+                  }
+                )
+              }).catch(function (error) {
+                
+              });
+            }
+          }
+          that.setData({
+            products: 0,
+            countCar: 0,
+            checkedAll: false,
+            total: 0
+          })
+        } else if (res.cancel) {
+          console.log(res)
+        }
+      }
     })
   }
 })

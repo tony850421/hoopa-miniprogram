@@ -20,6 +20,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          height: res.windowHeight,
+          widht: res.windowWidth
+        })
+      },
+    })
+
     this.setData({
       user: AV.User.current()
     })
@@ -54,15 +63,6 @@ Page({
         }
       }
     }) 
-
-    wx.getSystemInfo({
-      success: res => {
-        this.setData({
-          height: res.windowHeight,
-          widht: res.windowWidth
-        })
-      },
-    })
 
     var user = AV.User.current()
     if (user) {
@@ -195,12 +195,8 @@ Page({
     this.setData({
       inputText: ''
     })
-    this.hideKeyboard()
   },
   sendText: function () {
     this.confirmText()
-  },
-  hideKeyboard: function () {
-    wx.hideKeyboard()
   }
 })

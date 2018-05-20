@@ -9,7 +9,7 @@
     <text class='font-size-13'>我的报价</text>
   </view>
 </view>
-<view class='shopCarBody'>
+<view class='shopCarBody' style="height: {{height-147}}px">
   <scroll-view scroll-y="true" style="height: {{height-147}}px" scroll-top="100">
     <view class='section'>
       <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
@@ -41,7 +41,7 @@
       <text wx:if="{{total > 0}}">({{total}})</text>
     </view>
   </view>
-  <view class='delete font-size-13'>
+  <view class='delete font-size-13' bindtap='deleteShopCarItem'>
     <text class='textDelete'>删除</text>
     <text class='textDeleteCount' wx:if="{{countCar > 0}}">({{countCar}})</text>
   </view>
