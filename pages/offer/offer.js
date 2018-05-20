@@ -94,7 +94,7 @@ Page({
             project => {
               offer.set('project', project)
               offer.set('amount', this.data.offer);
-              offer.set('description', this.data.description);
+              offer.set('description', this.data.description);              
               offer.save();
               wx.navigateBack({
                 delta: 1

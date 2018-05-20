@@ -113,15 +113,15 @@ Page({
     })
     
     for (var i = 0; i < that.data.products.length; i++) {
-      if (that.data.products[i].id == e.target.dataset.id){
-        that.data.products[i].checked = !that.data.products[i].checked        
+      if (that.data.products[i].id == e.currentTarget.dataset.id){
+        that.data.products[i].attributes.checked = !that.data.products[i].attributes.checked       
       }
-      if (that.data.products[i].checked){
+      if (that.data.products[i].attributes.checked){
         that.data.countCar = that.data.countCar + 1
-        that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].debitAmount)
+        that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].attributes.project.attributes.debitAmount)
       }
     }
-    this.setData({
+    that.setData({
       products: that.data.products,
       countCar: that.data.countCar,
       total: that.data.total
@@ -146,21 +146,21 @@ Page({
 
     if (this.data.checkedAll) {
       for (var i = 0; i < that.data.products.length; i++) {
-        that.data.products[i].checked = false
+        this.data.products[i].attributes.checked = false
       }
     } else {
-      for (var i = 0; i < that.data.products.length; i++) {
-        that.data.products[i].checked = true
-        that.data.countCar = that.data.countCar + 1
-        that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].price)
+      for (var i = 0; i < this.data.products.length; i++) {
+        this.data.products[i].attributes.checked = true
+        this.data.countCar = this.data.countCar + 1
+        this.data.total = parseFloat(this.data.total) + parseFloat(this.data.products[i].attributes.project.attributes.debitAmount)
       }      
     }
 
     this.setData({
-      products: that.data.products,
-      countCar: that.data.countCar,
-      checkedAll: !that.data.checkedAll,
-      total: that.data.total
+      products: this.data.products,
+      countCar: this.data.countCar,
+      checkedAll: !this.data.checkedAll,
+      total: this.data.total
     })
   },
   goToProject: function(e){

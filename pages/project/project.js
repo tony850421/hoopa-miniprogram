@@ -143,6 +143,7 @@ Page({
     if (user) {
       var shop = new AV.Object('ShopCar')
       shop.set('user', user)
+      shop.set('checked', false);
       shop.set('project', this.data.product)
       shop.save()
       wx.showToast({

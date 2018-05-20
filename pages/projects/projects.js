@@ -35,12 +35,6 @@ Page({
         name: '不',
         open: false,
         pages: ['不', '500万', '500-1000万', '1000-1500万', '1500-2000万', '2000-2500万', '2500-3000万', '3000-3500万', '3500-4000万', '4000-4500万', '4500-5000万', '5000-5500万', '5500-6000万', '6000万']
-      },
-      {
-        id: 'feedback',
-        name: '操作反馈',
-        open: false,
-        pages: ['actionsheet', 'dialog', 'msg', 'picker', 'toast']
       }
     ]
   },
@@ -58,7 +52,6 @@ Page({
       this.setData({
         products: res
       })
-      console.log(this.data.products)
     })
   },
   onReady: function () {
@@ -128,6 +121,15 @@ Page({
         products: res
       })
     })
+
+    for (var i = 0; i < this.data.list.length; i++) {
+      this.data.list[i].name = this.data.list[i].pages[0]
+      this.data.list[i].open = false
+    }
+
+    this.setData({
+      list: this.data.list
+    });
   },
   clearInput: function () {
     this.setData({
@@ -156,10 +158,11 @@ Page({
 
     for (var i = 0; i < this.data.list.length; i++) {
       if (this.data.list[i].id == e.target.dataset.filterheader) {
-        this.data.list[i].name = this.data.list[i].pages[e.target.dataset.filter]
+        this.data.list[i].name = this.data.list[i].pages[e.target.dataset.filter]        
       }
       this.data.list[i].open = false
     }
+    
     this.setData({
       list: this.data.list
     })
@@ -272,120 +275,19 @@ Page({
         products: res
       })
     })
+
+    if (this.data.list[0].name.length > 4) {
+      this.data.list[0].name = this.data.list[0].name[0] + this.data.list[0].name[1] + this.data.list[0].name[2] + "..."
+    }
+    if (this.data.list[1].name.length > 4) {
+      this.data.list[1].name = this.data.list[1].name[0] + this.data.list[1].name[1] + this.data.list[1].name[2] + "..."
+    }
+    if (this.data.list[2].name.length > 4) {
+      this.data.list[2].name = this.data.list[2].name[0] + this.data.list[2].name[1] + this.data.list[2].name[2] + "..."
+    }
+
+    this.setData({
+      list: this.data.list
+    });
   }
-  // tapFilterGeneral: function(e){
-  //   this.setData({
-  //     generalFilter: e.currentTarget.dataset.id
-  //   })
-
-  //   console.log(e.currentTarget.dataset.id)
-  //   var queryFilterGeneral = new AV.Query('Project')
-  //   queryFilterGeneral.contains('typeArrivalString', e.currentTarget.dataset.id)
-
-  //   var queryProvince = new AV.Query('Project');
-  //   queryProvince.equalTo('province', this.data.list[0].name);
-
-  //   var query = '';
-  //   switch (this.data.list[1].name) {
-  //     case '不':
-  //       query = new AV.Query('Project');
-  //       break;
-  //     case '500万':
-  //       query = new AV.Query('Project');
-  //       query.lessThanOrEqualTo('debitAmount', 500);
-  //       break;
-  //     case '500-1000万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 500);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 1000);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '1000-1500万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 1000);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 1500);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '1500-2000万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 1500);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 2000);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '2000-2500万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 2000);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 2500);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '2500-3000万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 2500);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 3000);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '3000-3500万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 3000);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 3500);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '3500-4000万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 3500);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 4000);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '4000-4500万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 4000);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 4500);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '4500-5000万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 4500);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 5000);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '5000-5500万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 5000);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 5500);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '5500-6000万':
-  //       var query2 = new AV.Query('Project');
-  //       query2.greaterThan('debitAmount', 5500);
-  //       var query1 = new AV.Query('Project');
-  //       query1.lessThanOrEqualTo('debitAmount', 6000);
-  //       var query = AV.Query.and(query2, query1);
-  //       break;
-  //     case '6000万':
-  //       query = new AV.Query('Project');
-  //       query.greaterThan('debitAmount', 6000);
-  //       break;
-  //     default:
-  //       query = new AV.Query('Project');
-  //       break;
-  //   }
-
-  //   var queryAnd = AV.Query.and(queryProvince, query, queryFilterGeneral);
-
-  //   queryAnd.find().then(res => {
-  //     this.setData({
-  //       products: res
-  //     })
-  //   })
-  // }
 })
