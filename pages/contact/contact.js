@@ -32,6 +32,7 @@ Page({
     this.setData({
       user: AV.User.current()
     })
+    console.log(this.data.user)
   },
 
   /**
@@ -83,24 +84,7 @@ Page({
             messages: message,
             intoView: message[message.length - 1].id
           })
-
-          var querySender = new AV.Query('_User')
-          if (message[0].attributes.sender.id == user.id) {
-            querySender.get(message[0].attributes.receiver.id).then(
-              send => {
-                this.setData({
-                  sender: send
-                })
-              })
-          } else {
-            querySender.get(message[0].attributes.sender.id).then(
-              send => {
-                this.setData({
-                  sender: send
-                })
-              })
-          }
-
+          
           for (var i = 0; i < message.length; i++) {
             if (message[i].attributes.receiver.id == user.id) {
               message[i].set('readed', true)
