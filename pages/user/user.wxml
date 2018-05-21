@@ -1,5 +1,5 @@
 <!--pages/user/user.wxml-->
-<image bindtap='goToUserInformation' src="../../images/config.png" class='home'></image>
+<image wx:if="{{user}}" bindtap='goToUserInformation' src="../../images/config.png" class='home'></image>
 <text wx:if="{{user}}" bindtap='logout' class='logout'>注销</text>
 <text wx:if="{{!user}}" bindtap='login' class='logout'>登录</text>
 <view>

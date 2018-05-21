@@ -155,13 +155,25 @@ Page({
       user.set('province', userData.province);
       user.set('city', userData.city);
       user.save().then(res => {
+        wx.showToast({
+          title: '数据得到正确',
+          icon: 'success',
+          duration: 3000
+        })
         this.setData({
           user: res
         })
       })
     } else {      
       wx.login({
-        success: res => {          
+        success: res => {    
+          
+          wx.showToast({
+            title: '数据得到正确',
+            icon: 'success',
+            duration: 3000
+          })
+      
           AV.User.loginWithWeapp().then(currentUser => {      
             currentUser.set('nickName', userData.nickName);
             currentUser.set('avatarUrl', userData.avatarUrl);
@@ -169,7 +181,7 @@ Page({
             currentUser.set('province', userData.province);
             currentUser.set('city', userData.city);            
             currentUser.save().then( res=> {
-
+              
               var query = new AV.Query('Offert');
               query.include('project')
               query.equalTo('user', currentUser);
