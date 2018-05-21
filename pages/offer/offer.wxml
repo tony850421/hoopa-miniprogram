@@ -20,8 +20,8 @@
     <textarea class='textAreaOffer' bindinput='inputDescription' value='{{description}}' placeholder='介绍您的报价说明'></textarea>
   </view>
 
-  <view class='saveBox'>
-    <button bindtap='cancel' size='mini' class='buttonCancel'>取消</button>
-    <button bindtap='makeOffer' size='mini' class='buttonSave backgroundColorPrimary'>提供</button>
+  <view class='saveBox'>    
+    <button bindtap='makeOffer' class='buttonSave backgroundColorPrimary'>提供</button>
+    <button bindtap='cancel' class='buttonCancel'>取消</button>
   </view>
 </view>

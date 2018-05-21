@@ -45,6 +45,6 @@
   </view>
 
   <view class='saveBox'>
-    <button bindtap='saveUser' size='mini' class='buttonSave'>救</button>
+    <button bindtap='saveUser' class='buttonSave'>救</button>
   </view>
 </view>

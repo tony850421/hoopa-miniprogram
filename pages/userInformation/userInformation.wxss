@@ -60,6 +60,7 @@
 @media (max-width: 480px) {
   .BackgorundProfile {
     height: 280px;
+    background-color: #ff6801;
   }
 }
 
@@ -73,18 +74,21 @@
 @media (max-width: 375px) {
   .BackgorundProfile {
     height: 250px;
+    background-color: #ff6801;
   }
 }
 
 @media (max-width: 360px) {
   .BackgorundProfile {
     height: 240px;
+    background-color: #ff6801;
   }
 }
 
 @media (max-width: 320px) {
   .BackgorundProfile {
     height: 200px;
+    background-color: #ff6801;
   }
 }
 
@@ -142,15 +146,16 @@
   background-color: #ff6801;
   color: white;
   border-radius: 5px;
-  width: 70px !important;
+  width: 100%;
 }
 
 .saveBox{
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 20px;
+  padding-left: 5%;
 }
 
 .projectTitleGroup {

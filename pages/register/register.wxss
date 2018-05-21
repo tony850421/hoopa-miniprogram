@@ -128,7 +128,7 @@
   background-color: #ff6801 !important;
   color: white !important;
   border-radius: 5px;
-  width: 70px !important;
+  width: 100%;
 }
 
 .saveBox {
