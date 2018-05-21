@@ -135,7 +135,7 @@
 .projectTitleGroup {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 29%;
   align-items: center;
 }
 
@@ -152,7 +152,7 @@
 .projectTextGroup {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 67%;
   text-align: center;
 }
 
@@ -169,8 +169,8 @@
 
 .home {
   position: absolute;
-  width: 22px;
-  height: 20px;
+  width: 34px;
+  height: 30px;
   margin-top: 10px;
   right: 10px;
 }

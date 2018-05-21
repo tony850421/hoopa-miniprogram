@@ -90,6 +90,7 @@ Page({
   fetchProducts: function (user) {
     const query = new AVLive.Query('Project');
     query.include('creator');
+    query.equalTo('recommended', true);
     query.include('image');
     query.descending('createdAt');
     query.limit(5);

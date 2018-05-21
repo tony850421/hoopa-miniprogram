@@ -23,6 +23,7 @@ Page({
 
     var query = new AV.Query('ShopCar');
     query.equalTo('user', AV.User.current());
+    query.descending('createdAt');
     query.include('project')
     query.find().then(
       projects => {

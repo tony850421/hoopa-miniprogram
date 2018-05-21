@@ -28,7 +28,7 @@
         <text>{{product.title}}</text>
         <view class='displayFlexRow font-size-13'>
           <text>价格：</text>
-          <text class='colorTextPrimary'>{{product.debitAmount}}</text>
+          <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
         </view>
         <view class='displayFlexRow font-size-13'>
           <text>提供：</text>
@@ -70,7 +70,7 @@
           <text>{{product.title}}</text>
           <view class='displayFlexRow font-size-13'>
             <text>价格：</text>
-            <text class='colorTextPrimary'>{{product.debitAmount}}</text>
+            <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
           </view>
           <view class='displayFlexRow font-size-13'>
             <text>提供：</text>

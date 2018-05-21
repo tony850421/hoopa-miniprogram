@@ -2,9 +2,9 @@
 <view>
   <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
+      <block> 
         <swiper-item>
-          <image mode='aspectFill' src="{{item}}" class="slide-image" />
+          <image mode='aspectFill' src="{{product.image.url}}" class="slide-image" />
         </swiper-item>
       </block>
     </swiper>
@@ -25,7 +25,7 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5 colorTextPrimary'>{{product.debitAmount}}</text>
+          <text class='margin-left-5 colorTextPrimary'>¥{{product.debitAmount}}万</text>
         </view>
       </view>
 
@@ -35,7 +35,7 @@
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>{{product.debitPricipalInterest}}</text>
+          <text class='margin-left-5 colorTextPrimary'>¥{{product.debitPricipalInterest}}万</text>
         </view>
       </view>
 
@@ -230,7 +230,7 @@
           </view>
           <image class='lineV' src='../../images/lineV.jpg'></image>
           <view class='projectTextGroup'>
-            <text class='margin-left-5'>{{sponsor.amount}}</text>
+            <text class='margin-left-5'>¥{{sponsor.amount}}万</text>
           </view>
         </view>
       </view>

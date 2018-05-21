@@ -16,4 +16,4 @@
     </view>
   </view>
 </scroll-view>
-<map bindcallouttap='markertap' id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" markers='{{partners}}' bindmarkertap="markertap" show-location='true'></map>
+<map id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" markers='{{partners}}' show-location='true' controls='true'></map>

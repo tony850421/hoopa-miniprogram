@@ -50,7 +50,7 @@
       </view>
       <image class='lineV' src='../../images/lineV.jpg'></image>
       <view class='projectTextGroup'>
-        <text class='font-size-13'>{{offer.amount}}</text>
+        <text class='colorTextPrimary'> ¥{{offer.amount}}万</text>
         <text class='font-size-13'>{{offer.description}}</text>
       </view>
     </view>

@@ -98,6 +98,16 @@
   border: 1px #d6dadb solid;
 }
 
+.buttonsBoxAboutUs {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 33.3%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 .buttonsGroup {
   padding-left: 7px;
   padding-right: 7px;
@@ -110,6 +120,11 @@
 .IconsButtons {
   width: 30px;
   height: 30px;
+}
+
+.IconsButtonAboutUs {
+  width: 81px;
+  height: 81px;
 }
 
 .project {

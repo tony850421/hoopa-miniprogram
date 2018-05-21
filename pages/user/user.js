@@ -57,9 +57,23 @@ Page({
     query.equalTo('user', AV.User.current());
     query.find().then(
       offer => {
+        
+        for (var i=0; i<offer.length; i++){
+          
+          if (offer[i].attributes.description.length > 50){
+            var desc = ''
+            for (var x=0; x<51; x++){              
+              desc += offer[i].attributes.description[x]
+            }
+            desc += '...'
+            offer[i].attributes.description = desc
+          }
+        }
         this.setData({
           offers: offer
         })
+
+        
       }
     )
     this.setData({

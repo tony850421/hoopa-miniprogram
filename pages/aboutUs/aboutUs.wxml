@@ -1,5 +1,5 @@
 <!--pages/aboutUs/aboutUs.wxml-->
-<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1cabee4e3d7641183327.jpg'></image>
+<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/51a3f7bee779e2b34bb0.jpg'></image>
 <view class='aboutus margin-bottom-5'>
   <view class='projectsGroup'>
     <text class='font-size-12'>杭州胡巴资产管理有限公司坐落于杭州中央金融商务区——钱江新城核心区，自2009年进入不良资产管理行业以来，目前已处置管理的债权总额累计超过300亿元，现管理债权金额约100亿元。为国内外众多投资机构及民营资本提供全价值链金融服务。</text>

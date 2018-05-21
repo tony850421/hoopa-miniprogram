@@ -25,9 +25,9 @@
         <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
         <text class='font-size-13'>服务</text>
       </view>
-      <view class='buttonsBox' bindtap='goToAboutUs'>
-        <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
-        <text class='font-size-13'>关于我们</text>
+      <view class='buttonsBoxAboutUs' bindtap='goToAboutUs'>
+        <image mode='aspectFit' class='IconsButtonAboutUs' src='../../images/about.png'></image>
+        <!-- <text class='font-size-13'>关于我们</text> -->
       </view>
       <view class='buttonsBox' bindtap='goToBranches'>
         <image mode='widthFix' class='IconsButtons' src='../../images/branch.png'></image>
@@ -59,7 +59,7 @@
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
             <text class='font-size-13 margin-top-10'>{{product.title}}</text>
             <image class='imageLine' src='../../images/line.jpg'></image>
-            <text class='font-size-13 colorTextPrimary'>{{product.debitAmount}}</text>
+            <text class='font-size-13 colorTextPrimary'>¥{{product.debitAmount}}万</text>
           </view>
         </view>
       </scroll-view>

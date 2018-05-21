@@ -16,14 +16,14 @@
           <view class='flex-item'>
           <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.objectId}}' />
         </view>
-        <view bindtap='goToProject' class='groupId' id='{{product.objectId}}'>
+        <view bindtap='goToProject' class='groupId' id='{{product.project.objectId}}'>
           <view class='flex-item'>
             <image class='imageProductCar' mode='aspectFill' src='{{product.project.image.url}}'></image>
           </view>
           <view class='flex-item widthText'>
             <view class='productInformation'>
               <text class='font-size-13'>{{product.project.title}}</text>
-              <text class='font-size-13'>{{product.project.debitAmount}}</text>
+              <text class='font-size-13 colorTextPrimary'>¥{{product.project.debitAmount}}万</text>
             </view>
           </view> 
         </view> 
@@ -38,7 +38,7 @@
     </view>
     <view class='count font-size-13'>
       <text>总:</text>
-      <text wx:if="{{total > 0}}">({{total}})</text>
+      <text class='colorTextPrimary' wx:if="{{total > 0}}">(¥{{total}}万)</text>
     </view>
   </view>
   <view class='delete font-size-13' bindtap='deleteShopCarItem'>

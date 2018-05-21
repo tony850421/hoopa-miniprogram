@@ -43,6 +43,8 @@ Page({
                 projectManager: project.get('projectManager')
               })
 
+              console.log(this.data.product)
+
               var query1 = new AV.Query("Sponsorship")
               query1.equalTo('project', project)
               query1.find().then(sponsors => {

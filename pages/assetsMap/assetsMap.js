@@ -16,14 +16,14 @@ Page({
       width: 42,
       height: 50,
       longitude: '',
-      latitude: '',
-      callout: {
-        content: '单击此处查看此项目',
-        display: 'ALWAYS',
-        padding: 10,
-        bgColor: '#FFFFFF',
-        borderRadius: 5
-      }
+      latitude: ''
+      // callout: {
+      //   content: '单击此处查看此项目',
+      //   display: 'ALWAYS',
+      //   padding: 10,
+      //   bgColor: '#FFFFFF',
+      //   borderRadius: 5
+      // }
     }]
   },
 

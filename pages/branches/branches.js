@@ -24,13 +24,13 @@ Page({
         iconPath: "../../images/markerWork.png",
         width: 42,
         height: 50,
-        callout: {
-          content: '单击以调用',
-          display: 'ALWAYS',
-          padding: 10,
-          bgColor: '#FFFFFF',
-          borderRadius: 5,
-        },
+        // callout: {
+        //   content: '单击以调用',
+        //   display: 'ALWAYS',
+        //   padding: 10,
+        //   bgColor: '#FFFFFF',
+        //   borderRadius: 5,
+        // },
         classSelected: 'branchesSelected'
       },
       {
@@ -46,13 +46,6 @@ Page({
         id: 1,
         width: 42,
         height: 50,
-        callout: {
-          content: '单击以调用',
-          display: 'ALWAYS',
-          padding: 10,
-          bgColor: '#FFFFFF',
-          borderRadius: 5,
-        },
         classSelected: 'branchesUnselected'
       },
       {
@@ -68,13 +61,6 @@ Page({
         id: 2,
         width: 42,
         height: 50,
-        callout: {
-          content: '单击以调用',
-          display: 'ALWAYS',
-          padding: 10,
-          bgColor: '#FFFFFF',
-          borderRadius: 5,
-        },
         classSelected: 'branchesUnselected'
       },
       {
@@ -90,13 +76,6 @@ Page({
         id: 3,
         width: 42,
         height: 50,
-        callout: {
-          content: '单击以调用',
-          display: 'ALWAYS',
-          padding: 10,
-          bgColor: '#FFFFFF',
-          borderRadius: 5,
-        },
         classSelected: 'branchesUnselected'
       },
       {
@@ -112,13 +91,6 @@ Page({
         id: 4,
         width: 42,
         height: 50,
-        callout: {
-          content: '单击以调用',
-          display: 'ALWAYS',
-          padding: 10,
-          bgColor: '#FFFFFF',
-          borderRadius: 5,
-        },
         classSelected: 'branchesUnselected'
       },
       {
@@ -134,13 +106,6 @@ Page({
         id: 5,
         width: 42,
         height: 50,
-        callout: {
-          content: '单击以调用',
-          display: 'ALWAYS',
-          padding: 10,
-          bgColor: '#FFFFFF',
-          borderRadius: 5,
-        },
         classSelected: 'branchesUnselected'
       }
     ]
