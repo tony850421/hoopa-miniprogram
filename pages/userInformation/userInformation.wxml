@@ -46,5 +46,6 @@
 
   <view class='saveBox'>
     <button bindtap='saveUser' class='buttonSave'>救</button>
+    <button bindtap='deleteUser' class='buttonDelete'>删除用户</button>
   </view>
 </view>

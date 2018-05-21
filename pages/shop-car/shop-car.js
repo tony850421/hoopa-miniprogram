@@ -147,13 +147,32 @@ Page({
     })
   },
   goToProject: function (e) {
-    wx.setStorage({
-      key: "projectID",
-      data: e.currentTarget.id
-    })
-    wx.navigateTo({
-      url: '../project/project',
-    })
+    var user = AV.User.current()
+    if (!user) {
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          AV.User.loginWithWeapp().then(user => {
+            // this.globalData.user = user.toJSON();
+            wx.setStorage({
+              key: "projectID",
+              data: e.currentTarget.id
+            })
+            wx.navigateTo({
+              url: '../project/project',
+            })
+          }).catch(console.error);
+        }
+      })
+    } else {
+      wx.setStorage({
+        key: "projectID",
+        data: e.currentTarget.id
+      })
+      wx.navigateTo({
+        url: '../project/project',
+      })
+    }
   },
   deleteShopCarItem: function () {
     var that = this

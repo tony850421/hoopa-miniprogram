@@ -34,15 +34,34 @@ Page({
     });
   },
   goToProject: function (e) {
-    wx.setStorage({
-      key: "projectID",
-      data: e.currentTarget.id
-    })
-    wx.navigateTo({
-      url: '../project/project',
-    })
+    var user = AV.User.current()
+    if (!user) {
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          AV.User.loginWithWeapp().then(user => {
+            // this.globalData.user = user.toJSON();
+            wx.setStorage({
+              key: "projectID",
+              data: e.currentTarget.id
+            })
+            wx.navigateTo({
+              url: '../project/project',
+            })
+          }).catch(console.error);
+        }
+      })
+    } else {
+      wx.setStorage({
+        key: "projectID",
+        data: e.currentTarget.id
+      })
+      wx.navigateTo({
+        url: '../project/project',
+      })
+    }
   },
-  goToRecommended: function (e) {    
+  goToRecommended: function (e) {
     wx.navigateTo({
       url: '../inProgress/inProgress',
     })
@@ -102,79 +121,130 @@ Page({
     }).catch(error => console.error(error.message));
   },
   onReady: function () {
-    wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.record']) {
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success() {
-              wx.getUserInfo({
-                success: res => {
-                  var user = AV.User.current();
-                  if (user) {
-                    user.set('nickName', res.userInfo.nickName);
-                    user.set('avatarUrl', res.userInfo.avatarUrl);
-                    user.set('gender', res.userInfo.gender);
-                    user.set('province', res.userInfo.province);
-                    user.set('city', res.userInfo.city);
-                    user.save();
+    var user = AV.User.current();
+    if (user) {
+      
+      var roleQuery = new AV.Query(AV.Role);
+      roleQuery.equalTo('users', user);
+      roleQuery.find().then(function (results) {
 
-                    var roleQuery = new AV.Query(AV.Role);
-                    roleQuery.equalTo('users', user);
-                    roleQuery.find().then(function (results) {
-                      
-                      var officialFlag = false;
-                      for (var i =0; i<results.length; i++){
-                        if (results[i].attributes.name == "official"){
-                          officialFlag = true;
-                        }
-                      }
+        var officialFlag = false;
+        for (var i = 0; i < results.length; i++) {
+          if (results[i].attributes.name == "official") {
+            officialFlag = true;
+          }
+        }
 
-                      if (officialFlag){
-                        wx.setStorage({
-                          key: 'role',
-                          data: 'official',
-                        })
-                      } else {
-                        wx.setStorage({
-                          key: 'role',
-                          data: 'guest',
-                        })
-                      }
-
-                      if (results.length > 0) {
-                        var role = results[0];                        
-                      } else {
-                        var roleQueryGuest = new AV.Query(AV.Role);
-                        roleQueryGuest.equalTo('name', 'guest');
-                        roleQueryGuest.find().then(function (results) {
-                          var role = results[0];
-                          var relation = role.getUsers();
-                          relation.add(user);
-                          return role.save();
-                        }).then(function (role) {
-                        }).catch(function (error) {
-                          console.log(error);
-                        });
-                      }
-                    }).then(function (administratorRole) {
-
-                    }).catch(function (error) {
-                      console.log(error);
-                    });
-                  }
-                  if (this.userInfoReadyCallback) {
-                    this.userInfoReadyCallback(res)
-                  }
-                }
-              })
-            }
+        if (officialFlag) {
+          wx.setStorage({
+            key: 'role',
+            data: 'official',
+          })
+        } else {
+          wx.setStorage({
+            key: 'role',
+            data: 'guest',
           })
         }
-      }
-    })
 
-    const user = AV.User.current();
+        if (results.length > 0) {
+          var role = results[0];
+        } else {
+          var roleQueryGuest = new AV.Query(AV.Role);
+          roleQueryGuest.equalTo('name', 'guest');
+          roleQueryGuest.find().then(function (results) {
+            var role = results[0];
+            var relation = role.getUsers();
+            relation.add(user);
+            return role.save();
+          }).then(function (role) {
+          }).catch(function (error) {
+            console.log(error);
+          });
+        }
+      }).then(function (administratorRole) {
+
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+    if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)
+    }
+
+    // wx.getSetting({
+    //   success(res) {
+    //     if (!res.authSetting['scope.record']) {
+    //       wx.authorize({
+    //         scope: 'scope.userInfo',
+    //         success() {
+    //           wx.getUserInfo({
+    //             success: res => {
+    //               var user = AV.User.current();
+    //               if (user) {
+    //                 user.set('nickName', res.userInfo.nickName);
+    //                 user.set('avatarUrl', res.userInfo.avatarUrl);
+    //                 user.set('gender', res.userInfo.gender);
+    //                 user.set('province', res.userInfo.province);
+    //                 user.set('city', res.userInfo.city);
+    //                 user.save();
+
+    //                 var roleQuery = new AV.Query(AV.Role);
+    //                 roleQuery.equalTo('users', user);
+    //                 roleQuery.find().then(function (results) {
+
+    //                   var officialFlag = false;
+    //                   for (var i = 0; i < results.length; i++) {
+    //                     if (results[i].attributes.name == "official") {
+    //                       officialFlag = true;
+    //                     }
+    //                   }
+
+    //                   if (officialFlag) {
+    //                     wx.setStorage({
+    //                       key: 'role',
+    //                       data: 'official',
+    //                     })
+    //                   } else {
+    //                     wx.setStorage({
+    //                       key: 'role',
+    //                       data: 'guest',
+    //                     })
+    //                   }
+
+    //                   if (results.length > 0) {
+    //                     var role = results[0];
+    //                   } else {
+    //                     var roleQueryGuest = new AV.Query(AV.Role);
+    //                     roleQueryGuest.equalTo('name', 'guest');
+    //                     roleQueryGuest.find().then(function (results) {
+    //                       var role = results[0];
+    //                       var relation = role.getUsers();
+    //                       relation.add(user);
+    //                       return role.save();
+    //                     }).then(function (role) {
+    //                     }).catch(function (error) {
+    //                       console.log(error);
+    //                     });
+    //                   }
+    //                 }).then(function (administratorRole) {
+
+    //                 }).catch(function (error) {
+    //                   console.log(error);
+    //                 });
+    //               }
+    //               if (this.userInfoReadyCallback) {
+    //                 this.userInfoReadyCallback(res)
+    //               }
+    //             }
+    //           })
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
+
+    // const user = AV.User.current();
     this.fetchProducts(user);
   },
   onUnload: function () {
@@ -193,7 +263,7 @@ Page({
     return products;
   },
   onShow: function () {
-    
+
   },
   onLoad: function () {
     const user = AV.User.current()
@@ -208,7 +278,7 @@ Page({
               index: 1,
               text: count.toString()
             })
-          }          
+          }
         })
     }
   }

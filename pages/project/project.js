@@ -67,29 +67,32 @@ Page({
     }
   },
   goToOffer: function () {
-    var roleQuery = new AV.Query(AV.Role);
-    roleQuery.equalTo('name', 'official');
-    roleQuery.equalTo('users', AV.User.current());
-    roleQuery.find().then(function (results) {
-      if (results.length > 0) {
-        wx.navigateTo({
-          url: '../offer/offer',
-        })
-      } else {
-        wx.setStorage({
-          key: 'redirect',
-          data: '../offer/offer',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-        wx.navigateTo({
-          url: '../register/register',
-        })
-      }
-    }).catch(function (error) {
-      console.log(error);
-    });
+    var user = AV.User.current()
+    if (user) {
+      var roleQuery = new AV.Query(AV.Role);
+      roleQuery.equalTo('name', 'official');
+      roleQuery.equalTo('users', user);
+      roleQuery.find().then(function (results) {
+        if (results.length > 0) {
+          wx.navigateTo({
+            url: '../offer/offer',
+          })
+        } else {
+          wx.setStorage({
+            key: 'redirect',
+            data: '../offer/offer',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+          wx.navigateTo({
+            url: '../register/register',
+          })
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
   },
   onShow: function (options) {
     wx.getStorage({
@@ -170,7 +173,7 @@ Page({
       phoneNumber: e.currentTarget.dataset.phone.toString()
     })
   },
-  goToAsset: function (e) {    
+  goToAsset: function (e) {
     wx.setStorage({
       key: 'latitude',
       data: e.currentTarget.dataset.latitude,

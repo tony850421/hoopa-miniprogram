@@ -120,5 +120,8 @@ Page({
     this.setData({
       fullName: e.detail.value
     })
+  },
+  deleteUser: function(){
+    
   }
 })

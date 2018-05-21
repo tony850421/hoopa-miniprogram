@@ -47,7 +47,7 @@ Page({
     query.include('creator');
     query.include('image');
     query.descending('createdAt');
-    query.limit(10);
+    // query.limit(10);
     query.find().then(res => {
       this.setData({
         products: res
@@ -92,13 +92,32 @@ Page({
 
   },
   goToProject: function (e) {
-    wx.setStorage({
-      key: "projectID",
-      data: e.currentTarget.id
-    })
-    wx.navigateTo({
-      url: '../project/project',
-    })
+    var user = AV.User.current()
+    if (!user) {
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          AV.User.loginWithWeapp().then(user => {
+            // this.globalData.user = user.toJSON();
+            wx.setStorage({
+              key: "projectID",
+              data: e.currentTarget.id
+            })
+            wx.navigateTo({
+              url: '../project/project',
+            })
+          }).catch(console.error);
+        }
+      })
+    } else {
+      wx.setStorage({
+        key: "projectID",
+        data: e.currentTarget.id
+      })
+      wx.navigateTo({
+        url: '../project/project',
+      })
+    }
   },
   showInput: function () {
     this.setData({
@@ -115,7 +134,7 @@ Page({
     query.include('creator');
     query.include('image');
     query.descending('createdAt');
-    query.limit(10);
+    // query.limit(10);
     query.find().then(res => {
       this.setData({
         products: res
@@ -290,7 +309,7 @@ Page({
       list: this.data.list
     });
   },
-  search: function(){
+  search: function () {
     var query = new AV.Query('Project')
     query.contains('title', this.data.inputVal)
 

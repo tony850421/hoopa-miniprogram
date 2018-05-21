@@ -29,12 +29,32 @@ Page({
     this.setData({
       user: AV.User.current()
     })
-    if (this.data.user){
+
+    if (this.data.user) {
+      this.verifyRole()
+    } else {
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          AV.User.loginWithWeapp().then(currentUser => {
+            this.setData({
+              user: currentUser
+            })
+            this.verifyRole()
+          }).catch(console.error);
+        }
+      })
+    }
+  },
+
+  verifyRole: function () {
+    var user = AV.User.current()
+    if (user) {
       var roleQuery = new AV.Query(AV.Role);
-      roleQuery.equalTo('users', this.data.user);
+      roleQuery.equalTo('users', user);
       roleQuery.find().then(
         roles => {
-          if (roles[0].attributes.name == "official"){
+          if (roles[0].attributes.name == "official") {
             this.setData({
               rol: true
             })
@@ -42,43 +62,52 @@ Page({
             this.setData({
               rol: true
             })
-          }          
+          }
         }
       )
     }
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var query = new AV.Query('Offert');
-    query.include('project')
-    query.equalTo('user', AV.User.current());
-    query.find().then(
-      offer => {
-        
-        for (var i=0; i<offer.length; i++){
-          
-          if (offer[i].attributes.description.length > 50){
-            var desc = ''
-            for (var x=0; x<51; x++){              
-              desc += offer[i].attributes.description[x]
-            }
-            desc += '...'
-            offer[i].attributes.description = desc
-          }
-        }
-        this.setData({
-          offers: offer
-        })
+    var user = AV.User.current()
+    if (user) {
+      var query = new AV.Query('Offert');
+      query.include('project')
+      query.equalTo('user', user);
+      query.find().then(
+        offer => {
 
-        
-      }
-    )
-    this.setData({
-      user: AV.User.current()
-    })
+          for (var i = 0; i < offer.length; i++) {
+
+            if (offer[i].attributes.description.length > 50) {
+              var desc = ''
+              for (var x = 0; x < 51; x++) {
+                desc += offer[i].attributes.description[x]
+              }
+              desc += '...'
+              offer[i].attributes.description = desc
+            }
+
+            if (offer[i].attributes.project.attributes.title.length > 6) {
+              var name = ''
+              for (var x = 0; x < 6; x++) {
+                name += offer[i].attributes.project.attributes.title[x]
+              }
+              name += '...'
+              offer[i].attributes.project.attributes.title = name
+            }
+          }
+          this.setData({
+            offers: offer
+          })
+        }
+      )
+      this.setData({
+        user: AV.User.current()
+      })
+    }
   },
 
   /**
@@ -115,17 +144,72 @@ Page({
   onShareAppMessage: function () {
 
   },
-  goToRegister: function () {
-    wx.setStorage({
-      key: 'redirect',
-      data: '../user/user',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-    wx.navigateTo({
-      url: '../register/register',
-    })
+  getWechatUserInfo: function (e) {
+    var user = AV.User.current()
+    var data = e.detail.rawData
+    var userData = JSON.parse(data)
+    if (user){
+      user.set('nickName', userData.nickName);
+      user.set('avatarUrl', userData.avatarUrl);
+      user.set('gender', userData.gender);
+      user.set('province', userData.province);
+      user.set('city', userData.city);
+      user.save().then(res => {
+        this.setData({
+          user: res
+        })
+      })
+    } else {      
+      wx.login({
+        success: res => {          
+          AV.User.loginWithWeapp().then(currentUser => {      
+            currentUser.set('nickName', userData.nickName);
+            currentUser.set('avatarUrl', userData.avatarUrl);
+            currentUser.set('gender', userData.gender);
+            currentUser.set('province', userData.province);
+            currentUser.set('city', userData.city);            
+            currentUser.save().then( res=> {
+
+              var query = new AV.Query('Offert');
+              query.include('project')
+              query.equalTo('user', currentUser);
+              query.find().then(
+                offer => {
+
+                  for (var i = 0; i < offer.length; i++) {
+
+                    if (offer[i].attributes.description.length > 50) {
+                      var desc = ''
+                      for (var x = 0; x < 51; x++) {
+                        desc += offer[i].attributes.description[x]
+                      }
+                      desc += '...'
+                      offer[i].attributes.description = desc
+                    }
+
+                    if (offer[i].attributes.project.attributes.title.length > 6) {
+                      var name = ''
+                      for (var x = 0; x < 6; x++) {
+                        name += offer[i].attributes.project.attributes.title[x]
+                      }
+                      name += '...'
+                      offer[i].attributes.project.attributes.title = name
+                    }
+                  }
+                  this.setData({
+                    offers: offer
+                  })
+                }
+              )
+
+              this.setData({
+                user: res
+              })
+            })
+          }).catch(console.error);
+        }
+      })
+    }    
   },
   goToCar: function () {
     wx.navigateTo({
@@ -142,36 +226,111 @@ Page({
       url: '../inProgress/inProgress',
     })
   },
-  goToUserInformation: function(){
-    var roleQuery = new AV.Query(AV.Role);
-    roleQuery.equalTo('name', 'official');
-    roleQuery.equalTo('users', this.data.user);
-    roleQuery.find().then(function (results) {
-      if (results.length <= 0) {
-        wx.setStorage({
-          key: 'redirect',
-          data: '../user/user',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-        wx.navigateTo({
-          url: '../register/register',
-        })
-      } else {
-        wx.navigateTo({
-          url: '../userInformation/userInformation',
-        })
-      }
+  goToUserInformation: function () {
+    var user = AV.User.current()
+    if (user) {
+      var roleQuery = new AV.Query(AV.Role);
+      roleQuery.equalTo('name', 'official');
+      roleQuery.equalTo('users', this.data.user);
+      roleQuery.find().then(function (results) {
+        if (results.length <= 0) {
+          wx.setStorage({
+            key: 'redirect',
+            data: '../user/user',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+          wx.navigateTo({
+            url: '../register/register',
+          })
+        } else {
+          wx.navigateTo({
+            url: '../userInformation/userInformation',
+          })
+        }
+      })
+    }
+  },
+  goToProject: function (e) {
+    var user = AV.User.current()
+    if (!user) {
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          AV.User.loginWithWeapp().then(user => {
+            wx.setStorage({
+              key: 'projectID',
+              data: e.currentTarget.dataset.id,
+            })
+            wx.navigateTo({
+              url: '../project/project'
+            })
+          }).catch(console.error);
+        }
+      })
+    } else {
+      wx.setStorage({
+        key: 'projectID',
+        data: e.currentTarget.dataset.id,
+      })
+      wx.navigateTo({
+        url: '../project/project'
+      })
+    }
+  },
+  logout: function(){
+    AV.User.logOut().then(res=>{
+      this.setData({
+        user: null,
+        rol: '',
+        offers: []
+      })
     })    
   },
-  goToProject: function(e){
-    wx.setStorage({
-      key: 'projectID',
-      data: e.currentTarget.dataset.id,
-    })
-    wx.navigateTo({
-      url: '../project/project'
+  login: function(){
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        AV.User.loginWithWeapp().then(currentUser => {
+          var query = new AV.Query('Offert');
+          query.include('project')
+          query.equalTo('user', currentUser);
+          query.find().then(
+            offer => {
+
+              for (var i = 0; i < offer.length; i++) {
+
+                if (offer[i].attributes.description.length > 50) {
+                  var desc = ''
+                  for (var x = 0; x < 51; x++) {
+                    desc += offer[i].attributes.description[x]
+                  }
+                  desc += '...'
+                  offer[i].attributes.description = desc
+                }
+
+                if (offer[i].attributes.project.attributes.title.length > 6) {
+                  var name = ''
+                  for (var x = 0; x < 6; x++) {
+                    name += offer[i].attributes.project.attributes.title[x]
+                  }
+                  name += '...'
+                  offer[i].attributes.project.attributes.title = name
+                }
+              }
+              this.setData({
+                offers: offer
+              })
+            }
+          )
+
+          this.setData({
+            user: currentUser
+          })
+          this.verifyRole()
+        }).catch(console.error);
+      }
     })
   }
 })

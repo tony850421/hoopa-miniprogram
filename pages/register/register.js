@@ -202,6 +202,7 @@ Page({
       })
     }
   },
+  
   inputCompany: function (e) {
     this.setData({
       company: e.detail.value
@@ -212,54 +213,59 @@ Page({
       })
     }
   },
+
   register: function () {
-    var that = this
-    that.data.user.set('fullName', this.data.name);
-    that.data.user.set('ci', this.data.ci);
-    that.data.user.set('company', this.data.company);
-    that.data.user.save();
+    var user = AV.User.current()
+    if (user) {
+      var that = this
+      that.data.user.set('fullName', this.data.name);
+      that.data.user.set('ci', this.data.ci);
+      that.data.user.set('company', this.data.company);
+      that.data.user.save();
 
-    AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
-      var roleQuery = new AV.Query(AV.Role);
-      roleQuery.equalTo('name', 'official');
-      roleQuery.find().then(function (results) {
-        var role = results[0];
-        var relation = role.getUsers();
-        relation.add(that.data.user);
-        return role.save();
-      }).then(function (role) {
-        //save role official in the storage
-        wx.setStorage({
-          key: 'role',
-          data: 'official',
+      AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
+        var roleQuery = new AV.Query(AV.Role);
+        roleQuery.equalTo('name', 'official');
+        roleQuery.find().then(function (results) {
+          var role = results[0];
+          var relation = role.getUsers();
+          relation.add(that.data.user);
+          return role.save();
+        }).then(function (role) {
+          //save role official in the storage
+          wx.setStorage({
+            key: 'role',
+            data: 'official',
+          })
+        }).catch(function (error) {
+          console.log(error);
+        });
+
+        // redirect to:
+        wx.getStorage({
+          key: 'redirect',
+          success: function (res) {
+            if (res.data == "../contact/contact") {
+              wx.switchTab({
+                url: res.data
+              })
+            } else if (res.data == "../user/user") {
+              wx.switchTab({
+                url: res.data
+              })
+            } else {
+              wx.navigateTo({
+                url: res.data,
+              })
+            }
+          },
         })
-      }).catch(function (error) {
-        console.log(error);
-      });      
-
-      // redirect to:
-      wx.getStorage({
-        key: 'redirect',
-        success: function (res) {
-          if (res.data == "../contact/contact") {            
-            wx.switchTab({
-              url: res.data
-            })
-          } else if (res.data == "../user/user") {
-            wx.switchTab({
-              url: res.data
-            })
-          } else {
-            wx.navigateTo({
-              url: res.data,
-            })
-          }
-        },
-      })
-    }, function (err) {
-      console.log(err)
-    });
+      }, function (err) {
+        console.log(err)
+      });
+    }
   },
+
   goToHome: function(){
     wx.switchTab({
       url: '../index/index',

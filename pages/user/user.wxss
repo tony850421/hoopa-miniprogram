@@ -147,6 +147,7 @@
   border-radius: 5px;
   padding:10px;
   border: 1px #d6dadb solid;
+  margin-top: 5px;
 }
 
 .projectTextGroup {
@@ -171,6 +172,21 @@
   position: absolute;
   width: 34px;
   height: 30px;
+  margin-top: 10px;  
+  left: 10px;
+}
+
+.logout {
+  position: absolute;
+  width: 34px;
+  height: 30px;
   margin-top: 10px;
   right: 10px;
+  color: white;
+}
+
+.buttonGetUserInfo{
+  background-color: transparent;
+  color: white !important;
+  border: none !important;
 }
