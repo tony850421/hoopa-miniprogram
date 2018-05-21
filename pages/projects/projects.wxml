@@ -4,7 +4,7 @@
     <view class="weui-search-bar__form">
       <view class="weui-search-bar__box">
         <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+        <input bindconfirm='search' type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
         <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
           <icon type="clear" size="14"></icon>
         </view>
@@ -41,10 +41,10 @@
 
 <view hidden='{{!inputShowed}}'>
   <view class='topBarSearch'>
-    <view class='itemBarSearch_{{index}}' wx:for="{{list}}" wx:for-item="item">
+    <view class='itemBarSearch' wx:for="{{list}}" wx:for-item="item">
       <view class="kind-list__item">
         <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-          <view class="weui-flex__item font-size-13">{{item.name}}</view>
+          <view class="weui-flex__item">{{item.name}}</view>
           <image wx:if="{{!item.open}}" class="kind-list__img" src="../../images/angle_right.png"></image>
           <image wx:if="{{item.open}}" class="kind-list__img" src="../../images/angle_down.png"></image>
         </view>
@@ -52,7 +52,7 @@
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
             <scroll-view scroll-y="true" style="max-height: 360px" scroll-top="100">
               <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
-                <view class="weui-cell__bd font-size-13" bindtap='selectFilter' data-filterHeader="{{item.id}}" data-filter="{{index}}">{{page}}</view>
+                <view class="weui-cell__bd" bindtap='selectFilter' data-filterHeader="{{item.id}}" data-filter="{{index}}">{{page}}</view>
               </block>
             </scroll-view>
           </view>

@@ -28,7 +28,7 @@ Page({
         id: 'province',
         name: '安徽省',
         open: false,
-        pages: ['安徽省', '北京市', '重庆市', '福建省', '广东省', '甘肃省', '广西壮族自治区', '贵州省', '河南省', '湖北省', '河北省', '海南省', '香港特别行政区', '黑龙江省', '湖南省', '吉林省', '江苏省', '江西省', '辽宁省', '澳门特别行政区', '內蒙古自治区','宁夏回族自治区', '青海省', '四川省', '山东省', '上海市', '陕西省', '山西省', '天津市', '台湾省', '新疆维吾尔自治区', '西藏自治区', '云南省', '浙江省']
+        pages: ['安徽省', '北京市', '重庆市', '福建省', '广东省', '甘肃省', '广西壮族自治区', '贵州省', '河南省', '湖北省', '河北省', '海南省', '香港特别行政区', '黑龙江省', '湖南省', '吉林省', '江苏省', '江西省', '辽宁省', '澳门特别行政区', '內蒙古自治区', '宁夏回族自治区', '青海省', '四川省', '山东省', '上海市', '陕西省', '山西省', '天津市', '台湾省', '新疆维吾尔自治区', '西藏自治区', '云南省', '浙江省']
       },
       {
         id: 'price',
@@ -158,11 +158,11 @@ Page({
 
     for (var i = 0; i < this.data.list.length; i++) {
       if (this.data.list[i].id == e.target.dataset.filterheader) {
-        this.data.list[i].name = this.data.list[i].pages[e.target.dataset.filter]        
+        this.data.list[i].name = this.data.list[i].pages[e.target.dataset.filter]
       }
       this.data.list[i].open = false
     }
-    
+
     this.setData({
       list: this.data.list
     })
@@ -289,5 +289,19 @@ Page({
     this.setData({
       list: this.data.list
     });
+  },
+  search: function(){
+    var query = new AV.Query('Project')
+    query.contains('title', this.data.inputVal)
+
+    var query1 = new AV.Query('Project')
+    query1.contains('description', this.data.inputVal)
+
+    var compoundQuery = AV.Query.or(query1, query)
+    compoundQuery.find().then(res => {
+      this.setData({
+        products: res
+      })
+    })
   }
 })

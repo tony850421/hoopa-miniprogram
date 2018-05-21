@@ -41,7 +41,7 @@ page {
 }
 
 .textBar {
-  border-top: 1px #d6dadb solid;
+  border-bottom: 1px #d6dadb solid;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;

@@ -52,16 +52,8 @@
   margin-top: 5px;
 }
 
-.itemBarSearch_0 {
-  width: 40%;
-}
-
-.itemBarSearch_1 {
-  width: 28%;
-}
-
-.itemBarSearch_2 {
-  width: 32%;
+.itemBarSearch {
+  width: 33.3%;
 }
 
 .kind-list__item-hd {

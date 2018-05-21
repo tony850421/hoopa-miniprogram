@@ -1,36 +1,5 @@
 <!-- pages/contact/contact.wxml -->
 <view class="contactOrder">
-  <view style="height: {{height-49}}px">
-    <scroll-view scroll-y="true" style="height: {{height-49}}px" scroll-into-view="A{{intoView}}" scroll-top="100">
-      <view class='section'>
-        <view wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.objectId}}" id="A{{message.objectId}}">
-          <text wx:if="{{message.sender.objectId != user.objectId}}" class='dateText'>{{message.createdAt}}</text>
-          <text wx:if="{{message.sender.objectId == user.objectId}}" class='dateTextRight'>{{message.createdAt}}</text>          
-          <view wx:if="{{message.sender.objectId != user.objectId}}" class='comments'>
-            <view class='imageAvatar'>
-              <image src='../../images/icono-02.png' class='imageAvatar'></image>
-            </view>            
-            <view style='width: {{widht-110}}px' class='commentStyle'>
-              <view>
-                <text class='content'>{{message.content}}</text>
-              </view>
-            </view>
-          </view>
-          <view wx:if="{{message.sender.objectId == user.objectId}}" class='comments'>
-            <view style='width: {{widht-110}}px' class='commentStyleRight'>
-              <view class='contentComment'>
-                <text class='content'>{{message.content}}</text>
-              </view>
-            </view>
-            <view class='imageAvatar'>
-              <image src='{{user.avatarUrl}}' class='imageAvatar'></image>
-            </view>
-          </view>
-          <view wx:if="{{index == messages.length -1 }}" class='bottom'></view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
   <view class='textBar'>
     <view class='inputGroup'>
       <input bindinput='bindKeyInput' bindconfirm='confirmText' value='{{inputText}}' class='inputSend' type='text'></input>
@@ -39,4 +8,31 @@
       <image bindtap='sendText' class='send' src='../../images/send.png'></image>
     </view>
   </view>
+  <scroll-view scroll-y="true" style='height: {{height}}px' scroll-into-view="A{{intoView}}" scroll-top="100">
+    <view wx:for="{{messages}}" wx:for-item="message" wx:key="{{message.objectId}}" id="A{{message.objectId}}">
+      <text wx:if="{{message.sender.objectId != user.objectId}}" class='dateText'>{{message.createdAt}}</text>
+      <text wx:if="{{message.sender.objectId == user.objectId}}" class='dateTextRight'>{{message.createdAt}}</text>
+      <view wx:if="{{message.sender.objectId != user.objectId}}" class='comments'>
+        <view class='imageAvatar'>
+          <image src='../../images/icono-02.png' class='imageAvatar'></image>
+        </view>
+        <view style='width: {{widht-110}}px' class='commentStyle'>
+          <view>
+            <text class='content'>{{message.content}}</text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{message.sender.objectId == user.objectId}}" class='comments'>
+        <view style='width: {{widht-110}}px' class='commentStyleRight'>
+          <view class='contentComment'>
+            <text class='content'>{{message.content}}</text>
+          </view>
+        </view>
+        <view class='imageAvatar'>
+          <image src='{{user.avatarUrl}}' class='imageAvatar'></image>
+        </view>
+      </view>
+      <view wx:if="{{index == messages.length -1 }}" class='bottom'></view>
+    </view>
+  </scroll-view>
 </view>
