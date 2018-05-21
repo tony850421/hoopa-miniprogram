@@ -9,7 +9,8 @@ Page({
    */
   data: {
     offer: '',
-    description: ''
+    description: '',
+    disableOffer: true
   },
 
   /**
@@ -72,16 +73,33 @@ Page({
     this.setData({
       offer: e.detail.value
     })
+    if (this.data.offer != '' && this.data.description != ''){
+       this.setData({
+         disableOffer: false
+       })
+    } else {
+      this.setData({
+        disableOffer: true
+      })
+    }
   },
 
   inputDescription: function (e) {
     this.setData({
       description: e.detail.value
     })
+    if (this.data.offer != '' && this.data.description != '') {
+      this.setData({
+        disableOffer: false
+      })
+    } else {
+      this.setData({
+        disableOffer: true
+      })
+    }
   },
 
   makeOffer: function () {
-    //we need to ask about roles, only official users are be able to make and offer
     const user = AV.User.current();
     if (user) {
       var offer = new AV.Object('Offert');
@@ -96,15 +114,14 @@ Page({
               offer.set('amount', this.data.offer);
               offer.set('description', this.data.description);              
               offer.save();
-              wx.navigateBack({
-                delta: 1
+              wx.navigateTo({
+                url: '../project/project',
               })
             }).catch(console.error)
         }
       })
     }
   },
-
   cancel: function () {
     wx.navigateBack({
       delta: 1

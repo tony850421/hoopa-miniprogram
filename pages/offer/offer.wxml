@@ -21,7 +21,7 @@
   </view>
 
   <view class='saveBox'>    
-    <button bindtap='makeOffer' class='buttonSave backgroundColorPrimary'>提供</button>
+    <button bindtap='makeOffer' disabled='{{disableOffer}}' class='buttonSave backgroundColorPrimary'>提供</button>
     <button bindtap='cancel' class='buttonCancel'>取消</button>
   </view>
 </view>

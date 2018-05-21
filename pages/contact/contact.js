@@ -139,7 +139,7 @@ Page({
     })
   },
   confirmText: function () {
-    if (this.data.user) {
+    if (this.data.user && this.data.inputText != '') {
       var newMessage = new AV.Object('Message');
       newMessage.set('sender', this.data.user);
       var receiver = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
