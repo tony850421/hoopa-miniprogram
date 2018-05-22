@@ -113,6 +113,11 @@
   align-items: center;
 }
 
+.projectTitleGroupLabel{
+  width: 50% !important;
+  align-items: flex-start !important;
+}
+
 .projectsGroup {
   display: flex;
   flex-direction: row;

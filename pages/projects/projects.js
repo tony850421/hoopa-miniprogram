@@ -7,11 +7,8 @@ const bind = require('../../utils/live-query-binding');
 var offersProduct = [];
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    height: '',
     products: [],
     offers: [],
     inputShowed: false,
@@ -38,10 +35,6 @@ Page({
       }
     ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     const query = new AV.Query('Project');
     query.include('creator');
@@ -53,6 +46,14 @@ Page({
         products: res
       })
     })
+
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          height: res.windowHeight
+        })
+      },
+    })
   },
   onReady: function () {
     const user = AV.User.current();
@@ -61,30 +62,15 @@ Page({
   },
   onPullDownRefresh: function () {
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
 
   },
@@ -96,9 +82,7 @@ Page({
     if (!user) {
       wx.login({
         success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
           AV.User.loginWithWeapp().then(user => {
-            // this.globalData.user = user.toJSON();
             wx.setStorage({
               key: "projectID",
               data: e.currentTarget.id
@@ -125,6 +109,9 @@ Page({
     });
   },
   hideInput: function () {
+    this.search();
+  },
+  clearInput: function () {
     this.setData({
       inputVal: "",
       inputShowed: false
@@ -150,15 +137,11 @@ Page({
       list: this.data.list
     });
   },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
-    });
-  },
   inputTyping: function (e) {
     this.setData({
       inputVal: e.detail.value
     });
+    this.closeFilters();
   },
   kindToggle: function (e) {
     var id = e.currentTarget.id, list = this.data.list;
@@ -321,6 +304,15 @@ Page({
       this.setData({
         products: res
       })
+    })
+  },
+  closeFilters: function () {
+    for (var i = 0; i < this.data.list.length; i++) {
+      this.data.list[i].open = false
+    }
+
+    this.setData({
+      list: this.data.list
     })
   }
 })

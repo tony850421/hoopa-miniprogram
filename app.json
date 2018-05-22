@@ -20,7 +20,8 @@
     "pages/team/team",
     "pages/assetsMap/assetsMap",
     "pages/services/services",
-    "pages/inProgress/inProgress"
+    "pages/inProgress/inProgress",
+    "pages/recommended/recommended"
   ],
   "window": {
     "backgroundColor": "#ffffff",

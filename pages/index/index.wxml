@@ -65,4 +65,32 @@
       </scroll-view>
     </view>
   </view>
+  <view class='sectionProjects'>
+    <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view wx:if="{{products.length > 0}}">
+      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+        <view class='projectList'>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
+            <text class='font-size-13 margin-top-10'>{{product.title}}</text>
+            <image class='imageLine' src='../../images/line.jpg'></image>
+            <text class='font-size-13 colorTextPrimary'>¥{{product.debitAmount}}万</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='sectionProjects'>
+    <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view wx:if="{{products.length > 0}}">
+      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+        <view class='projectList'>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
+            <text class='font-size-13 margin-top-10'>{{product.title}}</text>
+            <image class='imageLine' src='../../images/line.jpg'></image>
+            <text class='font-size-13 colorTextPrimary'>¥{{product.debitAmount}}万</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
 </view>

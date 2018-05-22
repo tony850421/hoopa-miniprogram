@@ -2,7 +2,7 @@
 <view>
   <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block> 
+      <block>
         <swiper-item>
           <image mode='aspectFill' src="{{product.image.url}}" class="slide-image" />
         </swiper-item>
@@ -39,6 +39,64 @@
         </view>
       </view>
 
+      <!--prestamistas  -->
+      <view class='projectsLabel font-size-13'>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
+          <text>借款人信息</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>债权本金</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5 colorTextPrimary'>¥{{product.borrowerPrincipalDebit}}万</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>债权利息</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5 colorTextPrimary'>¥{{product.borrowerInterestCreditor}}万</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>本息合计</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5 colorTextPrimary'>¥{{product.borrowerTotalInterest}}万</text>
+        </view>
+      </view>
+
+      <!-- description  -->
+      <view class='projectsLabel font-size-13'>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
+          <text>描述</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13'>
+        <view class='desciptionGroup'>
+          <text class='margin-left-5'>{{product.description}}</text>
+        </view>
+      </view>
+
+
+      <!-- hay que cambiar esto pot un text area-->
+      <view class='projectsLabel font-size-13'>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
+          <text>法律进度</text>
+        </view>
+      </view>
+
       <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>受理法院</text>
@@ -49,9 +107,31 @@
         </view>
       </view>
 
+      <!--numero de ofertas  -->
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>是否有报价</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text wx:if="{{product.quotation == 1}}" class='margin-left-5'>是</text>
+          <text wx:if="{{product.quotation == 0}}" class='margin-left-5'>否</text>
+        </view>
+      </view>
+      <!--numero de visitas  -->
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>关注数</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5'>7 人</text>
+        </view>
+      </view>
+
       <!--project manager  -->
       <view class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup'>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
           <text>项目经理</text>
         </view>
       </view>
@@ -81,88 +161,34 @@
         </view>
       </view>
 
-      <!--legal progress  -->
-      <view class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>法律进度</text>
-        </view>
-      </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>是否有报价</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text wx:if="{{product.quotation == 1}}" class='margin-left-5'>是</text>
-          <text wx:if="{{product.quotation == 0}}" class='margin-left-5'>否</text>
-        </view>
-      </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>关注数</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>7 人</text>
-        </view>
-      </view>
-
       <!-- borrower information  -->
       <view class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>借款人信息</text>
-        </view>
-      </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>债权本金</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>{{product.borrowerPrincipalDebit}}</text>
-        </view>
-      </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>债权利息</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>{{product.borrowerInterestCreditor}}</text>
-        </view>
-      </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>本息合计</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>{{product.borrowerTotalInterest}}</text>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
+          <text>抵押物详情 ({{assetsList.length}}条)</text>
         </view>
       </view>
 
       <view wx:for="{{assetsList}}" wx:for-item="asset">
-        <!--maps  -->
-        
         <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>方向</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <view class='phoneNumber' >
-            <text bindtap='goToAsset' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{asset.plainAddress}}</text>
-          </view>
-          <view class='userLocationGroup' data-latitude="{{asset.location.latitude}}" data-longitude="{{asset.location.longitude}}" bindtap='goToAsset'>
-            <image class='imageLocation' src='../../images/userLocation.png'></image>
+          <view class='projectTitleGroup'>
+            <text>{{index+1}}.资产</text>
           </view>
         </view>
-      </view>
+        <!--maps  -->
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>方向</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <view class='phoneNumber'>
+              <text bindtap='goToAsset' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{asset.plainAddress}}</text>
+            </view>
+            <view class='userLocationGroup' data-latitude="{{asset.location.latitude}}" data-longitude="{{asset.location.longitude}}" bindtap='goToAsset'>
+              <image class='imageLocation' src='../../images/userLocation.png'></image>
+            </view>
+          </view>
+        </view>
 
         <view class='projectsGroup font-size-13'>
           <view class='projectTitleGroup'>
@@ -180,7 +206,7 @@
           </view>
           <image class='lineV' src='../../images/lineV.jpg'></image>
           <view class='projectTextGroup'>
-            <text class='margin-left-5'>{{asset.constructionArea}}</text>
+            <text class='margin-left-5'>{{asset.constructionArea}}m²</text>
           </view>
         </view>
 
@@ -190,66 +216,64 @@
           </view>
           <image class='lineV' src='../../images/lineV.jpg'></image>
           <view class='projectTextGroup'>
-            <text class='margin-left-5'>{{asset.landArea}}</text>
+            <text class='margin-left-5'>{{asset.landArea}}m²</text>
           </view>
         </view>
       </view>
+    </view>
 
-      <!-- sponsors  -->
-      <view wx:if="{{sponsorsList.length > 0}}" class='projectsLabel font-size-13'>
+    <!-- sponsors  -->
+    <view wx:if="{{sponsorsList.length > 0}}" class='projectsLabel font-size-13'>
+      <view class='projectTitleGroup projectTitleGroupLabel'>
+        <text>赞助商 ({{sponsorsList.length}}条)</text>
+      </view>
+    </view>
+
+    <view wx:for="{{sponsorsList}}" wx:for-item="sponsor">
+      <!--list of sponsors  -->
+      <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
-          <text>赞助商</text>
-        </view>
-      </view>
-
-      <view wx:for="{{sponsorsList}}" wx:for-item="sponsor">
-        <!--list of sponsors  -->
-        <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
-            <text>保证人</text>
-          </view>
-          <image class='lineV' src='../../images/lineV.jpg'></image>
-          <view class='projectTextGroup'>
-            <text class='margin-left-5'>{{sponsor.name}}</text>
-          </view>
-        </view>
-
-        <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
-            <text>类型</text>
-          </view>
-          <image class='lineV' src='../../images/lineV.jpg'></image>
-          <view class='projectTextGroup'>
-            <text class='margin-left-5'>{{sponsor.type}}</text>
-          </view>
-        </view>
-
-        <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
-            <text>担保金额</text>
-          </view>
-          <image class='lineV' src='../../images/lineV.jpg'></image>
-          <view class='projectTextGroup'>
-            <text class='margin-left-5'>¥{{sponsor.amount}}万</text>
-          </view>
-        </view>
-      </view>
-
-
-      <!-- description  -->
-      <view class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>描述</text>
+          <text>{{index+1}}.赞助</text>
         </view>
       </view>
 
       <view class='projectsGroup font-size-13'>
-        <view class='desciptionGroup'>
-          <text class='margin-left-5'>{{product.description}}</text>
+        <view class='projectTitleGroup'>
+          <text>保证人</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5'>{{sponsor.name}}</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>类型</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5'>{{sponsor.type}}</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13'>
+        <view class='projectTitleGroup'>
+          <text>担保金额</text>
+        </view>
+        <image class='lineV' src='../../images/lineV.jpg'></image>
+        <view class='projectTextGroup'>
+          <text class='margin-left-5'>¥{{sponsor.amount}}万</text>
         </view>
       </view>
 
 
+      <!-- nearby  -->
+      <view class='projectsLabel font-size-13'>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
+          <text>附近资产</text>
+        </view>
+      </view>
       <view class='projectsGroup font-size-13' bindtap='goToNearby'>
         <view class='nearbyProjects'>
           <text class='margin-left-5'>周围的其它资产</text>
@@ -259,6 +283,17 @@
         </view>
       </view>
 
+      <!-- recommended  -->
+      <view class='projectsLabel font-size-13'>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
+          <text>推荐</text>
+        </view>
+      </view>
+      <view class='projectsGroup font-size-13' bindtap='goToRecommended'>
+        <view class='nearbyProjects'>
+          <text class='margin-left-5'>推荐</text>
+        </view>
+      </view>
     </view>
   </scroll-view>
   <view class='buttonsBar'>

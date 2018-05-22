@@ -64,8 +64,8 @@
       </view>
     </view>
   </view>
-
-  <view class='saveBox'>
-    <button bindtap='register' disabled='{{butonRegisterDisable}}' class='buttonSave'>注册</button>
+  
+  <view class='saveBox' wx:if="{{!buttonRegisterDisabled}}">
+    <button bindtap='register' class='buttonSave'>注册</button>
   </view>
 </view>

@@ -16,7 +16,7 @@ Page({
     ci: '',
     company: '',
     buttonSendCodeDisabled: true,
-    butonRegisterDisable: true,
+    buttonRegisterDisabled: true,
     codeText: '发送',
     user: {}
   },
@@ -32,7 +32,7 @@ Page({
           widht: res.windowWidth
         })
       }
-    })    
+    })
   },
 
   /**
@@ -49,7 +49,7 @@ Page({
     this.setData({
       user: AV.User.current()
     })
-    if (this.data.user){
+    if (this.data.user) {
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('users', this.data.user);
       roleQuery.find().then(
@@ -107,47 +107,45 @@ Page({
 
     // var user = AV.User.current();
     if (that.data.user) {
-      that.data.user.setMobilePhoneNumber(phoneAux);
-      that.data.user.save().then(function () {  
-        AV.Cloud.requestSmsCode({
-          mobilePhoneNumber: phoneAux,
-          name: '应用名称',
-          op: '某种操作',
-          ttl: 2
-        }).then(function () {
+      // that.data.user.setMobilePhoneNumber(phoneAux);
+      // that.data.user.save();
+
+      AV.Cloud.requestSmsCode({
+        mobilePhoneNumber: phoneAux,
+        name: '应用名称',
+        op: '某种操作',
+        ttl: 2
+      }).then(function () {
+
+        that.setData({
+          buttonSendCodeDisabled: true
+        })
+
+        var timer = 59, seconds;
+        var intervalStart = setInterval(function () {
+          seconds = parseInt(timer % 60, 10);
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          if (--timer <= 0) {
+            seconds = '发送'
+            that.setData({
+              buttonSendCodeDisabled: false,
+              buttonRegisterDisabled: true,
+              code: ''
+            })
+            clearInterval(intervalStart)
+          }
 
           that.setData({
-            buttonSendCodeDisabled: true
+            codeText: seconds
           })
+        }, 1000);
 
-          var timer = 59, seconds;
-          var intervalStart = setInterval(function () {
-            seconds = parseInt(timer % 60, 10);
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            if (--timer <= 0) {
-              seconds = '发送'
-              that.setData({
-                buttonSendCodeDisabled: false,
-                butonRegisterDisable: true,
-                code: ''
-              })
-              clearInterval(intervalStart)
-            }
-
-            that.setData({
-              codeText: seconds
-            })
-          }, 1000);
-
-          wx.showToast({
-            title: '留言送',
-            icon: 'success',
-            duration: 2000
-          })    
-        }, function (err) {
-          console.log(err)
-        });
+        wx.showToast({
+          title: '留言送',
+          icon: 'success',
+          duration: 2000
+        })
       }, function (err) {
         console.log(err)
       });
@@ -168,7 +166,7 @@ Page({
     }
     if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
-        butonRegisterDisable: false
+        buttonRegisterDisabled: false
       })
     }
   },
@@ -178,7 +176,7 @@ Page({
     })
     if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
-        butonRegisterDisable: false
+        buttonRegisterDisabled: false
       })
     }
   },
@@ -188,7 +186,7 @@ Page({
     })
     if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
-        butonRegisterDisable: false
+        buttonRegisterDisabled: false
       })
     }
   },
@@ -198,18 +196,18 @@ Page({
     })
     if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
-        butonRegisterDisable: false
+        buttonRegisterDisabled: false
       })
     }
   },
-  
+
   inputCompany: function (e) {
     this.setData({
       company: e.detail.value
     })
     if (this.data.name != '' && this.data.ci != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
-        butonRegisterDisable: false
+        buttonRegisterDisabled: false
       })
     }
   },
@@ -218,12 +216,19 @@ Page({
     var user = AV.User.current()
     if (user) {
       var that = this
-      that.data.user.set('fullName', this.data.name);
-      that.data.user.set('ci', this.data.ci);
-      that.data.user.set('company', this.data.company);
-      that.data.user.save();
+      var name = this.data.name;
+      var ci = this.data.ci;
+      var company = this.data.company;
+      var mobilePhone = this.data.phone;
 
       AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
+
+        user.set('fullName', name);
+        user.set('ci', ci);
+        user.set('company', company);
+        user.setMobilePhoneNumber(mobilePhone);
+        user.save();
+
         var roleQuery = new AV.Query(AV.Role);
         roleQuery.equalTo('name', 'official');
         roleQuery.find().then(function (results) {
@@ -266,7 +271,7 @@ Page({
     }
   },
 
-  goToHome: function(){
+  goToHome: function () {
     wx.switchTab({
       url: '../index/index',
     })

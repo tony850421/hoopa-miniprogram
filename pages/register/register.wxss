@@ -125,7 +125,7 @@
 }
 
 .buttonSave {
-  background-color: #ff6801 !important;
+  background-color: #ff6801;
   color: white !important;
   border-radius: 5px;
   width: 100%;
@@ -141,8 +141,13 @@
 
 .home {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 30px;
   margin-top: 10px;
   margin-left: 10px;
+}
+
+.buttonSave:disabled{
+  background-color: white !important;
+  color: black !important;
 }

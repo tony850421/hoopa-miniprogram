@@ -14,45 +14,23 @@
         <view class="weui-search-bar__text">搜索</view>
       </label>
     </view>
-    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">搜索</view>
   </view>
 </view>
-
-<view class='padding-10' hidden='{{inputShowed}}'>
-  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
-    <view class='flex-item'>
-      <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
-    </view>
-    <view class='flex-item widthText'>
-      <view class='productInformation'>
-        <text>{{product.title}}</text>
-        <view class='displayFlexRow font-size-13'>
-          <text>价格：</text>
-          <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
-        </view>
-        <view class='displayFlexRow font-size-13'>
-          <text>提供：</text>
-          <text>{{product.companyName}}</text>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-
-<view hidden='{{!inputShowed}}'>
+<view>
   <view class='topBarSearch'>
     <view class='itemBarSearch' wx:for="{{list}}" wx:for-item="item">
       <view class="kind-list__item">
         <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-          <view class="weui-flex__item">{{item.name}}</view>
+          <view class="weui-flex__item font-size-16">{{item.name}}</view>
           <image wx:if="{{!item.open}}" class="kind-list__img" src="../../images/angle_right.png"></image>
           <image wx:if="{{item.open}}" class="kind-list__img" src="../../images/angle_down.png"></image>
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-            <scroll-view scroll-y="true" style="max-height: 360px" scroll-top="100">
+            <scroll-view scroll-y="true" style="max-height: {{height-80}}px" scroll-top="100">
               <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
-                <view class="weui-cell__bd" bindtap='selectFilter' data-filterHeader="{{item.id}}" data-filter="{{index}}">{{page}}</view>
+                <view class="weui-cell__bd font-size-16" bindtap='selectFilter' data-filterHeader="{{item.id}}" data-filter="{{index}}">{{page}}</view>
               </block>
             </scroll-view>
           </view>
@@ -60,7 +38,7 @@
       </view>
     </view>
   </view>
-  <view class='projectSearch padding-10'>
+  <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
     <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
       <view class='flex-item'>
         <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>

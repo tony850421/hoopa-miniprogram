@@ -163,6 +163,11 @@ Page({
       url: '../shop-car/shop-car'
     })
   },
+  goToRecommended: function(){
+    wx.navigateTo({
+      url: '../recommended/recommended'
+    })
+  },
   goToNearby: function () {
     wx.navigateTo({
       url: '../mapProjectNearby/mapProjectNearby'
