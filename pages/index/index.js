@@ -103,7 +103,7 @@ Page({
   },
   goToTeam: function () {
     wx.navigateTo({
-      url: '../inProgress/inProgress',
+      url: '../team/team',
     })
   },
   fetchProducts: function (user) {

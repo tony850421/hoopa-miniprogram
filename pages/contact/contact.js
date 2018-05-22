@@ -52,7 +52,7 @@ Page({
         if (res.data != "official") {
           wx.setStorage({
             key: 'redirect',
-            data: '../contact/contact',
+            data: '../user/user',
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },

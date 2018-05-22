@@ -1,5 +1,36 @@
 /* pages/team/team.wxss */
-.page-section-gap{
-  box-sizing: border-box;
-  padding: 0 30rpx;
-} 
+.imageService {
+  height: 220rpx;
+  width: 100%;
+}
+
+.imageNumber {
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+}
+
+.servicesText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  width: 100%;
+  background-color: white;
+}
+
+.services {
+  display: flex;
+  flex-direction: row;
+}

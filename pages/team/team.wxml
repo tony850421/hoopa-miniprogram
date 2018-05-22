@@ -1,6 +1,97 @@
 <!--pages/team/team.wxml-->
-<view class="page-body">
-  <view class="page-section page-section-gap">
-    <web-view src="http://www.hoopa.cn/index.php/jtyx.html"></web-view>
+<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d1efc61825a93ad84625.jpg'></image>
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture1.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>李传宏</text>
+      <text class='font-size-12'>武汉大学法学硕士，精通不良资产方面的法律，具有丰富的不良资产处置和管理经验，分别在广东、河南、四川、山东、浙江主管不良资产的清收，成功完成回收任务。主管不良资产包账面额达200亿人民币。性格坚忍不拔，百折不饶。</text>
+    </view>
   </view>
 </view>
+
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture2.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>詹柳莺</text>
+      <text class='font-size-12'>华东政法大学法学学士，浙江大学法学硕士，具备很好的团队协作精神与全局观念。现任职杭州胡巴资产管理有限公司总裁助理，协助总裁参与公司管理。</text>
+    </view>
+  </view>
+</view>
+
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture3.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>尹丽萍</text>
+      <text class='font-size-12'>工作经历</text>
+    </view>
+  </view>
+</view> 
+
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture4.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>刘杰</text>
+      <text class='font-size-12'>华南理工大学法学、工商管理学士，具有丰富的不良资产处置和管理经验，擅长团队管理和培训，分别在河南、四川、山东、浙江、上海、江苏进行不良资产的清收，团队建设管理。性格真诚简单，做事务实。</text>
+    </view>
+  </view>
+</view>
+
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture5.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>林庄</text>
+      <text class='font-size-12'>投资经历</text>
+    </view>
+  </view>
+</view> 
+
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture6.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>王成宝</text>
+      <text class='font-size-12'>创业经历</text>
+    </view>
+  </view>
+</view> 
+
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture7.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>余会林</text>
+      <text class='font-size-12'>胡巴资产处置管理负责人，河南中赢旗晟律师事务所执业律师、合伙人。</text>
+    </view>
+  </view>
+</view> 
+
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='../../images/Picture8.png'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>寿璐琳</text>
+      <text class='font-size-12'>工作经历</text>
+    </view>
+  </view>
+</view>   

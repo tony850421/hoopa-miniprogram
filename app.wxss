@@ -173,3 +173,7 @@ kind-list__item:first-child {
 .margin-bottom-5{
   margin-bottom: 5px;
 }
+
+.font-weight{
+  font-weight: bold;
+}
