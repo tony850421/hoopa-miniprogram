@@ -96,6 +96,11 @@ Page({
     user.set('ci', this.data.ci)
     user.set('company', this.data.company)
     user.save().then(res => {
+      wx.showToast({
+        title: '用户保存正确',
+        icon: 'success',
+        duration: 2000
+      })
       wx.navigateBack({
         delta: 1
       })

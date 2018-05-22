@@ -41,7 +41,7 @@
   <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
     <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
       <view class='flex-item'>
-        <image class='imageProductCar' mode='aspectFill' src='{{product.image.url}}'></image>
+        <image class='imageProductCar' src='../../images/projects.png'></image>
       </view>
       <view class='flex-item widthText'>
         <view class='productInformation'>
@@ -53,6 +53,9 @@
           <view class='displayFlexRow font-size-13'>
             <text>提供：</text>
             <text>{{product.companyName}}</text>
+          </view>
+          <view class='displayFlexRow font-size-13'>
+            <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
           </view>
         </view>
       </view>

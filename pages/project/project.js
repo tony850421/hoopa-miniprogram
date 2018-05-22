@@ -3,11 +3,6 @@ const AV = require('../../utils/av-weapp-min');
 
 Page({
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -17,7 +12,11 @@ Page({
     product: {},
     projectManager: {},
     sponsorsList: [],
-    assetsList: []
+    assetsList: [],
+    borrowerList: [],
+    imageList: [],
+    offersCount: 0,
+    visitCount: 0
   },
   onLoad: function (options) {
     wx.getSystemInfo({
@@ -60,6 +59,42 @@ Page({
                   assetsList: assets
                 })
               })
+
+              var query3 = new AV.Query("Borrower")
+              query3.equalTo('project', project)
+              query3.find().then(borrowers => {
+                this.setData({
+                  borrowerList: borrowers
+                })
+              })
+
+              var query4 = new AV.Query("ProjectMedia")
+              query4.equalTo('project', project)
+              query4.find().then(images => {
+                this.setData({
+                  imageList: images
+                })
+              })
+
+              var query5 = new AV.Query("Offert")
+              query5.equalTo('project', project)
+              query5.count().then(offers => {
+                this.setData({
+                  offersCount: offers
+                })
+              })
+
+              var query6 = new AV.Query("ProjectVisit")
+              query6.equalTo('project', project)
+              query6.count().then(visit => {
+                this.setData({
+                  visitCount: visit
+                })
+              })
+
+              var visit = new AV.Object('ProjectVisit')
+              visit.set('project', project)
+              visit.save();
             }
           ).catch(console.error)
         }

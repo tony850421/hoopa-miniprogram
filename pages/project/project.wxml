@@ -2,9 +2,9 @@
 <view>
   <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block>
+      <block wx:for="{{imageList}}" wx:for-item="image">
         <swiper-item>
-          <image mode='aspectFill' src="{{product.image.url}}" class="slide-image" />
+          <image mode='aspectFill' src="{{image.image.url}}" class="slide-image" />
         </swiper-item>
       </block>
     </swiper>
@@ -40,41 +40,51 @@
       </view>
 
       <!--prestamistas  -->
-      <view class='projectsLabel font-size-13'>
+      <view class='projectsLabel font-size-13' wx:if="{{borrowerList.length}} > 0">
         <view class='projectTitleGroup projectTitleGroupLabel'>
           <text>借款人信息</text>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>债权本金</text>
+      <view wx:for="{{borrowerList}}" wx:for-item="borrower">
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>{{index+1}}.{{borrower.name}}</text>
+          </view>
         </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5 colorTextPrimary'>¥{{product.borrowerPrincipalDebit}}万</text>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>债权本金</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5 colorTextPrimary'>¥{{borrower.principalDebit}}万</text>
+          </view>
+        </view>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>债权利息</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5 colorTextPrimary'>¥{{borrower.interestCreditor}}万</text>
+          </view>
+        </view>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>本息合计</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5 colorTextPrimary'>¥{{borrower.totalInterest}}万</text>
+          </view>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>债权利息</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5 colorTextPrimary'>¥{{product.borrowerInterestCreditor}}万</text>
-        </view>
-      </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>本息合计</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5 colorTextPrimary'>¥{{product.borrowerTotalInterest}}万</text>
-        </view>
-      </view>
 
       <!-- description  -->
       <view class='projectsLabel font-size-13'>
@@ -110,22 +120,21 @@
       <!--numero de ofertas  -->
       <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
-          <text>是否有报价</text>
+          <text>优惠数量</text>
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text wx:if="{{product.quotation == 1}}" class='margin-left-5'>是</text>
-          <text wx:if="{{product.quotation == 0}}" class='margin-left-5'>否</text>
+          <text class='margin-left-5'>{{offersCount}}</text>
         </view>
       </view>
       <!--numero de visitas  -->
       <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
-          <text>关注数</text>
+          <text>访问次数</text>
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
-          <text class='margin-left-5'>7 人</text>
+          <text class='margin-left-5'>{{visitCount}}</text>
         </view>
       </view>
 
@@ -161,8 +170,8 @@
         </view>
       </view>
 
-      <!-- borrower information  -->
-      <view class='projectsLabel font-size-13'>
+      <!-- assets information  -->
+      <view class='projectsLabel font-size-13' wx:if="{{assetsList.length}} > 0">
         <view class='projectTitleGroup projectTitleGroupLabel'>
           <text>抵押物详情 ({{assetsList.length}}条)</text>
         </view>
@@ -171,7 +180,7 @@
       <view wx:for="{{assetsList}}" wx:for-item="asset">
         <view class='projectsGroup font-size-13'>
           <view class='projectTitleGroup'>
-            <text>{{index+1}}.资产</text>
+            <text>{{index+1}}.{{asset.title}}</text>
           </view>
         </view>
         <!--maps  -->
@@ -182,7 +191,7 @@
           <image class='lineV' src='../../images/lineV.jpg'></image>
           <view class='projectTextGroup'>
             <view class='phoneNumber'>
-              <text bindtap='goToAsset' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{asset.plainAddress}}</text>
+              <text bindtap='goToAsset' class='margin-left-5'>{{asset.plainAddress}}</text>
             </view>
             <view class='userLocationGroup' data-latitude="{{asset.location.latitude}}" data-longitude="{{asset.location.longitude}}" bindtap='goToAsset'>
               <image class='imageLocation' src='../../images/userLocation.png'></image>

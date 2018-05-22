@@ -40,7 +40,6 @@ Page({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           AV.User.loginWithWeapp().then(user => {
-            // this.globalData.user = user.toJSON();
             wx.setStorage({
               key: "projectID",
               data: e.currentTarget.id

@@ -42,6 +42,15 @@ Page({
     query.descending('createdAt');
     // query.limit(10);
     query.find().then(res => {
+      
+      var arrivalType = []
+      for (var i=0; i< res.length; i++){
+        var typeArr = res[i].get('typeArrivalString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0,1)
+        res[i].set('tags',arrivalType)
+      }
+      
       this.setData({
         products: res
       })
