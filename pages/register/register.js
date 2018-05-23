@@ -227,7 +227,7 @@ Page({
         user.set('ci', ci);
         user.set('company', company);
         user.setMobilePhoneNumber(mobilePhone);
-        user.save();
+        user.save().then().catch();
 
         var roleQuery = new AV.Query(AV.Role);
         roleQuery.equalTo('name', 'official');
