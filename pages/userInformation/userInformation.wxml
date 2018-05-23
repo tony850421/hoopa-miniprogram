@@ -5,13 +5,15 @@
     <block>
       <view class='dataUserInfoCover'>
         <view class='imageContainer'>
-          <image bindtap="goToUserInformation" class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
+          <image wx:if="{{avatarUrl}}" class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
+          <image wx:if="{{!avatarUrl}}" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
         </view>
         <text wx:if="{{fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{fullName}}</text>
         <text wx:if="{{!fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{nickName}}</text>
         <view class='locationUser'>
-          <image class='imageLocationUser' src='../../images/userLocation.png'></image>
-          <text bindtap="goToUserInformation" class="userinfo-nickname font-size-11">{{city}}, {{province}}</text>
+          <image wx:if="{{city}}" class='imageLocationUser' src='../../images/userLocation.png'></image>
+          <text wx:if="{{city}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-11">{{city}}, {{province}}</text>
+          <button wx:if="{{!city}}" plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
         </view>
       </view>
     </block>
@@ -46,6 +48,5 @@
 
   <view class='saveBox'>
     <button bindtap='saveUser' class='buttonSave'>救</button>
-    <button bindtap='deleteUser' class='buttonDelete'>删除用户</button>
   </view>
 </view>

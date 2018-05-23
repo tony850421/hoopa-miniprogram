@@ -17,7 +17,7 @@
   </view>
   <image src='../../images/lineV.jpg' class='lineVOffer'></image>
   <view class='offers'>
-    <text class='font-size-13'>0</text>
+    <text class='font-size-13'>{{products.length}}</text>
     <text class='font-size-13'>未答复的提议</text>
   </view>
   <image src='../../images/lineV.jpg' class='lineVOffer'></image>

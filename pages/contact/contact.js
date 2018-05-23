@@ -8,7 +8,7 @@ Page({
    */
   data: {
     height: '',
-    widht: '',
+    width: '',
     inputText: '',
     messages: [],
     sender: {},
@@ -20,19 +20,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSystemInfo({
-      success: res => {
-        this.setData({
-          height: res.windowHeight,
-          widht: res.windowWidth
-        })
-      },
-    })
-
     this.setData({
       user: AV.User.current()
     })
 
+    var that = this
+
+    wx.getStorage({
+      key: 'width',
+      success: function(res) {
+        console.log(res.data + " width")
+        that.setData({
+          width: res.data
+        })
+      },
+    })
+
+    wx.getStorage({
+      key: 'height',
+      success: function(res) {
+        console.log(res.data + " height")
+        that.setData({
+          height: res.data
+        })
+      },
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     wx.getStorage({
       key: 'role',
       success: function (res) {
@@ -50,19 +75,8 @@ Page({
         }
       }
     }) 
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
     var user = AV.User.current()
     if (user) {
       var query = new AV.Query('Message')

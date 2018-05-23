@@ -18,13 +18,13 @@
       <view class='dataUserInfoCover'>
         <view class='imageContainer'>
           <image wx:if="{{user.avatarUrl}}" bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
-          <image wx:if="{{!user.avatarUrl}}" bindtap="getWechatUserInfo" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
+          <image wx:if="{{!user.avatarUrl}}" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
         </view>
         <text wx:if="{{user.fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
         <text wx:if="{{!user.fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.nickName}}</text>
         <view class='locationUser'>
           <image wx:if="{{user.city}}" class='imageLocationUser' src='../../images/userLocation.png'></image>
-          <text wx:if="{{user.city}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-11">{{user.city}}, {{user.province}}</text>
+          <text wx:if="{{user.city}}" class="userinfo-nickname font-size-11">{{user.city}}, {{user.province}}</text>
           <button wx:if="{{!user.city}}" plain='true' open-type="getUserInfo"	bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
         </view>
       </view>

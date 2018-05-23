@@ -20,6 +20,19 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    wx.getSystemInfo({
+      success: res => {
+          wx.setStorage({
+            key: 'height',
+            data: res.windowHeight,
+          })
+          wx.setStorage({
+            key: 'width',
+            data: res.windowWidth,
+          })
+      },
+    })
+
     // 登录
     wx.login({
       success: res => {

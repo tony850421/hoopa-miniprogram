@@ -8,7 +8,7 @@ Page({
     interval: 5000,
     duration: 1000,
     height: '',
-    widht: '320',
+    width: '',
     product: {},
     projectManager: {},
     sponsorsList: [],
@@ -19,11 +19,48 @@ Page({
     visitCount: 0
   },
   onLoad: function (options) {
-    wx.getSystemInfo({
-      success: res => {
-        this.setData({
-          height: res.windowHeight,
-          widht: res.windowWidth
+
+    var that = this
+    wx.getStorage({
+      key: 'widthWithout',
+      success: function (res) {
+        that.setData({
+          width: res.data
+        })
+      },
+      fail: function (err) {
+        wx.getSystemInfo({
+          success: res => {
+            that.setData({
+              width: res.windowWidth
+            })
+            wx.setStorage({
+              key: 'widthWithout',
+              data: res.windowWidth
+            })
+          },
+        })
+      }
+    })
+
+    wx.getStorage({
+      key: 'heightWithout',
+      success: function (res) {
+        that.setData({
+          height: res.data
+        })
+      },
+      fail: function (err) {
+        wx.getSystemInfo({
+          success: res => {
+            that.setData({
+              height: res.windowHeight
+            })
+            wx.setStorage({
+              key: 'heightWithout',
+              data: res.windowHeight
+            })
+          },
         })
       }
     })
@@ -35,14 +72,12 @@ Page({
         success: res => {
           var query = new AV.Query("Project")
           query.include('projectManager')
-          query.get(res.data).then(
-            project => {
+          query.get(res.data).then( project => {
+
               this.setData({
                 product: project,
                 projectManager: project.get('projectManager')
               })
-
-              console.log(this.data.product)
 
               var query1 = new AV.Query("Sponsorship")
               query1.equalTo('project', project)
@@ -71,6 +106,11 @@ Page({
               var query4 = new AV.Query("ProjectMedia")
               query4.equalTo('project', project)
               query4.find().then(images => {
+
+                for (var i = 0; i < images.length; i++) {
+                  images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
+                }
+
                 this.setData({
                   imageList: images
                 })
@@ -129,7 +169,7 @@ Page({
       });
     }
   },
-  onShow: function (options) {
+  onShow: function (options) {   
     wx.getStorage({
       key: 'projectID',
       success: res => {

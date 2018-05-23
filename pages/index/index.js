@@ -92,7 +92,7 @@ Page({
 
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('users', user);
-      roleQuery.find().then(function (results) {
+      roleQuery.find().then( results => {
 
         var officialFlag = false;
         for (var i = 0; i < results.length; i++) {
@@ -100,7 +100,7 @@ Page({
             officialFlag = true;
           }
         }
-
+        
         if (officialFlag) {
           wx.setStorage({
             key: 'role',

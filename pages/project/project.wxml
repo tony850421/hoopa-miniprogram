@@ -1,10 +1,10 @@
 <!--pages/project/project.wxml-->
 <view>
-  <scroll-view scroll-y="true" style="height: {{height-45}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+  <scroll-view scroll-y="true" style="height: {{height-44}}px" scroll-top="100">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imageList}}" wx:for-item="image">
         <swiper-item>
-          <image mode='aspectFill' src="{{image.image.url}}" class="slide-image" />
+          <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
         </swiper-item>
       </block>
     </swiper>
@@ -280,7 +280,7 @@
       <!-- nearby  -->
       <view class='projectsLabel font-size-13'>
         <view class='projectTitleGroup projectTitleGroupLabel'>
-          <text>附近资产</text>
+          <text style='height: 20px'></text>
         </view>
       </view>
       <view class='projectsGroup font-size-13' bindtap='goToNearby'>
@@ -293,14 +293,12 @@
       </view>
 
       <!-- recommended  -->
-      <view class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup projectTitleGroupLabel'>
-          <text>推荐</text>
-        </view>
-      </view>
       <view class='projectsGroup font-size-13' bindtap='goToRecommended'>
         <view class='nearbyProjects'>
           <text class='margin-left-5'>推荐</text>
+        </view>
+        <view class='userLocationGroup'>
+          <image class='imageRecomended' src='../../images/recommended.png'></image>
         </view>
       </view>
     </view>

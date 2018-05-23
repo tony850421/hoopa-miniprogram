@@ -19,6 +19,51 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    wx.getStorage({
+      key: 'widthWithout',
+      success: function (res) {
+        that.setData({
+          width: res.data
+        })
+      },
+      fail: function (err) {
+        wx.getSystemInfo({
+          success: res => {
+            that.setData({
+              width: res.windowWidth
+            })
+            wx.setStorage({
+              key: 'widthWithout',
+              data: res.windowWidth
+            })
+          },
+        })
+      }
+    })
+
+    wx.getStorage({
+      key: 'heightWithout',
+      success: function (res) {
+        that.setData({
+          height: res.data
+        })
+      },
+      fail: function (err) {
+        wx.getSystemInfo({
+          success: res => {
+            that.setData({
+              height: res.windowHeight
+            })
+            wx.setStorage({
+              key: 'heightWithout',
+              data: res.windowHeight
+            })
+          },
+        })
+      }
+    })
+
     var query = new AV.Query('ShopCar');
     query.equalTo('user', AV.User.current());
     query.include('creator');
@@ -61,13 +106,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.getSystemInfo({
-      success: res => {
-        this.setData({
-          height: res.windowHeight
-        })
-      },
-    })
+    
   },
 
   /**

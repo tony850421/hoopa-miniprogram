@@ -54,8 +54,8 @@
   <view class='sectionProjects' wx:if="{{productsHot.length > 0}}">
     <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
     <view>
-      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList'>
+      <scroll-view class='scrollHorizontal' scroll-x="true">
+        <view class='projectList' style='width: {{productsHot.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHot}}" wx:for-item="product">
             <text class='text-title'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
@@ -74,7 +74,7 @@
     <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList'>
+        <view class='projectList' style='width: {{productsHouse.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHouse}}" wx:for-item="product">
             <text class='text-title'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13 margin-top-5'>
@@ -93,7 +93,7 @@
     <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList'>
+        <view class='projectList' style='width: {{productsFactory.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsFactory}}" wx:for-item="product">
             <text class='text-title'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
@@ -112,7 +112,7 @@
     <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList'>
+        <view class='projectList' style='width: {{productsDebit.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsDebit}}" wx:for-item="product">
             <text class='text-title'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
@@ -131,7 +131,7 @@
     <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList'>
+        <view class='projectList' style='width: {{productsShop.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsShop}}" wx:for-item="product">
             <text class='text-title'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>

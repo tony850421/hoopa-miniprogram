@@ -128,5 +128,51 @@ Page({
   },
   deleteUser: function(){
     
+  },
+  getWechatUserInfo: function (e) {
+    var user = AV.User.current()
+    var data = e.detail.rawData
+    var userData = JSON.parse(data)
+    if (user) {
+      user.set('nickName', userData.nickName);
+      user.set('avatarUrl', userData.avatarUrl);
+      user.set('gender', userData.gender);
+      user.set('province', userData.province);
+      user.set('city', userData.city);
+      user.save().then(res => {
+        wx.showToast({
+          title: '数据得到正确',
+          icon: 'success',
+          duration: 3000
+        })
+        this.setData({
+          user: res
+        })
+      })
+    } else {
+      wx.login({
+        success: res => {
+
+          wx.showToast({
+            title: '数据得到正确',
+            icon: 'success',
+            duration: 3000
+          })
+
+          AV.User.loginWithWeapp().then(currentUser => {
+            currentUser.set('nickName', userData.nickName);
+            currentUser.set('avatarUrl', userData.avatarUrl);
+            currentUser.set('gender', userData.gender);
+            currentUser.set('province', userData.province);
+            currentUser.set('city', userData.city);
+            currentUser.save().then(res => {
+              this.setData({
+                user: res
+              })
+            })
+          }).catch(console.error);
+        }
+      })
+    }
   }
 })

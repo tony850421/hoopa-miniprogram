@@ -23,6 +23,11 @@
   height: 20px;
 }
 
+.imageRecomended{
+  width: 20px;
+  height: 20px;
+}
+
 .imageCall{
   width: 20px;
   height: 20px;

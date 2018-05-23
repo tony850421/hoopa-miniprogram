@@ -59,8 +59,8 @@
         <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='介绍代码'></input>
       </view>
       <image class='lineV' src='../../images/lineV.jpg'></image>
-      <view class='textSendCode'>
-        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' bindtap='sendCode' class='font-size-13 buttonSenCode'>{{codeText}}</button>
+      <view class='textSendCode' bindtap='sendCode'>
+        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' class='font-size-13 buttonSenCode'>{{codeText}}</button>
       </view>
     </view>
   </view>

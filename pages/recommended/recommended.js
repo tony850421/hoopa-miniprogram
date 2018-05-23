@@ -89,5 +89,31 @@ console.log(res)
    */
   onShareAppMessage: function () {
   
+  },
+  goToProject: function (e) {
+    var user = AV.User.current()
+    if (!user) {
+      wx.login({
+        success: res => {
+          AV.User.loginWithWeapp().then(user => {
+            wx.setStorage({
+              key: "projectID",
+              data: e.currentTarget.id
+            })
+            wx.navigateTo({
+              url: '../project/project',
+            })
+          }).catch(console.error);
+        }
+      })
+    } else {
+      wx.setStorage({
+        key: "projectID",
+        data: e.currentTarget.id
+      })
+      wx.navigateTo({
+        url: '../project/project',
+      })
+    }
   }
 })
