@@ -7,7 +7,7 @@
     <block>
       <view class='dataUserInfoCover'>
         <view class='imageContainer'>
-          <image bindtap="getWechatUserInfo" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
+          <image class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
         </view>
         <button plain='true' open-type="getUserInfo"	bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
       </view>
