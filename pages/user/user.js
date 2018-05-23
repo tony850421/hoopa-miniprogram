@@ -235,7 +235,7 @@ Page({
   },
   goToRecommended: function () {
     wx.navigateTo({
-      url: '../inProgress/inProgress',
+      url: '../recommended/recommended',
     })
   },
   goToUserInformation: function () {
