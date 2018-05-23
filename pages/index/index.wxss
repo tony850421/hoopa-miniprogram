@@ -131,8 +131,8 @@
   border: 1px #d6dadb solid;
   background-color: white;
   margin-left: 5px;
-  padding: 5px;
-  width: 100px;
+  padding: 8px;
+  width: 120px;
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -185,8 +185,15 @@
   flex-direction: column;
 }
 
-.imageLine {
-  width: 70px;
-  height: 20px;
-  margin-left: 14px;
+.tags {
+  color: #ff6801;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 0;
+  border: 1px #ff6801 solid;
+  font-size: 9px;
+}
+
+.text-title{
+  text-align:start;
 }

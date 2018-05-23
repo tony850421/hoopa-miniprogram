@@ -89,7 +89,7 @@
 
 .lineV {
   width: 10px;
-  height: 60px;
+  height: 45px;
 }
 
 .lineVOffer{
@@ -100,16 +100,16 @@
 .infoData {
   display: flex;
   flex-direction: column;
-  width: 33.3%;
+  width: 50%;
   align-items: center;
-  height: 80px;
+  height: 60px;
   margin-left: 5%;
 }
 
 .imageIconUserCar {
-  width: 40px;
-  height: 35px;
-  margin-top: 10px;
+  width: 30px;
+  height: 27px;
+  margin-top: 7px;
 }
 
 .font-size-13 {
@@ -152,4 +152,22 @@
   flex-direction: column;
   align-items: center;
   width: 33.3%;
+}
+
+.tags {
+  color: #ff6801;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 0;
+  border: 1px #ff6801 solid;
+  font-size: 9px;
+}
+
+.product{
+  padding: 2px;
+}
+
+.imageProductCar {
+  width: 80px !important;
+  height:75px !important;
 }

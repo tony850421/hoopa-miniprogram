@@ -41,7 +41,7 @@
   <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
     <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
       <view class='flex-item'>
-        <image class='imageProductCar' src='../../images/projects.png'></image>
+         <image class='imageProductCar' src='{{product.mainImage}}'></image> 
       </view>
       <view class='flex-item widthText'>
         <view class='productInformation'>
@@ -51,8 +51,8 @@
             <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
           </view>
           <view class='displayFlexRow font-size-13'>
-            <text>提供：</text>
-            <text>{{product.companyName}}</text>
+            <text>省份：</text>
+            <text>{{product.provincesTags}}</text>
           </view>
           <view class='displayFlexRow font-size-13'>
             <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>

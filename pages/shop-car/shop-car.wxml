@@ -1,12 +1,13 @@
 <!--pages/shop-cart/shop-cart.wxml-->
 <view class='topNavBarShopCar'>
-  <view class='textBar'>
-    <text>我的报价</text>
+  <view class='infoData' bindtap='goToHome'>
+    <image class='imageIconUserCar' src='../../images/homeSelected.png'></image>
+    <text class='font-size-13'>回家</text>
   </view>
   <image src='../../images/lineV.jpg' class='lineV'></image>
-  <view class='infoData' bindtap='goToCar'>
-    <image class='imageIconUserCar' src='../../images/car.png'></image>
-    <text class='font-size-13'>我的报价</text>
+  <view class='infoData' bindtap='goToUser'>
+    <image class='imageIconUserCar' src='../../images/userSelected.png'></image>
+    <text class='font-size-13'>转到用户页</text>
   </view>
 </view>
 <view class='offertFacts'>
@@ -25,21 +26,29 @@
     <text class='font-size-13'>报价答复</text>
   </view>
 </view>
-<view class='shopCarBody' style="height: {{height-207}}px">
-  <scroll-view scroll-y="true" style="height: {{height-207}}px" scroll-top="100">
+<view class='shopCarBody' style="height: {{height-187}}px">
+  <scroll-view scroll-y="true" style="height: {{height-187}}px" scroll-top="100">
     <view class='section'>
       <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
         <view class='flex-item'>
           <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.objectId}}' />
         </view>
-        <view bindtap='goToProject' class='groupId' id='{{product.project.objectId}}'>
-          <view class='flex-item'>
-            <image class='imageProductCar' mode='aspectFill' src='{{product.project.image.url}}'></image>
-          </view>
-          <view class='flex-item widthText'>
-            <view class='productInformation'>
-              <text class='font-size-13'>{{product.project.title}}</text>
-              <text class='font-size-13 colorTextPrimary'>¥{{product.project.debitAmount}}万</text>
+        <view class='flex-item'>
+          <image class='imageProductCar' src='{{product.mainImage}}'></image>
+        </view>
+        <view class='flex-item widthText'>
+          <view class='productInformation'>
+            <text>{{product.title}}</text>
+            <view class='displayFlexRow font-size-13'>
+              <text>价格：</text>
+              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+            </view>
+            <view class='displayFlexRow font-size-13'>
+              <text>省份：</text>
+              <text>{{product.provincesTags}}</text>
+            </view>
+            <view class='displayFlexRow font-size-13'>
+              <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
             </view>
           </view>
         </view>

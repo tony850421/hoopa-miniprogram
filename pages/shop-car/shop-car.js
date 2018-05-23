@@ -19,19 +19,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-
     var query = new AV.Query('ShopCar');
     query.equalTo('user', AV.User.current());
+    query.include('creator');
+    query.include('image');
+    query.include('project');
     query.descending('createdAt');
-    query.include('project')
-    query.find().then(
-      projects => {
-        that.setData({
-          products: projects
-        })
+    // query.limit(10);
+    query.find().then(res => {
+      
+      var arrivalType = []
+      var provinces = ''
+      for (var i = 0; i < res.length; i++) {
+        var typeArr = res[i].get('project').get('typeArrivalString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0, 1)
+        res[i].set('tags', arrivalType)
+        res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
+        res[i].set('title', res[i].get('project').get('title'))
+        res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
+        res[i].set('companyName', res[i].get('project').get('companyName'))
+        provinces = res[i].get('project').get('provinceString')
+        provinces = provinces.substr(1)
+        res[i].set('provincesTags', provinces)
       }
-    )
+
+      this.setData({
+        products: res
+      })
+    })
   },
 
   /**
@@ -216,6 +232,16 @@ Page({
           console.log(res)
         }
       }
+    })
+  },
+  goToHome: function(){
+    wx.switchTab({
+      url: '../index/index',
+    })
+  },
+  goToUser: function(){
+    wx.switchTab({
+      url: '../user/user',
     })
   }
 })

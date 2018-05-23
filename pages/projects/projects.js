@@ -44,11 +44,16 @@ Page({
     query.find().then(res => {
       
       var arrivalType = []
+      var provinces = ''
       for (var i=0; i< res.length; i++){
         var typeArr = res[i].get('typeArrivalString')
+        provinces = res[i].get('provinceString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0,1)
+        provinces = provinces.substr(1)
+        res[i].set('provincesTags', provinces)
         res[i].set('tags',arrivalType)
+        res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
       }
       
       this.setData({

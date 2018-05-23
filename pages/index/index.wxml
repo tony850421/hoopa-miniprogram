@@ -51,43 +51,96 @@
       </view>
     </view>
   </view>
-  <view class='sectionProjects'>
-    <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
-    <view wx:if="{{products.length > 0}}">
+  <view class='sectionProjects' wx:if="{{productsHot.length > 0}}">
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList'>
-          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
-            <text class='font-size-13 margin-top-10'>{{product.title}}</text>
-            <image class='imageLine' src='../../images/line.jpg'></image>
-            <text class='font-size-13 colorTextPrimary'>¥{{product.debitAmount}}万</text>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHot}}" wx:for-item="product">
+            <text class='text-title'>{{product.title}}</text>
+            <view class='displayFlexRow font-size-13'>
+              <text>价格：</text>
+              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+            </view>
+            <view class='displayFlexRow font-size-13 margin-top-5'>
+              <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+            </view>
           </view>
         </view>
       </scroll-view>
     </view>
   </view>
-  <view class='sectionProjects'>
-    <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
-    <view wx:if="{{products.length > 0}}">
+  <view class='sectionProjects' wx:if="{{productsHouse.length > 0}}">
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList'>
-          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
-            <text class='font-size-13 margin-top-10'>{{product.title}}</text>
-            <image class='imageLine' src='../../images/line.jpg'></image>
-            <text class='font-size-13 colorTextPrimary'>¥{{product.debitAmount}}万</text>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHouse}}" wx:for-item="product">
+            <text class='text-title'>{{product.title}}</text>
+            <view class='displayFlexRow font-size-13 margin-top-5'>
+              <text>价格：</text>
+              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+            </view>
+            <view class='displayFlexRow font-size-13 margin-top-5'>
+              <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+            </view>
           </view>
         </view>
       </scroll-view>
     </view>
   </view>
-  <view class='sectionProjects'>
-    <image mode='aspectFill' class='imageProjects' bindtap='goToProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
-    <view wx:if="{{products.length > 0}}">
+  <view class='sectionProjects' wx:if="{{productsFactory.length > 0}}">
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList'>
-          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{products}}" wx:for-item="product">
-            <text class='font-size-13 margin-top-10'>{{product.title}}</text>
-            <image class='imageLine' src='../../images/line.jpg'></image>
-            <text class='font-size-13 colorTextPrimary'>¥{{product.debitAmount}}万</text>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsFactory}}" wx:for-item="product">
+            <text class='text-title'>{{product.title}}</text>
+            <view class='displayFlexRow font-size-13'>
+              <text>价格：</text>
+              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+            </view>
+            <view class='displayFlexRow font-size-13 margin-top-5'>
+              <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='sectionProjects' wx:if="{{productsDebit.length > 0}}">
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view>
+      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+        <view class='projectList'>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsDebit}}" wx:for-item="product">
+            <text class='text-title'>{{product.title}}</text>
+            <view class='displayFlexRow font-size-13'>
+              <text>价格：</text>
+              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+            </view>
+            <view class='displayFlexRow font-size-13 margin-top-5'>
+              <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='sectionProjects' wx:if="{{productsShop.length > 0}}">
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <view>
+      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+        <view class='projectList'>
+          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsShop}}" wx:for-item="product">
+            <text class='text-title'>{{product.title}}</text>
+            <view class='displayFlexRow font-size-13'>
+              <text>价格：</text>
+              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+            </view>
+            <view class='displayFlexRow font-size-13 margin-top-5'>
+              <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+            </view>
           </view>
         </view>
       </scroll-view>

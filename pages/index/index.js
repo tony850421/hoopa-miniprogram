@@ -8,30 +8,11 @@ const appInstance = getApp()
 
 Page({
   data: {
-    inputShowed: false,
-    inputVal: "",
-    products: []
-  },
-  showInput: function () {
-    this.setData({
-      inputShowed: true
-    });
-  },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
-    });
-  },
-  inputTyping: function (e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
+    productsHot: [],
+    productsHouse: [],
+    productsFactory: [],
+    productsDebit: [],
+    productsShop: []
   },
   goToProject: function (e) {
     var user = AV.User.current()
@@ -105,24 +86,10 @@ Page({
       url: '../team/team',
     })
   },
-  fetchProducts: function (user) {
-    const query = new AVLive.Query('Project');
-    query.include('creator');
-    query.equalTo('recommended', true);
-    query.include('image');
-    query.descending('createdAt');
-    query.limit(5);
-    const setProducts = this.setProducts.bind(this);
-    return AVLive.Promise.all([query.find().then(setProducts), query.subscribe()]).then(([products, subscription]) => {
-      this.subscription = subscription;
-      if (this.unbind) this.unbind();
-      this.unbind = bind(subscription, products, setProducts);
-    }).catch(error => console.error(error.message));
-  },
   onReady: function () {
     var user = AV.User.current();
     if (user) {
-      
+
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('users', user);
       roleQuery.find().then(function (results) {
@@ -167,99 +134,11 @@ Page({
         console.log(error);
       });
     }
-    if (this.userInfoReadyCallback) {
-      this.userInfoReadyCallback(res)
-    }
 
-    // wx.getSetting({
-    //   success(res) {
-    //     if (!res.authSetting['scope.record']) {
-    //       wx.authorize({
-    //         scope: 'scope.userInfo',
-    //         success() {
-    //           wx.getUserInfo({
-    //             success: res => {
-    //               var user = AV.User.current();
-    //               if (user) {
-    //                 user.set('nickName', res.userInfo.nickName);
-    //                 user.set('avatarUrl', res.userInfo.avatarUrl);
-    //                 user.set('gender', res.userInfo.gender);
-    //                 user.set('province', res.userInfo.province);
-    //                 user.set('city', res.userInfo.city);
-    //                 user.save();
-
-    //                 var roleQuery = new AV.Query(AV.Role);
-    //                 roleQuery.equalTo('users', user);
-    //                 roleQuery.find().then(function (results) {
-
-    //                   var officialFlag = false;
-    //                   for (var i = 0; i < results.length; i++) {
-    //                     if (results[i].attributes.name == "official") {
-    //                       officialFlag = true;
-    //                     }
-    //                   }
-
-    //                   if (officialFlag) {
-    //                     wx.setStorage({
-    //                       key: 'role',
-    //                       data: 'official',
-    //                     })
-    //                   } else {
-    //                     wx.setStorage({
-    //                       key: 'role',
-    //                       data: 'guest',
-    //                     })
-    //                   }
-
-    //                   if (results.length > 0) {
-    //                     var role = results[0];
-    //                   } else {
-    //                     var roleQueryGuest = new AV.Query(AV.Role);
-    //                     roleQueryGuest.equalTo('name', 'guest');
-    //                     roleQueryGuest.find().then(function (results) {
-    //                       var role = results[0];
-    //                       var relation = role.getUsers();
-    //                       relation.add(user);
-    //                       return role.save();
-    //                     }).then(function (role) {
-    //                     }).catch(function (error) {
-    //                       console.log(error);
-    //                     });
-    //                   }
-    //                 }).then(function (administratorRole) {
-
-    //                 }).catch(function (error) {
-    //                   console.log(error);
-    //                 });
-    //               }
-    //               if (this.userInfoReadyCallback) {
-    //                 this.userInfoReadyCallback(res)
-    //               }
-    //             }
-    //           })
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
-
-    // const user = AV.User.current();
-    this.fetchProducts(user);
   },
   onUnload: function () {
-    this.subscription.unsubscribe();
-    this.unbind();
   },
   onPullDownRefresh: function () {
-    const user = AV.User.current();
-    if (!user) return wx.stopPullDownRefresh();
-    this.fetchProducts(user).catch(error => console.error(error.message)).then(wx.stopPullDownRefresh);
-  },
-  setProducts: function (products) {
-    this.setData({
-      products,
-    });
-    return products;
   },
   onShow: function () {
 
@@ -280,5 +159,106 @@ Page({
           }
         })
     }
+
+    this.fetchProductsHot()
+    this.fetchProductsHouse()
+    this.fetchProductsFactory()
+    this.fetchProductsDebit()
+    this.fetchProductsShop()
+  },
+  fetchProductsHot: function () {
+    const query = new AV.Query('Project');
+    query.equalTo('isHot', true);
+    query.descending('createdAt');
+    query.find().then(res => {
+
+      var arrivalType = []
+      for (var i = 0; i < res.length; i++) {
+        var typeArr = res[i].get('typeArrivalString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0, 1)
+        res[i].set('tags', arrivalType)
+      }
+
+      this.setData({
+        productsHot: res
+      })
+    })
+  },
+  fetchProductsHouse: function () {
+    const query = new AV.Query('Project');
+    query.equalTo('isHouse', true);
+    query.descending('createdAt');
+    query.find().then(res => {
+
+      var arrivalType = []
+      for (var i = 0; i < res.length; i++) {
+        var typeArr = res[i].get('typeArrivalString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0, 1)
+        res[i].set('tags', arrivalType)
+      }
+
+      this.setData({
+        productsHouse: res
+      })
+    })
+  },
+  fetchProductsFactory: function () {
+    const query = new AV.Query('Project');
+    query.equalTo('isFactory', true);
+    query.descending('createdAt');
+    query.find().then(res => {
+
+      var arrivalType = []
+      for (var i = 0; i < res.length; i++) {
+        var typeArr = res[i].get('typeArrivalString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0, 1)
+        res[i].set('tags', arrivalType)
+      }
+
+      this.setData({
+        productsFactory: res
+      })
+    })
+  },
+  fetchProductsDebit: function () {
+    const query = new AV.Query('Project');
+    query.equalTo('isDebt', true);
+    query.descending('createdAt');
+    query.find().then(res => {
+
+      var arrivalType = []
+      for (var i = 0; i < res.length; i++) {
+        var typeArr = res[i].get('typeArrivalString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0, 1)
+        res[i].set('tags', arrivalType)
+      }
+
+      this.setData({
+        productsDebit: res
+      })
+    })
+  },
+  fetchProductsShop: function () {
+    const query = new AV.Query('Project');
+    query.equalTo('isShop', true);
+    query.descending('createdAt');
+    query.find().then(res => {
+
+      var arrivalType = []
+      for (var i = 0; i < res.length; i++) {
+        var typeArr = res[i].get('typeArrivalString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0, 1)
+        res[i].set('tags', arrivalType)
+      }
+
+      this.setData({
+        productsShop: res
+      })
+    })
   }
 });
