@@ -32,19 +32,6 @@ Page({
     this.setData({
       user: AV.User.current()
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
     wx.getStorage({
       key: 'role',
@@ -63,7 +50,19 @@ Page({
         }
       }
     }) 
+  },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var user = AV.User.current()
     if (user) {
       var query = new AV.Query('Message')
