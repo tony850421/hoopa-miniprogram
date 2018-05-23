@@ -143,7 +143,6 @@
 .projectList {
   display: flex;
   flex-direction: row;
-  /* width: 700% !important; */
 }
 
 .scrollHorizontal {

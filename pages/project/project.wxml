@@ -40,7 +40,7 @@
       </view>
 
       <!--prestamistas  -->
-      <view class='projectsLabel font-size-13' wx:if="{{borrowerList.length}} > 0">
+      <view class='projectsLabel font-size-13' wx:if="{{borrowerList.length > 0}}">
         <view class='projectTitleGroup projectTitleGroupLabel'>
           <text>借款人信息</text>
         </view>
@@ -87,17 +87,17 @@
 
 
       <!-- description  -->
-      <view class='projectsLabel font-size-13'>
+      <view class='projectsLabel font-size-13' wx:if="{{product.description != ''}}">
         <view class='projectTitleGroup projectTitleGroupLabel'>
           <text>描述</text>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
+      <view class='projectsGroup font-size-13' wx:if="{{product.description != ''}}">
         <view class='desciptionGroup'>
           <text class='margin-left-5'>{{product.description}}</text>
         </view>
-      </view>
+      </view>  
 
 
       <!-- hay que cambiar esto pot un text area-->
@@ -107,7 +107,7 @@
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
+      <view class='projectsGroup font-size-13' wx:if="{{product.court != ''}}">
         <view class='projectTitleGroup'>
           <text>受理法院</text>
         </view>
@@ -139,13 +139,13 @@
       </view>
 
       <!--project manager  -->
-      <view class='projectsLabel font-size-13'>
+      <view wx:if="{{projectManager.name != '' }}" class='projectsLabel font-size-13'>
         <view class='projectTitleGroup projectTitleGroupLabel'>
           <text>项目经理</text>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
+      <view class='projectsGroup font-size-13' wx:if="{{projectManager.name != '' }}">
         <view class='projectTitleGroup'>
           <text>名字</text>
         </view>
@@ -155,23 +155,23 @@
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
+      <view wx:if="{{projectManager.name != '' }}" class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>电话</text>
         </view>
         <image class='lineV' src='../../images/lineV.jpg'></image>
         <view class='projectTextGroup'>
           <view class='phoneNumber'>
-            <text bindtap='callPhoneNumber' data-phone="{{projectManager.phone}}" class='margin-left-5'>{{projectManager.phone}}</text>
+            <text bindtap='callPhoneNumber' data-phone="{{projectManager.phone}} " class='margin-left-5'>{{projectManager.phone}}</text>
           </view>
           <view class='callPhoneNumber'>
-            <image bindtap='callPhoneNumber' data-phone="{{projectManager.phone}}" class='imageCall margin-left-5' src='../../images/call.png'></image>
+            <image bindtap='callPhoneNumber' data-phone="{{projectManager.phone}} " class='imageCall margin-left-5' src='../../images/call.png'></image>
           </view>
         </view>
       </view>
 
       <!-- assets information  -->
-      <view class='projectsLabel font-size-13' wx:if="{{assetsList.length}} > 0">
+      <view class='projectsLabel font-size-13' wx:if="{{assetsList.length> 0}}">
         <view class='projectTitleGroup projectTitleGroupLabel'>
           <text>抵押物详情 ({{assetsList.length}}条)</text>
         </view>
@@ -229,53 +229,52 @@
           </view>
         </view>
       </view>
-    </view>
 
-    <!-- sponsors  -->
-    <view wx:if="{{sponsorsList.length > 0}}" class='projectsLabel font-size-13'>
-      <view class='projectTitleGroup projectTitleGroupLabel'>
-        <text>赞助商 ({{sponsorsList.length}}条)</text>
-      </view>
-    </view>
-
-    <view wx:for="{{sponsorsList}}" wx:for-item="sponsor">
-      <!--list of sponsors  -->
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>{{index+1}}.赞助</text>
+      <!-- sponsors  -->
+      <view wx:if="{{sponsorsList.length > 0}}" class='projectsLabel font-size-13'>
+        <view class='projectTitleGroup projectTitleGroupLabel'>
+          <text>赞助商 ({{sponsorsList.length}}条)</text>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>保证人</text>
+      <view wx:for="{{sponsorsList}}" wx:for-item="sponsor">
+        <!--list of sponsors  -->
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>{{index+1}}.赞助</text>
+          </view>
         </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>{{sponsor.name}}</text>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>保证人</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{sponsor.name}}</text>
+          </view>
+        </view>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>类型</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>{{sponsor.type}}</text>
+          </view>
+        </view>
+
+        <view class='projectsGroup font-size-13'>
+          <view class='projectTitleGroup'>
+            <text>担保金额</text>
+          </view>
+          <image class='lineV' src='../../images/lineV.jpg'></image>
+          <view class='projectTextGroup'>
+            <text class='margin-left-5'>¥{{sponsor.amount}}万</text>
+          </view>
         </view>
       </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>类型</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>{{sponsor.type}}</text>
-        </view>
-      </view>
-
-      <view class='projectsGroup font-size-13'>
-        <view class='projectTitleGroup'>
-          <text>担保金额</text>
-        </view>
-        <image class='lineV' src='../../images/lineV.jpg'></image>
-        <view class='projectTextGroup'>
-          <text class='margin-left-5'>¥{{sponsor.amount}}万</text>
-        </view>
-      </view>
-
 
       <!-- nearby  -->
       <view class='projectsLabel font-size-13'>
@@ -301,6 +300,7 @@
           <image class='imageRecomended' src='../../images/recommended.png'></image>
         </view>
       </view>
+
     </view>
   </scroll-view>
   <view class='buttonsBar'>
