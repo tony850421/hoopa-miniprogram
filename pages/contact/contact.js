@@ -29,8 +29,7 @@ Page({
     wx.getStorage({
       key: 'width',
       success: function(res) {
-        console.log(res.data + " width")
-        that.setData({
+        that.setData({        
           width: res.data
         })
       },
@@ -39,7 +38,6 @@ Page({
     wx.getStorage({
       key: 'height',
       success: function(res) {
-        console.log(res.data + " height")
         that.setData({
           height: res.data
         })

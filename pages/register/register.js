@@ -147,7 +147,10 @@ Page({
           duration: 2000
         })
       }, function (err) {
-        console.log(err)
+        wx.showModal({
+          title: '错误',
+          content: err.rawMessage,
+        })
       });
     }
   },
@@ -211,8 +214,8 @@ Page({
       })
     }
   },
-
   register: function () {
+    var that = this
     var user = AV.User.current()
     if (user) {
       var that = this
@@ -227,7 +230,12 @@ Page({
         user.set('ci', ci);
         user.set('company', company);
         user.setMobilePhoneNumber(mobilePhone);
-        user.save().then().catch();
+        user.save().then(function () { }, function (err) {
+          wx.showModal({
+            title: '错误',
+            content: err.rawMessage,
+          })
+        })
 
         var roleQuery = new AV.Query(AV.Role);
         roleQuery.equalTo('name', 'official');
@@ -266,14 +274,24 @@ Page({
           },
         })
       }, function (err) {
-        console.log(err)
+        wx.showModal({
+          title: '错误',
+          content: err.rawMessage,
+          success: function (res) {
+            that.setData({
+              code: '',
+              buttonSendCodeDisabled: false,
+              buttonRegisterDisabled: true,
+            })
+          }
+        })
       });
     }
   },
 
   goToHome: function () {
     wx.switchTab({
-      url: '../index/index',
+      url: '../index/index'
     })
   }
 })
