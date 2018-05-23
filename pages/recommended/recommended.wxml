@@ -1,2 +1,24 @@
 <!--pages/recommended/recommended.wxml-->
-<text>pages/recommended/recommended.wxml</text>
+<view class='padding-10'>
+  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='goToProject'>
+    <view class='flex-item'>
+      <image class='imageProductCar' src='{{product.mainImage}}'></image>
+    </view>
+    <view class='flex-item widthText'>
+      <view class='productInformation'>
+        <text>{{product.title}}</text>
+        <view class='displayFlexRow font-size-13'>
+          <text>价格：</text>
+          <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+        </view>
+        <view class='displayFlexRow font-size-13'>
+          <text>省份：</text>
+          <text>{{product.provincesTags}}</text>
+        </view>
+        <view class='displayFlexRow font-size-13'>
+          <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

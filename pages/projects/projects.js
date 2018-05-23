@@ -13,7 +13,6 @@ Page({
     offers: [],
     inputShowed: false,
     inputVal: "",
-    products: [],
     list: [
       {
         id: 'type',

@@ -43,7 +43,7 @@ Page({
   },
   goToRecommended: function (e) {
     wx.navigateTo({
-      url: '../inProgress/inProgress',
+      url: '../recommended/recommended',
     })
   },
   goToServices: function () {

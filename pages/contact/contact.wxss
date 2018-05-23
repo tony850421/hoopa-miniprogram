@@ -41,7 +41,7 @@ page {
 }
 
 .textBar {
-  border-bottom: 1px #d6dadb solid;
+  border-top: 1px #d6dadb solid;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
@@ -86,24 +86,6 @@ page {
   height: 5px;
 }
 
-.pike {
-  position: absolute;
-  margin-top: 2%;
-  width: 20px;
-  height: 20px;
-  z-index: -1;
-  margin-left: -8%;
-}
-
-.pikeWhite {
-  margin-top: 5%;
-  width: 20px;
-  height: 20px;
-  z-index: -1;
-  margin-left: -7%;
-  margin-right: 1%;
-}
-
 .inputGroup {
   width:82%;
   margin-right:5%;
@@ -119,4 +101,8 @@ page {
 .contactOrder{
   display: flex;
   flex-direction: column;
+}
+
+.messagesBox{
+  height: 90%;
 }

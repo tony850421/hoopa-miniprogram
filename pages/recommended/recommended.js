@@ -1,18 +1,45 @@
 // pages/recommended/recommended.js
+
+const AV = require('../../utils/av-weapp-min');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    products: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const query = new AV.Query('Project');
+    query.equalTo('isRecommended', true)
+    query.include('creator');
+    query.include('image');
+    query.descending('createdAt');
+    query.find().then(res => {
+
+console.log(res)
+      var arrivalType = []
+      var provinces = ''
+      for (var i = 0; i < res.length; i++) {
+        var typeArr = res[i].get('typeArrivalString')
+        provinces = res[i].get('provinceString')
+        arrivalType = typeArr.split('+')
+        arrivalType.splice(0, 1)
+        provinces = provinces.substr(1)
+        res[i].set('provincesTags', provinces)
+        res[i].set('tags', arrivalType)
+        res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
+      }
+
+      this.setData({
+        products: res
+      })
+    })
   },
 
   /**

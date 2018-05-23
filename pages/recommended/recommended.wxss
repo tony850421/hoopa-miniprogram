@@ -1,1 +1,20 @@
 /* pages/recommended/recommended.wxss */
+
+
+.tags {
+  color: #ff6801;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 0;
+  border: 1px #ff6801 solid;
+  font-size: 9px;
+}
+
+.product{
+  padding: 2px;
+}
+
+.imageProductCar {
+  width: 80px !important;
+  height:75px !important;
+}
