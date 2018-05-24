@@ -84,13 +84,12 @@
   flex-direction: row;
   background-color: white;
   align-items: center;
-  height: 80px;
   border-bottom: 1px #d6dadb solid;
 }
 
 .lineV {
   width: 10px;
-  height: 60px;
+  height: 55px;
 }
 
 .lineVOffer{
@@ -104,11 +103,12 @@
   width: 50%;
   align-items: center;
   margin-left: 5%;
+  height: 60px;
 }
 
 .imageIconUserCar {
-  width: 40px;
-  height: 36px;
+  width: 30px;
+  height: 27px;
   margin-top: 7px;
 }
 

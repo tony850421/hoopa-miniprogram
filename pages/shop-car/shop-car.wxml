@@ -10,8 +10,8 @@
     <text class='font-size-13'>转到用户页</text>
   </view>
 </view>
-<view class='shopCarBody' style="height: {{height-147}}px">
-  <scroll-view scroll-y="true" style="height: {{height-147}}px" scroll-top="100">
+<view class='shopCarBody' style="height: {{height-127}}px">
+  <scroll-view scroll-y="true" style="height: {{height-127}}px" scroll-top="100">
     <view class='section'>
       <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
         <view class='flex-item'>
