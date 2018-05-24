@@ -8,11 +8,11 @@
           <image wx:if="{{avatarUrl}}" class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
           <image wx:if="{{!avatarUrl}}" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
         </view>
-        <text wx:if="{{fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{fullName}}</text>
-        <text wx:if="{{!fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{nickName}}</text>
+        <text wx:if="{{fullName}}" class="userinfo-nickname font-size-13">{{fullName}}</text>
+        <text wx:if="{{!fullName}}" class="userinfo-nickname font-size-13">{{nickName}}</text>
         <view class='locationUser'>
           <image wx:if="{{city}}" class='imageLocationUser' src='../../images/userLocation.png'></image>
-          <text wx:if="{{city}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-11">{{city}}, {{province}}</text>
+          <text wx:if="{{city}}" class="userinfo-nickname font-size-11">{{city}}, {{province}}</text>
           <button wx:if="{{!city}}" plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
         </view>
       </view>

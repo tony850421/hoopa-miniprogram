@@ -17,12 +17,12 @@
   </view>
   <image src='../../images/lineV.jpg' class='lineVOffer'></image>
   <view class='offers'>
-    <text class='font-size-13'>{{offers.length}}</text>
+    <text class='font-size-13'>{{pending}}</text>
     <text class='font-size-13'>未答复的提议</text>
   </view>
   <image src='../../images/lineV.jpg' class='lineVOffer'></image>
   <view class='offers'>
-    <text class='font-size-13'>0</text>
+    <text class='font-size-13'>{{offers.length - pending}}</text>
     <text class='font-size-13'>报价答复</text>
   </view>
 </view>

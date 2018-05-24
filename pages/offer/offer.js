@@ -127,11 +127,12 @@ Page({
           query.get(res.data).then(
             project => {
               offer.set('project', project)
-              offer.set('amount', this.data.offer);
-              offer.set('description', this.data.description);              
+              offer.set('amount', this.data.offer)
+              offer.set('description', this.data.description)
+              offer.set('pending', true)
               offer.save();
               wx.navigateTo({
-                url: '../project/project',
+                url: '../offers/offers',
               })
             }).catch(console.error)
         }

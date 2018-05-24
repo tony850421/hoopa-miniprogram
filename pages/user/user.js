@@ -284,6 +284,15 @@ Page({
       })
     }
   },
+  logout: function () {
+    AV.User.logOut().then(res => {
+      this.setData({
+        user: null,
+        rol: '',
+        offers: []
+      })
+    })
+  },
   login: function () {
     wx.login({
       success: res => {
