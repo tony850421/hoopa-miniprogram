@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view>
-  <video class="videoHome" poster='http://lc-qpv1wnqe.cn-n1.lcfile.com/0bac82a3973b34702c9e.jpg' controls='true' src='http://lc-qNFjWh6z.cn-n1.lcfile.com/a83666d30482b79683b4.mp4'></video>
+  <video class="videoHome" poster='http://lc-qpv1wnqe.cn-n1.lcfile.com/ceb39cd9208897993f9e.jpg' controls='true' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7ded4d8f482e88bcf676.mp4'></video>
 </view>
 <view class='HomePage'>
   <view class="section">
@@ -27,7 +27,6 @@
       </view>
       <view class='buttonsBoxAboutUs' bindtap='goToAboutUs'>
         <image mode='aspectFit' class='IconsButtonAboutUs' src='../../images/about.png'></image>
-        <!-- <text class='font-size-13'>关于我们</text> -->
       </view>
       <view class='buttonsBox' bindtap='goToBranches'>
         <image mode='widthFix' class='IconsButtons' src='../../images/branch.png'></image>
