@@ -4,7 +4,8 @@
     <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
       <view class='product {{partner.classSelected}}'>
         <view class='flex-item'>
-          <image class='imageProductCar' mode='aspectFill' src='{{partner.avatar}}'></image>
+          <image wx:if="{{!partner.show}}" class='imageProductCar' mode='aspectFill' src='../../images/LogoHoopa.png'></image>
+          <image wx:if="{{partner.show}}" class='imageProductCar' mode='aspectFill' src='../../images/LogoHoopaW.png'></image>
         </view>
         <view class='flex-item widthText'>
           <view class='productInformation'>

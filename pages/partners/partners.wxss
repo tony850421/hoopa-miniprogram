@@ -1,6 +1,5 @@
 /* pages/partners/partners.wxss */
-
-map {
-  height: 250px;
-  width: 100%;
+.imagePartners{
+  margin-left: 10px;
+  margin-top:5px;
 }

@@ -8,6 +8,7 @@ Page({
     longitudeSelected: 126.605935,
     latitudeSelected: 45.759068,
     height: '',
+    width: '',
     partners: [
       {
         id: 0,
@@ -109,7 +110,8 @@ Page({
     wx.getSystemInfo({
       success: res => {
         this.setData({
-          height: res.windowHeight
+          height: res.windowHeight,
+          width: res.windowWidth
         })
       },
     })
