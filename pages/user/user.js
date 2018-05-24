@@ -12,14 +12,34 @@ Page({
   data: {
     offers: [],
     user: '',
-    rol: false
+    rol: false,
+    width: '',
+    height: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
 
+    wx.getStorage({
+      key: 'width',
+      success: function (res) {
+        that.setData({
+          width: res.data
+        })
+      },
+    })
+
+    wx.getStorage({
+      key: 'height',
+      success: function (res) {
+        that.setData({
+          height: res.data
+        })
+      },
+    })
   },
 
   /**
@@ -148,7 +168,7 @@ Page({
     var user = AV.User.current()
     var data = e.detail.rawData
     var userData = JSON.parse(data)
-    if (user){
+    if (user) {
       user.set('nickName', userData.nickName);
       user.set('avatarUrl', userData.avatarUrl);
       user.set('gender', userData.gender);
@@ -164,24 +184,24 @@ Page({
           user: res
         })
       })
-    } else {      
+    } else {
       wx.login({
-        success: res => {    
-          
+        success: res => {
+
           wx.showToast({
             title: '数据得到正确',
             icon: 'success',
             duration: 3000
           })
-      
-          AV.User.loginWithWeapp().then(currentUser => {      
+
+          AV.User.loginWithWeapp().then(currentUser => {
             currentUser.set('nickName', userData.nickName);
             currentUser.set('avatarUrl', userData.avatarUrl);
             currentUser.set('gender', userData.gender);
             currentUser.set('province', userData.province);
-            currentUser.set('city', userData.city);            
-            currentUser.save().then( res=> {
-              
+            currentUser.set('city', userData.city);
+            currentUser.save().then(res => {
+
               var query = new AV.Query('Offert');
               query.include('project')
               query.equalTo('user', currentUser);
@@ -221,21 +241,21 @@ Page({
           }).catch(console.error);
         }
       })
-    }    
+    }
   },
   goToCar: function () {
     wx.navigateTo({
       url: '../shop-car/shop-car',
     })
   },
-  goToContact: function () {
+  goToNotifications: function () {
     wx.switchTab({
-      url: '../contact/contact',
+      url: '../notifications/notifications',
     })
   },
-  goToRecommended: function () {
+  goToOffers: function () {
     wx.navigateTo({
-      url: '../recommended/recommended',
+      url: '../offers/offers',
     })
   },
   goToUserInformation: function () {
@@ -264,43 +284,7 @@ Page({
       })
     }
   },
-  goToProject: function (e) {
-    var user = AV.User.current()
-    if (!user) {
-      wx.login({
-        success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          AV.User.loginWithWeapp().then(user => {
-            wx.setStorage({
-              key: 'projectID',
-              data: e.currentTarget.dataset.id,
-            })
-            wx.navigateTo({
-              url: '../project/project'
-            })
-          }).catch(console.error);
-        }
-      })
-    } else {
-      wx.setStorage({
-        key: 'projectID',
-        data: e.currentTarget.dataset.id,
-      })
-      wx.navigateTo({
-        url: '../project/project'
-      })
-    }
-  },
-  logout: function(){
-    AV.User.logOut().then(res=>{
-      this.setData({
-        user: null,
-        rol: '',
-        offers: []
-      })
-    })    
-  },
-  login: function(){
+  login: function () {
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId

@@ -11,14 +11,14 @@
           </view>
           <view style='width: {{width-110}}px' class='commentStyle'>
             <view>
-              <text class='content'>{{message.content}}</text>
+              <text class='font-size-13'>{{message.content}}</text>
             </view>
           </view>
         </view>
         <view wx:if="{{message.sender.objectId == user.objectId}}" class='comments'>
           <view style='width: {{width-110}}px' class='commentStyleRight'>
             <view class='contentComment'>
-              <text class='content'>{{message.content}}</text>
+              <text class='font-size-13'>{{message.content}}</text>
             </view>
           </view>
           <view class='imageAvatar'>

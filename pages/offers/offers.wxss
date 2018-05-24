@@ -1,0 +1,119 @@
+/* pages/offers/offers.wxss */
+.topNavBarShopCar {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  align-items: center;
+  border-bottom: 1px #d6dadb solid;
+}
+
+.lineV {
+  width: 9px;
+  height: 45px;
+}
+
+.lineVOffer{
+  width: 10px;
+  height: 45px;
+}
+
+.infoData {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  height: 60px;
+  margin-left: 5%;
+}
+
+.imageIconUserCar {
+  width: 30px;
+  height: 27px;
+  margin-top: 7px;
+}
+
+.font-size-13 {
+  font-size: 13px;
+}
+
+.shopCarBody {
+  padding: 10px;
+}
+
+.widthText {
+  width: 53%;
+}
+
+.groupId {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+
+.offertFacts{
+  background-color: white;
+  border-bottom: 1px #d6dadb solid;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.offers{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.3%;
+}
+
+.tags {
+  color: #ff6801;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 0;
+  border: 1px #ff6801 solid;
+  font-size: 9px;
+}
+
+.product{
+  padding: 2px;
+}
+
+.imageProductCar {
+  width: 80px !important;
+  height:75px !important;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding:10px;
+  border: 1px #d6dadb solid;
+  margin-top: 5px;
+}
+
+.projectTitleGroup {
+  display: flex;
+  flex-direction: column;
+  width: 29%;
+  align-items: center;
+}
+
+.imageIconUserNotification {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.projectTextGroup {
+  display: flex;
+  flex-direction: column;
+  width: 67%;
+  text-align: center;
+}

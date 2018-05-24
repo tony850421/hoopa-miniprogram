@@ -158,6 +158,21 @@ Page({
             })
           }
         })
+
+      var query = new AV.Query('OfferNotification');
+      query.include('project')
+      query.include('user')
+      query.equalTo('user', user)
+      query.equalTo('readed', false)
+      query.count().then(count => {
+        if (count > 0) {
+          wx.setTabBarBadge({
+            index: 2,
+            text: count.toString()
+          })
+        }
+      }
+      )
     }
 
     this.fetchProductsHot()

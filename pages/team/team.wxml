@@ -2,96 +2,91 @@
 <image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d1efc61825a93ad84625.jpg'></image>
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/a1eaad4006aec9213de3.png'></image>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/aa74e8dbd68ed4b0ee5d.jpg'></image>
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>李传宏</text>
-      <text class='font-size-12'>武汉大学法学硕士，精通不良资产方面的法律，具有丰富的不良资产处置和管理经验，分别在广东、河南、四川、山东、浙江主管不良资产的清收，成功完成回收任务。主管不良资产包账面额达200亿人民币。性格坚忍不拔，百折不饶。</text>
+      <text class='font-size-13 font-weight'>李传宏—胡巴资产董事长兼总裁</text>
+      <text class='font-size-12'>武汉大学法学硕士，曾就职于知名律所、美国海岸投资公司，精通不良资产相关法律，具有近二十年的不良资产处置和管理经验。2009年自主创业，2015年创立杭州胡巴资产管理有限公司。</text>
+      <text class='font-size-12'>胡巴资产是不良资产投资管理服务提供商，一直秉承着“让社会闲置资源合理利用，创造社会价值”的理念，为众多投资机构及民营资本创造了丰厚收益，我们诚邀社会各界人士精诚合作，创造我们共同追求的财富价值，分享成功合作的喜悦与成果。</text>
     </view>
   </view>
 </view>
 
+<!-- 1  -->
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/91ab9d3fb34f0ce576ea.png'></image>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/56afe8bd2e208440bb0e.jpg'></image>
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>詹柳莺</text>
-      <text class='font-size-12'>华东政法大学法学学士，浙江大学法学硕士，具备很好的团队协作精神与全局观念。现任职杭州胡巴资产管理有限公司总裁助理，协助总裁参与公司管理。</text>
+      <text class='font-size-13 font-weight'>杨林榆——胡巴资产事务合伙人</text>
+      <text class='font-size-12'>在不良债权及不动产投资领域拥有长达25年的经验。作为海岸投资的创始合伙人之一，带领海岸投资从不良资产处置服务商发展成为管理超过10亿美金的基金管理运营企业。对国内外不良资产市场以及运营模式具有深刻的理解，具有广泛的人脉关系。</text>
     </view>
   </view>
 </view>
 
+<!-- 2  -->
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d195c15b61df8514f9a3.png'></image>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e463caec6cc51816d1cc.jpg'></image>
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>尹丽萍</text>
-      <text class='font-size-12'>工作经历</text>
-    </view>
-  </view>
-</view> 
-
-<view class='services margin-bottom-5'>
-  <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/065462804e6dce86577f.png'></image>
-  </view>
-  <view class='servicesText'>
-    <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>刘杰</text>
-      <text class='font-size-12'>华南理工大学法学、工商管理学士，具有丰富的不良资产处置和管理经验，擅长团队管理和培训，分别在河南、四川、山东、浙江、上海、江苏进行不良资产的清收，团队建设管理。性格真诚简单，做事务实。</text>
+      <text class='font-size-13 font-weight'>林庄——胡巴资产事务合伙人、副总裁</text>
+      <text class='font-size-12'>天使投资人，曾投资地产开发、文化传媒、网络游戏等多种行业，2010年涉足金融行业，以金融风险投资、基金和融资业务为主，具有丰富的金融知识和投资运营实战经验。</text>
     </view>
   </view>
 </view>
 
+<!-- 3  -->
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/fa012ea4110292f7c5a1.png'></image>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/74d9cd433b5ee06c29e7.jpg'></image>
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>林庄</text>
-      <text class='font-size-12'>投资经历</text>
+      <text class='font-size-13 font-weight'>刘杰——胡巴资产事务合伙人、广州事业部总经理</text>
+      <text class='font-size-12'>华南理工大学法学、工商管理学士，成功处置不良资产包金额超百亿元，具有丰富的不良资产处置和管理经验，在拓展新市场方面有极强的能力，擅长团队管理和培训。</text>
     </view>
   </view>
-</view> 
+</view>
 
+<!-- 4  -->
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/757ff9b245c93be3c9c5.png'></image>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7ac4820b027ad77904db.jpg'></image>
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>王成宝</text>
-      <text class='font-size-12'>创业经历</text>
+      <text class='font-size-13 font-weight'>詹柳莺——胡巴资产事务合伙人、创新事业部总经理</text>
+      <text class='font-size-12'>华东政法大学法学学士，浙江大学法学硕士。参与国内多个资产包项目的收购工作，累计收购金额上百亿元，具备优秀的团队协作精神与全局观。</text>
     </view>
   </view>
-</view> 
+</view>
 
+<!-- 5  -->
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/a8c5c1cf67b9ff9cfd0a.png'></image>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/6d495ed33545329a48e5.jpg'></image>
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>余会林</text>
-      <text class='font-size-12'>胡巴资产处置管理负责人，河南中赢旗晟律师事务所执业律师、合伙人。</text>
+      <text class='font-size-13 font-weight'>魏强——胡巴资产市场部经理</text>
+      <text class='font-size-12'>2010年就职于阿里巴巴集团，任国际事业部资深经理、“天猫”消费者体验与发展事业部专家、浙江大学EMBA总裁班特聘老师、中国人民大学EMBA总裁班讲师、商务部培训中心讲师、中国第一届诚信大会主讲嘉宾、企业品牌营销专家、擅长SNS运营。</text>
     </view>
   </view>
-</view> 
+</view>
 
+<!-- 6  -->
 <view class='services margin-bottom-5'>
   <view class='groupNumber'>
-    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/8168a31c3e6595ba813d.png'></image>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1a9955d10fa52290d4de.jpg'></image>
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>寿璐琳</text>
-      <text class='font-size-12'>工作经历</text>
+      <text class='font-size-13 font-weight'>王峰——胡巴资产事务合伙人</text>
+      <text class='font-size-12'>曾任古巴国务委员会顾问、古巴科技大学教授、古巴信息科学大学副院长、古巴教育系统物理软件开发人、委内瑞拉石油公司科技部总经理，精通大数据开发与应用。</text>
     </view>
   </view>
-</view>   
+</view>

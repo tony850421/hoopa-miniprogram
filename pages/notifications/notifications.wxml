@@ -1,0 +1,20 @@
+<!--pages/notifications/notifications.wxml-->
+<view class="contactOrder">
+  <view style='height: {{height}}px'>
+    <scroll-view scroll-y="true" style='height: {{height}}px' scroll-into-view="A{{intoView}}" scroll-top="100">
+      <view wx:for="{{notifications}}" wx:for-item="notification" wx:key="{{notification.objectId}}" id="A{{notification.objectId}}">
+        <text class='dateText'>{{notification.createdAt}}</text>
+        <view class='comments'>
+          <view class='imageAvatar'>
+            <image src='../../images/icono-02.png' class='imageAvatar'></image>
+          </view>
+          <view style='width: {{width-110}}px' class='commentStyle'>
+            <view>
+              <text class='font-size-13'>{{notification.content}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

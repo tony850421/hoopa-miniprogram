@@ -3,7 +3,7 @@
 .userinfo {
   display: flex;
   flex-direction: row;
-  align-items: center;  
+  align-items: center;
   border-bottom: 1px #d6dadb solid;
 }
 
@@ -30,6 +30,7 @@
   display: flex;
   flex-direction: row;
   background-color: white;
+  border-bottom: 1px #d6dadb solid;
 }
 
 .infoData {
@@ -37,7 +38,6 @@
   flex-direction: column;
   width: 33.3%;
   align-items: center;
-  height: 80px;
 }
 
 .offers {
@@ -57,38 +57,145 @@
   right: 15px;
 }
 
+.BackgroundProfile {
+  background-color: #ff6801;
+}
+
 @media (max-width: 480px) {
-  .BackgorundProfile {
+  .BackgroundProfile {
     height: 280px;
-    background-color: #ff6801;
+  }
+
+  .info {
+    height: 70px;
+  }
+
+  .lineVBar {
+    width: 9px;
+    height: 60px;
+    margin-top: 5px;
+  }
+
+  .imageIconUserCar {
+    width: 40px;
+    height: 35px;
+    margin-top: 5px;
+  }
+
+  .imageIconUserNotification {
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
   }
 }
 
 @media (max-width: 414px) {
-  .BackgorundProfile {
-    height: 280px;
-    background-color: #ff6801;
+  .BackgroundProfile {
+    height: 260px;
+  }
+
+  .info {
+    height: 60px;
+  }
+
+  .lineVBar {
+    width: 9px;
+    height: 50px;
+    margin-top: 5px;
+  }
+
+  .imageIconUserCar {
+    width: 30px;
+    height: 25px;
+  }
+
+  .imageIconUserNotification {
+    width: 25px;
+    height: 25px;
   }
 }
 
 @media (max-width: 375px) {
-  .BackgorundProfile {
-    height: 250px;
-    background-color: #ff6801;
+  .BackgroundProfile {
+    height: 240px;
+  }
+
+  .info {
+    height: 55px;
+  }
+
+  .lineVBar {
+    width: 9px;
+    height: 45px;
+    margin-top: 5px;
+  }
+
+  .imageIconUserCar {
+    width: 30px;
+    height: 25px;
+    margin-top: 3px;
+  }
+
+  .imageIconUserNotification {
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
   }
 }
 
 @media (max-width: 360px) {
-  .BackgorundProfile {
+  .BackgroundProfile {
     height: 240px;
-    background-color: #ff6801;
+  }
+
+  .info {
+    height: 55px;
+  }
+
+  .lineVBar {
+    width: 9px;
+    height: 45px;
+    margin-top: 5px;
+  }
+
+  .imageIconUserCar {
+    width: 30px;
+    height: 25px;
+    margin-top: 3px;
+  }
+
+  .imageIconUserNotification {
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
   }
 }
 
 @media (max-width: 320px) {
-  .BackgorundProfile {
-    height: 200px;
-    background-color: #ff6801;
+  .BackgroundProfile {
+    height: 240px;
+  }
+
+  .info {
+    height: 50px;
+  }
+
+  .lineVBar {
+    width: 9px;
+    height: 40px;
+    margin-top: 5px;
+  }
+
+  .imageIconUserCar {
+    width: 30px;
+    height: 25px;
+    margin-top: 2px;
+  }
+
+  .imageIconUserNotification {
+    width: 25px;
+    height: 25px;
+    margin-top: 2px;
   }
 }
 
@@ -114,78 +221,30 @@
   font-size: 13px;
 }
 
-.imageIconUserCar {
-  width: 40px;
-  height: 35px;
-  margin-top: 10px;
-}
-
-.imageIconUserNotification {
-  width: 35px;
-  height: 35px;
-  margin-top: 10px;
-}
-
 .information {
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
-.projectTitleGroup {
-  display: flex;
-  flex-direction: column;
-  width: 29%;
-  align-items: center;
-}
-
-.projectsGroup {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: white;
-  border-radius: 5px;
-  padding:10px;
-  border: 1px #d6dadb solid;
-  margin-top: 5px;
-}
-
-.projectTextGroup {
-  display: flex;
-  flex-direction: column;
-  width: 67%;
-  text-align: center;
-}
-
-.lineV {
-  width: 9px;
-  height: 50px;
-}
-
-.lineVBar{
-  width: 9px;
-  height: 50px;
-  margin-top: 15px;
-}
-
 .home {
   position: absolute;
   width: 34px;
   height: 30px;
-  margin-top: 10px;  
+  margin-top: 10px;
   left: 10px;
 }
 
 .logout {
   position: absolute;
-  width: 34px;
+  width: 50px;
   height: 30px;
   margin-top: 10px;
   right: 10px;
   color: white;
 }
 
-.buttonGetUserInfo{
+.buttonGetUserInfo {
   background-color: transparent;
   color: white !important;
   border: none !important;

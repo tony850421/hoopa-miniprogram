@@ -21,7 +21,9 @@
     "pages/assetsMap/assetsMap",
     "pages/services/services",
     "pages/inProgress/inProgress",
-    "pages/recommended/recommended"
+    "pages/recommended/recommended",
+    "pages/offers/offers",
+    "pages/notifications/notifications"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -47,6 +49,12 @@
         "iconPath": "images/contact.png",
         "selectedIconPath": "images/contactSelected.png",
         "text": "联系我们"
+      },
+      {
+        "pagePath": "pages/notifications/notifications",
+        "iconPath": "images/notifications.png",
+        "selectedIconPath": "images/notificationsSelected.png",
+        "text": "通知"
       },
       {
         "pagePath": "pages/user/user",

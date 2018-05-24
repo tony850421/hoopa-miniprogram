@@ -10,24 +10,8 @@
     <text class='font-size-13'>转到用户页</text>
   </view>
 </view>
-<view class='offertFacts'>
-  <view class='offers'>
-    <text class='font-size-13'>{{products.length}}</text>
-    <text class='font-size-13'>优惠总数</text>
-  </view>
-  <image src='../../images/lineV.jpg' class='lineVOffer'></image>
-  <view class='offers'>
-    <text class='font-size-13'>{{products.length}}</text>
-    <text class='font-size-13'>未答复的提议</text>
-  </view>
-  <image src='../../images/lineV.jpg' class='lineVOffer'></image>
-  <view class='offers'>
-    <text class='font-size-13'>0</text>
-    <text class='font-size-13'>报价答复</text>
-  </view>
-</view>
-<view class='shopCarBody' style="height: {{height-187}}px">
-  <scroll-view scroll-y="true" style="height: {{height-187}}px" scroll-top="100">
+<view class='shopCarBody' style="height: {{height-147}}px">
+  <scroll-view scroll-y="true" style="height: {{height-147}}px" scroll-top="100">
     <view class='section'>
       <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
         <view class='flex-item'>

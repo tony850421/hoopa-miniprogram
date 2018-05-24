@@ -1,0 +1,43 @@
+<!--pages/offers/offers.wxml-->
+<view class='topNavBarShopCar'>
+  <view class='infoData' bindtap='goToHome'>
+    <image class='imageIconUserCar' src='../../images/homeSelected.png'></image>
+    <text class='font-size-13'>回家</text>
+  </view>
+  <image src='../../images/lineV.jpg' class='lineV'></image>
+  <view class='infoData' bindtap='goToUser'>
+    <image class='imageIconUserCar' src='../../images/userSelected.png'></image>
+    <text class='font-size-13'>转到用户页</text>
+  </view>
+</view>
+<view class='offertFacts'>
+  <view class='offers'>
+    <text class='font-size-13'>{{offers.length}}</text>
+    <text class='font-size-13'>优惠总数</text>
+  </view>
+  <image src='../../images/lineV.jpg' class='lineVOffer'></image>
+  <view class='offers'>
+    <text class='font-size-13'>{{offers.length}}</text>
+    <text class='font-size-13'>未答复的提议</text>
+  </view>
+  <image src='../../images/lineV.jpg' class='lineVOffer'></image>
+  <view class='offers'>
+    <text class='font-size-13'>0</text>
+    <text class='font-size-13'>报价答复</text>
+  </view>
+</view>
+<view class='shopCarBody' style="height: {{height-140}}px">
+  <scroll-view scroll-y="true" style="height: {{height-140}}px" scroll-top="100">
+    <view class='projectsGroup' wx:for="{{offers}}" wx:for-item="offer" data-id='{{offer.project.objectId}}' bindtap='goToProject'>
+      <view class='projectTitleGroup'>
+        <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+        <text class='font-size-13'>{{offer.project.title}}</text>
+      </view>
+      <image class='lineV' src='../../images/lineV.jpg'></image>
+      <view class='projectTextGroup'>
+        <text class='colorTextPrimary'> ¥{{offer.amount}}万</text>
+        <text class='font-size-13'>{{offer.description}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
