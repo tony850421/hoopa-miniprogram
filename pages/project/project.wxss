@@ -119,7 +119,9 @@
 }
 
 .projectTitleGroupLabel{
-  width: 50% !important;
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
   align-items: flex-start !important;
 }
 

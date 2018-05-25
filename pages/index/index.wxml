@@ -51,7 +51,7 @@
     </view>
   </view>
   <view class='sectionProjects' wx:if="{{productsHot.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/95dc654f527e28123939.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x="true">
         <view class='projectList' style='width: {{productsHot.length*140}}px'>
@@ -70,7 +70,7 @@
     </view>
   </view>
   <view class='sectionProjects' wx:if="{{productsHouse.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/866447d1ea2cbb22bc38.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList' style='width: {{productsHouse.length*140}}px'>
@@ -89,7 +89,7 @@
     </view>
   </view>
   <view class='sectionProjects' wx:if="{{productsFactory.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/308440c616f65a5a59a4.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList' style='width: {{productsFactory.length*140}}px'>
@@ -107,8 +107,8 @@
       </scroll-view>
     </view>
   </view>
-  <view class='sectionProjects' wx:if="{{productsDebit.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+  <!-- <view class='sectionProjects' wx:if="{{productsDebit.length > 0}}">
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/44af60232d3ba5ad49c8.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList' style='width: {{productsDebit.length*140}}px'>
@@ -125,11 +125,11 @@
         </view>
       </scroll-view>
     </view>
-  </view>
+  </view> -->
   <view class='sectionProjects' wx:if="{{productsShop.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/3a1052d7ac2af3fffff7.jpg'></image>
+    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1aff6670a44a67e4f6b1.jpg'></image>
     <view>
-      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="100">
         <view class='projectList' style='width: {{productsShop.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsShop}}" wx:for-item="product">
             <text class='text-title'>{{product.title}}</text>

@@ -39,13 +39,14 @@
     </view>
   </view>
   <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
-    <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
+  <scroll-view style='height: {{height-100}}px' scroll-y="true" enable-back-to-top="true">
+  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
       <view class='flex-item'>
          <image class='imageProductCar' src='{{product.mainImage}}'></image> 
       </view>
       <view class='flex-item widthText'>
         <view class='productInformation'>
-          <text>{{product.title}}</text>
+          <text class='font-size-13'>{{product.title}}</text>
           <view class='displayFlexRow font-size-13'>
             <text>债权本金：</text>
             <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
@@ -60,5 +61,6 @@
         </view>
       </view>
     </view>
+  </scroll-view>    
   </view>
 </view>

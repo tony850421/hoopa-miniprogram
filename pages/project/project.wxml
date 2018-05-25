@@ -39,10 +39,10 @@
         </view>
       </view>
 
-      
+
       <!-- description  -->
       <view class='projectsLabel font-size-13' wx:if="{{product.description != ''}}">
-        <view class='projectTitleGroup projectTitleGroupLabel'>
+        <view class='projectTitleGroupLabel'>
           <text>资产亮点</text>
         </view>
       </view>
@@ -51,13 +51,39 @@
         <view class='desciptionGroup'>
           <text class='margin-left-5'>{{product.description}}</text>
         </view>
-      </view>  
+      </view>
+
+      <!-- credits highlights  -->
+       <view class='projectsLabel font-size-13' wx:if="{{product.description != ''}}">
+        <view class='projectTitleGroupLabel'>
+          <text>学分亮点</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13' wx:if="{{product.description != ''}}">
+        <view class='desciptionGroup'>
+          <text class='margin-left-5'>{{product.creditHighlights}}</text>
+        </view>
+      </view> 
 
 
       <!-- hay que cambiar esto pot un text area-->
-      <view class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup projectTitleGroupLabel'>
+      <!-- <view class='projectsLabel font-size-13'>
+        <view class='projectTitleGroupLabel'>
           <text>法律进度</text>
+        </view>
+      </view> -->
+
+
+      <view class='projectsLabel font-size-13' wx:if="{{product.legalState != ''}}">
+        <view class='projectTitleGroupLabel'>
+          <text>法律进度</text>
+        </view>
+      </view>
+
+      <view class='projectsGroup font-size-13' wx:if="{{product.legalState != ''}}">
+        <view class='desciptionGroup'>
+          <text class='margin-left-5'>{{product.legalState}}</text>
         </view>
       </view>
 
@@ -94,7 +120,7 @@
 
       <!--project manager  -->
       <view wx:if="{{projectManager.name != '' }}" class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup projectTitleGroupLabel'>
+        <view class='projectTitleGroupLabel'>
           <text>项目经理</text>
         </view>
       </view>
@@ -126,7 +152,7 @@
 
       <!--prestamistas  -->
       <view class='projectsLabel font-size-13' wx:if="{{borrowerList.length > 0}}">
-        <view class='projectTitleGroup projectTitleGroupLabel'>
+        <view class='projectTitleGroupLabel'>
           <text>借款人信息({{borrowerList.length}}条)</text>
         </view>
       </view>
@@ -134,7 +160,7 @@
       <view wx:for="{{borrowerList}}" wx:for-item="borrower">
 
         <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
+          <view class='projectTitleGroupLabel'>
             <text>{{index+1}}.{{borrower.name}}</text>
           </view>
         </view>
@@ -172,14 +198,14 @@
 
       <!-- assets information  -->
       <view class='projectsLabel font-size-13' wx:if="{{assetsList.length> 0}}">
-        <view class='projectTitleGroup projectTitleGroupLabel'>
+        <view class='projectTitleGroupLabel'>
           <text>抵押物详情 ({{assetsList.length}}条)</text>
         </view>
       </view>
 
       <view wx:for="{{assetsList}}" wx:for-item="asset">
         <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
+          <view class='projectTitleGroupLabel'>
             <text>{{index+1}}.{{asset.title}}</text>
           </view>
         </view>
@@ -232,7 +258,7 @@
 
       <!-- sponsors  -->
       <view wx:if="{{sponsorsList.length > 0}}" class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup projectTitleGroupLabel'>
+        <view class='projectTitleGroupLabel'>
           <text>保证人 ({{sponsorsList.length}}条)</text>
         </view>
       </view>
@@ -240,7 +266,7 @@
       <view wx:for="{{sponsorsList}}" wx:for-item="sponsor">
         <!--list of sponsors  -->
         <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
+          <view class='projectTitleGroupLabel'>
             <text>{{index+1}}.{{sponsor.name}}</text>
           </view>
         </view>
@@ -278,7 +304,7 @@
 
       <!-- nearby  -->
       <view class='projectsLabel font-size-13'>
-        <view class='projectTitleGroup projectTitleGroupLabel'>
+        <view class='projectTitleGroupLabel'>
           <text style='height: 20px'></text>
         </view>
       </view>

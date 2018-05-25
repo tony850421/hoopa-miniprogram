@@ -13,6 +13,7 @@ Page({
     offers: [],
     inputShowed: false,
     inputVal: "",
+    index: 0,
     list: [
       {
         id: 'type',
@@ -42,7 +43,8 @@ Page({
     query.include('creator');
     query.include('image');
     query.descending('createdAt');
-    // query.limit(10);
+    query.limit(10);
+    query.skip(this.data.index);
     query.find().then(res => {
 
       var arrivalType = []
@@ -59,7 +61,8 @@ Page({
       }
 
       this.setData({
-        products: res
+        products: res,
+        intoView: res[0].id
       })
     })
 
@@ -128,6 +131,7 @@ Page({
     this.search();
   },
   clearInput: function () {
+    console.log(this.data.index)
     this.setData({
       inputVal: "",
       inputShowed: false
@@ -137,11 +141,13 @@ Page({
     query.include('creator');
     query.include('image');
     query.descending('createdAt');
-    // query.limit(10);
+    query.limit(10);
+    query.skip(this.data.index);
     query.find().then(res => {
 
       var arrivalType = []
       var provinces = ''
+      
       for (var i = 0; i < res.length; i++) {
         var typeArr = res[i].get('typeArrivalString')
         provinces = res[i].get('provinceString')
@@ -155,7 +161,7 @@ Page({
 
       this.setData({
         products: res
-      })
+      })      
     })
 
     for (var i = 0; i < this.data.list.length; i++) {
@@ -305,7 +311,8 @@ Page({
     }
 
     var queryAnd = AV.Query.and(queryProvince, query, queryType);
-
+    queryAnd.limit(10);
+    queryAnd.skip(this.data.index);
     queryAnd.find().then(res => {
 
       var arrivalType = []
@@ -355,6 +362,8 @@ Page({
     query1.contains('description', this.data.inputVal)
 
     var compoundQuery = AV.Query.or(query1, query)
+    compoundQuery.limit(7);
+    compoundQuery.skip(this.data.index);
     compoundQuery.find().then(res => {
 
       var arrivalType = []

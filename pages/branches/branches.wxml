@@ -1,5 +1,5 @@
 <!--pages/partners/partners.wxml-->
-<scroll-view scroll-y="true" style="height: {{height-250}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
+<scroll-view scroll-y="true" style="height: {{height-250}}px" scroll-into-view="red" scroll-top="100">
   <view class='padding-10'>
     <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
       <view class='product {{partner.classSelected}}'>

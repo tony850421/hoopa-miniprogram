@@ -178,7 +178,7 @@ Page({
     this.fetchProductsHot()
     this.fetchProductsHouse()
     this.fetchProductsFactory()
-    this.fetchProductsDebit()
+    // this.fetchProductsDebit()
     this.fetchProductsShop()
   },
   fetchProductsHot: function () {
@@ -237,26 +237,28 @@ Page({
         productsFactory: res
       })
     })
-  },
-  fetchProductsDebit: function () {
-    const query = new AV.Query('Project');
-    query.equalTo('isDebt', true);
-    query.descending('createdAt');
-    query.find().then(res => {
+  }
+  // ,
+  // fetchProductsDebit: function () {
+  //   const query = new AV.Query('Project');
+  //   query.equalTo('isDebt', true);
+  //   query.descending('createdAt');
+  //   query.find().then(res => {
 
-      var arrivalType = []
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        res[i].set('tags', arrivalType)
-      }
+  //     var arrivalType = []
+  //     for (var i = 0; i < res.length; i++) {
+  //       var typeArr = res[i].get('typeArrivalString')
+  //       arrivalType = typeArr.split('+')
+  //       arrivalType.splice(0, 1)
+  //       res[i].set('tags', arrivalType)
+  //     }
 
-      this.setData({
-        productsDebit: res
-      })
-    })
-  },
+  //     this.setData({
+  //       productsDebit: res
+  //     })
+  //   })
+  // }
+  ,
   fetchProductsShop: function () {
     const query = new AV.Query('Project');
     query.equalTo('isShop', true);
