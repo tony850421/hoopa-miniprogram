@@ -21,13 +21,6 @@ Page({
         iconPath: "../../images/markerWork.png",
         width: 42,
         height: 50,
-        // callout: {
-        //   content: '单击以调用',
-        //   display: 'ALWAYS',
-        //   padding: 10,
-        //   bgColor: '#FFFFFF',
-        //   borderRadius: 5,
-        // },
         classSelected: 'branchesSelected'
       },
       {
@@ -97,19 +90,19 @@ Page({
         latitude: 28.201072,
         longitude: 112.995415,
         iconPath: "../../images/markerWork.png",
-        id: 5,
+        id: 6,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
       },
       {
-        name: '安徽事业部',
+        name: '合肥胡巴资产',
         direction: '安徽省合肥市徽州大道396号东方广场B座1207室',
         show: false,
         latitude: 31.855039,
         longitude: 117.293235,
         iconPath: "../../images/markerWork.png",
-        id: 5,
+        id: 7,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'

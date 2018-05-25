@@ -1,19 +1,6 @@
 <!--pages/partners/partners.wxml-->
 <scroll-view scroll-y="true" style="height: {{height}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
   <view class='padding-10'>
-    <!-- <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
-      <view class='product {{partner.classSelected}}'>
-        <view class='flex-item'>
-          <image class='imageProductCar' mode='aspectFill' src='{{partner.avatar}}'></image>
-        </view>
-        <view class='flex-item widthText'>
-          <view class='productInformation'>
-            <text class='font-size-13'>{{partner.name}}</text>
-            <text class='font-size-13'>{{partner.direction}}</text>
-          </view>
-        </view>
-      </view>
-    </view> -->
     <!--1  -->
     <view class='product'>
       <view class='flex-item'>

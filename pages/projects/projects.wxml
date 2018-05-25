@@ -22,7 +22,7 @@
     <view class='itemBarSearch' wx:for="{{list}}" wx:for-item="item">
       <view class="kind-list__item">
         <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-          <view class="weui-flex__item font-size-16">{{item.name}}</view>
+          <view class="weui-flex__item font-size-16">{{item.nameShow}}</view>
           <image wx:if="{{!item.open}}" class="kind-list__img" src="../../images/angle_right.png"></image>
           <image wx:if="{{item.open}}" class="kind-list__img" src="../../images/angle_down.png"></image>
         </view>
@@ -47,7 +47,7 @@
         <view class='productInformation'>
           <text>{{product.title}}</text>
           <view class='displayFlexRow font-size-13'>
-            <text>价格：</text>
+            <text>债权本金：</text>
             <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
           </view>
           <view class='displayFlexRow font-size-13'>

@@ -42,7 +42,7 @@
         "pagePath": "pages/index/index",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/homeSelected.png",
-        "text": "家"
+        "text": "主页"
       },
       {
         "pagePath": "pages/contact/contact",
@@ -60,7 +60,7 @@
         "pagePath": "pages/user/user",
         "iconPath": "images/user.png",
         "selectedIconPath": "images/userSelected.png",
-        "text": "用户"
+        "text": "我的"
       }
     ]
   }

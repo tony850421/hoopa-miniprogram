@@ -13,14 +13,14 @@
         <view class='locationUser'>
           <image wx:if="{{city}}" class='imageLocationUser' src='../../images/userLocation.png'></image>
           <text wx:if="{{city}}" class="userinfo-nickname font-size-11">{{city}}, {{province}}</text>
-          <button wx:if="{{!city}}" plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
+          <button wx:if="{{!city}}" plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">请用微信登陆</button>
         </view>
       </view>
     </block>
   </view>
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>名字</text>
+      <text class='font-size-13'>您的名字</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
@@ -29,7 +29,7 @@
   </view>
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>识别</text>
+      <text class='font-size-13'>身份证号码</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
@@ -38,7 +38,7 @@
   </view>
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>公司</text>
+      <text class='font-size-13'>单位名称</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
@@ -47,6 +47,6 @@
   </view>
 
   <view class='saveBox'>
-    <button bindtap='saveUser' class='buttonSave'>救</button>
+    <button bindtap='saveUser' class='buttonSave'>保存</button>
   </view>
 </view>

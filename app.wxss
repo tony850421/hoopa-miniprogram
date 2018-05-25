@@ -80,6 +80,10 @@ page{
   margin-left: 5px;
 }
 
+.margin-left-0{
+  margin-left: 5px !important;
+}
+
 .weui-search-bar__form, .weui-search-bar__label {
   border-radius: 5px !important;
 }
@@ -168,6 +172,10 @@ kind-list__item:first-child {
 
 .margin-top-5{
   margin-top: 5px;
+}
+
+.margin-top-0{
+  margin-top: 0px !important;
 }
 
 .margin-bottom-5{

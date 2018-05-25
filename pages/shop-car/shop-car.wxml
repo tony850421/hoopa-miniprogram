@@ -2,12 +2,12 @@
 <view class='topNavBarShopCar'>
   <view class='infoData' bindtap='goToHome'>
     <image class='imageIconUserCar' src='../../images/homeSelected.png'></image>
-    <text class='font-size-13'>回家</text>
+    <text class='font-size-13'>回到主页</text>
   </view>
   <image src='../../images/lineV.jpg' class='lineV'></image>
   <view class='infoData' bindtap='goToUser'>
     <image class='imageIconUserCar' src='../../images/userSelected.png'></image>
-    <text class='font-size-13'>转到用户页</text>
+    <text class='font-size-13'>回到用户页</text>
   </view>
 </view>
 <view class='shopCarBody' style="height: {{height-127}}px">
@@ -24,7 +24,7 @@
           <view class='productInformation'>
             <text>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
-              <text>价格：</text>
+              <text>债权本金：</text>
               <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
             </view>
             <view class='displayFlexRow font-size-13'>

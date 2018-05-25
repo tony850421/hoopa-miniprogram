@@ -11,52 +11,52 @@
 <view class='registerPadding'>
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>名字</text>
+      <text class='font-size-13'>姓名</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
-      <input value='{{name}}' bindinput='inputName' class='inputLogin' placeholder='介绍您的全名'></input>
+      <input value='{{name}}' bindinput='inputName' class='inputLogin' placeholder='请填写您的姓名'></input>
     </view>
   </view>
 
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>识别</text>
+      <text class='font-size-13'>身份证号码</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
-      <input value='{{ci}}' bindinput='inputCI' class='inputLogin' placeholder='介绍您的标识'></input>
+      <input value='{{ci}}' bindinput='inputCI' class='inputLogin' placeholder='请填写您的身份证号码'></input>
     </view>
   </view>
 
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>公司</text>
+      <text class='font-size-13'>单位名称</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
-      <input value='{{company}}' bindinput='inputCompany' class='inputLogin' placeholder='介绍您的公司'></input>
+      <input value='{{company}}' bindinput='inputCompany' class='inputLogin' placeholder='请填写您的单位名称'></input>
     </view>
   </view>
 
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>电话</text>
+      <text class='font-size-13'>电话号码</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
-      <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='介绍您的手机'></input>
+      <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='请填写您的手机'></input>
     </view>
   </view>
 
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
-      <text class='font-size-13'>代码</text>
+      <text class='font-size-13'>验证码</text>
     </view>
-    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <image class='lineV margin-left-0' src='../../images/lineV.jpg'></image>
     <view class='projectSendCodeGroup'>
       <view class='inputSendCode'>
-        <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='介绍代码'></input>
+        <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='请填写验证码'></input>
       </view>
       <image class='lineV' src='../../images/lineV.jpg'></image>
       <view class='textSendCode' bindtap='sendCode'>

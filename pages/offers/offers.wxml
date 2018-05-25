@@ -2,28 +2,28 @@
 <view class='topNavBarShopCar'>
   <view class='infoData' bindtap='goToHome'>
     <image class='imageIconUserCar' src='../../images/homeSelected.png'></image>
-    <text class='font-size-13'>回家</text>
+    <text class='font-size-13'>回到主页</text>
   </view>
   <image src='../../images/lineV.jpg' class='lineV'></image>
   <view class='infoData' bindtap='goToUser'>
     <image class='imageIconUserCar' src='../../images/userSelected.png'></image>
-    <text class='font-size-13'>转到用户页</text>
+    <text class='font-size-13'>回到用户页</text>
   </view>
 </view>
 <view class='offertFacts'>
   <view class='offers'>
     <text class='font-size-13'>{{offers.length}}</text>
-    <text class='font-size-13'>优惠总数</text>
+    <text class='font-size-13'>报价总数</text>
   </view>
   <image src='../../images/lineV.jpg' class='lineVOffer'></image>
   <view class='offers'>
     <text class='font-size-13'>{{pending}}</text>
-    <text class='font-size-13'>未答复的提议</text>
+    <text class='font-size-13'>未回复的报价</text>
   </view>
   <image src='../../images/lineV.jpg' class='lineVOffer'></image>
   <view class='offers'>
     <text class='font-size-13'>{{offers.length - pending}}</text>
-    <text class='font-size-13'>报价答复</text>
+    <text class='font-size-13'>已回复的报价</text>
   </view>
 </view>
 <view class='shopCarBody' style="height: {{height-140}}px">

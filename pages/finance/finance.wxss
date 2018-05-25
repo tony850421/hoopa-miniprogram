@@ -1,1 +1,42 @@
 /* pages/finance/finance.wxss */
+
+.projectsGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  margin-top: 5px;
+}
+
+.projectTitleGroup {
+  display: flex;
+  flex-direction: column;
+  width: 29%;
+  align-items: center;
+}
+
+.lineV {
+  width: 7px;
+  height: 45px;
+}
+
+.projectTextGroup {
+  display: flex;
+  flex-direction: column;
+  width: 67%;
+  text-align: center;
+}
+
+.imageIconUserNotification {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.imageService {
+  height: 220rpx;
+  width: 100%;
+}

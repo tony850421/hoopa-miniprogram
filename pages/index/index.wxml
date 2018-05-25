@@ -7,7 +7,7 @@
     <view class="buttonsGroup">
       <view class='buttonsBox' bindtap='goToNews'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/news.png'></image>
-        <text class='font-size-13'>新闻</text>
+        <text class='font-size-13'>新闻资讯</text>
       </view>
       <view class='buttonsBox' bindtap='goToPartners'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/partners.png'></image>
@@ -15,7 +15,7 @@
       </view>
       <view class='buttonsBox' bindtap='goToTeam'>
         <image mode='widthFix' class='IconsButtons' src='../../images/team.png'></image>
-        <text class='font-size-13'>团队</text>
+        <text class='font-size-13'>团队介绍</text>
       </view>
     </view>
   </view>
@@ -23,7 +23,7 @@
     <view class="buttonsGroup">
       <view class='buttonsBox' bindtap='goToServices'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
-        <text class='font-size-13'>服务</text>
+        <text class='font-size-13'>产品服务</text>
       </view>
       <view class='buttonsBoxAboutUs' bindtap='goToAboutUs'>
         <image mode='aspectFit' class='IconsButtonAboutUs' src='../../images/about.png'></image>
@@ -38,15 +38,15 @@
     <view class="buttonsGroup">
       <view class='buttonsBox' bindtap='goToRecommended'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/recommended.png'></image>
-        <text class='font-size-13'>推荐</text>
+        <text class='font-size-13'>资产推荐</text>
       </view>
       <view class='buttonsBox' bindtap='goToFinance'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/statistics.png'></image>
-        <text class='font-size-13'>统计</text>
+        <text class='font-size-13'>数据统计</text>
       </view>
       <view class='buttonsBox' bindtap='goToProjects'>
         <image mode='widthFix' class='IconsButtons' src='../../images/projects.png'></image>
-        <text class='font-size-13'>项目</text>
+        <text class='font-size-13'>资产列表</text>
       </view>
     </view>
   </view>

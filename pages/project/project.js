@@ -227,7 +227,7 @@ Page({
       shop.set('project', this.data.product)
       shop.save()
       wx.showToast({
-        title: '留言送',
+        title: '已收藏成功',
         icon: 'success',
         duration: 2000
       })

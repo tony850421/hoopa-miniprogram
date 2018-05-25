@@ -58,7 +58,7 @@ Page({
   },
   goToFinance: function () {
     wx.navigateTo({
-      url: '../inProgress/inProgress',
+      url: '../finance/finance',
     })
   },
   goToPartners: function () {
@@ -73,7 +73,7 @@ Page({
   },
   goToNews: function () {
     wx.navigateTo({
-      url: '../inProgress/inProgress',
+      url: '../news/news',
     })
   },
   goToAboutUs: function () {

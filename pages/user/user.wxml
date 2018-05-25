@@ -23,15 +23,15 @@
         <view class='locationUser'>
           <image wx:if="{{user.city}}" class='imageLocationUser' src='../../images/userLocation.png'></image>
           <text wx:if="{{user.city}}" class="userinfo-nickname font-size-11">{{user.city}}, {{user.province}}</text>
-          <button wx:if="{{!user.city}}" plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
+          <button wx:if="{{!user.city}}" plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">请用微信登陆</button>
         </view>
       </view>
     </block>
   </view>
   <view class='info'>
     <view class='infoData' bindtap='goToOffers'>
-      <image class='imageIconUserNotification' src='../../images/recommended.png'></image>
-      <text class='font-size-13'>推荐</text>
+      <image class='imageIconUserNotification' src='../../images/offers.png'></image>
+      <text class='font-size-13'>我的报价</text>
     </view>
     <image class='lineVBar' src='../../images/lineV.jpg'></image>
     <view class='infoData' bindtap='goToNotifications'>
@@ -41,7 +41,7 @@
     <image class='lineVBar' src='../../images/lineV.jpg'></image>
     <view class='infoData' bindtap='goToCar'>
       <image class='imageIconUserCar' src='../../images/car.png'></image>
-      <text class='font-size-13'>我的报价</text>
+      <text class='font-size-13'>我的收藏</text>
     </view>
   </view>
 </view>

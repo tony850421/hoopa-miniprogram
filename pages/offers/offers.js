@@ -71,18 +71,18 @@ Page({
               offer => {
                 var countPending = 0
                 for (var i = 0; i < offer.length; i++) {
-                  if (offer[i].attributes.description.length > 50) {
+                  if (offer[i].attributes.description.length > 40) {
                     var desc = ''
-                    for (var x = 0; x < 51; x++) {
+                    for (var x = 0; x < 41; x++) {
                       desc += offer[i].attributes.description[x]
                     }
                     desc += '...'
                     offer[i].attributes.description = desc
                   }
 
-                  if (offer[i].attributes.project.attributes.title.length > 6) {
+                  if (offer[i].attributes.project.attributes.title.length > 5) {
                     var name = ''
-                    for (var x = 0; x < 6; x++) {
+                    for (var x = 0; x < 5; x++) {
                       name += offer[i].attributes.project.attributes.title[x]
                     }
                     name += '...'
@@ -110,18 +110,18 @@ Page({
         offer => {
           var countPending = 0
           for (var i = 0; i < offer.length; i++) {
-            if (offer[i].attributes.description.length > 50) {
+            if (offer[i].attributes.description.length > 40) {
               var desc = ''
-              for (var x = 0; x < 51; x++) {
+              for (var x = 0; x < 41; x++) {
                 desc += offer[i].attributes.description[x]
               }
               desc += '...'
               offer[i].attributes.description = desc
             }
 
-            if (offer[i].attributes.project.attributes.title.length > 6) {
+            if (offer[i].attributes.project.attributes.title.length > 5) {
               var name = ''
-              for (var x = 0; x < 6; x++) {
+              for (var x = 0; x < 5; x++) {
                 name += offer[i].attributes.project.attributes.title[x]
               }
               name += '...'

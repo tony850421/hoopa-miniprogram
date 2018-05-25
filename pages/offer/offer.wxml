@@ -2,7 +2,7 @@
 <view class='offer'>
   <view class='projectsGroup font-size-13'>
     <view class='projectTitleGroup'>
-      <text>提供</text>
+      <text>您的报价</text>
     </view>
     <image class='lineV' src='../../images/lineV.jpg'></image>
     <view class='projectTextGroup'>
@@ -12,7 +12,7 @@
 
   <view class='projectsLabel font-size-13'>
     <view class='projectTitleGroup'>
-      <text>描述</text>
+      <text>报价留言</text>
     </view>
   </view>
 
@@ -21,7 +21,7 @@
   </view>
 
   <view class='saveBox'>    
-    <button bindtap='makeOffer' disabled='{{disableOffer}}' class='buttonSave backgroundColorPrimary'>提供</button>
+    <button bindtap='makeOffer' disabled='{{disableOffer}}' class='buttonSave backgroundColorPrimary'>提交</button>
     <button bindtap='cancel' class='buttonCancel'>取消</button>
   </view>
 </view>

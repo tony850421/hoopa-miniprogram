@@ -1,2 +1,64 @@
 <!--pages/finance/finance.wxml-->
-<canvas style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
+<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/b06529578d0518450231.jpg'></image>
+<view class='padding-10'>
+  <view class='projectsGroup margin-top-0'>
+    <view class='projectTitleGroup'>
+      <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <text class='colorTextPrimary'>{{countProject}}</text>
+      <text class='font-size-13'>项目总数</text>
+    </view>
+  </view>
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <text class='colorTextPrimary'>{{valueProject}}</text>
+      <text class='font-size-13'>项目总价值</text>
+    </view>
+  </view>
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <text class='colorTextPrimary'>{{countOffers}}</text>
+      <text class='font-size-13'>总报价数</text>
+    </view>
+  </view>
+  <!-- <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <text class='colorTextPrimary'>{{countUsers}}</text>
+      <text class='font-size-13'>用户总数</text>
+    </view>
+  </view>  -->
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <text class='colorTextPrimary'>{{countOfficialUsers}}</text>
+      <text class='font-size-13'>官方用户总数</text>
+    </view>
+  </view>
+  <view class='projectsGroup'>
+    <view class='projectTitleGroup'>
+      <image class='imageIconUserNotification' src='../../images/projects.png'></image>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <text class='colorTextPrimary'>{{countGuestUsers}}</text>
+      <text class='font-size-13'>来宾用户总数</text>
+    </view>
+  </view>
+</view>

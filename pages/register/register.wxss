@@ -70,37 +70,8 @@
   height: 140px;
 }
 
-.projectsGroup {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 5px;
-}
-
-.projectTextGroup {
-  width: 80%;
-  margin-left: 10px;
-}
-
-.projectSendCodeGroup {
-  width: 80%;
-  margin-left: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .inputSendCode {
   width: 85%;
-}
-
-.textSendCode {
-  width: 25%;
-  text-align: center;
-  display: flex;
 }
 
 .font-size-13 {
@@ -115,14 +86,6 @@
 
 .registerPadding {
   padding: 10px;
-}
-
-.buttonSenCode {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  border: none !important;
-  background-color: transparent !important;
-  margin-left:45%;
 }
 
 .buttonSave {
@@ -151,4 +114,48 @@
 .buttonSave:disabled{
   background-color: white !important;
   color: black !important;
+}
+
+.projectTitleGroup {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: center;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.projectTextGroup {
+  width: 75%;
+  margin-left: 10px;
+}
+
+.projectSendCodeGroup {
+  width: 70%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buttonSenCode {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  border: none !important;
+  background-color: transparent !important;
+  margin-left:45%;
+}
+
+.textSendCode {
+  width: 30%;
+  text-align: center;
+  display: flex;
 }

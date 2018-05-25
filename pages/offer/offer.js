@@ -89,7 +89,7 @@ Page({
     this.setData({
       offer: e.detail.value
     })
-    if (this.data.offer != '' && this.data.description != ''){
+    if (this.data.offer.length > 0){
        this.setData({
          disableOffer: false
        })
@@ -104,7 +104,7 @@ Page({
     this.setData({
       description: e.detail.value
     })
-    if (this.data.offer != '' && this.data.description != '') {
+    if (this.data.offer.length > 0) {
       this.setData({
         disableOffer: false
       })
