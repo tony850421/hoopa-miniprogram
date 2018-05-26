@@ -70,12 +70,6 @@
     height: 70px;
   }
 
-  .lineVBar {
-    width: 9px;
-    height: 60px;
-    margin-top: 5px;
-  }
-
   .imageIconUserCar {
     width: 40px;
     height: 35px;
@@ -96,12 +90,6 @@
 
   .info {
     height: 60px;
-  }
-
-  .lineVBar {
-    width: 9px;
-    height: 50px;
-    margin-top: 5px;
   }
 
   .imageIconUserCar {
@@ -125,9 +113,9 @@
   }
 
   .lineVBar {
-    width: 9px;
-    height: 45px;
-    margin-top: 5px;
+    width: 7px !important;
+    height: 40px !important;
+     margin-top: 5px !important; 
   }
 
   .imageIconUserCar {
@@ -152,12 +140,6 @@
     height: 55px;
   }
 
-  .lineVBar {
-    width: 9px;
-    height: 45px;
-    margin-top: 5px;
-  }
-
   .imageIconUserCar {
     width: 30px;
     height: 25px;
@@ -178,12 +160,6 @@
 
   .info {
     height: 50px;
-  }
-
-  .lineVBar {
-    width: 9px;
-    height: 40px;
-    margin-top: 5px;
   }
 
   .imageIconUserCar {

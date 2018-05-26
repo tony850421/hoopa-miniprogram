@@ -8,12 +8,7 @@
 }
 
 .lineV {
-  width: 9px;
-  height: 45px;
-}
-
-.lineVOffer{
-  width: 10px;
+  width: 7px;
   height: 45px;
 }
 

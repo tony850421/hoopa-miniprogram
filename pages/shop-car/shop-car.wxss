@@ -16,14 +16,6 @@
   padding-left: 10px;
 }
 
-.imageProductCar {
-  width: 100px;
-  height: 80px;
-  padding-left: 6px;
-  padding-top: 6px;
-  border-radius: 5px;
-}
-
 .radioProduct {
   margin-left: 6px;
 }
@@ -88,12 +80,7 @@
 }
 
 .lineV {
-  width: 10px;
-  height: 55px;
-}
-
-.lineVOffer{
-  width: 10px;
+  width: 7px;
   height: 45px;
 }
 
@@ -165,9 +152,4 @@
 
 .product{
   padding: 2px;
-}
-
-.imageProductCar {
-  width: 80px !important;
-  height:75px !important;
 }

@@ -51,12 +51,12 @@
     </view>
   </view>
   <view class='sectionProjects' wx:if="{{productsHot.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/95dc654f527e28123939.jpg'></image>
+    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/95dc654f527e28123939.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x="true">
         <view class='projectList' style='width: {{productsHot.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHot}}" wx:for-item="product">
-            <text class='text-title'>{{product.title}}</text>
+            <text class='text-title font-size-13'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
               <text>价格：</text>
               <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
@@ -70,12 +70,12 @@
     </view>
   </view>
   <view class='sectionProjects' wx:if="{{productsHouse.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/866447d1ea2cbb22bc38.jpg'></image>
+    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/866447d1ea2cbb22bc38.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList' style='width: {{productsHouse.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHouse}}" wx:for-item="product">
-            <text class='text-title'>{{product.title}}</text>
+            <text class='text-title font-size-13'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13 margin-top-5'>
               <text>价格：</text>
               <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
@@ -89,12 +89,12 @@
     </view>
   </view>
   <view class='sectionProjects' wx:if="{{productsFactory.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/308440c616f65a5a59a4.jpg'></image>
+    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/308440c616f65a5a59a4.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList' style='width: {{productsFactory.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsFactory}}" wx:for-item="product">
-            <text class='text-title'>{{product.title}}</text>
+            <text class='text-title font-size-13'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
               <text>价格：</text>
               <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
@@ -108,7 +108,7 @@
     </view>
   </view>
   <!-- <view class='sectionProjects' wx:if="{{productsDebit.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/44af60232d3ba5ad49c8.jpg'></image>
+    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/44af60232d3ba5ad49c8.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
         <view class='projectList' style='width: {{productsDebit.length*140}}px'>
@@ -127,12 +127,12 @@
     </view>
   </view> -->
   <view class='sectionProjects' wx:if="{{productsShop.length > 0}}">
-    <image mode='aspectFill' class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1aff6670a44a67e4f6b1.jpg'></image>
+    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1aff6670a44a67e4f6b1.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="100">
         <view class='projectList' style='width: {{productsShop.length*140}}px'>
           <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsShop}}" wx:for-item="product">
-            <text class='text-title'>{{product.title}}</text>
+            <text class='text-title font-size-13'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>
               <text>价格：</text>
               <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>

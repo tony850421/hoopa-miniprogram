@@ -53,11 +53,10 @@ page{
 }
 
 .imageProductCar {
-  width: 100px;
-  height: 80px;
+  width: 80px !important;
+  height:75px !important;
   padding-left: 6px;
   padding-top: 6px;
-  border-radius: 5px;
 }
 
 .productInformation {
@@ -78,6 +77,10 @@ page{
 
 .margin-left-5 {
   margin-left: 5px;
+}
+
+.margin-right-5 {
+  margin-right: 5px;
 }
 
 .margin-left-0{

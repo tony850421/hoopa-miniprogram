@@ -143,6 +143,16 @@ Page({
   onShow: function () {
 
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '自定义转发标题',
+      path: '/index/index'
+    }
+  },
   onLoad: function () {
     const user = AV.User.current()
     if (user) {
@@ -237,28 +247,7 @@ Page({
         productsFactory: res
       })
     })
-  }
-  // ,
-  // fetchProductsDebit: function () {
-  //   const query = new AV.Query('Project');
-  //   query.equalTo('isDebt', true);
-  //   query.descending('createdAt');
-  //   query.find().then(res => {
-
-  //     var arrivalType = []
-  //     for (var i = 0; i < res.length; i++) {
-  //       var typeArr = res[i].get('typeArrivalString')
-  //       arrivalType = typeArr.split('+')
-  //       arrivalType.splice(0, 1)
-  //       res[i].set('tags', arrivalType)
-  //     }
-
-  //     this.setData({
-  //       productsDebit: res
-  //     })
-  //   })
-  // }
-  ,
+  },
   fetchProductsShop: function () {
     const query = new AV.Query('Project');
     query.equalTo('isShop', true);

@@ -129,5 +129,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  goToProjects: function(){
+    wx.navigateTo({
+      url: '../projects/projects',
+    })
+  },
+  goToOffers: function () {
+    wx.navigateTo({
+      url: '../offers/offers',
+    })
   }
 })

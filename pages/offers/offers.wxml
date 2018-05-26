@@ -15,12 +15,12 @@
     <text class='font-size-13'>{{offers.length}}</text>
     <text class='font-size-13'>报价总数</text>
   </view>
-  <image src='../../images/lineV.jpg' class='lineVOffer'></image>
+  <image src='../../images/lineV.jpg' class='lineV'></image>
   <view class='offers'>
     <text class='font-size-13'>{{pending}}</text>
     <text class='font-size-13'>未回复的报价</text>
   </view>
-  <image src='../../images/lineV.jpg' class='lineVOffer'></image>
+  <image src='../../images/lineV.jpg' class='lineV'></image>
   <view class='offers'>
     <text class='font-size-13'>{{offers.length - pending}}</text>
     <text class='font-size-13'>已回复的报价</text>

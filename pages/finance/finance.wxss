@@ -9,12 +9,13 @@
   padding: 10px;
   border: 1px #d6dadb solid;
   margin-top: 5px;
+  width: 100%;
 }
 
 .projectTitleGroup {
   display: flex;
   flex-direction: column;
-  width: 29%;
+  width: 35%;
   align-items: center;
 }
 
@@ -26,17 +27,22 @@
 .projectTextGroup {
   display: flex;
   flex-direction: column;
-  width: 67%;
+  width: 60%;
   text-align: center;
 }
 
 .imageIconUserNotification {
   width: 35px;
   height: 35px;
-  margin-top: 10px;
 }
 
 .imageService {
   height: 220rpx;
   width: 100%;
+}
+
+.productsGroups{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
