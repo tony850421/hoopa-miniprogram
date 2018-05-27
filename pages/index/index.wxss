@@ -193,6 +193,7 @@
   font-size: 9px;
 }
 
-.text-title{
-  text-align:start;
+.text-title {
+  text-align: start;
+  min-height: 40px;
 }

@@ -79,7 +79,21 @@ Page({
         var typeArr = res[i].get('project').get('typeArrivalString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
-        res[i].set('tags', arrivalType)
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
+        res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
         res[i].set('title', res[i].get('project').get('title'))
         res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
@@ -206,9 +220,7 @@ Page({
     if (!user) {
       wx.login({
         success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
           AV.User.loginWithWeapp().then(user => {
-            // this.globalData.user = user.toJSON();
             wx.setStorage({
               key: "projectID",
               data: e.currentTarget.id

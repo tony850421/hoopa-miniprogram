@@ -1,5 +1,4 @@
 /* pages/finance/finance.wxss */
-
 .projectsGroup {
   display: flex;
   flex-direction: row;

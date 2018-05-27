@@ -79,7 +79,6 @@ Page({
     }).catch(function (error) {
       console.log(error);
     });
-
   },
 
   /**

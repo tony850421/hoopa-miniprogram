@@ -188,7 +188,6 @@ Page({
     this.fetchProductsHot()
     this.fetchProductsHouse()
     this.fetchProductsFactory()
-    // this.fetchProductsDebit()
     this.fetchProductsShop()
   },
   fetchProductsHot: function () {
@@ -201,8 +200,23 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var typeArr = res[i].get('typeArrivalString')
         arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        res[i].set('tags', arrivalType)
+        arrivalType.splice(0, 1)       
+
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
+        res[i].set('tags', arrivalTypeTags)
       }
 
       this.setData({
@@ -221,7 +235,21 @@ Page({
         var typeArr = res[i].get('typeArrivalString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
-        res[i].set('tags', arrivalType)
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
+        res[i].set('tags', arrivalTypeTags)
       }
 
       this.setData({
@@ -240,7 +268,21 @@ Page({
         var typeArr = res[i].get('typeArrivalString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
-        res[i].set('tags', arrivalType)
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
+        res[i].set('tags', arrivalTypeTags)
       }
 
       this.setData({
@@ -259,7 +301,21 @@ Page({
         var typeArr = res[i].get('typeArrivalString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
-        res[i].set('tags', arrivalType)
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
+        res[i].set('tags', arrivalTypeTags)
       }
 
       this.setData({

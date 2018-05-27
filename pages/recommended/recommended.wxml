@@ -6,7 +6,7 @@
     </view>
     <view class='flex-item widthText'>
       <view class='productInformation'>
-        <text>{{product.title}}</text>
+        <text class='font-size-13'>{{product.title}}</text>
         <view class='displayFlexRow font-size-13'>
           <text>价格：</text>
           <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>

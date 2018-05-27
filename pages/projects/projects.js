@@ -36,7 +36,9 @@ Page({
         open: false,
         pages: ['本金无限制', '500万', '500-1000万', '1000-1500万', '1500-2000万', '2000-2500万', '2500-3000万', '3000-3500万', '3500-4000万', '4000-4500万', '4500-5000万', '5000-5500万', '5500-6000万', '6000万']
       }
-    ]
+    ],
+    searchLoading: false, //"上拉加载"的变量，默认false，隐藏  
+    searchLoadingComplete: false  //“没有数据”的变量，默认false，隐藏  
   },
   onLoad: function (options) {
     const query = new AV.Query('Project');
@@ -55,8 +57,23 @@ Page({
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
         provinces = provinces.substr(1)
+
+        var arrivalTypeTags = []
+        
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {              
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
         res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalType)
+        res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
       }
 
@@ -131,7 +148,6 @@ Page({
     this.search();
   },
   clearInput: function () {
-    console.log(this.data.index)
     this.setData({
       inputVal: "",
       inputShowed: false
@@ -147,21 +163,36 @@ Page({
 
       var arrivalType = []
       var provinces = ''
-      
+
       for (var i = 0; i < res.length; i++) {
         var typeArr = res[i].get('typeArrivalString')
         provinces = res[i].get('provinceString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
         provinces = provinces.substr(1)
+
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
         res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalType)
+        res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
       }
 
       this.setData({
         products: res
-      })      
+      })
     })
 
     for (var i = 0; i < this.data.list.length; i++) {
@@ -323,8 +354,23 @@ Page({
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
         provinces = provinces.substr(1)
+
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
         res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalType)
+        res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
       }
       this.setData({
@@ -374,8 +420,23 @@ Page({
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
         provinces = provinces.substr(1)
+
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
         res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalType)
+        res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
       }
 
@@ -392,5 +453,56 @@ Page({
     this.setData({
       list: this.data.list
     })
+  },
+  bindscrolltolower: function (e) {
+    console.log(e)
+    let that = this;
+    if (that.data.searchLoading && !that.data.searchLoadingComplete) {
+      that.setData({
+        index: that.data.index + 3
+      });
+
+      const query = new AV.Query('Project');
+      query.include('creator');
+      query.include('image');
+      query.descending('createdAt');
+      query.limit(10);
+      query.skip(this.data.index);
+      query.find().then(res => {
+
+        var arrivalType = []
+        var provinces = ''
+
+        for (var i = 0; i < res.length; i++) {
+          var typeArr = res[i].get('typeArrivalString')
+          provinces = res[i].get('provinceString')
+          arrivalType = typeArr.split('+')
+          arrivalType.splice(0, 1)
+          provinces = provinces.substr(1)
+
+          var arrivalTypeTags = [] 
+          for (var x=0; x<arrivalType.length; x++){
+            for (var t=0; t<arrivalTypeTags.length; t++){
+              var flag = false;
+              if (arrivalType[x] == arrivalTypeTags[t]){
+                flag =  true;
+              }
+            }
+            if (!flag){
+              arrivalTypeTags.push(arrivalType[x])
+            }
+          }
+
+          res[i].set('provincesTags', provinces)
+          res[i].set('tags', arrivalTypeTags)
+          res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
+          that.data.products = that.data.products.concat(res[i])
+        }
+
+        that.setData({
+          products: that.data.products
+        })
+      })
+    }
   }
 })

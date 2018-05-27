@@ -31,11 +31,11 @@
 
 .selectAll {
   margin-left: 10px;
-  width: 60%;
+  width: 40%;
 }
 
 .count {
-  width: 40%;
+  width: 60%;
   text-align: end;
   margin-right: 10px;
 }

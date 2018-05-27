@@ -73,7 +73,7 @@ Page({
           var query = new AV.Query("Project")
           query.include('projectManager')
           query.get(res.data).then( project => {
-
+           
               this.setData({
                 product: project,
                 projectManager: project.get('projectManager')
@@ -98,6 +98,9 @@ Page({
               var query3 = new AV.Query("Borrower")
               query3.equalTo('project', project)
               query3.find().then(borrowers => {
+                for (var i = 0; i < borrowers.length; i++) {
+                  borrowers[i].set('totalInterest', parseInt(borrowers[i].get('principalDebit')) + parseInt(borrowers[i].get('interestCreditor')))
+                }
                 this.setData({
                   borrowerList: borrowers
                 })

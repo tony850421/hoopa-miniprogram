@@ -31,8 +31,23 @@ console.log(res)
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
         provinces = provinces.substr(1)
+
+        var arrivalTypeTags = []
+
+        for (var x = 0; x < arrivalType.length; x++) {
+          var flag = false;
+          for (var t = 0; t < arrivalTypeTags.length; t++) {
+            if (arrivalType[x] == arrivalTypeTags[t]) {
+              flag = true;
+            }
+          }
+          if (!flag) {
+            arrivalTypeTags.push(arrivalType[x])
+          }
+        }
+
         res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalType)
+        res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
       }
 

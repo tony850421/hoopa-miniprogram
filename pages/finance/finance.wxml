@@ -30,22 +30,11 @@
       </view>
       <image class='lineV' src='../../images/lineV.jpg'></image>
       <view class='projectTextGroup'>
-        <text class='colorTextPrimary'>{{valueProject}}</text>
+        <text class='colorTextPrimary'>¥{{valueProject}}万</text>
         <text class='font-size-13'>项目总价值</text>
       </view>
     </view>
   </view>
-
-  <!-- <view class='projectsGroup'>
-    <view class='projectTitleGroup'>
-      <image class='imageIconUserNotification' src='../../images/projects.png'></image>
-    </view>
-    <image class='lineV' src='../../images/lineV.jpg'></image>
-    <view class='projectTextGroup'>
-      <text class='colorTextPrimary'>{{countUsers}}</text>
-      <text class='font-size-13'>用户总数</text>
-    </view>
-  </view>  -->
 
   <view class='productsGroups'>
     <view class='projectsGroup  margin-right-5'>
