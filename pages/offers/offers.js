@@ -110,28 +110,32 @@ Page({
         offer => {
           var countPending = 0
           for (var i = 0; i < offer.length; i++) {
-            if (offer[i].attributes.description.length > 40) {
+
+            if (offer[i].get('description').length > 40) {
               var desc = ''
               for (var x = 0; x < 41; x++) {
-                desc += offer[i].attributes.description[x]
+                desc += offer[i].get('description')[x]
               }
               desc += '...'
-              offer[i].attributes.description = desc
+              offer[i].set('description', desc)
             }
 
-            if (offer[i].attributes.project.attributes.title.length > 5) {
-              var name = ''
-              for (var x = 0; x < 5; x++) {
-                name += offer[i].attributes.project.attributes.title[x]
+            if (offer[i].get('project')) {
+              if (offer[i].get('project').get('title').length > 5) {
+                var name = ''
+                for (var x = 0; x < 5; x++) {
+                  name += offer[i].get('project').get('title')[x]
+                }
+                name += '...'
+                offer[i].get('project').set('title', name)
               }
-              name += '...'
-              offer[i].attributes.project.attributes.title = name
-            }
 
-            if (offer[i].get('pending') == true) {
-              countPending = countPending + 1;
+              if (offer[i].get('pending') == true) {
+                countPending = countPending + 1;
+              }
             }
           }
+          
           this.setData({
             offers: offer,
             pending: countPending
