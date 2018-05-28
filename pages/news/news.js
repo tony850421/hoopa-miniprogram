@@ -63,8 +63,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    return {
+      title: '自定义转发标题',
+      path: '/index/index'
+    }
   },
   goToNews: function(e){
     wx.setStorage({
