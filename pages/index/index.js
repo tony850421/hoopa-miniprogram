@@ -196,6 +196,15 @@ Page({
         var typeArr = res[i].get('typeArrivalString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
+        
+        if (res[i].get('title').length >= 20) {
+          var title = ''
+          for (var x = 0; x < 18; x++) {
+            title = title + res[i].get('title')[x]
+          }
+          title = title + "..."
+          res[i].set('title', title)
+        }
 
         var arrivalTypeTags = []
 
@@ -232,6 +241,15 @@ Page({
         arrivalType.splice(0, 1)
         var arrivalTypeTags = []
 
+        if (res[i].get('title').length >= 20) {
+          var title = ''
+          for (var x = 0; x < 18; x++) {
+            title = title + res[i].get('title')[x]
+          }
+          title = title + "..."
+          res[i].set('title', title)
+        }
+
         for (var x = 0; x < arrivalType.length; x++) {
           var flag = false;
           for (var t = 0; t < arrivalTypeTags.length; t++) {
@@ -265,6 +283,15 @@ Page({
         arrivalType.splice(0, 1)
         var arrivalTypeTags = []
 
+        if (res[i].get('title').length >= 20) {
+          var title = ''
+          for (var x = 0; x < 18; x++) {
+            title = title + res[i].get('title')[x]
+          }
+          title = title + "..."
+          res[i].set('title', title)
+        }
+
         for (var x = 0; x < arrivalType.length; x++) {
           var flag = false;
           for (var t = 0; t < arrivalTypeTags.length; t++) {
@@ -297,6 +324,15 @@ Page({
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
         var arrivalTypeTags = []
+
+        if (res[i].get('title').length >= 20) {
+          var title = ''
+          for (var x = 0; x < 18; x++) {
+            title = title + res[i].get('title')[x]
+          }
+          title = title + "..."
+          res[i].set('title', title)
+        }
 
         for (var x = 0; x < arrivalType.length; x++) {
           var flag = false;
