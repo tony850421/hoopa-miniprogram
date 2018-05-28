@@ -92,3 +92,35 @@
     </view>
   </view>
 </view>
+
+<!-- 7  -->
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/9a2878ab17c3ea915341.jpg'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>余会林 胡巴资产处置管理负责人，河南中赢旗晟律师事务所执业律师、合伙人</text>
+      <text class='font-size-12'>工作经历
+       1、负责黑石香港投资（一）有限公司处置清收工作；
+       2、管理河南中林国际项目；
+       3、擅长商事法律事务处理， 就商事诉讼纠纷有着丰富的办案经验，执业期间处理多起重大合同纠纷、股权纠纷、重大投资项目纠纷；
+       4、胡巴资产重大决策参与人。</text>
+    </view>
+  </view>
+</view>
+
+<!-- 8  -->
+<view class='services margin-bottom-5'>
+  <view class='groupNumber'>
+    <image class='imageNumber' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/8edcf42d42352a0396ab.jpg'></image>
+  </view>
+  <view class='servicesText'>
+    <view class='projectsGroup'>
+      <text class='font-size-13 font-weight'>寿璐琳 工作经历</text>
+      <text class='font-size-12'>2004年9月-2008年6月，就读于上海财经大学国际会计专业
+2008年8月-2016年11月，任职于安永华明会计师事务所从事审计工作
+2016年12月-至今 加入胡巴资产，任胡巴资产财务部总监</text>
+    </view>
+  </view>
+</view>

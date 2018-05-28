@@ -67,6 +67,23 @@
         <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/322f6762b0e500cb29da.png'></image>
       </view>
     </view>
+    <!--12  -->
+    <view class='product'>
+      <view class='flex-item'>
+        <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d42dbcc97fe066fd1ce9.png'></image>
+      </view>
+    </view>
+    <!--13  -->
+    <view class='product'>
+      <view class='flex-item'>
+        <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/9175381fddcf680e37b9.png'></image>
+      </view>
+    </view>
+    <!--14  -->
+    <view class='product'>
+      <view class='flex-item'>
+        <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/72a493dbf9f00d65c132.png'></image>
+      </view>
+    </view>
   </view>
 </scroll-view>
-<!-- <map id="mapPartners" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16"  markers='{{partners}}' show-location='true'></map> -->
