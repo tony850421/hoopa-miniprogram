@@ -315,6 +315,17 @@ Page({
         arrivalType.splice(0, 1)
         provinces = provinces.substr(1)
 
+        var pAux = provinces
+        if (provinces.length > 12){
+          var pAux = ''
+          for (var t = 0; t < 12; t++) {
+            pAux = pAux + provinces[t]
+          }
+          pAux = pAux + "..."
+        }
+        provinces = pAux
+        
+
         var arrivalTypeTags = []
 
         for (var x = 0; x < arrivalType.length; x++) {
@@ -329,7 +340,19 @@ Page({
           }
         }
 
+        var title = res[i].get('title')
+        var tAux = title
+        if (title.length >= 15) {
+          var tAux = ''
+          for (var x = 0; x < 14; x++) {
+            tAux = tAux + title[x]
+          }
+          tAux = tAux + "..."          
+        }
+        title = tAux
+
         res[i].set('provincesTags', provinces)
+        res[i].set('title', title)
         res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
         this.data.products = this.data.products.concat(res[i])
