@@ -92,7 +92,7 @@ Page({
 
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('users', user);
-      roleQuery.find().then( results => {
+      roleQuery.find().then(results => {
 
         var officialFlag = false;
         for (var i = 0; i < results.length; i++) {
@@ -100,7 +100,7 @@ Page({
             officialFlag = true;
           }
         }
-        
+
         if (officialFlag) {
           wx.setStorage({
             key: 'role',
@@ -181,8 +181,7 @@ Page({
             text: count.toString()
           })
         }
-      }
-      )
+      })
     }
 
     this.fetchProductsHot()
@@ -200,7 +199,7 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var typeArr = res[i].get('typeArrivalString')
         arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)       
+        arrivalType.splice(0, 1)
 
         var arrivalTypeTags = []
 
