@@ -96,6 +96,7 @@
 
 .product {
   padding: 2px;
+  align-items: flex-start;
 }
 
 .imageProductCar {
