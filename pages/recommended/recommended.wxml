@@ -12,7 +12,7 @@
           <text>价格：</text>
           <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
         </view>
-        <view class='displayFlexRow font-size-13'>
+        <view class='displayFlexRow font-size-13' wx:if="{{product.provincesTags.length > 0}}">
           <text>省份：</text>
           <text>{{product.provincesTags}}</text>
         </view>
