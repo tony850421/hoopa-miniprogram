@@ -265,14 +265,49 @@ Page({
 
                 var query = new AV.Query('ShopCar');
                 query.equalTo('user', AV.User.current());
-                query.include('project')
-                query.find().then(
-                  projects => {
-                    that.setData({
-                      products: projects
-                    })
+                query.include('image');
+                query.include('project');
+                query.descending('createdAt');
+                query.find().then(res => {
+
+                  var arrivalType = []
+                  var provinces = ''
+                  for (var i = 0; i < res.length; i++) {
+                    if (res[i].get('project')) {
+                      var typeArr = res[i].get('project').get('typeArrivalString')
+                      arrivalType = typeArr.split('+')
+                      arrivalType.splice(0, 1)
+                      var arrivalTypeTags = []
+
+                      for (var x = 0; x < arrivalType.length; x++) {
+                        var flag = false;
+                        for (var t = 0; t < arrivalTypeTags.length; t++) {
+                          if (arrivalType[x] == arrivalTypeTags[t]) {
+                            flag = true;
+                          }
+                        }
+                        if (!flag) {
+                          arrivalTypeTags.push(arrivalType[x])
+                        }
+                      }
+
+                      res[i].set('tags', arrivalTypeTags)
+                      res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
+                      res[i].set('title', res[i].get('project').get('title'))
+                      res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
+                      res[i].set('companyName', res[i].get('project').get('companyName'))
+                      provinces = res[i].get('project').get('provinceString')
+                      provinces = provinces.substr(1)
+                      res[i].set('provincesTags', provinces)
+                    }
                   }
-                )
+
+                  that.setData({
+                    products: res
+                  })
+                })
+                
+                
               }).catch(function (error) {
                 
               });
