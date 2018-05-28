@@ -17,10 +17,10 @@
         <view class='flex-item'>
           <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.objectId}}' />
         </view>
-        <view>
+        <view bindtap='goToProject' data-id='{{product.project.objectId}}'>
           <image class='imageProductCar' src='{{product.mainImage}}'></image>
         </view>
-        <view class='flex-item widthText'>
+        <view class='flex-item widthText' bindtap='goToProject' data-id='{{product.project.objectId}}'>
           <view class='productInformation'>
             <text class='font-size-13'>{{product.title}}</text>
             <view class='displayFlexRow font-size-13'>

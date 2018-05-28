@@ -168,11 +168,11 @@ Page({
 
     for (var i = 0; i < that.data.products.length; i++) {
       if (that.data.products[i].id == e.currentTarget.dataset.id) {
-        that.data.products[i].attributes.checked = !that.data.products[i].attributes.checked
+        that.data.products[i].set('checked', !that.data.products[i].get('checked'))
       }
-      if (that.data.products[i].attributes.checked) {
+      if (that.data.products[i].get('checked')) {
         that.data.countCar = that.data.countCar + 1
-        that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].attributes.project.attributes.debitAmount)
+        that.data.total = parseFloat(that.data.total) + parseFloat(that.data.products[i].get('project').get('debitAmount'))
       }
     }
     that.setData({
@@ -200,13 +200,13 @@ Page({
 
     if (this.data.checkedAll) {
       for (var i = 0; i < that.data.products.length; i++) {
-        this.data.products[i].attributes.checked = false
+        this.data.products[i].set('checked', false)
       }
     } else {
       for (var i = 0; i < this.data.products.length; i++) {
-        this.data.products[i].attributes.checked = true
+        this.data.products[i].set('checked' ,true)
         this.data.countCar = this.data.countCar + 1
-        this.data.total = parseFloat(this.data.total) + parseFloat(this.data.products[i].attributes.project.attributes.debitAmount)
+        this.data.total = parseFloat(this.data.total) + parseFloat(this.data.products[i].get('project').get('debitAmount'))
       }
     }
 
@@ -217,7 +217,7 @@ Page({
       total: this.data.total
     })
   },
-  goToProject: function (e) {
+  goToProject: function (e) {    
     var user = AV.User.current()
     if (!user) {
       wx.login({
@@ -225,7 +225,7 @@ Page({
           AV.User.loginWithWeapp().then(user => {
             wx.setStorage({
               key: "projectID",
-              data: e.currentTarget.id
+              data: e.currentTarget.dataset.id
             })
             wx.navigateTo({
               url: '../project/project',
@@ -236,7 +236,7 @@ Page({
     } else {
       wx.setStorage({
         key: "projectID",
-        data: e.currentTarget.id
+        data: e.currentTarget.dataset.id
       })
       wx.navigateTo({
         url: '../project/project',
@@ -251,7 +251,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           for (var i = 0; i < that.data.products.length; i++) {
-            if (that.data.products[i].attributes.checked) {
+            if (that.data.products[i].get('checked')) {
               var product = AV.Object.createWithoutData('ShopCar', that.data.products[i].id);
               product.destroy().then(function (prod) {
                 wx.showToast({
