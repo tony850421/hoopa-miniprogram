@@ -1,5 +1,8 @@
 /* pages/recommended/recommended.wxss */
-
+.imageService {
+  height: 220rpx;
+  width: 100%;
+}
 
 .tags {
   color: #ff6801;

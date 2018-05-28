@@ -1,4 +1,5 @@
 <!--pages/recommended/recommended.wxml-->
+<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d1efc61825a93ad84625.jpg'></image>
 <view class='padding-10'>
   <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='goToProject'>
     <view class='flex-item'>

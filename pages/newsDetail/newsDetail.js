@@ -1,7 +1,4 @@
-// pages/news/news.js
-
-const AV = require('../../utils/av-weapp-min');
-
+// pages/newsDetail/newsDetail.js
 Page({
 
   /**
@@ -65,15 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  goToNews: function(e){
-    wx.setStorage({
-      key: 'news',
-      data: e.currentTarget.dataset.id,
-    })
-
-    wx.navigateTo({
-      url: '../newsDetail/newsDetail',
-    })
   }
 })

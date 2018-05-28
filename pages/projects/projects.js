@@ -13,7 +13,6 @@ Page({
     offers: [],
     inputShowed: false,
     inputVal: "",
-    index: 0,
     list: [
       {
         id: 'type',
@@ -41,47 +40,7 @@ Page({
     searchLoadingComplete: false  //“没有数据”的变量，默认false，隐藏  
   },
   onLoad: function (options) {
-    const query = new AV.Query('Project');
-    query.include('creator');
-    query.include('image');
-    query.descending('createdAt');
-    query.limit(10);
-    query.skip(this.data.index);
-    query.find().then(res => {
-
-      var arrivalType = []
-      var provinces = ''
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        provinces = res[i].get('provinceString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        provinces = provinces.substr(1)
-
-        var arrivalTypeTags = []
-        
-        for (var x = 0; x < arrivalType.length; x++) {
-          var flag = false;
-          for (var t = 0; t < arrivalTypeTags.length; t++) {
-            if (arrivalType[x] == arrivalTypeTags[t]) {              
-              flag = true;
-            }
-          }
-          if (!flag) {
-            arrivalTypeTags.push(arrivalType[x])
-          }
-        }
-
-        res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalTypeTags)
-        res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-      }
-
-      this.setData({
-        products: res,
-        intoView: res[0].id
-      })
-    })
+    this.applyFilters()
 
     wx.getSystemInfo({
       success: res => {
@@ -153,56 +112,13 @@ Page({
       inputShowed: false
     });
 
-    const query = new AV.Query('Project');
-    query.include('creator');
-    query.include('image');
-    query.descending('createdAt');
-    query.limit(10);
-    query.skip(this.data.index);
-    query.find().then(res => {
-
-      var arrivalType = []
-      var provinces = ''
-
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        provinces = res[i].get('provinceString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        provinces = provinces.substr(1)
-
-        var arrivalTypeTags = []
-
-        for (var x = 0; x < arrivalType.length; x++) {
-          var flag = false;
-          for (var t = 0; t < arrivalTypeTags.length; t++) {
-            if (arrivalType[x] == arrivalTypeTags[t]) {
-              flag = true;
-            }
-          }
-          if (!flag) {
-            arrivalTypeTags.push(arrivalType[x])
-          }
-        }
-
-        res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalTypeTags)
-        res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-      }
-
-      this.setData({
-        products: res
-      })
-    })
-
-    for (var i = 0; i < this.data.list.length; i++) {
-      this.data.list[i].name = this.data.list[i].pages[0]
-      this.data.list[i].open = false
-    }
+    this.data.products = []
 
     this.setData({
-      list: this.data.list
-    });
+      products: this.data.products
+    })
+
+    this.applyFilters()
   },
   inputTyping: function (e) {
     this.setData({
@@ -224,7 +140,6 @@ Page({
     });
   },
   selectFilter: function (e) {
-
     for (var i = 0; i < this.data.list.length; i++) {
       if (this.data.list[i].id == e.target.dataset.filterheader) {
         this.data.list[i].name = this.data.list[i].pages[e.target.dataset.filter]
@@ -235,6 +150,37 @@ Page({
     this.setData({
       list: this.data.list
     })
+
+    this.data.products = []
+
+    this.setData({
+      products: this.data.products
+    })
+
+    this.applyFilters()
+  },
+  search: function () {
+    this.data.products = []
+
+    this.setData({
+      products: this.data.products
+    })
+
+    this.applyFilters()
+  },
+  closeFilters: function () {
+    for (var i = 0; i < this.data.list.length; i++) {
+      this.data.list[i].open = false
+    }
+
+    this.setData({
+      list: this.data.list
+    })
+  },
+  bindscrolltolower: function (e) {
+    this.applyFilters()
+  },
+  applyFilters: function () {
 
     var queryType = new AV.Query('Project')
     if (this.data.list[0].name != '抵押物类型') {
@@ -342,9 +288,20 @@ Page({
     }
 
     var queryAnd = AV.Query.and(queryProvince, query, queryType);
-    queryAnd.limit(10);
-    queryAnd.skip(this.data.index);
-    queryAnd.find().then(res => {
+
+    var queryProjectTitle = new AV.Query('Project')
+    queryProjectTitle.contains('title', this.data.inputVal)
+
+    var queryDescription = new AV.Query('Project')
+    queryDescription.contains('description', this.data.inputVal)
+
+    var compoundQuery = AV.Query.or(queryDescription, queryProjectTitle)
+    var queryAndSearchBar = AV.Query.and(queryAnd, compoundQuery);
+
+    queryAndSearchBar.limit(7);
+    queryAndSearchBar.skip(this.data.products.length);
+    queryAndSearchBar.descending('createdAt')
+    queryAndSearchBar.find().then(res => {
 
       var arrivalType = []
       var provinces = ''
@@ -372,9 +329,10 @@ Page({
         res[i].set('provincesTags', provinces)
         res[i].set('tags', arrivalTypeTags)
         res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
+        this.data.products = this.data.products.concat(res[i])
       }
       this.setData({
-        products: res
+        products: this.data.products
       })
     })
 
@@ -399,110 +357,5 @@ Page({
     this.setData({
       list: this.data.list
     });
-  },
-  search: function () {
-    var query = new AV.Query('Project')
-    query.contains('title', this.data.inputVal)
-
-    var query1 = new AV.Query('Project')
-    query1.contains('description', this.data.inputVal)
-
-    var compoundQuery = AV.Query.or(query1, query)
-    compoundQuery.limit(7);
-    compoundQuery.skip(this.data.index);
-    compoundQuery.find().then(res => {
-
-      var arrivalType = []
-      var provinces = ''
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        provinces = res[i].get('provinceString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        provinces = provinces.substr(1)
-
-        var arrivalTypeTags = []
-
-        for (var x = 0; x < arrivalType.length; x++) {
-          var flag = false;
-          for (var t = 0; t < arrivalTypeTags.length; t++) {
-            if (arrivalType[x] == arrivalTypeTags[t]) {
-              flag = true;
-            }
-          }
-          if (!flag) {
-            arrivalTypeTags.push(arrivalType[x])
-          }
-        }
-
-        res[i].set('provincesTags', provinces)
-        res[i].set('tags', arrivalTypeTags)
-        res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-      }
-
-      this.setData({
-        products: res
-      })
-    })
-  },
-  closeFilters: function () {
-    for (var i = 0; i < this.data.list.length; i++) {
-      this.data.list[i].open = false
-    }
-
-    this.setData({
-      list: this.data.list
-    })
-  },
-  bindscrolltolower: function (e) {
-    console.log(e)
-    let that = this;
-    if (that.data.searchLoading && !that.data.searchLoadingComplete) {
-      that.setData({
-        index: that.data.index + 3
-      });
-
-      const query = new AV.Query('Project');
-      query.include('creator');
-      query.include('image');
-      query.descending('createdAt');
-      query.limit(10);
-      query.skip(this.data.index);
-      query.find().then(res => {
-
-        var arrivalType = []
-        var provinces = ''
-
-        for (var i = 0; i < res.length; i++) {
-          var typeArr = res[i].get('typeArrivalString')
-          provinces = res[i].get('provinceString')
-          arrivalType = typeArr.split('+')
-          arrivalType.splice(0, 1)
-          provinces = provinces.substr(1)
-
-          var arrivalTypeTags = [] 
-          for (var x=0; x<arrivalType.length; x++){
-            for (var t=0; t<arrivalTypeTags.length; t++){
-              var flag = false;
-              if (arrivalType[x] == arrivalTypeTags[t]){
-                flag =  true;
-              }
-            }
-            if (!flag){
-              arrivalTypeTags.push(arrivalType[x])
-            }
-          }
-
-          res[i].set('provincesTags', provinces)
-          res[i].set('tags', arrivalTypeTags)
-          res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-          that.data.products = that.data.products.concat(res[i])
-        }
-
-        that.setData({
-          products: that.data.products
-        })
-      })
-    }
   }
 })

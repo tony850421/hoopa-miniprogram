@@ -40,7 +40,7 @@
   </view>
   <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
     <scroll-view style='height: {{height-100}}px' scroll-y="true" bindscrolltolower="bindscrolltolower">
-      <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='tapPartner' bindtap='goToProject'>
+      <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='goToProject'>
         <view class='flex-item'>
           <image class='imageProductCar' src='{{product.mainImage}}'></image>
         </view>
@@ -61,8 +61,6 @@
           </view>
         </view>
       </view>
-      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>  
-      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view> 
     </scroll-view>
   </view>
 </view>

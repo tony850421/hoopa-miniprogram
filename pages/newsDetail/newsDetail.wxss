@@ -1,4 +1,4 @@
-/* pages/news/news.wxss */
+/* pages/newsDetail/newsDetail.wxss */
 .news{
   padding: 5px;
   background-color: white;

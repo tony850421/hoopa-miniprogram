@@ -23,7 +23,8 @@
     "pages/inProgress/inProgress",
     "pages/recommended/recommended",
     "pages/offers/offers",
-    "pages/notifications/notifications"
+    "pages/notifications/notifications",
+    "pages/newsDetail/newsDetail"
   ],
   "window": {
     "backgroundColor": "#ffffff",
