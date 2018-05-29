@@ -9,21 +9,12 @@ Page({
     latitude: '',
     height: '',
     asset: [{
-      name: '海岸投资',
-      direction: '广州市天河区金穗路3号汇美大厦1201A',
       avatar: '../../images/LogoHoopa.png',
       iconPath: "../../images/project.png",
       width: 42,
       height: 50,
       longitude: '',
       latitude: ''
-      // callout: {
-      //   content: '单击此处查看此项目',
-      //   display: 'ALWAYS',
-      //   padding: 10,
-      //   bgColor: '#FFFFFF',
-      //   borderRadius: 5
-      // }
     }]
   },
 

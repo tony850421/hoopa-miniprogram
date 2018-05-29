@@ -8,7 +8,7 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>李传宏—胡巴资产董事长兼总裁</text>
+      <text class='font-size-13 font-weight'>李传宏 胡巴资产董事长兼总裁</text>
       <text class='font-size-12'>武汉大学法学硕士，曾就职于知名律所、美国海岸投资公司，精通不良资产相关法律，具有近二十年的不良资产处置和管理经验。2009年自主创业，2015年创立杭州胡巴资产管理有限公司。</text>
       <text class='font-size-12'>胡巴资产是不良资产投资管理服务提供商，一直秉承着“让社会闲置资源合理利用，创造社会价值”的理念，为众多投资机构及民营资本创造了丰厚收益，我们诚邀社会各界人士精诚合作，创造我们共同追求的财富价值，分享成功合作的喜悦与成果。</text>
     </view>
@@ -22,7 +22,7 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>杨林榆——胡巴资产事务合伙人</text>
+      <text class='font-size-13 font-weight'>杨林榆 胡巴资产事务合伙人</text>
       <text class='font-size-12'>在不良债权及不动产投资领域拥有长达25年的经验。作为海岸投资的创始合伙人之一，带领海岸投资从不良资产处置服务商发展成为管理超过10亿美金的基金管理运营企业。对国内外不良资产市场以及运营模式具有深刻的理解，具有广泛的人脉关系。</text>
     </view>
   </view>
@@ -35,7 +35,7 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>林庄——胡巴资产事务合伙人、副总裁</text>
+      <text class='font-size-13 font-weight'>林庄 胡巴资产事务合伙人、副总裁</text>
       <text class='font-size-12'>天使投资人，曾投资地产开发、文化传媒、网络游戏等多种行业，2010年涉足金融行业，以金融风险投资、基金和融资业务为主，具有丰富的金融知识和投资运营实战经验。</text>
     </view>
   </view>
@@ -48,7 +48,7 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>刘杰——胡巴资产事务合伙人、广州事业部总经理</text>
+      <text class='font-size-13 font-weight'>刘杰 胡巴资产事务合伙人、广州事业部总经理</text>
       <text class='font-size-12'>华南理工大学法学、工商管理学士，成功处置不良资产包金额超百亿元，具有丰富的不良资产处置和管理经验，在拓展新市场方面有极强的能力，擅长团队管理和培训。</text>
     </view>
   </view>
@@ -61,7 +61,7 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>詹柳莺——胡巴资产事务合伙人、创新事业部总经理</text>
+      <text class='font-size-13 font-weight'>詹柳莺 胡巴资产事务合伙人、创新事业部总经理</text>
       <text class='font-size-12'>华东政法大学法学学士，浙江大学法学硕士。参与国内多个资产包项目的收购工作，累计收购金额上百亿元，具备优秀的团队协作精神与全局观。</text>
     </view>
   </view>
@@ -74,7 +74,7 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>魏强——胡巴资产市场部经理</text>
+      <text class='font-size-13 font-weight'>魏强 胡巴资产市场部经理</text>
       <text class='font-size-12'>2010年就职于阿里巴巴集团，任国际事业部资深经理、“天猫”消费者体验与发展事业部专家、浙江大学EMBA总裁班特聘老师、中国人民大学EMBA总裁班讲师、商务部培训中心讲师、中国第一届诚信大会主讲嘉宾、企业品牌营销专家、擅长SNS运营。</text>
     </view>
   </view>
@@ -87,7 +87,7 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>王峰——胡巴资产事务合伙人</text>
+      <text class='font-size-13 font-weight'>王峰 胡巴资产事务合伙人</text>
       <text class='font-size-12'>曾任古巴国务委员会顾问、古巴科技大学教授、古巴信息科学大学副院长、古巴教育系统物理软件开发人、委内瑞拉石油公司科技部总经理，精通大数据开发与应用。</text>
     </view>
   </view>
@@ -117,10 +117,8 @@
   </view>
   <view class='servicesText'>
     <view class='projectsGroup'>
-      <text class='font-size-13 font-weight'>寿璐琳 工作经历</text>
-      <text class='font-size-12'>2004年9月-2008年6月，就读于上海财经大学国际会计专业
-2008年8月-2016年11月，任职于安永华明会计师事务所从事审计工作
-2016年12月-至今 加入胡巴资产，任胡巴资产财务部总监</text>
+      <text class='font-size-13 font-weight'>寿璐琳 胡巴资产财务总监</text>
+      <text class='font-size-12'>毕业于上海财经大学国际会计专业，曾就职于安永华明会计师事务所，有着8年的审计工作经验，于2016年加入胡巴资产，任胡巴资产财务部总监</text>
     </view>
   </view>
 </view>

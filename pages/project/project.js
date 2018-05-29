@@ -137,6 +137,7 @@ Page({
 
               var visit = new AV.Object('ProjectVisit')
               visit.set('project', project)
+              visit.set('user', user)
               visit.save();
             }
           ).catch(console.error)

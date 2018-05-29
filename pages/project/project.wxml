@@ -41,26 +41,26 @@
 
 
       <!-- description  -->
-      <view class='projectsLabel font-size-13' wx:if="{{product.description != ''}}">
+      <view class='projectsLabel font-size-13' wx:if="{{product.description.length > 0}}">
         <view class='projectTitleGroupLabel'>
           <text>资产亮点</text>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13' wx:if="{{product.description != ''}}">
+      <view class='projectsGroup font-size-13' wx:if="{{product.description.length > 0}}">
         <view class='desciptionGroup'>
           <text class='margin-left-5'>{{product.description}}</text>
         </view>
       </view>
 
       <!-- credits highlights  -->
-       <view class='projectsLabel font-size-13' wx:if="{{product.description != ''}}">
+       <view class='projectsLabel font-size-13' wx:if="{{product.creditHighlights.length > 0}}">
         <view class='projectTitleGroupLabel'>
           <text>学分亮点</text>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13' wx:if="{{product.description != ''}}">
+      <view class='projectsGroup font-size-13' wx:if="{{product.creditHighlights.length > 0}}">
         <view class='desciptionGroup'>
           <text class='margin-left-5'>{{product.creditHighlights}}</text>
         </view>
@@ -87,7 +87,7 @@
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13' wx:if="{{product.court != ''}}">
+      <view class='projectsGroup font-size-13' wx:if="{{product.court.length > 0}}">
         <view class='projectTitleGroup'>
           <text>受理法院</text>
         </view>
@@ -119,13 +119,13 @@
       </view>
 
       <!--project manager  -->
-      <view wx:if="{{projectManager.name != '' }}" class='projectsLabel font-size-13'>
+      <view wx:if="{{projectManager.name.length > 0}}" class='projectsLabel font-size-13'>
         <view class='projectTitleGroupLabel'>
           <text>项目经理</text>
         </view>
       </view>
 
-      <view class='projectsGroup font-size-13' wx:if="{{projectManager.name != '' }}">
+      <view class='projectsGroup font-size-13' wx:if="{{projectManager.name.length > 0}}">
         <view class='projectTitleGroup'>
           <text>名字</text>
         </view>
@@ -135,7 +135,7 @@
         </view>
       </view>
 
-      <view wx:if="{{projectManager.name != '' }}" class='projectsGroup font-size-13'>
+      <view wx:if="{{projectManager.name.length > 0}}" class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>电话</text>
         </view>
@@ -271,16 +271,6 @@
           </view>
         </view>
 
-        <!-- <view class='projectsGroup font-size-13'>
-          <view class='projectTitleGroup'>
-            <text>保证人</text>
-          </view>
-          <image class='lineV' src='../../images/lineV.jpg'></image>
-          <view class='projectTextGroup'>
-            <text class='margin-left-5'>{{sponsor.name}}</text>
-          </view>
-        </view> -->
-
         <view class='projectsGroup font-size-13'>
           <view class='projectTitleGroup'>
             <text>类型</text>
@@ -303,12 +293,12 @@
       </view>
 
       <!-- nearby  -->
-      <view class='projectsLabel font-size-13'>
+      <view class='projectsLabel font-size-13' >
         <view class='projectTitleGroupLabel'>
           <text style='height: 20px'></text>
         </view>
       </view>
-      <view class='projectsGroup font-size-13' bindtap='goToNearby'>
+      <view class='projectsGroup font-size-13' bindtap='goToNearby' wx:if="{{assetsList.length> 0}}">
         <view class='nearbyProjects'>
           <text class='margin-left-5'>周围的其它资产</text>
         </view>
