@@ -66,11 +66,9 @@ Page({
 
     var query = new AV.Query('ShopCar');
     query.equalTo('user', AV.User.current());
-    // query.include('creator');
     query.include('image');
     query.include('project');
     query.descending('createdAt');
-    // query.limit(10);
     query.find().then(res => {
       
       var arrivalType = []
@@ -81,6 +79,18 @@ Page({
           arrivalType = typeArr.split('+')
           arrivalType.splice(0, 1)
           var arrivalTypeTags = []
+          provinces = res[i].get('project').get('provinceString')
+          provinces = provinces.substr(1)
+
+          var pAux = provinces
+          if (provinces.length > 7) {
+            var pAux = ''
+            for (var t = 0; t < 7; t++) {
+              pAux = pAux + provinces[t]
+            }
+            pAux = pAux + "..."
+          }
+          provinces = pAux
 
           for (var x = 0; x < arrivalType.length; x++) {
             var flag = false;
@@ -94,13 +104,22 @@ Page({
             }
           }
 
+          var title = res[i].get('project').get('title')
+          var tAux = title
+          if (title.length >= 11) {
+            var tAux = ''
+            for (var x = 0; x < 10; x++) {
+              tAux = tAux + title[x]
+            }
+            tAux = tAux + "..."
+          }
+          title = tAux
+
           res[i].set('tags', arrivalTypeTags)
           res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
-          res[i].set('title', res[i].get('project').get('title'))
+          res[i].set('title', title)
           res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
-          res[i].set('companyName', res[i].get('project').get('companyName'))
-          provinces = res[i].get('project').get('provinceString')
-          provinces = provinces.substr(1)
+          res[i].set('companyName', res[i].get('project').get('companyName'))          
           res[i].set('provincesTags', provinces)
         }        
       }
@@ -278,6 +297,18 @@ Page({
                       arrivalType = typeArr.split('+')
                       arrivalType.splice(0, 1)
                       var arrivalTypeTags = []
+                      provinces = res[i].get('project').get('provinceString')
+                      provinces = provinces.substr(1)
+
+                      var pAux = provinces
+                      if (provinces.length > 7) {
+                        var pAux = ''
+                        for (var t = 0; t < 7; t++) {
+                          pAux = pAux + provinces[t]
+                        }
+                        pAux = pAux + "..."
+                      }
+                      provinces = pAux
 
                       for (var x = 0; x < arrivalType.length; x++) {
                         var flag = false;
@@ -291,13 +322,22 @@ Page({
                         }
                       }
 
+                      var title = res[i].get('project').get('title')
+                      var tAux = title
+                      if (title.length >= 11) {
+                        var tAux = ''
+                        for (var x = 0; x < 10; x++) {
+                          tAux = tAux + title[x]
+                        }
+                        tAux = tAux + "..."
+                      }
+                      title = tAux
+
                       res[i].set('tags', arrivalTypeTags)
                       res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
-                      res[i].set('title', res[i].get('project').get('title'))
+                      res[i].set('title', title)
                       res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
                       res[i].set('companyName', res[i].get('project').get('companyName'))
-                      provinces = res[i].get('project').get('provinceString')
-                      provinces = provinces.substr(1)
                       res[i].set('provincesTags', provinces)
                     }
                   }
