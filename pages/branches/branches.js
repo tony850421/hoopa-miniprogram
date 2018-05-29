@@ -5,23 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    longitudeSelected: 126.605935,
-    latitudeSelected: 45.759068,
+    longitudeSelected: 120.212645,
+    latitudeSelected: 30.245479,
     height: '',
     speed: '',
     accuracy: '',
     partners: [
       {
         id: 0,
+        name: '杭州胡巴资产管理有限公司',
+        direction: '杭州市江干区钱江国际时代广场三幢2701',
+        show: true,
+        latitude: 30.245479,
+        longitude: 120.212645,
+        iconPath: "../../images/markerWork.png",
+        width: 42,
+        height: 50,
+        classSelected: 'branchesSelected'
+      },
+      {
+        id: 1,
         name: '浙江宝融胡巴',
         direction: '黑龙江省哈尔滨市道里区建国北六道街8号',
-        show: true,
+        show: false,
         latitude: 45.759068,
         longitude: 126.605935,
         iconPath: "../../images/markerWork.png",
         width: 42,
         height: 50,
-        classSelected: 'branchesSelected'
+        classSelected: 'branchesUnselected'
       },
       {
         name: '无锡乐道胡巴',
@@ -30,7 +42,7 @@ Page({
         latitude: 31.553973,
         longitude: 120.253013,
         iconPath: "../../images/markerWork.png",
-        id: 1,
+        id: 2,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
@@ -42,7 +54,7 @@ Page({
         latitude: 34.767745,
         longitude: 113.756223,
         iconPath: "../../images/markerWork.png",
-        id: 2,
+        id: 3,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
@@ -54,7 +66,7 @@ Page({
         latitude: 32.046944,
         longitude: 118.800583,
         iconPath: "../../images/markerWork.png",
-        id: 3,
+        id: 4,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
@@ -66,7 +78,7 @@ Page({
         latitude: 23.124425,
         longitude: 113.328309,
         iconPath: "../../images/markerWork.png",
-        id: 4,
+        id: 5,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
@@ -78,7 +90,7 @@ Page({
         latitude: 30.246225,
         longitude: 120.212576,
         iconPath: "../../images/markerWork.png",
-        id: 5,
+        id: 6,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
@@ -90,7 +102,7 @@ Page({
         latitude: 28.201072,
         longitude: 112.995415,
         iconPath: "../../images/markerWork.png",
-        id: 6,
+        id: 7,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
@@ -102,7 +114,7 @@ Page({
         latitude: 31.855039,
         longitude: 117.293235,
         iconPath: "../../images/markerWork.png",
-        id: 7,
+        id: 8,
         width: 42,
         height: 50,
         classSelected: 'branchesUnselected'
@@ -191,14 +203,5 @@ Page({
       latitudeSelected: this.data.latitudeSelected,
       longitudeSelected: this.data.longitudeSelected
     })
-  },
-  markertap: function (e) {
-    for (var i = 0; i < this.data.partners.length; i++) {
-      if (this.data.partners[i].id == e.markerId) {
-        wx.makePhoneCall({
-          phoneNumber: this.data.partners[i].phone.toString()
-        })
-      }
-    }
   }
 })
