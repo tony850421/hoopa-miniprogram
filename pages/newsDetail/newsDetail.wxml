@@ -5,11 +5,34 @@
       <image class='imageNewsView' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1ee828a1f8cb03f1daa3.jpg'></image>
     </view>
     <view class='newsContent'>
-      <view class='newsTitle font-size-13'>合肥胡巴资产管理有限公司2018年5月23日正式开业</view>
+      <view class='newsTitle font-size-12'>2018年5月23日，合肥胡巴资产管理有限公司举行了盛大的开业典礼。胡巴控股公司总裁李传宏、胡巴资产各事业部和子公司负责人以及部分合作伙伴代表等嘉宾欢聚一堂，共襄盛举，共同见证胡巴资产发展历程中又一个辉煌的时刻。</view>
+
       <view class='contentTitle font-size-12'>在开业典礼上，首先合肥胡巴资产领导致欢迎词，对与会嘉宾表示热烈的欢迎和诚挚的谢意，并对合肥胡巴资产业务的开展作出承诺。胡巴控股公司总裁从管理系统、培训系统及数据库等三个维度展望了胡巴资产的未来。</view>
-      <view class='font-size-12'>在热烈的掌声和期盼的目光中，满怀着对合肥胡巴资产的祝福与期许，胡巴资产有关领导共同为合肥胡巴资产管理有限公司揭牌和剪彩。</view>
-      <view class='font-size-12'>在庆典结束后，合肥胡巴资产管理有限公司广宴群宾，共进午餐，对他们的光临表示诚挚的感谢。</view>
-      <view class='font-size-12'>胡巴资产始终秉承“勤奋、简单、学习、坚韧”的企业文化，以“让社会闲置资源合理利用，创造社会价值”为企业宗旨，立足成为专业化的不良资产投资管理服务提供商。</view>
+
+      <view class='contentTitle font-size-12 margin-top-10'>在热烈的掌声和期盼的目光中，满怀着对合肥胡巴资产的祝福与期许，胡巴资产有关领导共同为合肥胡巴资产管理有限公司揭牌和剪彩。 </view>
+
+      <view class='square'>
+        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/672ccd1689dde5030e75.jpg'></image>
+        <view class='contentTitle font-size-12 text-align-center'>胡巴资产有关领导共同剪裁</view>
+      </view>
+
+      <view class='contentTitle font-size-12 margin-top-10'>在庆典结束后，合肥胡巴资产管理有限公司广宴群宾，共进午餐，对他们的光临表示诚挚的感谢。</view>
+
+      <view class='square'>
+        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/0e6aaca74d653007606b.jpg'></image>
+        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产前台</view>
+
+        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/806ebdc7ba15799e23a4.jpg'></image>
+        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产会议室</view>
+
+        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ef0b72072b5d1f97e438.jpg'></image>
+        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产洽谈室</view>
+
+        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/5680f4b959fe93b8b72e.jpg'></image>
+        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产办公区</view>
+      </view>
+
+      <view class='contentTitle font-size-12 margin-top-10'>胡巴资产始终秉承“勤奋、简单、学习、坚韧”的企业文化，以“让社会闲置资源合理利用，创造社会价值”为企业宗旨，立足成为专业化的不良资产投资管理服务提供商。</view>
     </view>
   </view>
 </view>

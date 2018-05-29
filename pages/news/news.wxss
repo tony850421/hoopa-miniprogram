@@ -17,3 +17,7 @@
   width: 100%;  
   border-radius: 5px;
 }
+
+.newsTitle{
+  font-weight: bold;
+}
