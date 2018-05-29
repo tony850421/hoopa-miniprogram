@@ -27,7 +27,7 @@
       <input bindinput='bindInputFullName' placeholder='名字' value='{{fullName}}'></input>
     </view>
   </view>
-  <view class='projectsGroup'>
+  <!-- <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>身份证号码</text>
     </view>
@@ -35,7 +35,7 @@
     <view class='projectTextGroup'>
       <input bindinput='bindInputCI' placeholder='识别' value='{{ci}}'></input>
     </view>
-  </view>
+  </view> -->
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>单位名称</text>

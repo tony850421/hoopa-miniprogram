@@ -9,7 +9,6 @@ Page({
    */
   data: {
     fullName: '',
-    ci: '',
     company: '',
     avatarUrl: '',
     nickName: '',
@@ -41,7 +40,6 @@ Page({
     query.get(user.id).then( res => {
       this.setData({
         fullName: res.get('fullName'),
-        ci: res.get('ci'),
         company: res.get('company'),
         city: res.get('city'),
         province: res.get('province'),
@@ -96,7 +94,6 @@ Page({
   saveUser: function(){
     var user = AV.User.current()
     user.set('fullName', this.data.fullName)
-    user.set('ci', this.data.ci)
     user.set('company', this.data.company)
     user.save().then(res => {
       wx.showToast({
@@ -112,11 +109,6 @@ Page({
   goToCar: function(){
     wx.navigateTo({
       url: '../shop-car/shop-car',
-    })
-  },
-  bindInputCI: function(e){
-    this.setData({
-      ci: e.detail.value
     })
   },
   bindInputCompany: function(e){

@@ -19,7 +19,7 @@
     </view>
   </view>
 
-  <view class='projectsGroup'>
+  <!-- <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>身份证号码</text>
     </view>
@@ -27,7 +27,7 @@
     <view class='projectTextGroup'>
       <input value='{{ci}}' bindinput='inputCI' class='inputLogin' placeholder='请填写您的身份证号码'></input>
     </view>
-  </view>
+  </view> -->
 
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
