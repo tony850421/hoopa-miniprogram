@@ -81,6 +81,12 @@
     height: 35px;
     margin-top: 5px;
   }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 60px !important;
+    margin-top: 5px !important;
+  }
 }
 
 @media (max-width: 414px) {
@@ -101,6 +107,12 @@
     width: 25px;
     height: 25px;
   }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
 }
 
 @media (max-width: 375px) {
@@ -110,12 +122,6 @@
 
   .info {
     height: 55px;
-  }
-
-  .lineVBar {
-    width: 7px !important;
-    height: 40px !important;
-     margin-top: 5px !important; 
   }
 
   .imageIconUserCar {
@@ -128,6 +134,12 @@
     width: 25px;
     height: 25px;
     margin-top: 3px;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 60px !important;
+    margin-top: 5px !important;
   }
 }
 
@@ -151,6 +163,12 @@
     height: 25px;
     margin-top: 3px;
   }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
 }
 
 @media (max-width: 320px) {
@@ -172,6 +190,12 @@
     width: 25px;
     height: 25px;
     margin-top: 2px;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
   }
 }
 
