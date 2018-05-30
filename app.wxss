@@ -192,3 +192,15 @@ kind-list__item:first-child {
 .font-weight{
   font-weight: bold;
 }
+
+.textN{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textNotifications{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

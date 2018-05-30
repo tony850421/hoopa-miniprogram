@@ -1,5 +1,5 @@
 <!--pages/notifications/notifications.wxml-->
-<view class="contactOrder">
+<view class="contactOrder" wx:if="{{notifications.length > 0}}">
   <view style='height: {{height}}px'>
     <scroll-view scroll-y="true" style='height: {{height}}px' scroll-into-view="A{{intoView}}" scroll-top="100">
       <view wx:for="{{notifications}}" wx:for-item="notification" wx:key="{{notification.objectId}}" id="A{{notification.objectId}}">
@@ -16,5 +16,10 @@
         </view>
       </view>
     </scroll-view>
+  </view>
+</view>
+<view class='textN' wx:if="{{notifications.length == 0}}">
+  <view class='textNotifications' style='height: {{height}}px'>
+    <text>您目前没有信息</text>
   </view>
 </view>
