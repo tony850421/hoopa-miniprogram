@@ -49,18 +49,6 @@
         <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/081be6e875a3dca52f72.png'></image>
       </view>
     </view>
-    <!--2  -->
-    <view class='product'>
-      <view class='flex-item'>
-        <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/8adec5884b1e4dec82b1.png'></image>
-      </view>
-    </view>
-    <!--8  -->
-    <view class='product'>
-      <view class='flex-item'>
-        <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ba043b74de58f47a9695.png'></image>
-      </view>
-    </view>
     <!--12  -->
     <view class='product'>
       <view class='flex-item'>
@@ -73,6 +61,18 @@
         <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/b27dfb1637ed9259eee9.png'></image>
       </view>
     </view>
+    <!--2  -->
+    <view class='product'>
+      <view class='flex-item'>
+        <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/8adec5884b1e4dec82b1.png'></image>
+      </view>
+    </view>
+    <!--8  -->
+    <view class='product'>
+      <view class='flex-item'>
+        <image mode='widthFix' style='width: {{width-40}}px' class="imagePartners" src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ba043b74de58f47a9695.png'></image>
+      </view>
+    </view>    
     <!--6  -->
     <view class='product'>
       <view class='flex-item'>

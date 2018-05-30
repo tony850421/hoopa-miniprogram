@@ -1,7 +1,8 @@
 <!--pages/newsDetail/newsDetail.wxml-->
 <view class='padding-10'>
   <view class='news' bindtap='goToNews' data-id='asd'>
-    <view class='imageNews'>
+  <view class='font-weight'>合肥胡巴资产管理有限公司2018年5月23日正式开业 （文末附彩蛋）</view>
+    <view class='imageNews margin-top-10'>
       <image class='imageNewsView' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1ee828a1f8cb03f1daa3.jpg'></image>
     </view>
     <view class='newsContent'>

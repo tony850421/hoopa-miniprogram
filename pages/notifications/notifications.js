@@ -79,19 +79,6 @@ Page({
       query.equalTo('user', user)
       query.find().then( notification => {
           
-          if (notification.length <= 0) {
-            wx.showModal({
-              title: '通知',
-              content: '此时您没有任何通知',
-              success: function(){
-                wx.switchTab({
-                  url: '../user/user',
-                })
-              }
-            })
-          }
-
-
           this.setData({
             notifications: notification
           })

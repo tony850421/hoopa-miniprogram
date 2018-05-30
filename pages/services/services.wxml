@@ -1,6 +1,9 @@
 <!--pages/services/services.wxml-->
 <image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1cabee4e3d7641183327.jpg'></image>
-<view class='services margin-bottom-5'>
+<view class='titleServiceGroup'>
+  <view class='projectsGroupTitle titleService'>服务体系</view>
+</view>
+<view class='services margin-bottom-5 margin-top-10'>
   <view class='groupNumber'>
     <image class='imageNumber' src='../../images/1.png'></image>
     <image class='lineService' src='../../images/lineService.png'></image>

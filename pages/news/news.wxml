@@ -2,11 +2,12 @@
 <view class='padding-10'>
   <!-- <view wx:for="{{news}}" wx:for-item="notice" wx:key="{{notice.id}}" id="{{notice.objectId}}"> -->
   <view class='news' bindtap='goToNews' data-id='asd'>
-    <view class='imageNews'>
+  <view class='font-weight'>合肥胡巴资产管理有限公司2018年5月23日正式开业 （文末附彩蛋）</view>
+    <view class='imageNews margin-top-10'>
       <image class='imageNewsView' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1ee828a1f8cb03f1daa3.jpg'></image>
     </view>
     <view class='newsContent'>
-      <view class='newsTitle font-size-13'>合肥胡巴资产管理有限公司2018年5月23日正式开业</view>
+      <view class='contentTitle font-size-12'>合肥胡巴资产管理有限公司2018年5月23日正式开业</view>
       <view class='contentTitle font-size-12'>在开业典礼上，首先合肥胡巴资产领导致欢迎词，对与会嘉宾表示热烈的欢迎和诚挚的谢意，并对合肥胡巴资产业务的开展作出承诺。胡巴控股公司总裁从管理系统、培训系统及数据库等三个维度展望了胡巴资产的未来。</view>
     </view>
   </view>

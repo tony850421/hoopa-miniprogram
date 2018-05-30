@@ -23,7 +23,7 @@
     <view class="buttonsGroup">
       <view class='buttonsBox' bindtap='goToServices'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
-        <text class='font-size-13'>产品服务</text>
+        <text class='font-size-13'>服务体系</text>
       </view>
       <view class='buttonsBoxAboutUs' bindtap='goToAboutUs'>
         <image mode='aspectFit' class='IconsButtonAboutUs' src='../../images/about.png'></image>

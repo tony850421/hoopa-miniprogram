@@ -26,10 +26,6 @@
   color: white;
 }
 
-.margin-top-10{
-  margin-top: 10px;
-}
-
 .text-align-center{
   text-align: center;
 }

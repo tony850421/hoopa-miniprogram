@@ -53,3 +53,19 @@
   width: 75%;
   margin-left: -4px;
 }
+
+.titleService{
+  margin-left: 3%;
+}
+
+.titleServiceGroup {
+  padding: 10px;
+}
+
+.projectsGroupTitle {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  width: 90%;
+}
