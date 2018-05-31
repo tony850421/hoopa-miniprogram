@@ -135,7 +135,7 @@
         </view>
       </view>
 
-      <view wx:if="{{projectManager.name.length > 0}}" class='projectsGroup font-size-13'>
+      <view wx:if="{{projectManager.name.length > 0 && officialFlag}}" class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>电话</text>
         </view>
@@ -320,9 +320,9 @@
     </view>
   </scroll-view>
   <view class='buttonsBar'>
-    <view class='buttonLeft' bindtap='goToCar'>
-      <image class='imageButtonOffers' src='../../images/car.png'></image>
-      <text class='font-size-11'>我的报价</text>
+    <view class='buttonLeft' bindtap='goToForum'>
+      <image class='imageButtonOffers' src='../../images/contactSelected.png'></image>
+      <text class='font-size-11'>留下评论</text>
     </view>
     <view class='buttonCar' bindtap='sendToShopCar'>
       <text class='font-size-11 '>添加到我的收藏</text>

@@ -62,7 +62,7 @@ Page({
         if (res.data != "official") {
           wx.setStorage({
             key: 'redirect',
-            data: '../contact/contact',
+            data: '../user/user',
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },
@@ -84,8 +84,7 @@ Page({
       var compoundQuery = AV.Query.or(query, queryAux);
       compoundQuery.include('sender')
       compoundQuery.include('receiver')
-      compoundQuery.find().then(
-        message => {
+      compoundQuery.find().then( message => {
           for (var i = 0; i < message.length; i++) {
             message[i].createdAt = message[i].createdAt.toLocaleDateString('zh-CN') + " " + message[i].createdAt.toLocaleTimeString('zh-CN')
           }
@@ -173,8 +172,7 @@ Page({
         var queryAux = new AV.Query('Message')
         queryAux.equalTo('receiver', this.data.user);
         var compoundQuery = AV.Query.or(query, queryAux);
-        compoundQuery.find().then(
-          message => {
+        compoundQuery.find().then( message => {
             this.setData({
               messages: message,
               intoView: message[message.length - 1].id
