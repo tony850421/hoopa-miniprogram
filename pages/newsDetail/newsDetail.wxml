@@ -1,81 +1,19 @@
 <!--pages/newsDetail/newsDetail.wxml-->
-<view class='padding-10' wx:if="{{news == 'news1'}}">
+<view class='padding-10'>
   <view class='news'>
-    <view class='font-weight'>热烈祝贺合肥胡巴资产管理有限公司开业！</view>
+    <view class='font-weight font-size-13'>{{news.title}}</view>
     <view class='imageNews margin-top-10'>
-      <image class='imageNewsView' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1ee828a1f8cb03f1daa3.jpg'></image>
+      <image class='imageNewsView' mode='widthFix' src='{{news.imageUrl}}'></image>
     </view>
     <view class='newsContent'>
-      <view class='newsTitle font-size-12'>2018年5月23日，合肥胡巴资产管理有限公司举行了盛大的开业典礼。胡巴控股公司总裁李传宏、胡巴资产各事业部和子公司负责人以及部分合作伙伴代表等嘉宾欢聚一堂，共襄盛举，共同见证胡巴资产发展历程中又一个辉煌的时刻。</view>
-
-      <view class='contentTitle font-size-12'>在开业典礼上，首先合肥胡巴资产领导致欢迎词，对与会嘉宾表示热烈的欢迎和诚挚的谢意，并对合肥胡巴资产业务的开展作出承诺。胡巴控股公司总裁从管理系统、培训系统及数据库等三个维度展望了胡巴资产的未来。</view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>在热烈的掌声和期盼的目光中，满怀着对合肥胡巴资产的祝福与期许，胡巴资产有关领导共同为合肥胡巴资产管理有限公司揭牌和剪彩。</view>
-
-      <view class='square'>
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/672ccd1689dde5030e75.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>胡巴资产有关领导共同剪裁</view>
+      <view class='contentTitle font-size-12'>{{news.content}}</view>
+      <view wx:for="{{medias}}" wx:for-item="media">
+        <view wx:if="{{media.imageUrl.length > 0}}">
+          <image class='imageNewsView margin-top-10' mode='widthFix' src='{{media.imageUrl}}'></image>
+          <view class='contentTitle font-size-12 text-align-center'>{{media.caption}}</view>
+        </view>
+        <view class='contentTitle font-size-12 margin-top-10'>{{media.content}}</view>
       </view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>在庆典结束后，合肥胡巴资产管理有限公司广宴群宾，共进午餐，对他们的光临表示诚挚的感谢。</view>
-
-      <view class='square'>
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/0e6aaca74d653007606b.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产前台</view>
-
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/806ebdc7ba15799e23a4.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产会议室</view>
-
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ef0b72072b5d1f97e438.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产洽谈室</view>
-
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/5680f4b959fe93b8b72e.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>合肥胡巴资产办公区</view>
-      </view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>胡巴资产始终秉承“勤奋、简单、学习、坚韧”的企业文化，以“让社会闲置资源合理利用，创造社会价值”为企业宗旨，立足成为专业化的不良资产投资管理服务提供商。</view>
-
-    </view>
-  </view>
-</view>
-
-<view class='padding-10' wx:if="{{news == 'news2'}}">
-  <view class='news'>
-    <view class='font-weight'>热烈祝贺平安普惠同胡巴资产签署资产处置战略合作协议！</view>
-    <view class='newsContent'>
-      <view class='contentTitle font-size-12'>2018年5月28日，平安普惠2018年度有抵押贷后精英合作商峰会在厦门思明区厦门海悦山庄酒店隆重召开，杭州胡巴资产管理有限公司董事长李传宏、创新事业部总经理詹柳莺、潜云婷与近百位有抵押贷后精英共同受邀参加此次峰会。</view>
-      <view>
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/9a8b4a6dd51aefe8b07d.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>图1：李传宏为抵押贷后精英合作商峰会做主题演讲</view>
-      </view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>会上，胡巴资产董事长李传宏以《不良资产的标准化探索》为主题进行了演讲，并作为受邀嘉宾参加峰会圆桌论坛。李传宏董事长以不良资产目前的非标准化特性为切入点，从债权评估、资产去化、交易结构、商业模式等五个方面探讨了不良资产向标准化产品发展的可行性，与现场嘉宾分享了胡巴资产在不良资产新领域的有益探索。</view>
-
-      <view class='square'>
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/455789029933d84f7ee9.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>图2：胡巴资产受托参与平安普惠债权转让意向合作签约</view>
-      </view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>随后，平安普惠与胡巴资产战略合作签约仪式正式启动，标志着双方在不良资产领域的合作进一步深化，在资产处置规模、效率、处置方式等方面不断进行合作创新。</view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>作为中国普惠金融的重要实践者，平安普惠首创了“保证保险+银行贷款”的业务模式，致力于为小微企业、城镇低收入人群等群体提供适当、有效的金融服务。目前，平安普惠已成为国内规模最大的非银放款平台。</view>
-
-      <view class='square'>
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e91eb3ad81f148adfff8.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>图3：胡巴资产与平安普惠正式签约</view>
-
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/12982d5d66937924dbe2.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>图4：圆桌论坛--不良资产的经营管理与投资</view>
-
-        <image class='imageNewsView margin-top-10' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/311e3257de3f2c8700a1.jpg'></image>
-        <view class='contentTitle font-size-12 text-align-center'>图5：全体参会人员合影</view>
-      </view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>杭州胡巴资产管理有限公司自2009年进入不良资产管理行业以来，目前已处置管理的债权总额累计约300亿元，现管理债权金额约100亿元。为江苏资产、海岸投资、太盟集团、平安普惠等众多投资机构及民营资本提供全流程的不良资产投资管理服务。公司在长三角、珠三角、东北地区、华中地区设有九个分支机构，并不断拓展新领域，实现深耕浙江、辐射全国的不良资产服务体系。</view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>杭州胡巴资产管理有限公司作为平安普惠的重要合作伙伴，将以此次合作为契机，与以平安普惠为代表的普惠金融平台共同探索在不良资产处置领域的有效互补、创新共赢。</view>
-
-      <view class='contentTitle font-size-12 margin-top-10'>胡巴人秉承“让社会闲置资源合理利用，创造社会价值”的企业宗旨，为不良资产行业贡献更多力量！</view>
     </view>
   </view>
 </view>

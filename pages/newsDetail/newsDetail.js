@@ -1,73 +1,72 @@
 // pages/newsDetail/newsDetail.js
+
+const AV = require('../../utils/av-weapp-min');
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    news: ''
+    newsId: '',
+    news: {},
+    medias: [],
+    width: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
     var that = this
-    wx.getStorage({
-      key: 'news',
-      success: function(res) {
+    wx.getSystemInfo({
+      success: res => {
         that.setData({
-          news: res.data
+          width: res.windowWidth
         })
       },
     })
   },
+  onReady: function () {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
+  },
+  onShow: function () {
+    var that = this
+    wx.getStorage({
+      key: 'news',
+      success: function (res) {
+
+        var query = new AV.Query("News")
+        query.get(res.data).then(newsObject => {
+
+          var queryMedias = new AV.Query("NewsMedia")
+          queryMedias.equalTo('news', newsObject)
+          queryMedias.find().then(mediasObject => {
+
+            for (var i = 0; i < mediasObject.length; i++) {
+              if (mediasObject[i].get('image')) {
+                mediasObject[i].set('imageUrl', mediasObject[i].get('image').thumbnailURL(that.data.width, 200))
+              }
+            }
+
+            that.setData({
+              medias: mediasObject
+            })
+          })
+
+          newsObject.set('imageUrl', newsObject.get('image').thumbnailURL(that.data.width, 200))
+
+          that.setData({
+            news: newsObject
+          })
+        })
+      },
+    })
+  },
   onHide: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
+  },
   onUnload: function () {
-  
-  },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  },
   onPullDownRefresh: function () {
-  
-  },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  },
   onReachBottom: function () {
-  
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
+  },
   onShareAppMessage: function (res) {
     return {
       title: '自定义转发标题',

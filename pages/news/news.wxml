@@ -1,25 +1,14 @@
 <!--pages/news/news.wxml-->
 <view class='padding-10'>
-  <view class='news' bindtap='goToNews' data-id='news2'>
-    <view class='font-weight'>热烈祝贺平安普惠同胡巴资产签署资产处置战略合作协议！</view>
-    <view class='imageNews margin-top-10'>
-      <image class='imageNewsView' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/9a8b4a6dd51aefe8b07d.jpg'></image>
-    </view>
-    <view class='newsContent'>
-      <view class='contentTitle font-size-12'>2018年5月28日，平安普惠2018年度有抵押贷后精英合作商峰会在厦门思明区厦门海悦山庄酒店隆重召开，杭州胡巴资产管理有限公司董事长李传宏、创新事业部总经理詹柳莺、潜云婷与近百位有抵押贷后精英共同受邀参加此次峰会。</view>
-    </view>
-  </view>
-
-  <!-- <view wx:for="{{news}}" wx:for-item="notice" wx:key="{{notice.id}}" id="{{notice.objectId}}"> -->
-  <view class='news margin-top-10' bindtap='goToNews' data-id='news1'>
-    <view class='font-weight'>热烈祝贺合肥胡巴资产管理有限公司开业！</view>
-    <view class='imageNews margin-top-10'>
-      <image class='imageNewsView' mode='widthFix' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1ee828a1f8cb03f1daa3.jpg'></image>
-    </view>
-    <view class='newsContent'>
-      <view class='contentTitle font-size-12'>合肥胡巴资产管理有限公司2018年5月23日正式开业</view>
-      <view class='contentTitle font-size-12'>在开业典礼上，首先合肥胡巴资产领导致欢迎词，对与会嘉宾表示热烈的欢迎和诚挚的谢意，并对合肥胡巴资产业务的开展作出承诺。胡巴控股公司总裁从管理系统、培训系统及数据库等三个维度展望了胡巴资产的未来。</view>
+  <view wx:for="{{news}}" wx:for-item="notice" wx:key="{{notice.objectId}}" id="{{notice.objectId}}">
+    <view class='news margin-top-10' bindtap='goToNews' data-id='{{notice.objectId}}'>
+      <view class='font-weight font-size-13'>{{notice.title}}</view>
+      <view class='imageNews margin-top-10'>
+        <image class='imageNewsView' mode='widthFix' src='{{notice.imageUrl}}'></image>
+      </view>
+      <view class='newsContent'>
+        <view class='contentTitle font-size-12'>{{notice.content}}</view>
+      </view>
     </view>
   </view>
-  <!-- </view> -->
 </view>
