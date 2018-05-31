@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    news: ''
   },
 
   /**
@@ -26,7 +26,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this
+    wx.getStorage({
+      key: 'news',
+      success: function(res) {
+        that.setData({
+          news: res.data
+        })
+      },
+    })
   },
 
   /**
