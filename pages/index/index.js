@@ -141,15 +141,6 @@ Page({
   onPullDownRefresh: function () {
   },
   onShow: function () {
-
-  },
-  onShareAppMessage: function (res) {
-    return {
-      title: '自定义转发标题',
-      path: '/index/index'
-    }
-  },
-  onLoad: function () {
     const user = AV.User.current()
     if (user) {
       var query = new AV.Query('Message')
@@ -179,7 +170,14 @@ Page({
         }
       })
     }
-
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: '自定义转发标题',
+      path: '/index/index'
+    }
+  },
+  onLoad: function () {
     this.fetchProductsHot()
     this.fetchProductsHouse()
     this.fetchProductsFactory()

@@ -17,7 +17,7 @@
   </view>
 
   <view class='backgroundWhite'>
-    <textarea class='textAreaOffer' bindinput='inputDescription' value='{{description}}' placeholder='介绍您的报价说明'></textarea>
+    <input class='textAreaOffer' bindinput='inputDescription' value='{{description}}' placeholder='介绍您的报价说明'></input>
   </view>
 
   <view class='saveBox'>    

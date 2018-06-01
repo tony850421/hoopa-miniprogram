@@ -158,7 +158,8 @@ Page({
       var receiver = AV.Object.createWithoutData('_User', '5af264c07f6fd3003895d3a2');
       newMessage.set('receiver', receiver);
       newMessage.set('content', this.data.inputText);
-      newMessage.set('readed', false);
+      newMessage.set('readed', true);
+      newMessage.set('readedAdmin', false);
 
       var acl = new AV.ACL();
       acl.setPublicReadAccess(true);
