@@ -117,6 +117,12 @@ Page({
               offer.set('amount', this.data.offer)
               offer.set('description', this.data.description)
               offer.set('pending', true)
+
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              offer.setACL(acl);
+
               offer.save();
               wx.navigateTo({
                 url: '../offers/offers',
