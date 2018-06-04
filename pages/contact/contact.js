@@ -167,24 +167,17 @@ Page({
       acl.setWriteAccess(receiver, true);
       newMessage.setACL(acl);
 
-      newMessage.save().then(res => {
-        var query = new AV.Query('Message')
-        query.equalTo('sender', this.data.user)
-        var queryAux = new AV.Query('Message')
-        queryAux.equalTo('receiver', this.data.user);
-        var compoundQuery = AV.Query.or(query, queryAux);
-        compoundQuery.find().then( message => {
-            this.setData({
-              messages: message,
-              intoView: message[message.length - 1].id
-            })
-            wx.showToast({
-              title: '留言送',
-              icon: 'success',
-              duration: 2000
-            })  
-          }
-        )
+      newMessage.save().then(res => {        
+        this.data.messages[this.data.messages.length] = res;
+        this.setData({
+          messages: this.data.messages,
+          intoView: this.data.messages[this.data.messages.length - 1].id
+        })
+        wx.showToast({
+          title: '留言送',
+          icon: 'success',
+          duration: 2000
+        })  
       })
     }
 
