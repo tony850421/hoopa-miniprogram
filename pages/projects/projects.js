@@ -185,6 +185,12 @@ Page({
   },
   applyFilters: function () {
 
+    wx.showToast({
+      title: '加载包',
+      icon: 'loading',
+      duration: 1000
+    })
+
     var queryType = new AV.Query('Project')
     if (this.data.list[0].name != '抵押物类型') {
       queryType.contains('typeArrivalString', this.data.list[0].name)

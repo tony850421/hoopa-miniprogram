@@ -22,6 +22,12 @@ Page({
   
   },
   onShow: function () {
+    wx.showToast({
+      title: '加载新闻',
+      icon: 'loading',
+      duration: 2000
+    })
+
     var user = AV.User.current()
     if (user) {
       var query = new AV.Query('News')

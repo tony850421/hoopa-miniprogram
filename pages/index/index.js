@@ -178,6 +178,11 @@ Page({
     }
   },
   onLoad: function () {
+    wx.showToast({
+      title: '加载包',
+      icon: 'loading',
+      duration: 2000
+    })
     this.fetchProductsHot()
     this.fetchProductsHouse()
     this.fetchProductsFactory()
