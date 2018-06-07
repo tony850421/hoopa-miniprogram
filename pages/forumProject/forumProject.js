@@ -1,4 +1,6 @@
 // pages/forumProject/forumProject.js
+
+const AV = require('../../utils/av-weapp-min');
 Page({
 
   /**
@@ -6,7 +8,11 @@ Page({
    */
   data: {
     height: '',
-    width: ''
+    width: '',
+    inputText: '',
+    messages: [],
+    project: {},
+    intoView: ''
   },
 
   /**
@@ -14,6 +20,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
     wx.getStorage({
       key: 'widthWithout',
       success: function (res) {
@@ -70,7 +77,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this
+    wx.getStorage({
+      key: 'projectID',
+      success: res => {
+        var query = new AV.Query("Project")
+        query.get(res.data).then(p => {
+          
+          that.setData({
+            project: p
+          })
+          
+          var query1 = new AV.Query('ForumComment');
+          query1.equalTo('project', p)
+          query1.find().then( comments => {
+
+            for (var i = 0; i < comments.length; i++) {
+              comments[i].createdAt = comments[i].createdAt.toLocaleDateString('zh-CN') + " " + comments[i].createdAt.toLocaleTimeString('zh-CN')
+            }
+
+            that.setData({
+              messages: comments,
+              intoView: comments[comments.length - 1].id
+            })
+          })
+        })
+      }
+    })
   },
 
   /**
@@ -105,6 +138,48 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '自定义转发标题',
+      path: 'pages/index/index'
+    }
+  },
+  bindKeyInput: function (e) {
+    this.setData({
+      inputText: e.detail.value
+    })
+  },
+  confirmText: function () {
+    var user = AV.User.current();
+    if (user && this.data.inputText != '') {
+      var query = new AV.Object('ForumComment');
+      query.set('content', this.data.inputText);
+      query.set('user', user);
+      query.set('avatarUrl', user.get('avatarUrl'));
+      query.set('project', this.data.project);
+      query.save().then( comment => {
+
+        comment.createdAt = comment.createdAt.toLocaleDateString('zh-CN') + " " + comment.createdAt.toLocaleTimeString('zh-CN')
+
+        wx.showToast({
+          title: '正确的注释',
+          icon: 'success',
+          duration: 2000
+        })
+
+        this.data.messages[this.data.messages.length] = comment
+
+        this.setData({
+          messages: this.data.messages,
+          intoView: comment.id
+        })
+      })
+    }
+
+    this.setData({
+      inputText: ''
+    })
+  },
+  sendText: function () {
+    this.confirmText()
   }
 })

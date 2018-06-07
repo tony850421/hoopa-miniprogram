@@ -320,8 +320,8 @@
     </view>
   </scroll-view>
   <view class='buttonsBar'>
-    <view class='buttonLeft' bindtap='goToCar'>
-      <image class='imageButtonOffers' src='../../images/car.png'></image>
+    <view class='buttonLeft' bindtap='goToForum'>
+      <image class='imageButtonOffers' src='../../images/contactSelected.png'></image>
       <text class='font-size-11'>我的报价</text>
     </view>
     <view class='buttonCar' bindtap='sendToShopCar'>
