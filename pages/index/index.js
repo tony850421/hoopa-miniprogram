@@ -174,10 +174,15 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '自定义转发标题',
-      path: '/index/index'
+      path: 'pages/index/index'
     }
   },
   onLoad: function () {
+    wx.showToast({
+      title: '加载包',
+      icon: 'loading',
+      duration: 2000
+    })
     this.fetchProductsHot()
     this.fetchProductsHouse()
     this.fetchProductsFactory()

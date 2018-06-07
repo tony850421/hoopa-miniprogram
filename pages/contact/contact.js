@@ -56,6 +56,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.showToast({
+      title: '正在加载消息',
+      icon: 'loading',
+      duration: 2000
+    })
+
     wx.getStorage({
       key: 'role',
       success: function (res) {
