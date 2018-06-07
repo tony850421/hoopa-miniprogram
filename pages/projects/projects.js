@@ -322,7 +322,7 @@ Page({
         provinces = provinces.substr(1)
 
         var pAux = provinces
-        if (provinces.length > 12){
+        if (provinces.length > 12) {
           var pAux = ''
           for (var t = 0; t < 12; t++) {
             pAux = pAux + provinces[t]
@@ -330,7 +330,7 @@ Page({
           pAux = pAux + "..."
         }
         provinces = pAux
-        
+
 
         var arrivalTypeTags = []
 
@@ -353,7 +353,7 @@ Page({
           for (var x = 0; x < 14; x++) {
             tAux = tAux + title[x]
           }
-          tAux = tAux + "..."          
+          tAux = tAux + "..."
         }
         title = tAux
 

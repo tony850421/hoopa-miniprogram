@@ -10,15 +10,15 @@
     </view>
   </view>
 
-  <view class='projectsLabel font-size-13'>
+  <!-- <view class='projectsLabel font-size-13'>
     <view class='projectTitleGroup'>
       <text>报价留言</text>
     </view>
-  </view>
+  </view> -->
 
-  <view class='backgroundWhite'>
+  <!-- <view class='backgroundWhite'>
     <input class='textAreaOffer' bindinput='inputDescription' value='{{description}}' placeholder='介绍您的报价说明'></input>
-  </view>
+  </view> -->
 
   <view class='saveBox'>    
     <button bindtap='makeOffer' disabled='{{disableOffer}}' class='buttonSave backgroundColorPrimary'>提交</button>
