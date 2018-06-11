@@ -169,8 +169,9 @@ Page({
 
       var acl = new AV.ACL();
       acl.setPublicReadAccess(true);
-      acl.setWriteAccess(this.data.user, true);
-      acl.setWriteAccess(receiver, true);
+      acl.setPublicWriteAccess(true);
+      // acl.setWriteAccess(this.data.user, true);
+      // acl.setWriteAccess(receiver, true);
       newMessage.setACL(acl);
 
       newMessage.save().then(res => {        
