@@ -8,7 +8,7 @@
           <image wx:if="{{partner.show}}" class='imageProductCar' mode='aspectFill' src='../../images/LogoHoopaWBranches.png'></image>
         </view>
         <view class='flex-item widthText'>
-          <view class='productInformation'>
+          <view class='branchesTextBox'>
             <text class='font-size-13'>{{partner.name}}</text>
             <text class='font-size-13'>{{partner.direction}}</text>
           </view>

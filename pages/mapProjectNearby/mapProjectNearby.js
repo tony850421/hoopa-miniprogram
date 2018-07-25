@@ -82,14 +82,7 @@ Page({
                       longitude: nearby[x].attributes.location.longitude,
                       iconPath: "../../images/projectBlue.png",
                       width: 42,
-                      height: 50,
-                      callout: {
-                        content: nearby[x].attributes.plainAddress,
-                        display: 'BYCLICK',
-                        padding: 10,
-                        bgColor: '#FFFFFF',
-                        borderRadius: 5
-                      }
+                      height: 50
                     }
                   } else {
                     assetAux = {
@@ -99,14 +92,7 @@ Page({
                       longitude: nearby[x].attributes.location.longitude,
                       iconPath: "../../images/project.png",
                       width: 42,
-                      height: 50,
-                      callout: {
-                        content: nearby[x].attributes.plainAddress,
-                        display: 'BYCLICK',
-                        padding: 10,
-                        bgColor: '#FFFFFF',
-                        borderRadius: 5
-                      }
+                      height: 50
                     }
                   }
 

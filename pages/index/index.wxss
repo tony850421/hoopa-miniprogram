@@ -25,37 +25,25 @@
   width: 100%;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 320px) {
   .videoHome {
-    height: 280px;
+    height: 200px;
   }
 
   .imageProjects {
-    height: 170px;
-  }
-}
-
-@media (max-width: 414px) {
-  .videoHome {
-    height: 280px;
+    height: 120px;
   }
 
-  .imageProjects {
+  .slide-image {
     height: 160px;
   }
-}
 
-@media (max-width: 375px) {
-  .videoHome {
-    height: 250px;
-  }
-
-  .imageProjects {
-    height: 140px;
+  swiper#swiperNews {
+    height: 240px !important;
   }
 }
 
-@media (max-width: 360px) {
+@media (min-width: 360px) {
   .videoHome {
     height: 240px;
   }
@@ -63,15 +51,67 @@
   .imageProjects {
     height: 140px;
   }
+
+  .slide-image {
+    height: 180px;
+  }
+
+  swiper#swiperNews {
+    height: 270px !important;
+  }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 375px) {
   .videoHome {
-    height: 200px;
+    height: 250px;
   }
 
   .imageProjects {
-    height: 120px;
+    height: 140px;
+  }
+
+  .slide-image {
+    height: 180px;
+  }
+
+  swiper#swiperNews {
+    height: 270px !important;
+  }
+}
+
+@media (min-width: 414px) {
+  .videoHome {
+    height: 280px;
+  }
+
+  .imageProjects {
+    height: 160px;
+  }
+
+  .slide-image {
+    height: 190px;
+  }
+
+  swiper#swiperNews {
+    height: 300px !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .videoHome {
+    height: 280px;
+  }
+
+  .imageProjects {
+    height: 170px;
+  }
+
+  .slide-image {
+    height: 230px;
+  }
+
+  swiper#swiperNews {
+    height: 340px !important;
   }
 }
 
@@ -109,12 +149,8 @@
 }
 
 .buttonsGroup {
-  padding-left: 7px;
-  padding-right: 7px;
   display: flex;
   flex-direction: row;
-  margin-top: 7px;
-  margin-bottom: 7px;
 }
 
 .IconsButtons {
@@ -140,6 +176,13 @@
   text-align: center;
 }
 
+.newsBox {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
 .projectList {
   display: flex;
   flex-direction: row;
@@ -148,6 +191,15 @@
 .scrollHorizontal {
   width: 100%;
   height: 100px;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.scrollHorizontalNews {
+  width: 100%;
+  height: 220px;
 }
 
 .tagsList {
@@ -182,6 +234,7 @@
 .HomePage {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .tags {
@@ -196,4 +249,140 @@
 .text-title {
   text-align: start;
   min-height: 40px;
+}
+
+.headerTab {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.news {
+  padding: 5px;
+  /* background-color: white; *//* border: 1px #d6dadb solid; */
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.newsContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageNewsView {
+  width: 200px !important;
+  height: 135px !important;
+  border-radius: 5px;
+}
+
+.newsTitle {
+  font-weight: bold;
+}
+
+.NewsBox {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  width: 93%;
+}
+
+.imageService {
+  height: 220rpx;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.imageTeam {
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.servicesText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 74%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  background-color: white;
+}
+
+.services {
+  display: flex;
+  flex-direction: row;
+}
+
+.imagePartners {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.groupNumber {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+.imageNumber {
+  width: 40px;
+  height: 40px;
+}
+
+.lineService {
+  width: 3px;
+  height: 40px;
+  margin-top: 5px;
+}
+
+.dots {
+  height: 3px;
+  width: 75%;
+  margin-left: -4px;
+}
+
+.titleService {
+  margin-left: 3%;
+}
+
+.buttonHome {
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+}
+
+.imageButtonsHome {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.textSwiper {
+  position: absolute;
+}
+
+.text-center {
+  text-align: center !important;
 }

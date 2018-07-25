@@ -19,16 +19,16 @@ Page({
     visitCount: 0,
     officialFlag: false
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this
     wx.getStorage({
       key: 'widthWithout',
-      success: function (res) {
+      success: function(res) {
         that.setData({
           width: res.data
         })
       },
-      fail: function (err) {
+      fail: function(err) {
         wx.getSystemInfo({
           success: res => {
             that.setData({
@@ -45,12 +45,12 @@ Page({
 
     wx.getStorage({
       key: 'heightWithout',
-      success: function (res) {
+      success: function(res) {
         that.setData({
           height: res.data
         })
       },
-      fail: function (err) {
+      fail: function(err) {
         wx.getSystemInfo({
           success: res => {
             that.setData({
@@ -67,85 +67,79 @@ Page({
 
     const user = AV.User.current();
     if (user) {
-      wx.getStorage({
-        key: 'projectID',
-        success: res => {
-          var query = new AV.Query("Project")
-          query.include('projectManager')
-          query.get(res.data).then(project => {
+      var query = new AV.Query("Project")
+      query.include('projectManager')
+      query.get(options.projectID).then(project => {
 
-            this.setData({
-              product: project,
-              projectManager: project.get('projectManager')
-            })
+        this.setData({
+          product: project,
+          projectManager: project.get('projectManager')
+        })
 
-            var query1 = new AV.Query("Sponsorship")
-            query1.equalTo('project', project)
-            query1.find().then(sponsors => {
-              this.setData({
-                sponsorsList: sponsors
-              })
-            })
+        var query1 = new AV.Query("Sponsorship")
+        query1.equalTo('project', project)
+        query1.find().then(sponsors => {
+          this.setData({
+            sponsorsList: sponsors
+          })
+        })
 
-            var query2 = new AV.Query("Asset")
-            query2.equalTo('project', project)
-            query2.find().then(assets => {
-              this.setData({
-                assetsList: assets
-              })
-            })
+        var query2 = new AV.Query("Asset")
+        query2.equalTo('project', project)
+        query2.find().then(assets => {
+          this.setData({
+            assetsList: assets
+          })
+        })
 
-            var query3 = new AV.Query("Borrower")
-            query3.equalTo('project', project)
-            query3.find().then(borrowers => {
-              for (var i = 0; i < borrowers.length; i++) {
-                borrowers[i].set('totalInterest', parseInt(borrowers[i].get('principalDebit')) + parseInt(borrowers[i].get('interestCreditor')))
-              }
-              this.setData({
-                borrowerList: borrowers
-              })
-            })
-
-            var query4 = new AV.Query("ProjectMedia")
-            query4.equalTo('project', project)
-            query4.find().then(images => {
-
-              for (var i = 0; i < images.length; i++) {
-                images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
-              }
-
-              this.setData({
-                imageList: images
-              })
-            })
-
-            var query5 = new AV.Query("Offert")
-            query5.equalTo('project', project)
-            query5.count().then(offers => {
-              this.setData({
-                offersCount: offers
-              })
-            })
-
-            var query6 = new AV.Query("ProjectVisit")
-            query6.equalTo('project', project)
-            query6.count().then(visit => {
-              this.setData({
-                visitCount: visit
-              })
-            })
-
-            var visit = new AV.Object('ProjectVisit')
-            visit.set('project', project)
-            visit.set('user', user)
-            visit.save();
+        var query3 = new AV.Query("Borrower")
+        query3.equalTo('project', project)
+        query3.find().then(borrowers => {
+          for (var i = 0; i < borrowers.length; i++) {
+            borrowers[i].set('totalInterest', parseInt(borrowers[i].get('principalDebit')) + parseInt(borrowers[i].get('interestCreditor')))
           }
-          ).catch(console.error)
-        }
-      })
+          this.setData({
+            borrowerList: borrowers
+          })
+        })
+
+        var query4 = new AV.Query("ProjectMedia")
+        query4.equalTo('project', project)
+        query4.find().then(images => {
+
+          for (var i = 0; i < images.length; i++) {
+            images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
+          }
+
+          this.setData({
+            imageList: images
+          })
+        })
+
+        var query5 = new AV.Query("Offert")
+        query5.equalTo('project', project)
+        query5.count().then(offers => {
+          this.setData({
+            offersCount: offers
+          })
+        })
+
+        var query6 = new AV.Query("ProjectVisit")
+        query6.equalTo('project', project)
+        query6.count().then(visit => {
+          this.setData({
+            visitCount: visit
+          })
+        })
+
+        var visit = new AV.Object('ProjectVisit')
+        visit.set('project', project)
+        visit.set('user', user)
+        visit.save();
+      }).catch(console.error)
     }
   },
-  goToOffer: function () {
+  goToOffer: function() {
     if (this.data.officialFlag) {
       wx.navigateTo({
         url: '../offer/offer',
@@ -154,98 +148,28 @@ Page({
       wx.setStorage({
         key: 'redirect',
         data: '../project/project',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
       })
       wx.navigateTo({
         url: '../register/register',
       })
     }
   },
-  onShow: function (options) {
-    var that = this
-    wx.getStorage({
-      key: 'projectID',
-      success: res => {
-        var query = new AV.Query("Project");
-        query.get(res.data).then(project => {
-          this.setData({
-            product: project,
-            projectManager: project.get('projectManager')
-          })
-
-          var query1 = new AV.Query("Sponsorship")
-          query1.equalTo('project', project)
-          query1.find().then(sponsors => {
-            this.setData({
-              sponsorsList: sponsors
-            })
-          })
-
-          var query2 = new AV.Query("Asset")
-          query2.equalTo('project', project)
-          query2.find().then(assets => {
-            this.setData({
-              assetsList: assets
-            })
-          })
-
-          var query3 = new AV.Query("Borrower")
-          query3.equalTo('project', project)
-          query3.find().then(borrowers => {
-            for (var i = 0; i < borrowers.length; i++) {
-              borrowers[i].set('totalInterest', parseInt(borrowers[i].get('principalDebit')) + parseInt(borrowers[i].get('interestCreditor')))
-            }
-            this.setData({
-              borrowerList: borrowers
-            })
-          })
-
-          var query4 = new AV.Query("ProjectMedia")
-          query4.equalTo('project', project)
-          query4.find().then(images => {
-
-            for (var i = 0; i < images.length; i++) {
-              images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
-            }
-
-            this.setData({
-              imageList: images
-            })
-          })
-
-          var query5 = new AV.Query("Offert")
-          query5.equalTo('project', project)
-          query5.count().then(offers => {
-            this.setData({
-              offersCount: offers
-            })
-          })
-
-          var query6 = new AV.Query("ProjectVisit")
-          query6.equalTo('project', project)
-          query6.count().then(visit => {
-            this.setData({
-              visitCount: visit
-            })
-          })
-
-          var visit = new AV.Object('ProjectVisit')
-          visit.set('project', project)
-          visit.set('user', user)
-          visit.save();
-        }
-        ).catch(console.error)
-      }
+  goToHome: function() {
+    wx.switchTab({
+      url: '../index/index',
     })
-
+  },
+  onShow: function(options) {
+    var that = this
     var user = AV.User.current()
     if (user) {
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('name', 'official');
       roleQuery.equalTo('users', user);
-      roleQuery.find().then(function (results) {
+      roleQuery.find().then(function(results) {
         if (results.length > 0) {
           that.setData({
             officialFlag: true
@@ -255,12 +179,12 @@ Page({
             officialFlag: false
           })
         }
-      }).catch(function (error) {
+      }).catch(function(error) {
         console.log(error);
       });
     }
   },
-  sendToShopCar: function () {
+  sendToShopCar: function() {
     const user = AV.User.current()
     if (user) {
       var shop = new AV.Object('ShopCar')
@@ -275,32 +199,32 @@ Page({
       })
     }
   },
-  goToCar: function () {
+  goToCar: function() {
     wx.navigateTo({
       url: '../shop-car/shop-car'
     })
   },
-  goToForum: function () {
+  goToForum: function() {
     wx.navigateTo({
       url: '../forumProject/forumProject'
     })
   },
-  goToRecommended: function () {
+  goToRecommended: function() {
     wx.navigateTo({
       url: '../recommended/recommended'
     })
   },
-  goToNearby: function () {
+  goToNearby: function() {
     wx.navigateTo({
       url: '../mapProjectNearby/mapProjectNearby'
     })
   },
-  callPhoneNumber: function (e) {
+  callPhoneNumber: function(e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone.toString()
     })
   },
-  goToAsset: function (e) {
+  goToAsset: function(e) {
     wx.setStorage({
       key: 'latitude',
       data: e.currentTarget.dataset.latitude,
@@ -313,10 +237,17 @@ Page({
       url: '../assetsMap/assetsMap'
     })
   },
-  onShareAppMessage: function (res) {
-    return {
-      title: '自定义转发标题',
-      path: '/index/index'
+  onShareAppMessage: function(res) {
+    if (res.from == 'menu') {
+      return {
+        title: '自定义转发标题',
+        path: '/index/index'
+      }
+    } else {
+      return {
+        title: '自定义转发标题',
+        path: '/project/project?projectID=' + this.data.product.id
+      }
     }
   }
 })

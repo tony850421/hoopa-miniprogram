@@ -1,5 +1,5 @@
 <!--pages/register/register.wxml-->
-<image bindtap='goToHome' class='home' src='../../images/homeSelected.png'></image>
+<!-- <image bindtap='goToHome' class='home' src='../../images/homeSelected.png'></image> -->
 <view>
   <view class="userinfo BackgorundProfile">
     <block>

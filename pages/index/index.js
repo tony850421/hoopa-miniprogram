@@ -8,92 +8,65 @@ const appInstance = getApp()
 
 Page({
   data: {
+    interval: 5000,
+    duration: 1000,
+    imageList: [],
     productsHot: [],
     productsHouse: [],
     productsFactory: [],
     productsDebit: [],
-    productsShop: []
+    productsShop: [],
+    news: [],
+    width: '',
+    activeNews: true,
+    activeData: false,
+    activeAbout: false
   },
-  goToProject: function (e) {
+  goToProject: function(e) {
     var user = AV.User.current()
     if (!user) {
       wx.login({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           AV.User.loginWithWeapp().then(user => {
-            wx.setStorage({
-              key: "projectID",
-              data: e.currentTarget.id
-            })
             wx.navigateTo({
-              url: '../project/project',
-            })
+              url: '../project/project?projectID=' + e.currentTarget.id,
+            })            
           }).catch(console.error);
         }
       })
     } else {
-      wx.setStorage({
-        key: "projectID",
-        data: e.currentTarget.id
-      })
       wx.navigateTo({
-        url: '../project/project',
+        url: '../project/project?projectID=' + e.currentTarget.id,
       })
     }
   },
-  goToRecommended: function (e) {
+  goToRecommended: function(e) {
     wx.navigateTo({
       url: '../recommended/recommended',
     })
   },
-  goToServices: function () {
+  goToServices: function() {
     wx.navigateTo({
       url: '../services/services',
     })
   },
-  goToProjects: function () {
+  goToProjects: function() {
     wx.navigateTo({
       url: '../projects/projects',
     })
   },
-  goToFinance: function () {
-    wx.navigateTo({
-      url: '../finance/finance',
-    })
-  },
-  goToPartners: function () {
-    wx.navigateTo({
-      url: '../partners/partners',
-    })
-  },
-  goToBranches: function () {
-    wx.navigateTo({
-      url: '../branches/branches',
-    })
-  },
-  goToNews: function () {
-    wx.navigateTo({
-      url: '../news/news',
-    })
-  },
-  goToAboutUs: function () {
+  goToAboutUs: function() {
     wx.navigateTo({
       url: '../aboutUs/aboutUs',
     })
   },
-  goToTeam: function () {
-    wx.navigateTo({
-      url: '../team/team',
-    })
-  },
-  onReady: function () {
+  onReady: function() {
     var user = AV.User.current();
     if (user) {
-
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('users', user);
       roleQuery.find().then(results => {
-
         var officialFlag = false;
         for (var i = 0; i < results.length; i++) {
           if (results[i].attributes.name == "official") {
@@ -107,9 +80,12 @@ Page({
             data: 'official',
           })
         } else {
-          wx.setStorage({
-            key: 'role',
-            data: 'guest',
+          // wx.setStorage({
+          //   key: 'role',
+          //   data: 'guest',
+          // })
+          wx.navigateTo({
+            url: '../register/register',
           })
         }
 
@@ -118,50 +94,46 @@ Page({
         } else {
           var roleQueryGuest = new AV.Query(AV.Role);
           roleQueryGuest.equalTo('name', 'guest');
-          roleQueryGuest.find().then(function (results) {
+          roleQueryGuest.find().then(function(results) {
             var role = results[0];
             var relation = role.getUsers();
             relation.add(user);
             return role.save();
-          }).then(function (role) {
-          }).catch(function (error) {
+          }).then(function(role) {}).catch(function(error) {
             console.log(error);
           });
         }
-      }).then(function (administratorRole) {
+      }).then(function(administratorRole) {
 
-      }).catch(function (error) {
+      }).catch(function(error) {
         console.log(error);
       });
     }
 
   },
-  onUnload: function () {
-  },
-  onPullDownRefresh: function () {
-  },
-  onShow: function () {
+  onUnload: function() {},
+  onPullDownRefresh: function() {},
+  onShow: function() {
     const user = AV.User.current()
     if (user) {
       var query = new AV.Query('Message')
       query.equalTo('receiver', user)
       query.equalTo('readed', false)
-      query.count().then(
-        count => {
-          if (count > 0) {
-            wx.setTabBarBadge({
-              index: 1,
-              text: count.toString()
-            })
-          }
-        })
-
-      var query = new AV.Query('OfferNotification');
-      query.include('project')
-      query.include('user')
-      query.equalTo('user', user)
-      query.equalTo('readed', false)
       query.count().then(count => {
+        if (count > 0) {
+          wx.setTabBarBadge({
+            index: 1,
+            text: count.toString()
+          })
+        }
+      })
+
+      var queryN = new AV.Query('OfferNotification');
+      queryN.include('project')
+      queryN.include('user')
+      queryN.equalTo('user', user)
+      queryN.equalTo('readed', false)
+      queryN.count().then(count => {
         if (count > 0) {
           wx.setTabBarBadge({
             index: 2,
@@ -169,26 +141,65 @@ Page({
           })
         }
       })
+
+      var query = new AV.Query("Project")
+      query.include('projectManager')
+      query.get("5b0d2f6f7f6fd300639794c3").then(project => {
+        var query4 = new AV.Query("ProjectMedia")
+        query4.equalTo('project', project)
+        query4.find().then(images => {
+
+          for (var i = 0; i < images.length; i++) {
+            images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
+          }
+
+          this.setData({
+            imageList: images
+          })
+        })
+      })
     }
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
       path: 'pages/index/index'
     }
   },
-  onLoad: function () {
+  onLoad: function() {
     wx.showToast({
       title: '加载包',
       icon: 'loading',
       duration: 2000
     })
-    this.fetchProductsHot()
-    this.fetchProductsHouse()
-    this.fetchProductsFactory()
-    this.fetchProductsShop()
+    // this.fetchProductsHot()
+    // this.fetchProductsHouse()
+    // this.fetchProductsFactory()
+    // this.fetchProductsShop()
+
+    var that = this
+    wx.getSystemInfo({
+      success: res => {
+        that.setData({
+          width: res.windowWidth
+        })
+      },
+    })
+
+    var queryNews = new AV.Query('News')
+    queryNews.descending('createdAt')
+    queryNews.find().then(res => {
+      for (var i = 0; i < res.length; i++) {
+        res[i].set('imageUrl', res[i].get('image').thumbnailURL(that.data.width, 200))
+        res[i].set('id', res[i].id)
+      }
+
+      that.setData({
+        news: res
+      })
+    })
   },
-  fetchProductsHot: function () {
+  fetchProductsHot: function() {
     const query = new AV.Query('Project');
     query.equalTo('isHot', true);
     query.descending('createdAt');
@@ -199,7 +210,7 @@ Page({
         var typeArr = res[i].get('typeArrivalString')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
-        
+
         if (res[i].get('title').length >= 15) {
           var title = ''
           for (var x = 0; x < 14; x++) {
@@ -231,7 +242,7 @@ Page({
       })
     })
   },
-  fetchProductsHouse: function () {
+  fetchProductsHouse: function() {
     const query = new AV.Query('Project');
     query.equalTo('isHouse', true);
     query.descending('createdAt');
@@ -273,7 +284,7 @@ Page({
       })
     })
   },
-  fetchProductsFactory: function () {
+  fetchProductsFactory: function() {
     const query = new AV.Query('Project');
     query.equalTo('isFactory', true);
     query.descending('createdAt');
@@ -315,7 +326,7 @@ Page({
       })
     })
   },
-  fetchProductsShop: function () {
+  fetchProductsShop: function() {
     const query = new AV.Query('Project');
     query.equalTo('isShop', true);
     query.descending('createdAt');
@@ -355,6 +366,42 @@ Page({
       this.setData({
         productsShop: res
       })
+    })
+  },
+  changeTab1: function() {
+    this.setData({
+      activeNews: true,
+      activeData: false,
+      activeAbout: false
+    })
+  },
+  changeTab2: function() {
+    this.setData({
+      activeNews: false,
+      activeData: true,
+      activeAbout: false
+    })
+  },
+  changeTab3: function() {
+    this.setData({
+      activeNews: false,
+      activeData: false,
+      activeAbout: true
+    })
+  },
+  goToNews: function(e) {
+    wx.navigateTo({
+      url: '../newsDetail/newsDetail?news=' + e.currentTarget.id,
+    })
+  },
+  goToBranches: function(e) {
+    wx.navigateTo({
+      url: '../branches/branches',
+    })
+  },
+  goToTeam: function(e) {
+    wx.navigateTo({
+      url: '../team/team',
     })
   }
 });

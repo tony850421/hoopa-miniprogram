@@ -58,9 +58,17 @@
   flex-direction: column;
 }
 
+.buttonShare {
+  background-color: #ff67011f;
+  width: 16%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .buttonCar {
   background-color: #ff6801;
-  width: 42%;
+  width: 34%;
   text-align: center;
   padding-top: 2%;
   color: white !important;
@@ -68,7 +76,7 @@
 
 .buttonRight {
   background-color: #ff413d;
-  width: 42%;
+  width: 34%;
   text-align: center;
   padding-top: 2%;
   color: white !important;

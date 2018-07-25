@@ -99,6 +99,17 @@
   align-items: flex-start;
 }
 
+.package {
+  margin-bottom: 10px;
+}
+
+.packageBox {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 .imageProductCar {
   width: 80px !important;
   height: 75px !important;
@@ -123,4 +134,88 @@
 
 .loading.complete:before {
   display: none;
+}
+
+.iconProjects {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.iconWish {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  right: 15px;
+  position: absolute;
+  z-index: 5;
+}
+
+.priceTag {
+  right: 15px;
+  position: absolute;
+  z-index: 5;
+}
+
+.provinceTag {
+  left: 15px;
+  position: absolute;
+  z-index: 5;
+}
+
+.tagsBox {
+  width: 72%;
+}
+
+.iconProjectsBox {
+  width: 28%;
+}
+
+.widthText {
+  width: 100% !important;
+}
+
+@media (min-width: 320px) {
+  .imagePackage {
+    width: 100%;
+    max-height: 180px;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 150px;
+  }
+}
+
+@media (min-width: 360px) {
+  .imagePackage {
+    width: 100%;
+    max-height: 210px;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 180px;
+  }
+}
+
+@media (min-width: 420px) {
+  .imagePackage {
+    width: 100%;
+    max-height: 240px;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 205px;
+  }
+}
+
+@media (min-width: 480px) {
+  .imagePackage {
+    width: 100%;
+    max-height: 260px;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 200px;
+  }
 }

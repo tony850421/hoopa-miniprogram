@@ -16,7 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       user: AV.User.current()
     })
@@ -25,7 +25,7 @@ Page({
 
     wx.getStorage({
       key: 'width',
-      success: function (res) {
+      success: function(res) {
         that.setData({
           width: res.data
         })
@@ -34,7 +34,7 @@ Page({
 
     wx.getStorage({
       key: 'height',
-      success: function (res) {
+      success: function(res) {
         that.setData({
           height: res.data
         })
@@ -45,24 +45,24 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     wx.getStorage({
       key: 'role',
-      success: function (res) {
+      success: function(res) {
         if (res.data != "official") {
           wx.setStorage({
             key: 'redirect',
             data: '../user/user',
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { },
+            success: function(res) {},
+            fail: function(res) {},
+            complete: function(res) {},
           })
           wx.navigateTo({
             url: '../register/register',
@@ -77,57 +77,60 @@ Page({
       query.include('project')
       query.include('user')
       query.equalTo('user', user)
-      query.find().then( notification => {
-          
-          this.setData({
-            notifications: notification
-          })
+      query.find().then(notification => {
 
-          for (var i = 0; i < notification.length; i++) {
-            notification[i].set('readed', true)
-            notification[i].save()
-          }
-
-          wx.removeTabBarBadge({
-            index: 2,
-          })
+        for (var i = 0; i < notification.length; i++) {
+          notification[i].createdAt = notification[i].createdAt.toLocaleDateString('zh-CN') + " " + notification[i].createdAt.toLocaleTimeString('zh-CN')
         }
-      )
+
+        this.setData({
+          notifications: notification
+        })
+
+        for (var i = 0; i < notification.length; i++) {
+          notification[i].set('readed', true)
+          notification[i].save()
+        }
+
+        wx.removeTabBarBadge({
+          index: 2,
+        })
+      })
     }
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
       path: '/index/index'

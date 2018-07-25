@@ -1,7 +1,4 @@
 <!--pages/user/user.wxml-->
-<image wx:if="{{user}}" bindtap='goToUserInformation' src="../../images/config.png" class='home'></image>
-<!-- <text wx:if="{{user}}" bindtap='logout' class='logout'>注销</text>
-<text wx:if="{{!user}}" bindtap='login' class='logout'>登录</text> -->
 <view>
   <view class="userinfo BackgroundProfile">
     <block wx:if="{{!user}}">
@@ -15,11 +12,11 @@
     <block wx:if="{{user}}">
       <view class='dataUserInfoCover'>
         <view class='imageContainer'>
-          <image wx:if="{{user.avatarUrl}}" bindtap="goToUserInformation" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+          <image wx:if="{{user.avatarUrl}}" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
           <image wx:if="{{!user.avatarUrl}}" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
         </view>
-        <text wx:if="{{user.fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
-        <text wx:if="{{!user.fullName}}" bindtap="goToUserInformation" class="userinfo-nickname font-size-13">{{user.nickName}}</text>
+        <text wx:if="{{user.fullName}}" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
+        <text wx:if="{{!user.fullName}}" class="userinfo-nickname font-size-13">{{user.nickName}}</text>
         <view class='locationUser'>
           <image wx:if="{{user.city}}" class='imageLocationUser' src='../../images/userLocation.png'></image>
           <text wx:if="{{user.city}}" class="userinfo-nickname font-size-11">{{user.city}}, {{user.province}}</text>
@@ -29,8 +26,8 @@
     </block>
   </view>
   <view class='info'>
-    <view class='infoData' bindtap='goToOffers'>
-      <image class='imageIconUserNotification' src='../../images/offers.png'></image>
+    <view class='infoData' bindtap='goToContact'>
+      <image class='imageIconUserCar' src='../../images/contactSelected.png'></image>
       <text class='font-size-13'>我的报价</text>
     </view>
     <image class='lineVBar' src='../../images/lineV.jpg'></image>
@@ -38,10 +35,67 @@
       <image class='imageIconUserNotification' src='../../images/notificationsSelected.png'></image>
       <text class='font-size-13'>通知</text>
     </view>
-    <image class='lineVBar' src='../../images/lineV.jpg'></image>
-    <view class='infoData' bindtap='goToCar'>
-      <image class='imageIconUserCar' src='../../images/car.png'></image>
-      <text class='font-size-13'>我的收藏</text>
+  </view>
+</view>
+<view class='offersBox' wx:if="{{offers}}">
+  <view class='projectsGroup' wx:for="{{offers}}" wx:for-item="offer" data-id='{{offer.project.objectId}}' bindtap='goToProject'>
+    <view class='projectTitleGroup'>
+      <image class='imageIconUserNotification' src='../../images/projectsSelected.png'></image>
+      <text class='font-size-13'>{{offer.title}}</text>
+    </view>
+    <image class='lineV' src='../../images/lineV.jpg'></image>
+    <view class='projectTextGroup'>
+      <text class='colorTextPrimary'> ¥{{offer.amount}}万</text>
+      <text class='font-size-13'>{{offer.description}}</text>
+    </view>
+  </view>
+</view>
+<view class='likesBox' wx:if="{{!offers}}">
+  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
+    <view class='flex-item'>
+      <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.objectId}}' />
+    </view>
+    <view bindtap='goToProject' data-id='{{product.project.objectId}}'>
+      <image class='imageProductCar' src='{{product.mainImage}}'></image>
+    </view>
+    <view class='flex-item widthText' bindtap='goToProject' data-id='{{product.project.objectId}}'>
+      <view class='productInformation'>
+        <text class='font-size-13'>{{product.title}}</text>
+        <view class='displayFlexRow font-size-13'>
+          <text>债权本金：</text>
+          <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+        </view>
+        <view class='displayFlexRow font-size-13'>
+          <text>省份：</text>
+          <text>{{product.provincesTags}}</text>
+        </view>
+        <view class='displayFlexRow font-size-13'>
+          <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='recommendedProjectBox' wx:if="{{!offers}} && {{!products}}">
+    <view class='product' wx:for="{{recommended}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='goToProject'>
+      <view class='flex-item'>
+        <image class='imageProductCar' src='{{product.mainImage}}'></image>
+      </view>
+      <view class='flex-item widthText'>
+        <view class='productInformation'>
+          <text class='font-size-13'>{{product.title}}</text>
+          <view class='displayFlexRow font-size-13'>
+            <text>价格：</text>
+            <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+          </view>
+          <view class='displayFlexRow font-size-13' wx:if="{{product.provincesTags.length > 0}}">
+            <text>省份：</text>
+            <text>{{product.provincesTags}}</text>
+          </view>
+          <view class='displayFlexRow font-size-13'>
+            <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

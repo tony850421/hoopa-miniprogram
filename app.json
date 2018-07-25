@@ -46,16 +46,10 @@
         "text": "主页"
       },
       {
-        "pagePath": "pages/contact/contact",
-        "iconPath": "images/contact.png",
-        "selectedIconPath": "images/contactSelected.png",
+        "pagePath": "pages/projects/projects",
+        "iconPath": "images/projects.png",
+        "selectedIconPath": "images/projectsSelected.png",
         "text": "联系我们"
-      },
-      {
-        "pagePath": "pages/notifications/notifications",
-        "iconPath": "images/notifications.png",
-        "selectedIconPath": "images/notificationsSelected.png",
-        "text": "通知"
       },
       {
         "pagePath": "pages/user/user",

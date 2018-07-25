@@ -64,12 +64,14 @@ page{
 }
 
 .productInformation {
+  width: 100% !important;
   display: flex;
   flex-direction: column;
   padding-left: 10px;
 }
 
 .displayFlexRow{
+  width: 100% !important;
   display: flex;
   flex-direction: row;
   align-items: center;

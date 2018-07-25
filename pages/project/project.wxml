@@ -308,21 +308,25 @@
       </view>
 
       <!-- recommended  -->
-      <view class='projectsGroup font-size-13' bindtap='goToRecommended'>
+      <!-- <view class='projectsGroup font-size-13' bindtap='goToRecommended'>
         <view class='nearbyProjects'>
           <text class='margin-left-5'>推荐</text>
         </view>
         <view class='userLocationGroup'>
           <image class='imageRecomended' src='../../images/recommended.png'></image>
         </view>
-      </view>
+      </view> -->
 
     </view>
   </scroll-view>
   <view class='buttonsBar'>
-    <view class='buttonLeft' bindtap='goToForum'>
-      <image class='imageButtonOffers' src='../../images/contactSelected.png'></image>
-      <text class='font-size-11'>我的报价</text>
+    <view class='buttonLeft' bindtap='goToHome'>
+      <image class='imageButtonOffers' src='../../images/homeSelected.png'></image>
+      <text class='font-size-11'>主页</text>
+    </view>
+    <view class='buttonShare' id='share' bindtap='onShareAppMessage'>
+      <image class='imageButtonOffers' src='../../images/share.png'></image>
+      <text class='font-size-11'>共享</text>
     </view>
     <view class='buttonCar' bindtap='sendToShopCar'>
       <text class='font-size-11 '>添加到我的收藏</text>

@@ -4,3 +4,9 @@ map {
   height: 250px;
   width: 100%;
 }
+
+.branchesTextBox {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}

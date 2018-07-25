@@ -1,9 +1,71 @@
 <!--index.wxml-->
 <view>
-  <video class="videoHome" poster='http://lc-qpv1wnqe.cn-n1.lcfile.com/ceb39cd9208897993f9e.jpg' controls='true' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7ded4d8f482e88bcf676.mp4'></video>
+  <!-- <video class="videoHome" poster='http://lc-qpv1wnqe.cn-n1.lcfile.com/ceb39cd9208897993f9e.jpg' controls='true' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7ded4d8f482e88bcf676.mp4'></video> -->
+  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imageList}}" wx:for-item="image">
+      <swiper-item>
+        <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
 <view class='HomePage'>
-  <view class="section">
+  <view class='section'>
+    <view class="buttonsGroup">
+      <view class='buttonsBox' bindtap='goToAboutUs'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
+        <text class='font-size-13'>关于胡巴</text>
+      </view>
+      <view class='buttonsBox' bindtap='goToBranches'>
+        <image mode='aspectFit' class='IconsButtons' src='../../images/branch.png'></image>
+        <text class='font-size-13'>分支机构</text>
+      </view>
+      <view class='buttonsBox' bindtap='goToTeam'>
+        <image mode='widthFix' class='IconsButtons' src='../../images/partners.png'></image>
+        <text class='font-size-13'>合作伙伴</text>
+      </view>
+    </view>
+    <!-- <view>
+      <scroll-view class='scrollHorizontalNews' scroll-x="true">
+        <view class='projectList' style='width: {{news.length*200}}px'>
+          <view class='newsBox' wx:for="{{news}}" wx:for-item="notice" wx:key="{{notice.objectId}}" id="{{notice.objectId}}">
+            <view class='news' bindtap='goToNews' data-id='{{notice.objectId}}'>
+              <view class='imageNews margin-top-5'>
+                <image class='imageNewsView' mode='widthFix' src='{{notice.imageUrl}}'></image>
+              </view>
+              <view class='font-weight font-size-13'>{{notice.title}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view> -->
+    <view class='padding-10'>
+      <swiper id="swiperNews" indicator-dots="true" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{news}}" wx:for-item="image">
+          <swiper-item class="text-center" id="{{image.id}}" bindtap='goToNews'>
+            <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
+            <text class='text-center font-size-13'>{{image.title}}</text>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <!-- <view class='NewsBox' wx:if="{{activeNews}}">
+      <view wx:for="{{news}}" wx:for-item="notice" wx:key="{{notice.objectId}}" id="{{notice.objectId}}">
+        <view class='news margin-top-10' bindtap='goToNews' data-id='{{notice.objectId}}'>
+          <view class='font-weight font-size-13'>{{notice.title}}</view>
+          <view class='imageNews margin-top-10'>
+            <image class='imageNewsView' mode='widthFix' src='{{notice.imageUrl}}'></image>
+          </view>
+          <view class='newsContent'>
+            <view class='contentTitle font-size-12'>{{notice.content}}</view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+
+  <!-- <view class="section">
     <view class="buttonsGroup">
       <view class='buttonsBox' bindtap='goToNews'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/news.png'></image>
@@ -106,7 +168,7 @@
         </view>
       </scroll-view>
     </view>
-  </view>
+  </view> -->
   <!-- <view class='sectionProjects' wx:if="{{productsDebit.length > 0}}">
     <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/44af60232d3ba5ad49c8.jpg'></image>
     <view>
@@ -126,7 +188,7 @@
       </scroll-view>
     </view>
   </view> -->
-  <view class='sectionProjects' wx:if="{{productsShop.length > 0}}">
+  <!-- <view class='sectionProjects' wx:if="{{productsShop.length > 0}}">
     <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1aff6670a44a67e4f6b1.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="100">
@@ -144,5 +206,5 @@
         </view>
       </scroll-view>
     </view>
-  </view>
+  </view> -->
 </view>

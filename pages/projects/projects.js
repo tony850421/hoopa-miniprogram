@@ -86,7 +86,7 @@ Page({
               data: e.currentTarget.id
             })
             wx.navigateTo({
-              url: '../project/project',
+              url: '../project/project?projectID=' + e.currentTarget.id,
             })
           }).catch(console.error);
         }
@@ -97,7 +97,7 @@ Page({
         data: e.currentTarget.id
       })
       wx.navigateTo({
-        url: '../project/project',
+        url: '../project/project?projectID=' + e.currentTarget.id,
       })
     }
   },
@@ -184,7 +184,7 @@ Page({
     this.applyFilters()
   },
   applyFilters: function () {
-
+    const user = AV.User.current()
     wx.showToast({
       title: '加载包',
       icon: 'loading',
@@ -314,9 +314,11 @@ Page({
 
       var arrivalType = []
       var provinces = ''
+      var province = ''
       for (var i = 0; i < res.length; i++) {
         var typeArr = res[i].get('typeArrivalString')
         provinces = res[i].get('provinceString')
+        province = res[i].get('province')
         arrivalType = typeArr.split('+')
         arrivalType.splice(0, 1)
         provinces = provinces.substr(1)
@@ -347,25 +349,29 @@ Page({
         }
 
         var title = res[i].get('title')
-        var tAux = title
-        if (title.length >= 15) {
-          var tAux = ''
-          for (var x = 0; x < 14; x++) {
-            tAux = tAux + title[x]
-          }
-          tAux = tAux + "..."
-        }
-        title = tAux
+        // var tAux = title
+        // if (title.length >= 15) {
+        //   var tAux = ''
+        //   for (var x = 0; x < 14; x++) {
+        //     tAux = tAux + title[x]
+        //   }
+        //   tAux = tAux + "..."
+        // }
+        // title = tAux
 
         res[i].set('provincesTags', provinces)
+        res[i].set('province', province)
         res[i].set('title', title)
         res[i].set('tags', arrivalTypeTags)
-        res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-        this.data.products = this.data.products.concat(res[i])
+        res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+
+
+        this.setWish(res, i, res[i], user)
+        // this.data.products = this.data.products.concat(res[i])
       }
-      this.setData({
-        products: this.data.products
-      })
+      // this.setData({
+      //   products: this.data.products
+      // })
     })
 
     if (this.data.list[0].name.length > 5) {
@@ -389,5 +395,82 @@ Page({
     this.setData({
       list: this.data.list
     });
+  },
+  sendToShopCar: function (e) {
+    const user = AV.User.current()
+    if (user) {
+
+      var query = new AV.Query("Project")
+      query.include('projectManager')
+      query.get(e.currentTarget.id).then(project => {
+        var shop = new AV.Object('ShopCar')
+        shop.set('user', user)
+        shop.set('checked', false);
+        shop.set('project', project)
+        shop.save().then(res => {
+          wx.showToast({
+            title: '已收藏成功',
+            icon: 'success',
+            duration: 2000
+          })
+          this.setData({
+            products: []
+          })
+          this.applyFilters()
+        }).catch(console.error);
+      }).catch(console.error);
+    }
+  },
+  setWish: function (array, index, project, user) {
+    var query = new AV.Query("ShopCar")
+    query.equalTo("project", project)
+    query.equalTo("user", user)
+    query.count().then(res => {
+      if (res > 0) {
+        array[index].set("wished", true)
+      } else {
+        array[index].set("wished", false)
+      }
+      this.data.products = this.data.products.concat(array[index])
+      this.setData({
+        products: this.data.products
+      })
+    }).catch(console.error);
+  },
+  removeWish: function (e) {
+    var that = this
+    const user = AV.User.current()
+    var query = new AV.Query("Project")
+    query.include('projectManager')
+    query.get(e.currentTarget.id).then(project => {
+      var query = new AV.Query("ShopCar")
+      query.equalTo("project", project)
+      query.equalTo("user", user)
+      query.find().then(res => {
+        for (var i=0; i<res.length; i++){
+          var product = AV.Object.createWithoutData('ShopCar', res[i].id);
+          product.destroy().then(function (prod) {
+            that.setData({
+              products: []
+            })
+            wx.showToast({
+              title: '项目正确删除',
+              icon: 'success',
+              duration: 2000
+            })
+            that.applyFilters()
+          }).catch(console.error);
+        }
+      }).catch(console.error);
+    }).catch(console.error);
+  },
+  goToOffer: function (e) {
+    wx.setStorage({
+      key: "projectID",
+      data: e.currentTarget.id
+    })   
+    wx.navigateTo({
+      url: '../offer/offer',
+    })
   }
 })

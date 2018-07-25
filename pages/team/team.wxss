@@ -1,13 +1,14 @@
 /* pages/team/team.wxss */
-.imageService {
-  height: 220rpx;
-  width: 100%;
-}
-
-.imageNumber {
+.imageTeam {
   width: 80px;
   height: 80px;
   margin-left: 10px;
+  border-radius: 5px;
+}
+
+.imageService {
+  height: 220rpx;
+  width: 100%;
   border-radius: 5px;
 }
 

@@ -1,5 +1,5 @@
 <!--pages/userInformation/userInformation.wxml-->
-<image bindtap='cancel' src="../../images/userWhite.png" class='home'></image>
+<!-- <image bindtap='cancel' src="../../images/userWhite.png" class='home'></image> -->
 <view>
   <view class="userinfo BackgorundProfile">
     <block>

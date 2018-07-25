@@ -244,23 +244,27 @@ Page({
         });
 
         // redirect to:
-        wx.getStorage({
-          key: 'redirect',
-          success: function (res) {
-            if (res.data == "../contact/contact") {
-              wx.switchTab({
-                url: res.data
-              })
-            } else if (res.data == "../user/user") {
-              wx.switchTab({
-                url: res.data
-              })
-            } else {
-              wx.navigateTo({
-                url: res.data,
-              })
-            }
-          },
+        // wx.getStorage({
+        //   key: 'redirect',
+        //   success: function (res) {
+        //     if (res.data == "../contact/contact") {
+        //       wx.switchTab({
+        //         url: res.data
+        //       })
+        //     } else if (res.data == "../user/user") {
+        //       wx.switchTab({
+        //         url: res.data
+        //       })
+        //     } else {
+        //       wx.navigateTo({
+        //         url: res.data,
+        //       })
+        //     }
+        //   },
+        // })
+
+        wx.switchTab({
+          url: '../user/user',
         })
       }, function (err) {
         wx.showModal({

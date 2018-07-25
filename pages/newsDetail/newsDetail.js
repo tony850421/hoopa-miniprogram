@@ -18,42 +18,36 @@ Page({
         })
       },
     })
+
+    var query = new AV.Query("News")
+    query.get(options.news).then(newsObject => {
+      var queryMedias = new AV.Query("NewsMedia")
+      queryMedias.equalTo('news', newsObject)
+      queryMedias.find().then(mediasObject => {
+
+        for (var i = 0; i < mediasObject.length; i++) {
+          if (mediasObject[i].get('image')) {
+            mediasObject[i].set('imageUrl', mediasObject[i].get('image').thumbnailURL(that.data.width, 200))
+          }
+        }
+
+        that.setData({
+          medias: mediasObject
+        })
+      })
+
+      newsObject.set('imageUrl', newsObject.get('image').thumbnailURL(that.data.width, 200))
+
+      that.setData({
+        news: newsObject
+      })
+    })
   },
   onReady: function () {
 
   },
   onShow: function () {
-    var that = this
-    wx.getStorage({
-      key: 'news',
-      success: function (res) {
-
-        var query = new AV.Query("News")
-        query.get(res.data).then(newsObject => {
-
-          var queryMedias = new AV.Query("NewsMedia")
-          queryMedias.equalTo('news', newsObject)
-          queryMedias.find().then(mediasObject => {
-
-            for (var i = 0; i < mediasObject.length; i++) {
-              if (mediasObject[i].get('image')) {
-                mediasObject[i].set('imageUrl', mediasObject[i].get('image').thumbnailURL(that.data.width, 200))
-              }
-            }
-
-            that.setData({
-              medias: mediasObject
-            })
-          })
-
-          newsObject.set('imageUrl', newsObject.get('image').thumbnailURL(that.data.width, 200))
-
-          that.setData({
-            news: newsObject
-          })
-        })
-      },
-    })
+    
   },
   onHide: function () {
 
