@@ -17,6 +17,7 @@ Page({
     productsDebit: [],
     productsShop: [],
     news: [],
+    slides: [],
     width: '',
     activeNews: true,
     activeData: false,
@@ -40,20 +41,10 @@ Page({
         url: '../project/project?projectID=' + e.currentTarget.id,
       })
     }
-  },
-  goToRecommended: function(e) {
-    wx.navigateTo({
-      url: '../recommended/recommended',
-    })
-  },
+  }, 
   goToServices: function() {
     wx.navigateTo({
       url: '../services/services',
-    })
-  },
-  goToProjects: function() {
-    wx.navigateTo({
-      url: '../projects/projects',
     })
   },
   goToAboutUs: function() {
@@ -114,51 +105,51 @@ Page({
   onUnload: function() {},
   onPullDownRefresh: function() {},
   onShow: function() {
-    const user = AV.User.current()
-    if (user) {
-      var query = new AV.Query('Message')
-      query.equalTo('receiver', user)
-      query.equalTo('readed', false)
-      query.count().then(count => {
-        if (count > 0) {
-          wx.setTabBarBadge({
-            index: 1,
-            text: count.toString()
-          })
-        }
-      })
+    // const user = AV.User.current()
+    // if (user) {
+    //   var query = new AV.Query('Message')
+    //   query.equalTo('receiver', user)
+    //   query.equalTo('readed', false)
+    //   query.count().then(count => {
+    //     if (count > 0) {
+    //       wx.setTabBarBadge({
+    //         index: 1,
+    //         text: count.toString()
+    //       })
+    //     }
+    //   })
 
-      var queryN = new AV.Query('OfferNotification');
-      queryN.include('project')
-      queryN.include('user')
-      queryN.equalTo('user', user)
-      queryN.equalTo('readed', false)
-      queryN.count().then(count => {
-        if (count > 0) {
-          wx.setTabBarBadge({
-            index: 2,
-            text: count.toString()
-          })
-        }
-      })
+    //   var queryN = new AV.Query('OfferNotification');
+    //   queryN.include('project')
+    //   queryN.include('user')
+    //   queryN.equalTo('user', user)
+    //   queryN.equalTo('readed', false)
+    //   queryN.count().then(count => {
+    //     if (count > 0) {
+    //       wx.setTabBarBadge({
+    //         index: 2,
+    //         text: count.toString()
+    //       })
+    //     }
+    //   })
 
-      var query = new AV.Query("Project")
-      query.include('projectManager')
-      query.get("5b0d2f6f7f6fd300639794c3").then(project => {
-        var query4 = new AV.Query("ProjectMedia")
-        query4.equalTo('project', project)
-        query4.find().then(images => {
+    //   var query = new AV.Query("Project")
+    //   query.include('projectManager')
+    //   query.get("5b0d2f6f7f6fd300639794c3").then(project => {
+    //     var query4 = new AV.Query("ProjectMedia")
+    //     query4.equalTo('project', project)
+    //     query4.find().then(images => {
 
-          for (var i = 0; i < images.length; i++) {
-            images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
-          }
+    //       for (var i = 0; i < images.length; i++) {
+    //         images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
+    //       }
 
-          this.setData({
-            imageList: images
-          })
-        })
-      })
-    }
+    //       this.setData({
+    //         imageList: images
+    //       })
+    //     })
+    //   })
+    // }
   },
   onShareAppMessage: function(res) {
     return {
@@ -172,10 +163,6 @@ Page({
       icon: 'loading',
       duration: 2000
     })
-    // this.fetchProductsHot()
-    // this.fetchProductsHouse()
-    // this.fetchProductsFactory()
-    // this.fetchProductsShop()
 
     var that = this
     wx.getSystemInfo({
@@ -184,6 +171,18 @@ Page({
           width: res.windowWidth
         })
       },
+    })
+
+    var querySlide = new AV.Query('Slide')
+    querySlide.find().then(slide => {
+        for (var i=0; i<slide.length; i++){
+          slide[i].set('imageUrl', slide[i].get('image').thumbnailURL(that.data.width, 200))
+          slide[i].set('type', slide[i].get('type'))
+        }
+
+        this.setData({
+          slides: slide
+        })
     })
 
     var queryNews = new AV.Query('News')
@@ -199,196 +198,175 @@ Page({
       })
     })
   },
-  fetchProductsHot: function() {
-    const query = new AV.Query('Project');
-    query.equalTo('isHot', true);
-    query.descending('createdAt');
-    query.find().then(res => {
+  // fetchProductsHot: function() {
+  //   const query = new AV.Query('Project');
+  //   query.equalTo('isHot', true);
+  //   query.descending('createdAt');
+  //   query.find().then(res => {
 
-      var arrivalType = []
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
+  //     var arrivalType = []
+  //     for (var i = 0; i < res.length; i++) {
+  //       var typeArr = res[i].get('typeArrivalString')
+  //       arrivalType = typeArr.split('+')
+  //       arrivalType.splice(0, 1)
 
-        if (res[i].get('title').length >= 15) {
-          var title = ''
-          for (var x = 0; x < 14; x++) {
-            title = title + res[i].get('title')[x]
-          }
-          title = title + "..."
-          res[i].set('title', title)
-        }
+  //       if (res[i].get('title').length >= 15) {
+  //         var title = ''
+  //         for (var x = 0; x < 14; x++) {
+  //           title = title + res[i].get('title')[x]
+  //         }
+  //         title = title + "..."
+  //         res[i].set('title', title)
+  //       }
 
-        var arrivalTypeTags = []
+  //       var arrivalTypeTags = []
 
-        for (var x = 0; x < arrivalType.length; x++) {
-          var flag = false;
-          for (var t = 0; t < arrivalTypeTags.length; t++) {
-            if (arrivalType[x] == arrivalTypeTags[t]) {
-              flag = true;
-            }
-          }
-          if (!flag) {
-            arrivalTypeTags.push(arrivalType[x])
-          }
-        }
+  //       for (var x = 0; x < arrivalType.length; x++) {
+  //         var flag = false;
+  //         for (var t = 0; t < arrivalTypeTags.length; t++) {
+  //           if (arrivalType[x] == arrivalTypeTags[t]) {
+  //             flag = true;
+  //           }
+  //         }
+  //         if (!flag) {
+  //           arrivalTypeTags.push(arrivalType[x])
+  //         }
+  //       }
 
-        res[i].set('tags', arrivalTypeTags)
-      }
+  //       res[i].set('tags', arrivalTypeTags)
+  //     }
 
-      this.setData({
-        productsHot: res
-      })
-    })
-  },
-  fetchProductsHouse: function() {
-    const query = new AV.Query('Project');
-    query.equalTo('isHouse', true);
-    query.descending('createdAt');
-    query.find().then(res => {
+  //     this.setData({
+  //       productsHot: res
+  //     })
+  //   })
+  // },
+  // fetchProductsHouse: function() {
+  //   const query = new AV.Query('Project');
+  //   query.equalTo('isHouse', true);
+  //   query.descending('createdAt');
+  //   query.find().then(res => {
 
-      var arrivalType = []
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        var arrivalTypeTags = []
+  //     var arrivalType = []
+  //     for (var i = 0; i < res.length; i++) {
+  //       var typeArr = res[i].get('typeArrivalString')
+  //       arrivalType = typeArr.split('+')
+  //       arrivalType.splice(0, 1)
+  //       var arrivalTypeTags = []
 
-        if (res[i].get('title').length >= 15) {
-          var title = ''
-          for (var x = 0; x < 14; x++) {
-            title = title + res[i].get('title')[x]
-          }
-          title = title + "..."
-          res[i].set('title', title)
-        }
+  //       if (res[i].get('title').length >= 15) {
+  //         var title = ''
+  //         for (var x = 0; x < 14; x++) {
+  //           title = title + res[i].get('title')[x]
+  //         }
+  //         title = title + "..."
+  //         res[i].set('title', title)
+  //       }
 
-        for (var x = 0; x < arrivalType.length; x++) {
-          var flag = false;
-          for (var t = 0; t < arrivalTypeTags.length; t++) {
-            if (arrivalType[x] == arrivalTypeTags[t]) {
-              flag = true;
-            }
-          }
-          if (!flag) {
-            arrivalTypeTags.push(arrivalType[x])
-          }
-        }
+  //       for (var x = 0; x < arrivalType.length; x++) {
+  //         var flag = false;
+  //         for (var t = 0; t < arrivalTypeTags.length; t++) {
+  //           if (arrivalType[x] == arrivalTypeTags[t]) {
+  //             flag = true;
+  //           }
+  //         }
+  //         if (!flag) {
+  //           arrivalTypeTags.push(arrivalType[x])
+  //         }
+  //       }
 
-        res[i].set('tags', arrivalTypeTags)
-      }
+  //       res[i].set('tags', arrivalTypeTags)
+  //     }
 
-      this.setData({
-        productsHouse: res
-      })
-    })
-  },
-  fetchProductsFactory: function() {
-    const query = new AV.Query('Project');
-    query.equalTo('isFactory', true);
-    query.descending('createdAt');
-    query.find().then(res => {
+  //     this.setData({
+  //       productsHouse: res
+  //     })
+  //   })
+  // },
+  // fetchProductsFactory: function() {
+  //   const query = new AV.Query('Project');
+  //   query.equalTo('isFactory', true);
+  //   query.descending('createdAt');
+  //   query.find().then(res => {
 
-      var arrivalType = []
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        var arrivalTypeTags = []
+  //     var arrivalType = []
+  //     for (var i = 0; i < res.length; i++) {
+  //       var typeArr = res[i].get('typeArrivalString')
+  //       arrivalType = typeArr.split('+')
+  //       arrivalType.splice(0, 1)
+  //       var arrivalTypeTags = []
 
-        if (res[i].get('title').length >= 15) {
-          var title = ''
-          for (var x = 0; x < 14; x++) {
-            title = title + res[i].get('title')[x]
-          }
-          title = title + "..."
-          res[i].set('title', title)
-        }
+  //       if (res[i].get('title').length >= 15) {
+  //         var title = ''
+  //         for (var x = 0; x < 14; x++) {
+  //           title = title + res[i].get('title')[x]
+  //         }
+  //         title = title + "..."
+  //         res[i].set('title', title)
+  //       }
 
-        for (var x = 0; x < arrivalType.length; x++) {
-          var flag = false;
-          for (var t = 0; t < arrivalTypeTags.length; t++) {
-            if (arrivalType[x] == arrivalTypeTags[t]) {
-              flag = true;
-            }
-          }
-          if (!flag) {
-            arrivalTypeTags.push(arrivalType[x])
-          }
-        }
+  //       for (var x = 0; x < arrivalType.length; x++) {
+  //         var flag = false;
+  //         for (var t = 0; t < arrivalTypeTags.length; t++) {
+  //           if (arrivalType[x] == arrivalTypeTags[t]) {
+  //             flag = true;
+  //           }
+  //         }
+  //         if (!flag) {
+  //           arrivalTypeTags.push(arrivalType[x])
+  //         }
+  //       }
 
-        res[i].set('tags', arrivalTypeTags)
-      }
+  //       res[i].set('tags', arrivalTypeTags)
+  //     }
 
-      this.setData({
-        productsFactory: res
-      })
-    })
-  },
-  fetchProductsShop: function() {
-    const query = new AV.Query('Project');
-    query.equalTo('isShop', true);
-    query.descending('createdAt');
-    query.find().then(res => {
+  //     this.setData({
+  //       productsFactory: res
+  //     })
+  //   })
+  // },
+  // fetchProductsShop: function() {
+  //   const query = new AV.Query('Project');
+  //   query.equalTo('isShop', true);
+  //   query.descending('createdAt');
+  //   query.find().then(res => {
 
-      var arrivalType = []
-      for (var i = 0; i < res.length; i++) {
-        var typeArr = res[i].get('typeArrivalString')
-        arrivalType = typeArr.split('+')
-        arrivalType.splice(0, 1)
-        var arrivalTypeTags = []
+  //     var arrivalType = []
+  //     for (var i = 0; i < res.length; i++) {
+  //       var typeArr = res[i].get('typeArrivalString')
+  //       arrivalType = typeArr.split('+')
+  //       arrivalType.splice(0, 1)
+  //       var arrivalTypeTags = []
 
-        if (res[i].get('title').length >= 15) {
-          var title = ''
-          for (var x = 0; x < 14; x++) {
-            title = title + res[i].get('title')[x]
-          }
-          title = title + "..."
-          res[i].set('title', title)
-        }
+  //       if (res[i].get('title').length >= 15) {
+  //         var title = ''
+  //         for (var x = 0; x < 14; x++) {
+  //           title = title + res[i].get('title')[x]
+  //         }
+  //         title = title + "..."
+  //         res[i].set('title', title)
+  //       }
 
-        for (var x = 0; x < arrivalType.length; x++) {
-          var flag = false;
-          for (var t = 0; t < arrivalTypeTags.length; t++) {
-            if (arrivalType[x] == arrivalTypeTags[t]) {
-              flag = true;
-            }
-          }
-          if (!flag) {
-            arrivalTypeTags.push(arrivalType[x])
-          }
-        }
+  //       for (var x = 0; x < arrivalType.length; x++) {
+  //         var flag = false;
+  //         for (var t = 0; t < arrivalTypeTags.length; t++) {
+  //           if (arrivalType[x] == arrivalTypeTags[t]) {
+  //             flag = true;
+  //           }
+  //         }
+  //         if (!flag) {
+  //           arrivalTypeTags.push(arrivalType[x])
+  //         }
+  //       }
 
-        res[i].set('tags', arrivalTypeTags)
-      }
+  //       res[i].set('tags', arrivalTypeTags)
+  //     }
 
-      this.setData({
-        productsShop: res
-      })
-    })
-  },
-  changeTab1: function() {
-    this.setData({
-      activeNews: true,
-      activeData: false,
-      activeAbout: false
-    })
-  },
-  changeTab2: function() {
-    this.setData({
-      activeNews: false,
-      activeData: true,
-      activeAbout: false
-    })
-  },
-  changeTab3: function() {
-    this.setData({
-      activeNews: false,
-      activeData: false,
-      activeAbout: true
-    })
-  },
+  //     this.setData({
+  //       productsShop: res
+  //     })
+  //   })
+  // },  
   goToNews: function(e) {
     wx.navigateTo({
       url: '../newsDetail/newsDetail?news=' + e.currentTarget.id,
@@ -403,5 +381,8 @@ Page({
     wx.navigateTo({
       url: '../team/team',
     })
+  },
+  goToFilterProject: function(e){
+    console.log(e.currentTarget.dataset.type)
   }
 });

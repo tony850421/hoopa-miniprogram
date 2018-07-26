@@ -2,8 +2,8 @@
 <view>
   <!-- <video class="videoHome" poster='http://lc-qpv1wnqe.cn-n1.lcfile.com/ceb39cd9208897993f9e.jpg' controls='true' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7ded4d8f482e88bcf676.mp4'></video> -->
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imageList}}" wx:for-item="image">
-      <swiper-item>
+    <block wx:for="{{slides}}" wx:for-item="image">
+      <swiper-item bindtap="goToFilterProject" data-type="{{image.type}}">
         <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
       </swiper-item>
     </block>
