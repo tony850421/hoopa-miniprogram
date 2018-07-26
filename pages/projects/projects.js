@@ -11,6 +11,7 @@ Page({
     height: '',
     products: [],
     offers: [],
+    permitScroll: false,
     inputShowed: false,
     inputVal: "",
     list: [
@@ -40,8 +41,6 @@ Page({
     searchLoadingComplete: false  //“没有数据”的变量，默认false，隐藏  
   },
   onLoad: function (options) {
-    this.applyFilters()
-
     wx.getSystemInfo({
       success: res => {
         this.setData({
@@ -58,7 +57,341 @@ Page({
   onPullDownRefresh: function () {
   },
   onShow: function () {
+    var that = this
+    wx.getStorage({
+      key: 'type',
+      success: function (res) {
+        const query = new AV.Query('Project');
+        if (res.data == '推荐') {
+          query.equalTo('isRecommended', true)
+          query.include('creator');
+          query.include('image');
+          query.descending('createdAt');
+          query.find().then(res => {
+            
+            that.setData({
+              products: []
+            })
+            var arrivalType = []
+            var provinces = ''
+            for (var i = 0; i < res.length; i++) {
+              var typeArr = res[i].get('typeArrivalString')
+              arrivalType = typeArr.split('+')
+              arrivalType.splice(0, 1)
+              provinces = res[i].get('provinceString')
+              provinces = provinces.substr(1)
 
+              var pAux = provinces
+              if (provinces.length > 12) {
+                var pAux = ''
+                for (var t = 0; t < 12; t++) {
+                  pAux = pAux + provinces[t]
+                }
+                pAux = pAux + "..."
+              }
+              provinces = pAux
+
+              var arrivalTypeTags = []
+
+              for (var x = 0; x < arrivalType.length; x++) {
+                var flag = false;
+                for (var t = 0; t < arrivalTypeTags.length; t++) {
+                  if (arrivalType[x] == arrivalTypeTags[t]) {
+                    flag = true;
+                  }
+                }
+                if (!flag) {
+                  arrivalTypeTags.push(arrivalType[x])
+                }
+              }
+
+              var title = res[i].get('title')
+              var tAux = title
+              if (title.length >= 15) {
+                var tAux = ''
+                for (var x = 0; x < 14; x++) {
+                  tAux = tAux + title[x]
+                }
+                tAux = tAux + "..."
+              }
+              title = tAux
+
+              res[i].set('title', title)
+              res[i].set('provincesTags', provinces)
+              res[i].set('province', res[i].get('province'))
+              res[i].set('tags', arrivalTypeTags)
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+            }
+
+            that.setData({
+              products: res
+            })
+          })
+        } else if (res.data == '热门资产') {
+          query.equalTo('isHot', true);
+          query.descending('createdAt');
+          query.find().then(res => {
+            
+            that.setData({
+              products: []
+            })
+            var arrivalType = []
+            var provinces = ''
+            for (var i = 0; i < res.length; i++) {
+              var typeArr = res[i].get('typeArrivalString')
+              arrivalType = typeArr.split('+')
+              arrivalType.splice(0, 1)
+              provinces = res[i].get('provinceString')
+              provinces = provinces.substr(1)
+
+              var pAux = provinces
+              if (provinces.length > 12) {
+                var pAux = ''
+                for (var t = 0; t < 12; t++) {
+                  pAux = pAux + provinces[t]
+                }
+                pAux = pAux + "..."
+              }
+              provinces = pAux
+
+              var arrivalTypeTags = []
+
+              for (var x = 0; x < arrivalType.length; x++) {
+                var flag = false;
+                for (var t = 0; t < arrivalTypeTags.length; t++) {
+                  if (arrivalType[x] == arrivalTypeTags[t]) {
+                    flag = true;
+                  }
+                }
+                if (!flag) {
+                  arrivalTypeTags.push(arrivalType[x])
+                }
+              }
+
+              var title = res[i].get('title')
+              var tAux = title
+              if (title.length >= 15) {
+                var tAux = ''
+                for (var x = 0; x < 14; x++) {
+                  tAux = tAux + title[x]
+                }
+                tAux = tAux + "..."
+              }
+              title = tAux
+
+              res[i].set('title', title)
+              res[i].set('provincesTags', provinces)
+              res[i].set('province', res[i].get('province'))
+              res[i].set('tags', arrivalTypeTags)
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+            }
+
+            that.setData({
+              products: res
+            })
+          })
+        } else if (res.data == '高性价比住宅') {
+          query.equalTo('isHouse', true);
+          query.descending('createdAt');
+          query.find().then(res => {
+            
+            that.setData({
+              products: []
+            })
+            var arrivalType = []
+            var provinces = ''
+            for (var i = 0; i < res.length; i++) {
+              var typeArr = res[i].get('typeArrivalString')
+              arrivalType = typeArr.split('+')
+              arrivalType.splice(0, 1)
+              provinces = res[i].get('provinceString')
+              provinces = provinces.substr(1)
+
+              var pAux = provinces
+              if (provinces.length > 12) {
+                var pAux = ''
+                for (var t = 0; t < 12; t++) {
+                  pAux = pAux + provinces[t]
+                }
+                pAux = pAux + "..."
+              }
+              provinces = pAux
+
+              var arrivalTypeTags = []
+
+              for (var x = 0; x < arrivalType.length; x++) {
+                var flag = false;
+                for (var t = 0; t < arrivalTypeTags.length; t++) {
+                  if (arrivalType[x] == arrivalTypeTags[t]) {
+                    flag = true;
+                  }
+                }
+                if (!flag) {
+                  arrivalTypeTags.push(arrivalType[x])
+                }
+              }
+
+              var title = res[i].get('title')
+              var tAux = title
+              if (title.length >= 15) {
+                var tAux = ''
+                for (var x = 0; x < 14; x++) {
+                  tAux = tAux + title[x]
+                }
+                tAux = tAux + "..."
+              }
+              title = tAux
+
+              res[i].set('title', title)
+              res[i].set('provincesTags', provinces)
+              res[i].set('province', res[i].get('province'))
+              res[i].set('tags', arrivalTypeTags)
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+            }
+
+            that.setData({
+              products: res
+            })
+          })
+        } else if (res.data == '江浙沪地区优质厂房') {
+          query.equalTo('isFactory', true);
+          query.descending('createdAt');
+          query.find().then(res => {
+            
+            that.setData({
+              products: []
+            })
+            var arrivalType = []
+            var provinces = ''
+            for (var i = 0; i < res.length; i++) {
+              var typeArr = res[i].get('typeArrivalString')
+              arrivalType = typeArr.split('+')
+              arrivalType.splice(0, 1)
+              provinces = res[i].get('provinceString')
+              provinces = provinces.substr(1)
+
+              var pAux = provinces
+              if (provinces.length > 12) {
+                var pAux = ''
+                for (var t = 0; t < 12; t++) {
+                  pAux = pAux + provinces[t]
+                }
+                pAux = pAux + "..."
+              }
+              provinces = pAux
+
+              var arrivalTypeTags = []
+
+              for (var x = 0; x < arrivalType.length; x++) {
+                var flag = false;
+                for (var t = 0; t < arrivalTypeTags.length; t++) {
+                  if (arrivalType[x] == arrivalTypeTags[t]) {
+                    flag = true;
+                  }
+                }
+                if (!flag) {
+                  arrivalTypeTags.push(arrivalType[x])
+                }
+              }
+
+              var title = res[i].get('title')
+              var tAux = title
+              if (title.length >= 15) {
+                var tAux = ''
+                for (var x = 0; x < 14; x++) {
+                  tAux = tAux + title[x]
+                }
+                tAux = tAux + "..."
+              }
+              title = tAux
+
+              res[i].set('title', title)
+              res[i].set('provincesTags', provinces)
+              res[i].set('province', res[i].get('province'))
+              res[i].set('tags', arrivalTypeTags)
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+            }
+
+            that.setData({
+              products: res
+            })
+          })
+        } else if (res.data == '热推商铺土地全包资产') {
+          const query = new AV.Query('Project');
+          query.equalTo('isShop', true);
+          query.descending('createdAt');
+          query.find().then(res => {
+            
+            that.setData({
+              products: []
+            })
+            var arrivalType = []
+            var provinces = ''
+            for (var i = 0; i < res.length; i++) {
+              var typeArr = res[i].get('typeArrivalString')
+              arrivalType = typeArr.split('+')
+              arrivalType.splice(0, 1)
+              provinces = res[i].get('provinceString')
+              provinces = provinces.substr(1)
+
+              var pAux = provinces
+              if (provinces.length > 12) {
+                var pAux = ''
+                for (var t = 0; t < 12; t++) {
+                  pAux = pAux + provinces[t]
+                }
+                pAux = pAux + "..."
+              }
+              provinces = pAux
+
+              var arrivalTypeTags = []
+
+              for (var x = 0; x < arrivalType.length; x++) {
+                var flag = false;
+                for (var t = 0; t < arrivalTypeTags.length; t++) {
+                  if (arrivalType[x] == arrivalTypeTags[t]) {
+                    flag = true;
+                  }
+                }
+                if (!flag) {
+                  arrivalTypeTags.push(arrivalType[x])
+                }
+              }
+
+              var title = res[i].get('title')
+              var tAux = title
+              if (title.length >= 15) {
+                var tAux = ''
+                for (var x = 0; x < 14; x++) {
+                  tAux = tAux + title[x]
+                }
+                tAux = tAux + "..."
+              }
+              title = tAux
+
+              res[i].set('title', title)
+              res[i].set('provincesTags', provinces)
+              res[i].set('province', res[i].get('province'))
+              res[i].set('tags', arrivalTypeTags)
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+            }
+
+            that.setData({
+              products: res
+            })
+          })
+        }
+        that.setData({
+          permitScroll: false
+        })
+      },
+      fail: function () {
+        that.setData({
+          permitScroll: true
+        })
+        that.applyFilters()
+      }
+    })
   },
   onHide: function () {
 
@@ -181,9 +514,16 @@ Page({
     })
   },
   bindscrolltolower: function (e) {
-    this.applyFilters()
+    if (this.data.permitScroll) {
+      this.applyFilters()
+    }
   },
   applyFilters: function () {
+    wx.removeStorage({
+      key: 'type',
+      success: function (res) { },
+    })
+
     const user = AV.User.current()
     wx.showToast({
       title: '加载包',
@@ -311,6 +651,7 @@ Page({
     queryAndSearchBar.skip(this.data.products.length);
     queryAndSearchBar.descending('createdAt')
     queryAndSearchBar.find().then(res => {
+      
 
       var arrivalType = []
       var provinces = ''
@@ -399,7 +740,6 @@ Page({
   sendToShopCar: function (e) {
     const user = AV.User.current()
     if (user) {
-
       var query = new AV.Query("Project")
       query.include('projectManager')
       query.get(e.currentTarget.id).then(project => {
@@ -408,15 +748,15 @@ Page({
         shop.set('checked', false);
         shop.set('project', project)
         shop.save().then(res => {
-          wx.showToast({
-            title: '已收藏成功',
-            icon: 'success',
-            duration: 2000
-          })
+          for (var i = 0; i < this.data.products.length; i++){
+            if (this.data.products[i].id == e.currentTarget.id){
+              this.data.products[i].set('wished', true);
+              break;
+            }
+          }
           this.setData({
-            products: []
+            products: this.data.products
           })
-          this.applyFilters()
         }).catch(console.error);
       }).catch(console.error);
     }
@@ -447,18 +787,18 @@ Page({
       query.equalTo("project", project)
       query.equalTo("user", user)
       query.find().then(res => {
-        for (var i=0; i<res.length; i++){
+        for (var i = 0; i < res.length; i++) {
           var product = AV.Object.createWithoutData('ShopCar', res[i].id);
           product.destroy().then(function (prod) {
+            for (var i = 0; i < that.data.products.length; i++) {
+              if (that.data.products[i].id == e.currentTarget.id) {
+                that.data.products[i].set('wished', false);
+                break;
+              }
+            }
             that.setData({
-              products: []
+              products: that.data.products
             })
-            wx.showToast({
-              title: '项目正确删除',
-              icon: 'success',
-              duration: 2000
-            })
-            that.applyFilters()
           }).catch(console.error);
         }
       }).catch(console.error);
@@ -468,7 +808,7 @@ Page({
     wx.setStorage({
       key: "projectID",
       data: e.currentTarget.id
-    })   
+    })
     wx.navigateTo({
       url: '../offer/offer',
     })

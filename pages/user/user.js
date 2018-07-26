@@ -93,6 +93,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    wx.removeStorage({
+      key: 'type',
+      success: function (res) { },
+    })
+    
     var user = AV.User.current()
     if (user) {
       var query = new AV.Query('Offert');

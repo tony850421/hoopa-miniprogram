@@ -42,17 +42,17 @@ Page({
   //     })
   //   }
   // }, 
-  goToServices: function() {
+  goToServices: function () {
     wx.navigateTo({
       url: '../services/services',
     })
   },
-  goToAboutUs: function() {
+  goToAboutUs: function () {
     wx.navigateTo({
       url: '../aboutUs/aboutUs',
     })
   },
-  onReady: function() {
+  onReady: function () {
     var user = AV.User.current();
     if (user) {
       var roleQuery = new AV.Query(AV.Role);
@@ -85,26 +85,30 @@ Page({
         } else {
           var roleQueryGuest = new AV.Query(AV.Role);
           roleQueryGuest.equalTo('name', 'guest');
-          roleQueryGuest.find().then(function(results) {
+          roleQueryGuest.find().then(function (results) {
             var role = results[0];
             var relation = role.getUsers();
             relation.add(user);
             return role.save();
-          }).then(function(role) {}).catch(function(error) {
+          }).then(function (role) { }).catch(function (error) {
             console.log(error);
           });
         }
-      }).then(function(administratorRole) {
+      }).then(function (administratorRole) {
 
-      }).catch(function(error) {
+      }).catch(function (error) {
         console.log(error);
       });
     }
 
   },
-  onUnload: function() {},
-  onPullDownRefresh: function() {},
-  onShow: function() {
+  onUnload: function () { },
+  onPullDownRefresh: function () { },
+  onShow: function () {
+    wx.removeStorage({
+      key: 'type',
+      success: function (res) { },
+    })
     // const user = AV.User.current()
     // if (user) {
     //   var query = new AV.Query('Message')
@@ -151,13 +155,13 @@ Page({
     //   })
     // }
   },
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: '自定义转发标题',
       path: 'pages/index/index'
     }
   },
-  onLoad: function() {
+  onLoad: function () {
     wx.showToast({
       title: '加载包',
       icon: 'loading',
@@ -175,14 +179,14 @@ Page({
 
     var querySlide = new AV.Query('Slide')
     querySlide.find().then(slide => {
-        for (var i=0; i<slide.length; i++){
-          slide[i].set('imageUrl', slide[i].get('image').thumbnailURL(that.data.width, 200))
-          slide[i].set('type', slide[i].get('type'))
-        }
+      for (var i = 0; i < slide.length; i++) {
+        slide[i].set('imageUrl', slide[i].get('image').thumbnailURL(that.data.width, 200))
+        slide[i].set('type', slide[i].get('type'))
+      }
 
-        this.setData({
-          slides: slide
-        })
+      this.setData({
+        slides: slide
+      })
     })
 
     var queryNews = new AV.Query('News')
@@ -367,22 +371,28 @@ Page({
   //     })
   //   })
   // },  
-  goToNews: function(e) {
+  goToNews: function (e) {
     wx.navigateTo({
       url: '../newsDetail/newsDetail?news=' + e.currentTarget.id,
     })
   },
-  goToBranches: function(e) {
+  goToBranches: function (e) {
     wx.navigateTo({
       url: '../branches/branches',
     })
   },
-  goToTeam: function(e) {
+  goToTeam: function (e) {
     wx.navigateTo({
       url: '../team/team',
     })
   },
-  goToFilterProject: function(e){
-    console.log(e.currentTarget.dataset.type)
+  goToFilterProject: function (e) {
+    wx.setStorage({
+      key: 'type',
+      data: e.currentTarget.dataset.type,
+    })
+    wx.switchTab({
+      url: '../projects/projects',
+    })
   }
 });
