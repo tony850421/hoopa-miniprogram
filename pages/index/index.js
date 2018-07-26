@@ -23,25 +23,25 @@ Page({
     activeData: false,
     activeAbout: false
   },
-  goToProject: function(e) {
-    var user = AV.User.current()
-    if (!user) {
-      wx.login({
-        success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          AV.User.loginWithWeapp().then(user => {
-            wx.navigateTo({
-              url: '../project/project?projectID=' + e.currentTarget.id,
-            })            
-          }).catch(console.error);
-        }
-      })
-    } else {
-      wx.navigateTo({
-        url: '../project/project?projectID=' + e.currentTarget.id,
-      })
-    }
-  }, 
+  // goToProject: function(e) {
+  //   var user = AV.User.current()
+  //   if (!user) {
+  //     wx.login({
+  //       success: res => {
+  //         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+  //         AV.User.loginWithWeapp().then(user => {
+  //           wx.navigateTo({
+  //             url: '../project/project?projectID=' + e.currentTarget.id,
+  //           })            
+  //         }).catch(console.error);
+  //       }
+  //     })
+  //   } else {
+  //     wx.navigateTo({
+  //       url: '../project/project?projectID=' + e.currentTarget.id,
+  //     })
+  //   }
+  // }, 
   goToServices: function() {
     wx.navigateTo({
       url: '../services/services',
