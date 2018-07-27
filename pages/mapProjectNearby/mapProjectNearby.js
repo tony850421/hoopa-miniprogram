@@ -3,19 +3,12 @@
 const AV = require('../../utils/av-weapp-min');
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     height: '',
-    assets: []   
+    assets: [],
+    projectId: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.getSystemInfo({
       success: res => {
         this.setData({
@@ -23,145 +16,116 @@ Page({
         })
       },
     })
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var that = this
-    wx.getStorage({
-      key: 'projectID',
-      success: function (res) {
-        var project = AV.Object.createWithoutData('Project', res.data)
-        var query = new AV.Query('Asset')
-        query.equalTo('project', project)
-        query.find().then(asset => {
-          var arrayAssets = []
-          var cont = 0
-          var ids = []
-          for (var i = 0; i < asset.length; i++) {
-            ids.push(asset[i].id)
-
-            var point1 = new AV.GeoPoint(asset[i].attributes.location.latitude - 1.5, asset[i].attributes.location.longitude - 1.5);
-            var point2 = new AV.GeoPoint(asset[i].attributes.location.latitude + 1.5, asset[i].attributes.location.longitude + 1.5);
-
-            var queryAsset = new AV.Query('Asset');
-            queryAsset.include('location');
-            queryAsset.withinGeoBox('location', point1, point2);
-            queryAsset.find().then(nearby => {
-
-              for (var x = 0; x < nearby.length; x++) {
-                var found = false
-                for (var t = 0; t < arrayAssets.length; t++) {
-                  if (arrayAssets[t].id == nearby[x].id) {
-                    found = true;
-                  }
-                }
-                if (!found) {
-                  var flag = false
-                  for (var j = 0; j < ids.length; j++) {
-                    if (ids[j] == nearby[x].id) {
-                      flag = true;
-                    }
-                  }
-                  var assetAux = {}
-
-                  if (flag) {
-                    assetAux = {
-                      name: nearby[x].attributes.typeArrival,
-                      direction: nearby[x].attributes.plainAddress,
-                      latitude: nearby[x].attributes.location.latitude,
-                      longitude: nearby[x].attributes.location.longitude,
-                      iconPath: "../../images/projectBlue.png",
-                      width: 42,
-                      height: 50
-                    }
-                  } else {
-                    assetAux = {
-                      name: nearby[x].attributes.typeArrival,
-                      direction: nearby[x].attributes.plainAddress,
-                      latitude: nearby[x].attributes.location.latitude,
-                      longitude: nearby[x].attributes.location.longitude,
-                      iconPath: "../../images/project.png",
-                      width: 42,
-                      height: 50
-                    }
-                  }
-
-                  arrayAssets.push(nearby[x])
-
-                  that.data.assets.push(assetAux)
-                  that.setData({
-                    assets: that.data.assets
-                  })
-                }
-              }
-            }).catch(function (error) {
-              alert(JSON.stringify(error));
-            });
-          }
-        })
-      },
+    this.setData({
+      projectId: options.projectID
     })
 
+    var project = AV.Object.createWithoutData('Project', options.projectID)
+    var query = new AV.Query('Asset')
+    query.equalTo('project', project)
+    query.find().then(asset => {
+      var arrayAssets = []
+      var cont = 0
+      var ids = []
+
+      for (var i = 0; i < asset.length; i++) {
+        ids.push(asset[i].id)
+        var point1 = new AV.GeoPoint(asset[i].get('location').latitude - 1.5, asset[i].get('location').longitude - 1.5);
+        var point2 = new AV.GeoPoint(asset[i].get('location').latitude + 1.5, asset[i].get('location').longitude + 1.5);
+
+        var queryAsset = new AV.Query('Asset');
+        queryAsset.include('location');
+        queryAsset.withinGeoBox('location', point1, point2);
+        queryAsset.find().then(nearby => {
+
+          for (var x = 0; x < nearby.length; x++) {
+            var found = false
+            for (var t = 0; t < arrayAssets.length; t++) {
+              if (arrayAssets[t].id == nearby[x].id) {
+                found = true;
+              }
+            }
+            if (!found) {
+              var flag = false
+              for (var j = 0; j < ids.length; j++) {
+                if (ids[j] == nearby[x].id) {
+                  flag = true;
+                }
+              }
+              var assetAux = {}
+
+              if (flag) {
+                assetAux = {
+                  id: nearby[x].id,
+                  projectId: nearby[x].get('project').id,
+                  name: nearby[x].get('typeArrival'),
+                  direction: nearby[x].get('plainAddress'),
+                  latitude: nearby[x].get('location').latitude,
+                  longitude: nearby[x].get('location').longitude,
+                  iconPath: "../../images/projectBlue.png",
+                  width: 42,
+                  height: 50
+                }
+              } else {
+                assetAux = {
+                  id: nearby[x].id,
+                  projectId: nearby[x].get('project').id,
+                  name: nearby[x].get('typeArrival'),
+                  direction: nearby[x].get('plainAddress'),
+                  latitude: nearby[x].get('location').latitude,
+                  longitude: nearby[x].get('location').longitude,
+                  iconPath: "../../images/project.png",
+                  width: 42,
+                  height: 50
+                }
+              }
+
+              arrayAssets.push(nearby[x])
+
+              this.data.assets.push(assetAux)
+              this.setData({
+                assets: this.data.assets
+              })
+            }
+          }
+        }).catch(function(error) {
+          alert(JSON.stringify(error));
+        });
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  onReady: function() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  onShow: function() {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  onHide: function() {
 
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+  onUnload: function() {
 
   },
+  onPullDownRefresh: function() {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function (res) {
+  },
+  onReachBottom: function() {
+
+  },
+  onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
-      path: '/index/index'
+      path: 'pages/index/index'
     }
   },
-  markertap: function (e) {
-    for (var i = 0; i < this.data.partners.length; i++) {
-      if (this.data.partners[i].id == e.markerId) {
-        wx.setStorage({
-          key: "projectID",
-          data: this.data.partners[i].projectId
-        })
+  markertap(e) {    
+    for (var i = 0; i < this.data.assets.length; i++) {
+      if (this.data.assets[i].id == e.markerId) {
         wx.navigateTo({
-          url: '../project/project',
+          url: '../project/project?projectID=' + this.data.assets[i].projectId,
         })
       }
     }
-  }
+  },
 })

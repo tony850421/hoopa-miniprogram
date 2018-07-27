@@ -70,7 +70,7 @@ Page({
       var query = new AV.Query("Project")
       query.include('projectManager')
       query.get(options.projectID).then(project => {
-
+        
         this.setData({
           product: project,
           projectManager: project.get('projectManager')
@@ -216,7 +216,7 @@ Page({
   },
   goToNearby: function() {
     wx.navigateTo({
-      url: '../mapProjectNearby/mapProjectNearby'
+      url: '../mapProjectNearby/mapProjectNearby?projectID=' + this.data.product.id
     })
   },
   callPhoneNumber: function(e) {
@@ -246,8 +246,7 @@ Page({
     } else {
       return {
         title: '自定义转发标题',
-        // path: 'pages/project/project?projectID=' + this.data.product.id
-        path: 'pages/index/index'
+        path: 'pages/project/project?projectID=' + this.data.product.id
       }
     }
   }
