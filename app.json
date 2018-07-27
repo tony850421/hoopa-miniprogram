@@ -28,7 +28,7 @@
     "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#030303",
-    "navigationBarTitleText": "Hoopa",
+    "navigationBarTitleText": "胡巴资产",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -47,7 +47,7 @@
         "pagePath": "pages/projects/projects",
         "iconPath": "images/projects.png",
         "selectedIconPath": "images/projectsSelected.png",
-        "text": "联系我们"
+        "text": "资产列表"
       },
       {
         "pagePath": "pages/user/user",
