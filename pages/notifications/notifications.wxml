@@ -1,5 +1,5 @@
 <!--pages/notifications/notifications.wxml-->
-<view class="contactOrder" wx:if="{{notifications.length > 0}}">
+<view class="contactOrder" wx:if="{{rol == 'official'}}">
   <view style='height: {{height}}px'>
     <view class='textN' wx:if="{{notifications.length == 0}}">
       <view class='textNotifications' style='height: {{height-45}}px'>
@@ -23,7 +23,7 @@
     </scroll-view>
   </view>
 </view>
-<view class='textN' wx:if="{{notifications.length == 0}}">
+<view class='textN' wx:if="{{rol != 'official'}}">
   <view class='textNotifications' style='height: {{height}}px'>
     <text>您目前没有信息</text>
   </view>

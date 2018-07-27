@@ -414,10 +414,6 @@ Page({
       wx.login({
         success: res => {
           AV.User.loginWithWeapp().then(user => {
-            wx.setStorage({
-              key: "projectID",
-              data: e.currentTarget.id
-            })
             wx.navigateTo({
               url: '../project/project?projectID=' + e.currentTarget.id,
             })
@@ -425,10 +421,6 @@ Page({
         }
       })
     } else {
-      wx.setStorage({
-        key: "projectID",
-        data: e.currentTarget.id
-      })
       wx.navigateTo({
         url: '../project/project?projectID=' + e.currentTarget.id,
       })

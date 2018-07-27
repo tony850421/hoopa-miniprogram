@@ -1,5 +1,5 @@
 <!-- pages/contact/contact.wxml -->
-<view class="contactOrder">
+<view class="contactOrder" wx:if="{{rol == 'official'}}">
   <view style='height: {{height}}px'>
     <view class='textN' wx:if="{{messages.length == 0}}">
       <view class='textNotifications' style='height: {{height}}px'>
@@ -42,5 +42,10 @@
     <view class='buttonSendGroup'>
       <image bindtap='sendText' class='send' src='../../images/send.png'></image>
     </view>
+  </view>
+</view>
+<view class='textN' wx:if="{{rol != 'official'}}">
+  <view class='textNotifications' style='height: {{height}}px'>
+    <text>您目前没有信息</text>
   </view>
 </view>

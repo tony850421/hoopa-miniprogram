@@ -10,7 +10,8 @@ Page({
     height: '',
     width: '',
     notifications: [],
-    user: {}
+    user: {},
+    rol: ''
   },
 
   /**
@@ -53,26 +54,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that = this
     wx.getStorage({
       key: 'role',
       success: function(res) {
-        if (res.data != "official") {
-          wx.setStorage({
-            key: 'redirect',
-            data: '../user/user',
-            success: function(res) {},
-            fail: function(res) {},
-            complete: function(res) {},
-          })
-          wx.navigateTo({
-            url: '../register/register',
-          })
-        }
+        that.setData({
+          rol: res.data
+        })
       }
     })
 
     var user = AV.User.current()
-    if (user) {
+    if (user && this.data.rol == 'official') {
       var query = new AV.Query('OfferNotification');
       query.include('project')
       query.include('user')
@@ -133,7 +126,7 @@ Page({
   onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
-      path: '/index/index'
+      path: 'pages/index/index'
     }
   }
 })

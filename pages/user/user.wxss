@@ -297,3 +297,18 @@
   padding-right: 10px;
   padding-bottom: 10px;
 }
+
+.tags {
+  color: #ff6801;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 0;
+  border: 1px #ff6801 solid;
+  font-size: 9px;
+}
+
+.recommendedProjectBox, .likesBox{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}

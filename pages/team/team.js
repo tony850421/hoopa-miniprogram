@@ -63,7 +63,7 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '自定义转发标题',
-      path: '/index/index'
+      path: 'pages/index/index'
     }
   }
 })

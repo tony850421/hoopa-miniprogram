@@ -37,7 +37,7 @@
     </view>
   </view>
 </view>
-<view class='offersBox' wx:if="{{offers}}">
+<view class='offersBox'>
   <view class='projectsGroup' wx:for="{{offers}}" wx:for-item="offer" data-id='{{offer.project.objectId}}' bindtap='goToProject'>
     <view class='projectTitleGroup'>
       <image class='imageIconUserNotification' src='../../images/projectsSelected.png'></image>
@@ -50,22 +50,19 @@
     </view>
   </view>
 </view>
-<view class='likesBox' wx:if="{{!offers}}">
-  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}">
+<view class='likesBox' wx:if="{{offers.length == 0}}">
+  <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}" id="{{product.objectId}}" bindtap='goToProject'>
     <view class='flex-item'>
-      <radio class='radioProduct' bindtap='checked' checked='{{product.checked}}' data-id='{{product.objectId}}' />
-    </view>
-    <view bindtap='goToProject' data-id='{{product.project.objectId}}'>
       <image class='imageProductCar' src='{{product.mainImage}}'></image>
     </view>
-    <view class='flex-item widthText' bindtap='goToProject' data-id='{{product.project.objectId}}'>
+    <view class='flex-item widthText'>
       <view class='productInformation'>
         <text class='font-size-13'>{{product.title}}</text>
         <view class='displayFlexRow font-size-13'>
-          <text>债权本金：</text>
+          <text>价格：</text>
           <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
         </view>
-        <view class='displayFlexRow font-size-13'>
+        <view class='displayFlexRow font-size-13' wx:if="{{product.provincesTags.length > 0}}">
           <text>省份：</text>
           <text>{{product.provincesTags}}</text>
         </view>
@@ -75,25 +72,25 @@
       </view>
     </view>
   </view>
-  <view class='recommendedProjectBox' wx:if="{{!offers}} && {{!products}}">
-    <view class='product' wx:for="{{recommended}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='goToProject'>
-      <view class='flex-item'>
-        <image class='imageProductCar' src='{{product.mainImage}}'></image>
-      </view>
-      <view class='flex-item widthText'>
-        <view class='productInformation'>
-          <text class='font-size-13'>{{product.title}}</text>
-          <view class='displayFlexRow font-size-13'>
-            <text>价格：</text>
-            <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
-          </view>
-          <view class='displayFlexRow font-size-13' wx:if="{{product.provincesTags.length > 0}}">
-            <text>省份：</text>
-            <text>{{product.provincesTags}}</text>
-          </view>
-          <view class='displayFlexRow font-size-13'>
-            <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-          </view>
+</view>
+<view class='recommendedProjectBox' wx:if="{{products.length == 0 && offers.length == 0}}">
+  <view class='product' wx:for="{{recommended}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='goToProject'>
+    <view class='flex-item'>
+      <image class='imageProductCar' src='{{product.mainImage}}'></image>
+    </view>
+    <view class='flex-item widthText'>
+      <view class='productInformation'>
+        <text class='font-size-13'>{{product.title}}</text>
+        <view class='displayFlexRow font-size-13'>
+          <text>价格：</text>
+          <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+        </view>
+        <view class='displayFlexRow font-size-13' wx:if="{{product.provincesTags.length > 0}}">
+          <text>省份：</text>
+          <text>{{product.provincesTags}}</text>
+        </view>
+        <view class='displayFlexRow font-size-13'>
+          <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
         </view>
       </view>
     </view>

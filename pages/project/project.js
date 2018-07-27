@@ -139,10 +139,10 @@ Page({
       }).catch(console.error)
     }
   },
-  goToOffer: function() {
+  goToOffer: function(e) {
     if (this.data.officialFlag) {
       wx.navigateTo({
-        url: '../offer/offer',
+        url: '../offer/offer?projectID='+ e.currentTarget.id,
       })
     } else {
       wx.setStorage({
@@ -241,12 +241,13 @@ Page({
     if (res.from == 'menu') {
       return {
         title: '自定义转发标题',
-        path: '/index/index'
+        path: 'pages/index/index'
       }
     } else {
       return {
         title: '自定义转发标题',
-        path: '/project/project?projectID=' + this.data.product.id
+        // path: 'pages/project/project?projectID=' + this.data.product.id
+        path: 'pages/index/index'
       }
     }
   }

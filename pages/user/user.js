@@ -42,6 +42,71 @@ Page({
         })
       },
     })
+
+    var user = AV.User.current()
+    if (user) {
+      const query = new AV.Query('Project');
+      query.equalTo('isRecommended', true)
+      query.include('creator');
+      query.include('image');
+      query.descending('createdAt');
+      query.find().then(res => {
+
+        var arrivalType = []
+        var provinces = ''
+        for (var i = 0; i < res.length; i++) {
+          var typeArr = res[i].get('typeArrivalString')
+          provinces = res[i].get('provinceString')
+          arrivalType = typeArr.split('+')
+          arrivalType.splice(0, 1)
+          provinces = provinces.substr(1)
+
+          var pAux = provinces
+          if (provinces.length > 12) {
+            var pAux = ''
+            for (var t = 0; t < 12; t++) {
+              pAux = pAux + provinces[t]
+            }
+            pAux = pAux + "..."
+          }
+          provinces = pAux
+
+          var arrivalTypeTags = []
+
+          for (var x = 0; x < arrivalType.length; x++) {
+            var flag = false;
+            for (var t = 0; t < arrivalTypeTags.length; t++) {
+              if (arrivalType[x] == arrivalTypeTags[t]) {
+                flag = true;
+              }
+            }
+            if (!flag) {
+              arrivalTypeTags.push(arrivalType[x])
+            }
+          }
+
+          var title = res[i].get('title')
+          var tAux = title
+          if (title.length >= 15) {
+            var tAux = ''
+            for (var x = 0; x < 14; x++) {
+              tAux = tAux + title[x]
+            }
+            tAux = tAux + "..."
+          }
+          title = tAux
+
+          res[i].set('title', title)
+          res[i].set('provincesTags', provinces)
+          res[i].set('tags', arrivalTypeTags)
+          res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
+        }
+
+        this.setData({
+          recommended: res
+        })
+      })
+    }
   },
 
   /**
@@ -68,7 +133,6 @@ Page({
       })
     }
   },
-
   verifyRole: function() {
     var user = AV.User.current()
     if (user) {
@@ -95,9 +159,9 @@ Page({
   onShow: function() {
     wx.removeStorage({
       key: 'type',
-      success: function (res) { },
+      success: function(res) {},
     })
-    
+
     var user = AV.User.current()
     if (user) {
       var query = new AV.Query('Offert');
@@ -131,7 +195,7 @@ Page({
 
       if (this.data.offers.length == 0) {
         var query = new AV.Query('ShopCar');
-        query.equalTo('user', AV.User.current());
+        query.equalTo('user', user);
         query.include('image');
         query.include('project');
         query.descending('createdAt');
@@ -193,68 +257,6 @@ Page({
             products: res
           })
         })
-      } else if (this.data.offers.length == 0 && this.data.products.length == 0) {
-        const query = new AV.Query('Project');
-        query.equalTo('isRecommended', true)
-        query.include('creator');
-        query.include('image');
-        query.descending('createdAt');
-        query.find().then(res => {
-
-          var arrivalType = []
-          var provinces = ''
-          for (var i = 0; i < res.length; i++) {
-            var typeArr = res[i].get('typeArrivalString')
-            provinces = res[i].get('provinceString')
-            arrivalType = typeArr.split('+')
-            arrivalType.splice(0, 1)
-            provinces = provinces.substr(1)
-
-            var pAux = provinces
-            if (provinces.length > 12) {
-              var pAux = ''
-              for (var t = 0; t < 12; t++) {
-                pAux = pAux + provinces[t]
-              }
-              pAux = pAux + "..."
-            }
-            provinces = pAux
-
-            var arrivalTypeTags = []
-
-            for (var x = 0; x < arrivalType.length; x++) {
-              var flag = false;
-              for (var t = 0; t < arrivalTypeTags.length; t++) {
-                if (arrivalType[x] == arrivalTypeTags[t]) {
-                  flag = true;
-                }
-              }
-              if (!flag) {
-                arrivalTypeTags.push(arrivalType[x])
-              }
-            }
-
-            var title = res[i].get('title')
-            var tAux = title
-            if (title.length >= 15) {
-              var tAux = ''
-              for (var x = 0; x < 14; x++) {
-                tAux = tAux + title[x]
-              }
-              tAux = tAux + "..."
-            }
-            title = tAux
-
-            res[i].set('title', title)
-            res[i].set('provincesTags', provinces)
-            res[i].set('tags', arrivalTypeTags)
-            res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-          }
-
-          this.setData({
-            recommended: res
-          })
-        })
       }
 
       this.setData({
@@ -297,7 +299,7 @@ Page({
   onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
-      path: '/index/index'
+      path: 'pages/index/index'
     }
   },
   getWechatUserInfo: function(e) {
@@ -431,68 +433,6 @@ Page({
                     products: res
                   })
                 })
-              } else if (this.data.offers.length == 0 && this.data.products.length == 0) {
-                const query = new AV.Query('Project');
-                query.equalTo('isRecommended', true)
-                query.include('creator');
-                query.include('image');
-                query.descending('createdAt');
-                query.find().then(res => {
-
-                  var arrivalType = []
-                  var provinces = ''
-                  for (var i = 0; i < res.length; i++) {
-                    var typeArr = res[i].get('typeArrivalString')
-                    provinces = res[i].get('provinceString')
-                    arrivalType = typeArr.split('+')
-                    arrivalType.splice(0, 1)
-                    provinces = provinces.substr(1)
-
-                    var pAux = provinces
-                    if (provinces.length > 12) {
-                      var pAux = ''
-                      for (var t = 0; t < 12; t++) {
-                        pAux = pAux + provinces[t]
-                      }
-                      pAux = pAux + "..."
-                    }
-                    provinces = pAux
-
-                    var arrivalTypeTags = []
-
-                    for (var x = 0; x < arrivalType.length; x++) {
-                      var flag = false;
-                      for (var t = 0; t < arrivalTypeTags.length; t++) {
-                        if (arrivalType[x] == arrivalTypeTags[t]) {
-                          flag = true;
-                        }
-                      }
-                      if (!flag) {
-                        arrivalTypeTags.push(arrivalType[x])
-                      }
-                    }
-
-                    var title = res[i].get('title')
-                    var tAux = title
-                    if (title.length >= 15) {
-                      var tAux = ''
-                      for (var x = 0; x < 14; x++) {
-                        tAux = tAux + title[x]
-                      }
-                      tAux = tAux + "..."
-                    }
-                    title = tAux
-
-                    res[i].set('title', title)
-                    res[i].set('provincesTags', provinces)
-                    res[i].set('tags', arrivalTypeTags)
-                    res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-                  }
-
-                  this.setData({
-                    recommended: res
-                  })
-                })
               }
 
               this.setData({
@@ -518,32 +458,6 @@ Page({
     wx.navigateTo({
       url: '../offers/offers',
     })
-  },
-  goToUserInformation: function() {
-    var user = AV.User.current()
-    if (user) {
-      var roleQuery = new AV.Query(AV.Role);
-      roleQuery.equalTo('name', 'official');
-      roleQuery.equalTo('users', this.data.user);
-      roleQuery.find().then(function(results) {
-        if (results.length <= 0) {
-          wx.setStorage({
-            key: 'redirect',
-            data: '../user/user',
-            success: function(res) {},
-            fail: function(res) {},
-            complete: function(res) {},
-          })
-          wx.navigateTo({
-            url: '../register/register',
-          })
-        } else {
-          wx.navigateTo({
-            url: '../userInformation/userInformation',
-          })
-        }
-      })
-    }
   },
   logout: function() {
     AV.User.logOut().then(res => {
@@ -652,68 +566,6 @@ Page({
                 products: res
               })
             })
-          } else if (this.data.offers.length == 0 && this.data.products.length == 0) {
-            const query = new AV.Query('Project');
-            query.equalTo('isRecommended', true)
-            query.include('creator');
-            query.include('image');
-            query.descending('createdAt');
-            query.find().then(res => {
-
-              var arrivalType = []
-              var provinces = ''
-              for (var i = 0; i < res.length; i++) {
-                var typeArr = res[i].get('typeArrivalString')
-                provinces = res[i].get('provinceString')
-                arrivalType = typeArr.split('+')
-                arrivalType.splice(0, 1)
-                provinces = provinces.substr(1)
-
-                var pAux = provinces
-                if (provinces.length > 12) {
-                  var pAux = ''
-                  for (var t = 0; t < 12; t++) {
-                    pAux = pAux + provinces[t]
-                  }
-                  pAux = pAux + "..."
-                }
-                provinces = pAux
-
-                var arrivalTypeTags = []
-
-                for (var x = 0; x < arrivalType.length; x++) {
-                  var flag = false;
-                  for (var t = 0; t < arrivalTypeTags.length; t++) {
-                    if (arrivalType[x] == arrivalTypeTags[t]) {
-                      flag = true;
-                    }
-                  }
-                  if (!flag) {
-                    arrivalTypeTags.push(arrivalType[x])
-                  }
-                }
-
-                var title = res[i].get('title')
-                var tAux = title
-                if (title.length >= 15) {
-                  var tAux = ''
-                  for (var x = 0; x < 14; x++) {
-                    tAux = tAux + title[x]
-                  }
-                  tAux = tAux + "..."
-                }
-                title = tAux
-
-                res[i].set('title', title)
-                res[i].set('provincesTags', provinces)
-                res[i].set('tags', arrivalTypeTags)
-                res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
-              }
-
-              this.setData({
-                recommended: res
-              })
-            })
           }
 
           this.setData({
@@ -722,6 +574,11 @@ Page({
           this.verifyRole()
         }).catch(console.error);
       }
+    })
+  },
+  goToProject: function(e) {
+    wx.navigateTo({
+      url: '../project/project?projectID=' + e.currentTarget.id,
     })
   }
 })
