@@ -72,7 +72,7 @@ Page({
         classSelected: 'branchesUnselected'
       },
       {
-        name: '擎天柱事业部',
+        name: '广州事业部',
         direction: '广东省广州市珠江新城华夏路16号盈凯广场3407室',
         show: false,
         latitude: 23.124425,

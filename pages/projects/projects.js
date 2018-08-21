@@ -17,10 +17,10 @@ Page({
     list: [
       {
         id: 'type',
-        name: '抵押物类型',
-        nameShow: '抵押物类型',
+        name: '类型',
+        nameShow: '类型',
         open: false,
-        pages: ['抵押物类型', '住宅', '商铺', '写字楼', '厂房', '在建工程', '机械设备，存货，原材料', '土地（无厂房', '林权', '海城使用权', '商住', '无抵押', '其他']
+        pages: ['类型', '住宅', '写字楼', '厂房', '土地', '商住', '商铺', '在建工程', '机械设备，存货，原材料', '林权', '海域使用权', '无抵押', '其他']
       },
       {
         id: 'province',
@@ -524,7 +524,7 @@ Page({
     })
 
     var queryType = new AV.Query('Project')
-    if (this.data.list[0].name != '抵押物类型') {
+    if (this.data.list[0].name != '类型') {
       queryType.contains('typeArrivalString', this.data.list[0].name)
     }
 
