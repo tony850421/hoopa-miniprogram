@@ -14,7 +14,7 @@
   flex-direction: row;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: white;
+  background-color: #ff6801;
 }
 
 .projectSearch {
@@ -36,10 +36,13 @@
 
 .kind-list__item {
   margin: 0px !important;
+  background-color: #ff6801 !important;
+  color: white !important;
 }
 
 .weui-cell__bd {
   padding: 2px;
+  color: black !important;
 }
 
 .iconsFilters {
@@ -68,6 +71,7 @@
 .kind-list__item-bd_show {
   position: absolute;
   z-index: 10 !important;
+  margin-left: -8px !important;
 }
 
 .imageIconFilter {
@@ -82,7 +86,7 @@
 }
 
 .weui-search-bar {
-  background-color: #ff6801;
+  background-color: black;
 }
 
 .tags {

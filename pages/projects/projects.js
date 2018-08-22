@@ -639,7 +639,7 @@ Page({
     var compoundQuery = AV.Query.or(queryDescription, queryProjectTitle)
     var queryAndSearchBar = AV.Query.and(queryAnd, compoundQuery);
 
-    queryAndSearchBar.limit(7);
+    queryAndSearchBar.limit(4);
     queryAndSearchBar.skip(this.data.products.length);
     queryAndSearchBar.descending('createdAt')
     queryAndSearchBar.find().then(res => {

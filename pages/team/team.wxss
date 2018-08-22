@@ -26,13 +26,18 @@
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  padding: 10px;
-  border: 1px #d6dadb solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
-  background-color: white;
 }
 
 .services {
   display: flex;
-  flex-direction: row;
+  flex-direction: row;  
+  border: 1px #d6dadb solid;
+  background-color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding-top: 10px;
 }
