@@ -113,7 +113,7 @@ Page({
     var querySlide = new AV.Query('Slide')
     querySlide.find().then(slide => {
       for (var i = 0; i < slide.length; i++) {
-        slide[i].set('imageUrl', slide[i].get('image').thumbnailURL(that.data.width, 200))
+        slide[i].set('imageUrl', slide[i].get('image').thumbnailURL(1080, 720))
         slide[i].set('type', slide[i].get('type'))
       }
 
@@ -126,7 +126,7 @@ Page({
     queryNews.descending('createdAt')
     queryNews.find().then(res => {
       for (var i = 0; i < res.length; i++) {
-        res[i].set('imageUrl', res[i].get('image').thumbnailURL(that.data.width, 200))
+        res[i].set('imageUrl', res[i].get('image').thumbnailURL(1080, 720))
         res[i].set('id', res[i].id)
       }
 

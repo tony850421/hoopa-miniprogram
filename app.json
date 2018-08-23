@@ -39,7 +39,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/homeWhite.png",
+        "iconPath": "images/home.png",
         "selectedIconPath": "images/homeSelected.png",
         "text": "主页"
       },
