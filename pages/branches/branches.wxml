@@ -1,4 +1,5 @@
 <!--pages/partners/partners.wxml-->
+<map id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" markers='{{partners}}' show-location='true' controls='true'></map>
 <scroll-view scroll-y="true" style="height: {{height-250}}px" scroll-into-view="red" scroll-top="100">
   <view class='padding-10'>
     <view wx:for="{{partners}}" wx:for-item="partner" wx:key="{{partner.id}}" id="{{partner.id}}" bindtap='tapPartner'>
@@ -9,11 +10,12 @@
         <view class='flex-item widthText'>
           <view class='branchesTextBox'>
             <text class='font-size-13'>{{partner.name}}</text>
-            <text class='font-size-13'>{{partner.direction}}</text>
           </view>
         </view>
       </view>
+      <!-- <view class='boxAddress' wx:if="{{partner.selected}}">
+        <text class='font-size-13'>{{partner.direction}}</text>
+      </view> -->
     </view>
   </view>
 </scroll-view>
-<map id="map" longitude="{{longitudeSelected}}" latitude="{{latitudeSelected}}" scale="16" markers='{{partners}}' show-location='true' controls='true'></map>

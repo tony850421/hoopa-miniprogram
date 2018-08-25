@@ -10,3 +10,12 @@ map {
   flex-direction: column;
   padding-left: 10px;
 }
+
+.imageProductCar {
+  border-radius: 50px !important;
+  width: 30px !important;
+  height: 30px !important;
+  padding: 0 !important;
+  margin-top: 6px;
+  margin-left: 6px;
+}

@@ -21,7 +21,8 @@ Page({
         iconPath: "../../images/markerWork.png",
         width: 42,
         height: 50,
-        classSelected: 'branchesSelected'
+        classSelected: 'branchesSelected',
+        selected: true
       },
       {
         id: 1,
@@ -33,7 +34,8 @@ Page({
         iconPath: "../../images/markerWork.png",
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       },
       {
         name: '无锡乐道胡巴',
@@ -45,7 +47,8 @@ Page({
         id: 2,
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       },
       {
         name: '河南事业部',
@@ -57,7 +60,8 @@ Page({
         id: 3,
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       },
       {
         name: '南京事业部',
@@ -69,7 +73,8 @@ Page({
         id: 4,
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       },
       {
         name: '广州事业部',
@@ -81,7 +86,8 @@ Page({
         id: 5,
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       },
       {
         name: '创新事业部、浙江大区事业部',
@@ -93,7 +99,8 @@ Page({
         id: 6,
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       },
       {
         name: '湖南锐达胡巴',
@@ -105,7 +112,8 @@ Page({
         id: 7,
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       },
       {
         name: '合肥胡巴资产',
@@ -117,7 +125,8 @@ Page({
         id: 8,
         width: 42,
         height: 50,
-        classSelected: 'branchesUnselected'
+        classSelected: 'branchesUnselected',
+        selected: false
       }
     ]
   },
@@ -193,9 +202,11 @@ Page({
         this.data.longitudeSelected = this.data.partners[i].longitude
         this.data.latitudeSelected = this.data.partners[i].latitude
         this.data.partners[i].classSelected = 'branchesSelected'
+        this.data.partners[i].selected = true
       } else {
         this.data.partners[i].show = false
         this.data.partners[i].classSelected = 'branchesUnselected'
+        this.data.partners[i].selected = false
       }
     }
     this.setData({
