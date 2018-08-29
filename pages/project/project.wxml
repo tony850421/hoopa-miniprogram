@@ -9,7 +9,7 @@
       </block>
     </swiper>
     <view class='section'>
-      <view class='projectsGroup font-size-13'>
+      <!-- <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>资产名称</text>
         </view>
@@ -17,9 +17,27 @@
         <view class='projectTextGroup'>
           <text class='margin-left-5'>{{product.title}}</text>
         </view>
+      </view> -->
+
+      <view class='projectTitle font-size-13'>
+        <text class='titleProject'>快嘎撒打算大苏打</text>
+        <view class='displayFlexRow margin-top-5'>
+          <text>债权本金:</text>
+          <text class='margin-left-5 colorTextPrimary'>¥{{product.debitAmount}}万</text>
+          <image class='iconCount marginLeftAuto' src='../../images/count_views.png'></image>
+          <text class='TextCount margin-left-5'>{{visitCount}}</text>
+          <image class='iconCount margin-left-5' src='../../images/count_love.png'></image>
+          <text class='TextCount margin-left-5'>{{loveCount}}</text>
+        </view>
+        <view class='displayFlexRow'>
+          <text>债权本息:</text>
+          <text class='margin-left-5 colorTextPrimary'>¥{{product.debitPricipalInterest}}万</text>
+        </view>
+        <view class='displayFlexRow'>
+        </view>
       </view>
 
-      <view class='projectsGroup font-size-13'>
+      <!-- <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>债权本金</text>
         </view>
@@ -27,9 +45,9 @@
         <view class='projectTextGroup'>
           <text class='margin-left-5 colorTextPrimary'>¥{{product.debitAmount}}万</text>
         </view>
-      </view>
+      </view> -->
 
-      <view class='projectsGroup font-size-13'>
+      <!-- <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>债权本息</text>
         </view>
@@ -37,8 +55,7 @@
         <view class='projectTextGroup'>
           <text class='margin-left-5 colorTextPrimary'>¥{{product.debitPricipalInterest}}万</text>
         </view>
-      </view>
-
+      </view> -->
 
       <!-- description  -->
       <view class='projectsLabel font-size-13' wx:if="{{product.description.length > 0}}">
@@ -54,7 +71,7 @@
       </view>
 
       <!-- credits highlights  -->
-       <view class='projectsLabel font-size-13' wx:if="{{product.creditHighlights.length > 0}}">
+      <view class='projectsLabel font-size-13' wx:if="{{product.creditHighlights.length > 0}}">
         <view class='projectTitleGroupLabel'>
           <text>学分亮点</text>
         </view>
@@ -64,8 +81,7 @@
         <view class='desciptionGroup'>
           <text class='margin-left-5'>{{product.creditHighlights}}</text>
         </view>
-      </view> 
-
+      </view>
 
       <!-- hay que cambiar esto pot un text area-->
       <!-- <view class='projectsLabel font-size-13'>
@@ -73,7 +89,6 @@
           <text>法律进度</text>
         </view>
       </view> -->
-
 
       <view class='projectsLabel font-size-13' wx:if="{{product.legalState.length > 0}}">
         <view class='projectTitleGroupLabel'>
@@ -108,7 +123,7 @@
         </view>
       </view>
       <!--numero de visitas  -->
-      <view class='projectsGroup font-size-13'>
+      <!-- <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>访问次数</text>
         </view>
@@ -116,7 +131,7 @@
         <view class='projectTextGroup'>
           <text class='margin-left-5'>{{visitCount}}</text>
         </view>
-      </view>
+      </view> -->
 
       <!--project manager  -->
       <view wx:if="{{projectManager.name.length > 0}}" class='projectsLabel font-size-13'>
@@ -293,7 +308,7 @@
       </view>
 
       <!-- nearby  -->
-      <view class='projectsLabel font-size-13' >
+      <view class='projectsLabel font-size-13'>
         <view class='projectTitleGroupLabel'>
           <text style='height: 20px'></text>
         </view>
@@ -321,11 +336,11 @@
   </scroll-view>
   <view class='buttonsBar'>
     <view class='buttonLeft' bindtap='goToHome'>
-      <image class='imageButtonOffers' src='../../images/homeSelected.png'></image>
+      <image class='imageButtonOffers' src='../../images/home.png'></image>
       <text class='font-size-11'>主页</text>
     </view>
     <view class='buttonShare' id='share' bindtap='onShareAppMessage'>
-      <image class='imageButtonOffers' src='../../images/share.png'></image>
+      <image class='imageButtonOffers' src='../../images/shareWhite.png'></image>
       <text class='font-size-11'>共享</text>
     </view>
     <view class='buttonCar' bindtap='sendToShopCar'>

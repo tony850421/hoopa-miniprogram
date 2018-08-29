@@ -38,38 +38,6 @@
       </view>
     </view>
   </view>
-  <!-- <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
-    <scroll-view style='height: {{height-100}}px' scroll-y="true" bindscrolltolower="bindscrolltolower">
-      <view class='product' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}">
-        <view class='flex-item'>
-          <image class='imageProductCar' src='{{product.mainImage}}' id="{{product.objectId}}" bindtap='goToProject'></image>
-        </view>
-        <view class='flex-item widthText'>
-          <view class='productInformation'>
-            <text class='font-size-13' id="{{product.objectId}}" bindtap='goToProject'>{{product.title}}</text>
-            <view class='displayFlexRow font-size-13' id="{{product.objectId}}" bindtap='goToProject'>
-              <text>债权本金：</text>
-              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
-            </view>
-            <view class='displayFlexRow font-size-13' wx:if="{{product.provincesTags.length > 0}}" id="{{product.objectId}}" bindtap='goToProject'>
-              <text>省份：</text>
-              <text>{{product.provincesTags}}</text>
-            </view>
-            <view class='displayFlexRow font-size-13'>
-              <view class='tagsBox'>
-                <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-              </view>
-              <view class='iconProjectsBox'>
-                <image wx:if="{{!product.wished}}" id="{{product.objectId}}" bindtap='sendToShopCar' class='iconProjects' src='../../images/heart.png'></image>
-                <image wx:if="{{product.wished}}" id="{{product.objectId}}" bindtap='removeWish' class='iconProjects' src='../../images/heartFull.png'></image>
-                <image bindtap='goToOffer' id="{{product.objectId}}" class='iconProjects' src='../../images/offers.png'></image>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view> -->
   <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
     <scroll-view style='height: {{height-100}}px' scroll-y="true" bindscrolltolower="bindscrolltolower">
       <view class='package' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}">
@@ -78,7 +46,7 @@
             <image wx:if="{{!product.wished}}" id="{{product.objectId}}" bindtap='sendToShopCar' class='iconWish' src='../../images/heart.png'></image>
             <image wx:if="{{product.wished}}" id="{{product.objectId}}" bindtap='removeWish' class='iconWish' src='../../images/heartFull.png'></image>
             <image class='imagePackage' src='{{product.mainImage}}' id="{{product.objectId}}" bindtap='goToProject'></image>
-            <text class='provinceTag colorTextPrimary'>{{product.province}}</text>
+            <text class='provinceTag'>{{product.province}}</text>
             <text class='colorTextPrimary priceTag'>¥{{product.debitAmount}}万</text>
           </view>
           <text class='font-size-13' id="{{product.objectId}}" bindtap='goToProject'>{{product.title}}</text>
@@ -92,6 +60,15 @@
           </view>
           <view class='displayFlexRow font-size-13'>
             <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+          </view>
+          <view class='displayFlexRow'>
+            <image class='iconCount' src='../../images/count_views.png'></image>
+            <text class='TextCount'>{{product.countVisit}}</text>
+            <image class='iconCount margin-left-5' src='../../images/count_love.png'></image>
+            <text class='TextCount'>{{product.countLove}}</text>
+            <image class='countSign marginLeftAuto' src='../../images/minus.png'></image>
+            <text class='TextCount margin-left-5'>0</text>
+            <image class='countSign margin-left-5' src='../../images/plus.png'></image>
           </view>
         </view>
       </view>

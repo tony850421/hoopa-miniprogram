@@ -85,12 +85,28 @@ page{
   margin-top: 10px;
 }
 
+.floatRight{
+  float: right;
+}
+
+.margin-top-20{
+  margin-top: 20px;
+}
+
 .margin-left-5 {
   margin-left: 5px;
 }
 
 .margin-right-5 {
   margin-right: 5px;
+}
+
+.marginLeftAuto{
+  margin-left: auto;
+}
+
+.marginRightAuto{
+  margin-right: auto;
 }
 
 .margin-left-0{

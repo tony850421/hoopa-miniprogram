@@ -17,6 +17,7 @@ Page({
     imageList: [],
     offersCount: 0,
     visitCount: 0,
+    loveCount: 0,
     officialFlag: false
   },
   onLoad: function(options) {
@@ -129,6 +130,15 @@ Page({
         query6.count().then(visit => {
           this.setData({
             visitCount: visit
+          })
+        })
+
+        var query7 = new AV.Query("ShopCar")
+        query7.equalTo("project", project)
+        query7.equalTo("user", user)
+        query7.count().then(res => {
+          this.setData({
+            loveCount: res
           })
         })
 

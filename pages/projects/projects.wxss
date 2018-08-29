@@ -166,6 +166,9 @@
   left: 15px;
   position: absolute;
   z-index: 5;
+  background-color: lightgray;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .tagsBox {
@@ -222,4 +225,20 @@
   .priceTag, .provinceTag {
     margin-top: 200px;
   }
+}
+
+.iconCount{
+  width: 20px;
+  height: 20px;
+}
+
+.TextCount{
+  color: #7c7c7c;
+  font-size: 10px;
+}
+
+.countSign{
+  width: 20px;
+  height: 20px;
+  border: 1px solid #7c7c7c;
 }

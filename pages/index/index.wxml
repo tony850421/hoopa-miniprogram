@@ -10,7 +10,7 @@
   </swiper>
 </view>
 <view class='HomePage'>
-  <view class='section'>
+  <view class='section margin-top-20'>
     <view class="buttonsGroup">
       <view class='buttonsBox' bindtap='goToAboutUs'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
@@ -39,7 +39,7 @@
         </view>
       </scroll-view>
     </view> -->
-    <view class='padding-10'>
+    <view class='padding-10 margin-top-20'>
       <swiper id="swiperNews" indicator-dots="true" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{news}}" wx:for-item="image">
           <swiper-item class="text-center" id="{{image.id}}" bindtap='goToNews'>

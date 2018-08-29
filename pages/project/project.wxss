@@ -51,7 +51,7 @@
 }
 
 .buttonLeft {
-  background-color: white;
+  background-color: black;
   width: 16%;
   align-items: center;
   display: flex;
@@ -59,7 +59,7 @@
 }
 
 .buttonShare {
-  background-color: #ff67011f;
+  background-color: black;
   width: 16%;
   align-items: center;
   display: flex;
@@ -85,7 +85,7 @@
 .imageButtonOffers {
   width: 20px;
   height: 20px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .textData {
@@ -140,6 +140,20 @@
   background-color: white;
   padding: 10px;
   margin-top: 5px;
+}
+
+.projectTitle{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.titleProject{
+
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eeedf3;
 }
 
 .projectsLabel {
@@ -204,4 +218,14 @@
 .slide-image{
   width: 100%;
   height: 100%;
+}
+
+.iconCount{
+  width: 20px;
+  height: 20px;
+}
+
+.TextCount{
+  color: #7c7c7c;
+  font-size: 10px;
 }

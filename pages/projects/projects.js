@@ -700,6 +700,8 @@ Page({
 
 
         this.setWish(res, i, res[i], user)
+        this.setCountLove(res, i, res[i], user)
+        this.setCountVisit(res, i, res[i], user)
         // this.data.products = this.data.products.concat(res[i])
       }
       // this.setData({
@@ -763,6 +765,29 @@ Page({
       } else {
         array[index].set("wished", false)
       }
+      this.data.products = this.data.products.concat(array[index])
+      this.setData({
+        products: this.data.products
+      })
+    }).catch(console.error);
+  },
+  setCountLove: function (array, index, project, user) {
+    var query = new AV.Query("ShopCar")
+    query.equalTo("project", project)
+    query.equalTo("user", user)
+    query.count().then(res => {
+      array[index].set("countLove", res)
+      this.data.products = this.data.products.concat(array[index])
+      this.setData({
+        products: this.data.products
+      })
+    }).catch(console.error);
+  },
+  setCountVisit: function (array, index, project, user) {
+    var query6 = new AV.Query("ProjectVisit")
+    query6.equalTo('project', project)
+    query6.count().then(visit => {
+      array[index].set("countVisit", visit)
       this.data.products = this.data.products.concat(array[index])
       this.setData({
         products: this.data.products
