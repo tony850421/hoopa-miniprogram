@@ -147,15 +147,6 @@
   margin-right: 5px;
 }
 
-.iconWish {
-  width: 20px;
-  height: 20px;
-  margin-top: 5px;
-  right: 15px;
-  position: absolute;
-  z-index: 5;
-}
-
 .priceTag {
   right: 15px;
   position: absolute;
@@ -185,8 +176,17 @@
 
 @media (min-width: 320px) {
   .imagePackage {
-    width: 100%;
-    max-height: 180px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 88px;
+    position: absolute;
+    z-index: 5;
   }
 
   .priceTag, .provinceTag {
@@ -196,8 +196,17 @@
 
 @media (min-width: 360px) {
   .imagePackage {
-    width: 100%;
-    max-height: 210px;
+    width: 120px;
+    height: 105px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 110px;
+    position: absolute;
+    z-index: 5;
   }
 
   .priceTag, .provinceTag {
@@ -207,8 +216,17 @@
 
 @media (min-width: 420px) {
   .imagePackage {
-    width: 100%;
-    max-height: 240px;
+    width: 130px;
+    height: 110px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 120px;
+    position: absolute;
+    z-index: 5;
   }
 
   .priceTag, .provinceTag {
@@ -218,8 +236,17 @@
 
 @media (min-width: 480px) {
   .imagePackage {
-    width: 100%;
-    max-height: 260px;
+    width: 130px;
+    height: 110px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 120px;
+    position: absolute;
+    z-index: 5;
   }
 
   .priceTag, .provinceTag {
@@ -227,17 +254,17 @@
   }
 }
 
-.iconCount{
+.iconCount {
   width: 20px;
   height: 20px;
 }
 
-.TextCount{
+.TextCount {
   color: #7c7c7c;
   font-size: 10px;
 }
 
-.countSign{
+.countSign {
   width: 20px;
   height: 20px;
   border: 1px solid #7c7c7c;

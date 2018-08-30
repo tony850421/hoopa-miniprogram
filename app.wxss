@@ -11,29 +11,28 @@
   box-sizing: border-box;
 }
 
-.fontWhite{
+.fontWhite {
   color: white !important;
 }
 
-page{
-  background-color: #EFEEF4 !important;
+page {
+  background-color: #efeef4 !important;
 }
 
-.colorTextPrimary{
-  color: #FF6801;
+.colorTextPrimary {
+  color: #ff6801;
 }
 
-.backgroundColorPrimary{
-  background-color: #FF6801;
+.backgroundColorPrimary {
+  background-color: #ff6801;
 }
 
-
-.branchesSelected{
-  background-color: #FF6801 !important;
+.branchesSelected {
+  background-color: #ff6801 !important;
   color: white !important;
 }
 
-.branchesUnselected{
+.branchesUnselected {
   background-color: white !important;
 }
 
@@ -44,7 +43,6 @@ page{
 .font-size-16 {
   font-size: 16px;
 }
-
 
 .product {
   display: flex;
@@ -58,7 +56,7 @@ page{
 
 .imageProductCar {
   width: 80px !important;
-  height:75px !important;
+  height: 75px !important;
   padding-left: 6px;
   padding-top: 6px;
 }
@@ -70,26 +68,35 @@ page{
   padding-left: 10px;
 }
 
-.displayFlexRow{
+.displayFlexRow {
   width: 100% !important;
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
-.padding-10{
+.displayFlexColumn {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.width100P {
+  width: 100%;
+}
+
+.padding-10 {
   padding: 10px;
 }
 
-.margin-top-10{
+.margin-top-10 {
   margin-top: 10px;
 }
 
-.floatRight{
+.floatRight {
   float: right;
 }
 
-.margin-top-20{
+.margin-top-20 {
   margin-top: 20px;
 }
 
@@ -97,19 +104,23 @@ page{
   margin-left: 5px;
 }
 
+.margin-left-10 {
+  margin-left: 10px;
+}
+
 .margin-right-5 {
   margin-right: 5px;
 }
 
-.marginLeftAuto{
+.marginLeftAuto {
   margin-left: auto;
 }
 
-.marginRightAuto{
+.marginRightAuto {
   margin-right: auto;
 }
 
-.margin-left-0{
+.margin-left-0 {
   margin-left: 5px !important;
 }
 
@@ -175,53 +186,53 @@ kind-list__item:first-child {
   height: auto;
 }
 
-.backgroundWhite{
+.backgroundWhite {
   background-color: white;
 }
 
-.font-size-9{
+.font-size-9 {
   font-size: 9px;
 }
 
-.font-size-10{
+.font-size-10 {
   font-size: 10px;
 }
 
-.font-size-11{
+.font-size-11 {
   font-size: 11px;
 }
 
-.font-size-12{
+.font-size-12 {
   font-size: 12px;
 }
 
-.callout{
-  border: 1px #FF6801 solid;
+.callout {
+  border: 1px #ff6801 solid;
 }
 
-.margin-top-5{
+.margin-top-5 {
   margin-top: 5px;
 }
 
-.margin-top-0{
+.margin-top-0 {
   margin-top: 0px !important;
 }
 
-.margin-bottom-5{
+.margin-bottom-5 {
   margin-bottom: 5px;
 }
 
-.font-weight{
+.font-weight {
   font-weight: bold;
 }
 
-.textN{
+.textN {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.textNotifications{
+.textNotifications {
   display: flex;
   flex-direction: row;
   align-items: center;
