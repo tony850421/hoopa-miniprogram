@@ -63,13 +63,13 @@
                   <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
                 </view>
                 <view class='displayFlexRow weui-flex' id="{{product.objectId}}" bindtap='goToProject'>
-                  <image class='iconCount' src='../../images/count_views.png'></image>
-                  <text class='TextCount'>{{product.countVisit}}</text>
-                  <image class='iconCount margin-left-5' src='../../images/count_love.png'></image>
-                  <text class='TextCount'>{{product.countLove}}</text>
-                  <image class='countSign marginLeftAuto' src='../../images/minus.png'></image>
+                  <image class='iconCount' src='../../images/count_love.png'></image>
+                  <text class='TextCount margin-left-5'>{{product.countLove}}</text>
+                  <!-- <image class='iconCount margin-left-5' src='../../images/count_views.png'></image>
+                  <text class='TextCount margin-left-5'>{{product.countVisit}}</text> -->
+                  <!-- <image class='countSign marginLeftAuto' src='../../images/minus.png'></image>
                   <text class='TextCount margin-left-5'>0</text>
-                  <image class='countSign margin-left-5' src='../../images/plus.png'></image>
+                  <image class='countSign margin-left-5' src='../../images/plus.png'></image> -->
                 </view>
               </view>
             </view>

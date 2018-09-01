@@ -28,6 +28,8 @@
           <text class='TextCount margin-left-5'>{{visitCount}}</text>
           <image class='iconCount margin-left-5' src='../../images/count_love.png'></image>
           <text class='TextCount margin-left-5'>{{loveCount}}</text>
+          <image class='iconCountOffers margin-left-5' src='../../images/offers_gray.png'></image>
+          <text class='TextCount margin-left-5'>{{offersCount}}</text>
         </view>
         <view class='displayFlexRow weui-flex'>
           <text>债权本息:</text>
@@ -111,7 +113,7 @@
       </view>
 
       <!--numero de ofertas  -->
-      <view class='projectsGroup font-size-13'>
+      <!-- <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>已报价次数</text>
         </view>
@@ -119,7 +121,8 @@
         <view class='projectTextGroup'>
           <text class='margin-left-5'>{{offersCount}}</text>
         </view>
-      </view>
+      </view> -->
+
       <!--numero de visitas  -->
       <!-- <view class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
@@ -306,7 +309,7 @@
       </view>
 
       <!-- nearby  -->
-      <view class='projectsLabel font-size-13'>
+      <view class='projectsLabel font-size-13' wx:if="{{assetsList.length> 0}}">
         <view class='projectTitleGroupLabel'>
           <text style='height: 20px'></text>
         </view>

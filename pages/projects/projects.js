@@ -129,6 +129,8 @@ Page({
           })
         } else if (res.data == '热门资产') {
           query.equalTo('isHot', true);
+          query.include('creator');
+          query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
             
@@ -192,6 +194,8 @@ Page({
           })
         } else if (res.data == '高性价比住宅') {
           query.equalTo('isHouse', true);
+          query.include('creator');
+          query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
             
@@ -255,6 +259,8 @@ Page({
           })
         } else if (res.data == '江浙沪地区优质厂房') {
           query.equalTo('isFactory', true);
+          query.include('creator');
+          query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
             
@@ -319,6 +325,8 @@ Page({
         } else if (res.data == '热推商铺土地全包资产') {
           const query = new AV.Query('Project');
           query.equalTo('isShop', true);
+          query.include('creator');
+          query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
             
@@ -639,12 +647,11 @@ Page({
     var compoundQuery = AV.Query.or(queryDescription, queryProjectTitle)
     var queryAndSearchBar = AV.Query.and(queryAnd, compoundQuery);
 
-    queryAndSearchBar.limit(4);
+    queryAndSearchBar.limit(7);
     queryAndSearchBar.skip(this.data.products.length);
     queryAndSearchBar.descending('createdAt')
     queryAndSearchBar.find().then(res => {
       
-
       var arrivalType = []
       var provinces = ''
       var province = ''
@@ -666,7 +673,6 @@ Page({
         }
         provinces = pAux
 
-
         var arrivalTypeTags = []
 
         for (var x = 0; x < arrivalType.length; x++) {
@@ -682,15 +688,15 @@ Page({
         }
 
         var title = res[i].get('title')
-        // var tAux = title
-        // if (title.length >= 15) {
-        //   var tAux = ''
-        //   for (var x = 0; x < 14; x++) {
-        //     tAux = tAux + title[x]
-        //   }
-        //   tAux = tAux + "..."
-        // }
-        // title = tAux
+        var tAux = title
+        if (title.length >= 15) {
+          var tAux = ''
+          for (var x = 0; x < 14; x++) {
+            tAux = tAux + title[x]
+          }
+          tAux = tAux + "..."
+        }
+        title = tAux
 
         res[i].set('provincesTags', provinces)
         res[i].set('province', province)
@@ -700,8 +706,8 @@ Page({
 
 
         this.setWish(res, i, res[i], user)
-        this.setCountLove(res, i, res[i], user)
-        this.setCountVisit(res, i, res[i], user)
+        // this.setCountLove(res, i, res[i], user)
+        // this.setCountVisit(res, i, res[i], user)
         // this.data.products = this.data.products.concat(res[i])
       }
       // this.setData({
@@ -765,35 +771,50 @@ Page({
       } else {
         array[index].set("wished", false)
       }
-      this.data.products = this.data.products.concat(array[index])
-      this.setData({
-        products: this.data.products
-      })
-    }).catch(console.error);
-  },
-  setCountLove: function (array, index, project, user) {
-    var query = new AV.Query("ShopCar")
-    query.equalTo("project", project)
-    query.equalTo("user", user)
-    query.count().then(res => {
       array[index].set("countLove", res)
-      this.data.products = this.data.products.concat(array[index])
+      this.data.products.splice(index, 0, array[index])
+      // this.data.products = this.data.products.concat(array[index])
       this.setData({
         products: this.data.products
       })
     }).catch(console.error);
+
+    // var query6 = new AV.Query("ProjectVisit")
+    // query6.equalTo('project', project)
+    // query6.count().then(visit => {
+    //   array[index].set("countVisit", visit)
+    //   this.data.products.splice(index, 0, array[index])
+    //   // this.data.products = this.data.products.concat(array[index])
+    //   this.setData({
+    //     products: this.data.products
+    //   })
+    // }).catch(console.error);
   },
-  setCountVisit: function (array, index, project, user) {
-    var query6 = new AV.Query("ProjectVisit")
-    query6.equalTo('project', project)
-    query6.count().then(visit => {
-      array[index].set("countVisit", visit)
-      this.data.products = this.data.products.concat(array[index])
-      this.setData({
-        products: this.data.products
-      })
-    }).catch(console.error);
-  },
+  // setCountLove: function (array, index, project, user) {
+  //   var query = new AV.Query("ShopCar")
+  //   query.equalTo("project", project)
+  //   query.equalTo("user", user)
+  //   query.count().then(res => {
+  //     array[index].set("countLove", res)
+  //     this.data.products.splice(index, 1)
+  //     this.data.products = this.data.products.concat(array[index])
+  //     this.setData({
+  //       products: this.data.products
+  //     })
+  //   }).catch(console.error);
+  // },
+  // setCountVisit: function (array, index, project, user) {
+  //   var query6 = new AV.Query("ProjectVisit")
+  //   query6.equalTo('project', project)
+  //   query6.count().then(visit => {
+  //     array[index].set("countVisit", visit)
+  //     this.data.products.splice(index, 1)
+  //     this.data.products = this.data.products.concat(array[index])
+  //     this.setData({
+  //       products: this.data.products
+  //     })
+  //   }).catch(console.error);
+  // },
   removeWish: function (e) {
     var that = this
     const user = AV.User.current()

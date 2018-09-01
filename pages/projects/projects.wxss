@@ -176,15 +176,15 @@
 
 @media (min-width: 320px) {
   .imagePackage {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 95px;
   }
 
   .iconWish {
     width: 17px;
     height: 17px;
     margin-top: 5px;
-    left: 88px;
+    left: 110px;
     position: absolute;
     z-index: 5;
   }
@@ -197,7 +197,7 @@
 @media (min-width: 360px) {
   .imagePackage {
     width: 120px;
-    height: 105px;
+    height: 95px;
   }
 
   .iconWish {
@@ -217,7 +217,7 @@
 @media (min-width: 420px) {
   .imagePackage {
     width: 130px;
-    height: 110px;
+    height: 95px;
   }
 
   .iconWish {
@@ -237,7 +237,7 @@
 @media (min-width: 480px) {
   .imagePackage {
     width: 130px;
-    height: 110px;
+    height: 95px;
   }
 
   .iconWish {
