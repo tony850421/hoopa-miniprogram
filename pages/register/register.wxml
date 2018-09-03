@@ -6,9 +6,8 @@
       <image class='imageLogoHoopa' src='../../images/LogoHoopa.png'></image>
     </block>
   </view>
-</view>
 
-<view class='registerPadding'>
+  <!-- <view class='registerPadding'>
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>姓名</text>
@@ -17,7 +16,7 @@
     <view class='projectTextGroup'>
       <input value='{{name}}' bindinput='inputName' class='inputLogin' placeholder='请填写您的姓名'></input>
     </view>
-  </view>
+  </view> -->
 
   <!-- <view class='projectsGroup'>
     <view class='projectTitleGroup'>
@@ -29,7 +28,7 @@
     </view>
   </view> -->
 
-  <view class='projectsGroup'>
+  <!-- <view class='projectsGroup'>
     <view class='projectTitleGroup'>
       <text class='font-size-13'>单位名称</text>
     </view>
@@ -37,7 +36,7 @@
     <view class='projectTextGroup'>
       <input value='{{company}}' bindinput='inputCompany' class='inputLogin' placeholder='请填写您的单位名称'></input>
     </view>
-  </view>
+  </view> -->
 
   <view class='projectsGroup'>
     <view class='projectTitleGroup'>
@@ -64,7 +63,7 @@
       </view>
     </view>
   </view>
-  
+
   <view class='saveBox' wx:if="{{!buttonRegisterDisabled}}">
     <button bindtap='register' class='buttonSave'>注册</button>
   </view>

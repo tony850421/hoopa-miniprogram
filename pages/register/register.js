@@ -168,7 +168,7 @@ Page({
         buttonSendCodeDisabled: true
       })
     }
-    if (this.data.name != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
+    if (this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         buttonRegisterDisabled: false
       })
@@ -178,7 +178,7 @@ Page({
     this.setData({
       code: e.detail.value
     })
-    if (this.data.name != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
+    if (this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         buttonRegisterDisabled: false
       })
@@ -188,7 +188,7 @@ Page({
     this.setData({
       name: e.detail.value
     })
-    if (this.data.name != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
+    if (this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         buttonRegisterDisabled: false
       })
@@ -199,7 +199,7 @@ Page({
     this.setData({
       company: e.detail.value
     })
-    if (this.data.name != '' && this.data.company != '' && this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
+    if (this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
       this.setData({
         buttonRegisterDisabled: false
       })
@@ -210,14 +210,14 @@ Page({
     var user = AV.User.current()
     if (user) {
       var that = this
-      var name = this.data.name;
-      var company = this.data.company;
+      // var name = this.data.name;
+      // var company = this.data.company;
       var mobilePhone = this.data.phone;
 
       AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
 
-        user.set('fullName', name);
-        user.set('company', company);
+        // user.set('fullName', name);
+        // user.set('company', company);
         user.setMobilePhoneNumber(mobilePhone);
         user.save().then(function () { }, function (err) {
           wx.showModal({
