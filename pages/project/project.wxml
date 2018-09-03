@@ -151,7 +151,7 @@
         </view>
       </view>
 
-      <view wx:if="{{projectManager.name.length > 0 && officialFlag}}" class='projectsGroup font-size-13'>
+      <view wx:if="{{projectManager.showManagerPhone}}" class='projectsGroup font-size-13'>
         <view class='projectTitleGroup'>
           <text>电话</text>
         </view>
