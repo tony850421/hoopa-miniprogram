@@ -281,7 +281,6 @@ Page({
       });
     }
   },
-
   goToHome: function () {
     wx.switchTab({
       url: '../index/index'

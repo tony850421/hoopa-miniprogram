@@ -18,18 +18,24 @@ Page({
     offersCount: 0,
     visitCount: 0,
     loveCount: 0,
-    officialFlag: false
+    officialFlag: false,
+    showModalLogin: false,
+    codeText: '发送',
+    phone: '',
+    code: '',
+    buttonSendCodeDisabled: true,
+    buttonRegisterDisabled: true
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     var that = this
     wx.getStorage({
       key: 'widthWithout',
-      success: function(res) {
+      success: function (res) {
         that.setData({
           width: res.data
         })
       },
-      fail: function(err) {
+      fail: function (err) {
         wx.getSystemInfo({
           success: res => {
             that.setData({
@@ -46,12 +52,12 @@ Page({
 
     wx.getStorage({
       key: 'heightWithout',
-      success: function(res) {
+      success: function (res) {
         that.setData({
           height: res.data
         })
       },
-      fail: function(err) {
+      fail: function (err) {
         wx.getSystemInfo({
           success: res => {
             that.setData({
@@ -71,7 +77,7 @@ Page({
       var query = new AV.Query("Project")
       query.include('projectManager')
       query.get(options.projectID).then(project => {
-        
+
         this.setData({
           product: project,
           projectManager: project.get('projectManager')
@@ -149,37 +155,41 @@ Page({
       }).catch(console.error)
     }
   },
-  goToOffer: function(e) {
+  goToOffer: function (e) {
+    var that = this
     if (this.data.officialFlag) {
       wx.navigateTo({
-        url: '../offer/offer?projectID='+ e.currentTarget.id,
+        url: '../offer/offer?projectID=' + e.currentTarget.id,
       })
     } else {
       wx.setStorage({
         key: 'redirect',
         data: '../project/project',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {},
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
       })
-      wx.navigateTo({
-        url: '../register/register',
+      // wx.navigateTo({
+      //   url: '../register/register',
+      // })
+      that.setData({
+        showModalLogin: true
       })
     }
   },
-  goToHome: function() {
+  goToHome: function () {
     wx.switchTab({
       url: '../index/index',
     })
   },
-  onShow: function(options) {
+  onShow: function (options) {
     var that = this
     var user = AV.User.current()
     if (user) {
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('name', 'official');
       roleQuery.equalTo('users', user);
-      roleQuery.find().then(function(results) {
+      roleQuery.find().then(function (results) {
         if (results.length > 0) {
           that.setData({
             officialFlag: true
@@ -189,12 +199,12 @@ Page({
             officialFlag: false
           })
         }
-      }).catch(function(error) {
+      }).catch(function (error) {
         console.log(error);
       });
     }
   },
-  sendToShopCar: function() {
+  sendToShopCar: function () {
     const user = AV.User.current()
     if (user) {
       var shop = new AV.Object('ShopCar')
@@ -209,32 +219,32 @@ Page({
       })
     }
   },
-  goToCar: function() {
+  goToCar: function () {
     wx.navigateTo({
       url: '../shop-car/shop-car'
     })
   },
-  goToForum: function() {
+  goToForum: function () {
     wx.navigateTo({
       url: '../forumProject/forumProject'
     })
   },
-  goToRecommended: function() {
+  goToRecommended: function () {
     wx.navigateTo({
       url: '../recommended/recommended'
     })
   },
-  goToNearby: function() {
+  goToNearby: function () {
     wx.navigateTo({
       url: '../mapProjectNearby/mapProjectNearby?projectID=' + this.data.product.id
     })
   },
-  callPhoneNumber: function(e) {
+  callPhoneNumber: function (e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone.toString()
     })
   },
-  goToAsset: function(e) {
+  goToAsset: function (e) {
     wx.setStorage({
       key: 'latitude',
       data: e.currentTarget.dataset.latitude,
@@ -247,7 +257,7 @@ Page({
       url: '../assetsMap/assetsMap'
     })
   },
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     if (res.from == 'menu') {
       return {
         title: '自定义转发标题',
@@ -259,5 +269,142 @@ Page({
         path: 'pages/project/project?projectID=' + this.data.product.id
       }
     }
+  },
+  sendCode: function () {
+    var phoneAux = this.data.phone;
+    var that = this
+
+    // var user = AV.User.current();
+    if (that.data.user) {
+      // that.data.user.setMobilePhoneNumber(phoneAux);
+      // that.data.user.save();
+
+      AV.Cloud.requestSmsCode({
+        mobilePhoneNumber: phoneAux,
+        name: '应用名称',
+        op: '某种操作',
+        ttl: 2
+      }).then(function () {
+
+        that.setData({
+          buttonSendCodeDisabled: true
+        })
+
+        var timer = 59, seconds;
+        var intervalStart = setInterval(function () {
+          seconds = parseInt(timer % 60, 10);
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          if (--timer <= 0) {
+            seconds = '发送'
+            that.setData({
+              buttonSendCodeDisabled: false,
+              buttonRegisterDisabled: true,
+              code: ''
+            })
+            clearInterval(intervalStart)
+          }
+
+          that.setData({
+            codeText: seconds
+          })
+        }, 1000);
+
+        wx.showToast({
+          title: '留言送',
+          icon: 'success',
+          duration: 2000
+        })
+      }, function (err) {
+        wx.showModal({
+          title: '错误',
+          content: err.rawMessage,
+        })
+      });
+    }
+  },
+  inputPhone: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
+    if (e.detail.value.length == 11) {
+      this.setData({
+        buttonSendCodeDisabled: false
+      })
+    } else {
+      this.setData({
+        buttonSendCodeDisabled: true
+      })
+    }
+    if (this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
+      this.setData({
+        buttonRegisterDisabled: false
+      })
+    }
+  },
+  codeConfirm: function (e) {
+    this.setData({
+      code: e.detail.value
+    })
+    if (this.data.phone != '' && this.data.code != '' && this.data.code.length == 6 && this.data.phone.length == 11) {
+      this.setData({
+        buttonRegisterDisabled: false
+      })
+    }
+  },
+  register: function () {
+    var that = this
+    var user = AV.User.current()
+    if (user) {
+      var that = this
+      var mobilePhone = this.data.phone;
+
+      AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
+        user.setMobilePhoneNumber(mobilePhone);
+        user.save().then(function () { }, function (err) {
+          wx.showModal({
+            title: '错误',
+            content: err.rawMessage,
+          })
+        })
+
+        var roleQuery = new AV.Query(AV.Role);
+        roleQuery.equalTo('name', 'official');
+        roleQuery.find().then(function (results) {
+          var role = results[0];
+          var relation = role.getUsers();
+          relation.add(that.data.user);
+          return role.save();
+        }).then(function (role) {
+          //save role official in the storage
+          wx.setStorage({
+            key: 'role',
+            data: 'official',
+          })
+        }).catch(function (error) {
+          console.log(error);
+        });
+        that.setData({
+          showModalLogin: false
+        })
+      }, function (err) {
+        wx.showModal({
+          title: '错误',
+          content: err.rawMessage,
+          success: function (res) {
+            that.setData({
+              code: '',
+              buttonSendCodeDisabled: false,
+              buttonRegisterDisabled: true,
+            })
+          }
+        })
+      });
+    }
+  },
+  quitModal: function () {
+    this.setData({
+      showModalLogin: false
+    })
   }
 })

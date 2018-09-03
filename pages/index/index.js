@@ -6,13 +6,31 @@ Page({
   data: {
     height: '',
     width: '',
-    textSkip: ''
+    textSkip: '10'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var timer = 9, seconds;
+    var intervalStart = setInterval(function () {
+      seconds = parseInt(timer % 60, 10);
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      if (--timer <= 0) {
+        wx.switchTab({
+          url: '../home/home',
+        })
+        clearInterval(intervalStart)
+      }
+
+      that.setData({
+        textSkip: seconds
+      })
+    }, 1000);
+
     var that = this
     wx.getStorage({
       key: 'width',
@@ -31,23 +49,6 @@ Page({
         })
       },
     })
-
-    var timer = 10, seconds;
-    var intervalStart = setInterval(function () {
-      seconds = parseInt(timer % 60, 10);
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-      if (--timer <= 0) {
-        wx.switchTab({
-          url: '../home/home',
-        })       
-        clearInterval(intervalStart)
-      }
-
-      that.setData({
-        textSkip: seconds
-      })
-    }, 1000);
   },
   quitSplash: function(){
     wx.switchTab({

@@ -40,7 +40,7 @@
   </view>
   <view class='projectSearch padding-10' bindtap='closeFilters' style='height: {{height-100}}px'>
     <scroll-view style='height: {{height-100}}px' scroll-y="true" bindscrolltolower="bindscrolltolower">
-       <view class='package' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}"> 
+      <view class='package' wx:for="{{products}}" wx:for-item="product" wx:key="{{product.id}}">
         <view class='packageBox'>
           <view>
             <view class='displayFlexRow'>
@@ -77,7 +77,7 @@
           <text class='colorTextPrimary priceTag'>¥{{product.debitAmount}}万</text> -->
           </view>
         </view>
-       </view> 
+      </view>
     </scroll-view>
   </view>
 </view>

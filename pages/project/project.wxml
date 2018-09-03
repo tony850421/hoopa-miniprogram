@@ -352,3 +352,19 @@
     </view>
   </view>
 </view>
+
+<view style='width: {{width}}px; height: {{height}}px' wx:if='{{showModalLogin}}' class='loginModal'>
+  <view class='boxLogin' style='width: {{width-80}}px'>
+    <image class='imageLogoLogin' src='../../images/icono.png'></image>
+    <text>Login</text>
+    <view class='boxInputs'>
+      <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='请填写您的手机'></input>
+      <view class='codeBox'>
+        <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='请填写验证码'></input>
+        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' class='font-size-13 buttonSenCode'>{{codeText}}</button>
+      </view>
+      <button wx:if="{{!buttonRegisterDisabled}}" bindtap='register' class='buttonSave'>注册</button>
+    </view>
+  </view>
+  <image bindtap='quitModal' style='margin-left: {{(width-30)/2}}px' class='buttonClose' src='../../images/close.png'></image>
+</view>
