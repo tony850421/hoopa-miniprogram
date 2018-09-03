@@ -1,162 +1,57 @@
 //index.js
-
-const AV = require('../../utils/av-weapp-min');
-const AVLive = require('../../utils/av-live-query-weapp-min');
-const bind = require('../../utils/live-query-binding');
-
-const appInstance = getApp()
-
 Page({
+  /**
+   * 页面的初始数据
+   */
   data: {
-    interval: 5000,
-    duration: 1000,
-    imageList: [],
-    productsHot: [],
-    productsHouse: [],
-    productsFactory: [],
-    productsDebit: [],
-    productsShop: [],
-    news: [],
-    slides: [],
+    height: '',
     width: '',
-    activeNews: true,
-    activeData: false,
-    activeAbout: false
-  },  
-  goToServices: function () {
-    wx.navigateTo({
-      url: '../services/services',
-    })
+    textSkip: ''
   },
-  goToAboutUs: function () {
-    wx.navigateTo({
-      url: '../aboutUs/aboutUs',
-    })
-  },
-  onReady: function () {
-    var user = AV.User.current();
-    if (user) {
-      var roleQuery = new AV.Query(AV.Role);
-      roleQuery.equalTo('users', user);
-      roleQuery.find().then(results => {
-        var officialFlag = false;
-        for (var i = 0; i < results.length; i++) {
-          if (results[i].attributes.name == "official") {
-            officialFlag = true;
-          }
-        }
 
-        if (officialFlag) {
-          wx.setStorage({
-            key: 'role',
-            data: 'official',
-          })
-        } else {
-          wx.setStorage({
-            key: 'role',
-            data: 'guest',
-          })
-        }
-
-        if (results.length > 0) {
-          var role = results[0];
-        } else {
-          var roleQueryGuest = new AV.Query(AV.Role);
-          roleQueryGuest.equalTo('name', 'guest');
-          roleQueryGuest.find().then(function (results) {
-            var role = results[0];
-            var relation = role.getUsers();
-            relation.add(user);
-            return role.save();
-          }).then(function (role) { }).catch(function (error) {
-            console.log(error);
-          });
-        }
-      }).then(function (administratorRole) {
-
-      }).catch(function (error) {
-        console.log(error);
-      });
-    }
-
-  },
-  onUnload: function () { },
-  onPullDownRefresh: function () { },
-  onShow: function () {
-    wx.removeStorage({
-      key: 'type',
-      success: function (res) { },
-    })
-  },
-  onShareAppMessage: function (res) {
-    return {
-      title: '自定义转发标题',
-      path: 'pages/index/index'
-    }
-  },
-  onLoad: function () {
-    // wx.showToast({
-    //   title: '加载包',
-    //   icon: 'loading',
-    //   duration: 2000
-    // })
-
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     var that = this
-    wx.getSystemInfo({
-      success: res => {
+    wx.getStorage({
+      key: 'width',
+      success: function (res) {
         that.setData({
-          width: res.windowWidth
+          width: res.data
         })
       },
     })
 
-    var querySlide = new AV.Query('Slide')
-    querySlide.find().then(slide => {
-      for (var i = 0; i < slide.length; i++) {
-        slide[i].set('imageUrl', slide[i].get('image').thumbnailURL(1080, 720))
-        slide[i].set('type', slide[i].get('type'))
-      }
-
-      this.setData({
-        slides: slide
-      })
+    wx.getStorage({
+      key: 'height',
+      success: function (res) {
+        that.setData({
+          height: res.data
+        })
+      },
     })
 
-    var queryNews = new AV.Query('News')
-    queryNews.descending('createdAt')
-    queryNews.find().then(res => {
-      for (var i = 0; i < res.length; i++) {
-        res[i].set('imageUrl', res[i].get('image').thumbnailURL(1080, 720))
-        res[i].set('id', res[i].id)
+    var timer = 10, seconds;
+    var intervalStart = setInterval(function () {
+      seconds = parseInt(timer % 60, 10);
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      if (--timer <= 0) {
+        wx.switchTab({
+          url: '../home/home',
+        })       
+        clearInterval(intervalStart)
       }
 
       that.setData({
-        news: res
+        textSkip: seconds
       })
-    })
+    }, 1000);
   },
-  goToNews: function (e) {
-    wx.navigateTo({
-      url: '../newsDetail/newsDetail?news=' + e.currentTarget.id,
-    })
-  },
-  goToBranches: function (e) {
-    wx.navigateTo({
-      url: '../branches/branches',
-    })
-  },
-  goToTeam: function (e) {
-    wx.navigateTo({
-      url: '../team/team',
-    })
-  },
-  goToFilterProject: function (e) {
-    wx.setStorage({
-      key: 'type',
-      data: e.currentTarget.dataset.type,
-    })
+  quitSplash: function(){
     wx.switchTab({
-      url: '../projects/projects',
+      url: '../home/home',
     })
   }
-});
+})

@@ -22,7 +22,8 @@
     "pages/offers/offers",
     "pages/notifications/notifications",
     "pages/newsDetail/newsDetail",
-    "pages/forumProject/forumProject"
+    "pages/forumProject/forumProject",
+    "pages/home/home"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -38,7 +39,7 @@
     "color": "white",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/homeSelected.png",
         "text": "主页"

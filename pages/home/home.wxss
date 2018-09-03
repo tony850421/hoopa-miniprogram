@@ -1,0 +1,407 @@
+/* pages/home/home.wxss */
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+
+.videoHome {
+  width: 100%;
+}
+
+.imageProjects {
+  width: 100%;
+}
+
+@media (min-width: 320px) {
+  .videoHome {
+    height: 200px;
+  }
+
+  .imageProjects {
+    height: 120px;
+  }
+
+  .slide-image {
+    height: 160px;
+  }
+
+  swiper#swiperNews {
+    height: 240px !important;
+  }
+}
+
+@media (min-width: 360px) {
+  .videoHome {
+    height: 240px;
+  }
+
+  .imageProjects {
+    height: 140px;
+  }
+
+  .slide-image {
+    height: 180px;
+  }
+
+  swiper#swiperNews {
+    height: 270px !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .videoHome {
+    height: 250px;
+  }
+
+  .imageProjects {
+    height: 140px;
+  }
+
+  .slide-image {
+    height: 180px;
+  }
+
+  swiper#swiperNews {
+    height: 270px !important;
+  }
+}
+
+@media (min-width: 414px) {
+  .videoHome {
+    height: 280px;
+  }
+
+  .imageProjects {
+    height: 160px;
+  }
+
+  .slide-image {
+    height: 190px;
+  }
+
+  swiper#swiperNews {
+    height: 300px !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .videoHome {
+    height: 280px;
+  }
+
+  .imageProjects {
+    height: 170px;
+  }
+
+  .slide-image {
+    height: 230px;
+  }
+
+  swiper#swiperNews {
+    height: 340px !important;
+  }
+}
+
+.buttonsMarginTop {
+  margin-top: 10px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.buttonsBox {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 33.3%;
+  background-color: white;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  border-radius: 5px;
+  border: 1px #d6dadb solid;
+}
+
+.buttonsBoxAboutUs {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 33.3%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.buttonsGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.IconsButtons {
+  width: 30px;
+  height: 30px;
+}
+
+.IconsButtonAboutUs {
+  width: 81px;
+  height: 81px;
+}
+
+.project {
+  border: 1px #d6dadb solid;
+  background-color: white;
+  margin-left: 5px;
+  padding: 8px;
+  width: 120px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.newsBox {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.projectList {
+  display: flex;
+  flex-direction: row;
+}
+
+.scrollHorizontal {
+  width: 100%;
+  height: 100px;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.scrollHorizontalNews {
+  width: 100%;
+  height: 220px;
+}
+
+.tagsList {
+  display: flex;
+  flex-direction: row;
+}
+
+.tag {
+  border: 1px blue solid;
+  margin-right: 5px;
+  border-radius: 25px;
+  font-size: 13px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.sectionProjects {
+  padding-bottom: 0px !important;
+  padding-top: 5px !important;
+}
+
+.weui-search-bar__form, .weui-search-bar__label {
+  border-radius: 20px !important;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+}
+
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.tags {
+  color: #ff6801;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 0;
+  border: 1px #ff6801 solid;
+  font-size: 9px;
+}
+
+.text-title {
+  text-align: start;
+  min-height: 40px;
+}
+
+.headerTab {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.news {
+  padding: 5px;
+  /* background-color: white; *//* border: 1px #d6dadb solid; */
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.newsContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageNewsView {
+  width: 200px !important;
+  height: 135px !important;
+  border-radius: 5px;
+}
+
+.newsTitle {
+  font-weight: bold;
+}
+
+.NewsBox {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  width: 93%;
+}
+
+.imageService {
+  height: 220rpx;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.imageTeam {
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.servicesText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 74%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+}
+
+.projectsGroup {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px #d6dadb solid;
+  background-color: white;
+}
+
+.services {
+  display: flex;
+  flex-direction: row;
+}
+
+.imagePartners {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.groupNumber {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+.imageNumber {
+  width: 40px;
+  height: 40px;
+}
+
+.lineService {
+  width: 3px;
+  height: 40px;
+  margin-top: 5px;
+}
+
+.dots {
+  height: 3px;
+  width: 75%;
+  margin-left: -4px;
+}
+
+.titleService {
+  margin-left: 3%;
+}
+
+.buttonHome {
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+}
+
+.imageButtonsHome {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.textSwiper {
+  position: absolute;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.imageModalHome{
+  margin-top: 40px;
+  margin-left: 40px;
+  border: 2px solid white;
+}
+
+.backgroundModalHome{
+  background-color: #3b3b3d;
+  position: absolute;
+  top: 0;
+}
+
+.buttonClose{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
