@@ -1,6 +1,5 @@
 <!--pages/home/home.wxml-->
 <view>
-  <!-- <video class="videoHome" poster='http://lc-qpv1wnqe.cn-n1.lcfile.com/ceb39cd9208897993f9e.jpg' controls='true' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7ded4d8f482e88bcf676.mp4'></video> -->
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{slides}}" wx:for-item="image">
       <swiper-item bindtap="goToFilterProject" data-type="{{image.type}}">
@@ -9,6 +8,7 @@
     </block>
   </swiper>
 </view>
+
 <view class='HomePage'>
   <view class='section margin-top-20'>
     <view class="buttonsGroup">
@@ -25,21 +25,8 @@
         <text class='font-size-13'>合作伙伴</text>
       </view>
     </view>
-    <!-- <view>
-      <scroll-view class='scrollHorizontalNews' scroll-x="true">
-        <view class='projectList' style='width: {{news.length*200}}px'>
-          <view class='newsBox' wx:for="{{news}}" wx:for-item="notice" wx:key="{{notice.objectId}}" id="{{notice.objectId}}">
-            <view class='news' bindtap='goToNews' data-id='{{notice.objectId}}'>
-              <view class='imageNews margin-top-5'>
-                <image class='imageNewsView' mode='widthFix' src='{{notice.imageUrl}}'></image>
-              </view>
-              <view class='font-weight font-size-13'>{{notice.title}}</view>
-            </view>
-          </view>
-        </view>
-      </scroll-view>
-    </view> -->
-    <view class='padding-10 margin-top-20'>
+
+    <view class='padding-10 margin-top-20 newsBox'>
       <swiper id="swiperNews" indicator-dots="true" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{news}}" wx:for-item="image">
           <swiper-item class="text-center" id="{{image.id}}" bindtap='goToNews'>
@@ -50,107 +37,12 @@
       </swiper>
     </view>
 
-    <!-- <view class='NewsBox' wx:if="{{activeNews}}">
-      <view wx:for="{{news}}" wx:for-item="notice" wx:key="{{notice.objectId}}" id="{{notice.objectId}}">
-        <view class='news margin-top-10' bindtap='goToNews' data-id='{{notice.objectId}}'>
-          <view class='font-weight font-size-13'>{{notice.title}}</view>
-          <view class='imageNews margin-top-10'>
-            <image class='imageNewsView' mode='widthFix' src='{{notice.imageUrl}}'></image>
-          </view>
-          <view class='newsContent'>
-            <view class='contentTitle font-size-12'>{{notice.content}}</view>
-          </view>
-        </view>
-      </view>
-    </view> -->
-  </view>
+    <view class='newsBoxBackground'>
+      <image mode='aspectFill' class='newsImageOne' src='../../images/4.jpg'></image>
+      <image mode='aspectFill' class='newsImageTwo' src='../../images/4.jpg'></image>
+    </view>
 
-  <!-- <view class="section">
-    <view class="buttonsGroup">
-      <view class='buttonsBox' bindtap='goToNews'>
-        <image mode='aspectFit' class='IconsButtons' src='../../images/news.png'></image>
-        <text class='font-size-13'>新闻资讯</text>
-      </view>
-      <view class='buttonsBox' bindtap='goToPartners'>
-        <image mode='aspectFit' class='IconsButtons' src='../../images/partners.png'></image>
-        <text class='font-size-13'>合作伙伴</text>
-      </view>
-      <view class='buttonsBox' bindtap='goToTeam'>
-        <image mode='widthFix' class='IconsButtons' src='../../images/team.png'></image>
-        <text class='font-size-13'>团队介绍</text>
-      </view>
-    </view>
-  </view>
-  <view class="section">
-    <view class="buttonsGroup">
-      <view class='buttonsBox' bindtap='goToServices'>
-        <image mode='aspectFit' class='IconsButtons' src='../../images/services.png'></image>
-        <text class='font-size-13'>服务体系</text>
-      </view>
-      <view class='buttonsBoxAboutUs' bindtap='goToAboutUs'>
-        <image mode='aspectFit' class='IconsButtonAboutUs' src='../../images/about.png'></image>
-      </view>
-      <view class='buttonsBox' bindtap='goToBranches'>
-        <image mode='widthFix' class='IconsButtons' src='../../images/branch.png'></image>
-        <text class='font-size-13'>分支机构</text>
-      </view>
-    </view>
-  </view>
-  <view class="section">
-    <view class="buttonsGroup">
-      <view class='buttonsBox' bindtap='goToRecommended'>
-        <image mode='aspectFit' class='IconsButtons' src='../../images/recommended.png'></image>
-        <text class='font-size-13'>资产推荐</text>
-      </view>
-      <view class='buttonsBox' bindtap='goToFinance'>
-        <image mode='aspectFit' class='IconsButtons' src='../../images/statistics.png'></image>
-        <text class='font-size-13'>数据统计</text>
-      </view>
-      <view class='buttonsBox' bindtap='goToProjects'>
-        <image mode='widthFix' class='IconsButtons' src='../../images/projects.png'></image>
-        <text class='font-size-13'>资产列表</text>
-      </view>
-    </view>
-  </view>
-  <view class='sectionProjects' wx:if="{{productsHot.length > 0}}">
-    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/95dc654f527e28123939.jpg'></image>
-    <view>
-      <scroll-view class='scrollHorizontal' scroll-x="true">
-        <view class='projectList' style='width: {{productsHot.length*140}}px'>
-          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHot}}" wx:for-item="product">
-            <text class='text-title font-size-13'>{{product.title}}</text>
-            <view class='displayFlexRow font-size-13'>
-              <text>价格：</text>
-              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
-            </view>
-            <view class='displayFlexRow font-size-13 margin-top-5'>
-              <text wx:if="{{index < 3}}" wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-            </view>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
-  </view>
-  <view class='sectionProjects' wx:if="{{productsHouse.length > 0}}">
-    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/866447d1ea2cbb22bc38.jpg'></image>
-    <view>
-      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList' style='width: {{productsHouse.length*140}}px'>
-          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsHouse}}" wx:for-item="product">
-            <text class='text-title font-size-13'>{{product.title}}</text>
-            <view class='displayFlexRow font-size-13 margin-top-5'>
-              <text>价格：</text>
-              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
-            </view>
-            <view class='displayFlexRow font-size-13 margin-top-5'>
-              <text wx:if="{{index < 3}}" wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-            </view>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
-  </view>
-  <view class='sectionProjects' wx:if="{{productsFactory.length > 0}}">
+    <!-- <view class='sectionProjects' wx:if="{{productsFactory.length > 0}}">
     <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/308440c616f65a5a59a4.jpg'></image>
     <view>
       <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
@@ -169,46 +61,9 @@
       </scroll-view>
     </view>
   </view> -->
-  <!-- <view class='sectionProjects' wx:if="{{productsDebit.length > 0}}">
-    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/44af60232d3ba5ad49c8.jpg'></image>
-    <view>
-      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
-        <view class='projectList' style='width: {{productsDebit.length*140}}px'>
-          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsDebit}}" wx:for-item="product">
-            <text class='text-title'>{{product.title}}</text>
-            <view class='displayFlexRow font-size-13'>
-              <text>价格：</text>
-              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
-            </view>
-            <view class='displayFlexRow font-size-13 margin-top-5'>
-              <text wx:if="{{index < 3}}" wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-            </view>
-          </view>
-        </view>
-      </scroll-view>
+    <view class='backgroundModalHome' style='width: {{width}}px; height: {{height+100}}px' wx:if='{{showModal}}'>
+      <image mode='widthFix' style='width: {{width-80}}px' class='imageModalHome' src='../../images/promocion-07.jpg'></image>
+      <image bindtap='quitModal' style='margin-left: {{(width-30)/2}}px' class='buttonClose' src='../../images/close.png'></image>
     </view>
-  </view> -->
-  <!-- <view class='sectionProjects' wx:if="{{productsShop.length > 0}}">
-    <image class='imageProjects' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1aff6670a44a67e4f6b1.jpg'></image>
-    <view>
-      <scroll-view class='scrollHorizontal' scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="100">
-        <view class='projectList' style='width: {{productsShop.length*140}}px'>
-          <view class="project" id="{{product.objectId}}" wx:key="{{product.objectId}}" bindtap='goToProject' wx:for="{{productsShop}}" wx:for-item="product">
-            <text class='text-title font-size-13'>{{product.title}}</text>
-            <view class='displayFlexRow font-size-13'>
-              <text>价格：</text>
-              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
-            </view>
-            <view class='displayFlexRow font-size-13 margin-top-5'>
-              <text wx:if="{{index < 3}}" wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-            </view>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
-  </view> -->
-  <view class='backgroundModalHome' style='width: {{width}}px; height: {{height}}px' wx:if='{{showModal}}'>
-    <image mode='widthFix' style='width: {{width-80}}px' class='imageModalHome' src='../../images/promocion-07.jpg'></image>
-    <image bindtap='quitModal' style='margin-left: {{(width-30)/2}}px' class='buttonClose' src='../../images/close.png'></image>
   </view>
 </view>

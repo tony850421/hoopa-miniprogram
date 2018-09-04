@@ -81,15 +81,16 @@ Page({
     }
 
   },
-  onUnload: function () { },
+  onUnload: function () { 
+    this.setData({
+      showModal: false
+    })
+  },
   onPullDownRefresh: function () { },
   onShow: function () {
     wx.removeStorage({
       key: 'type',
       success: function (res) { },
-    })
-    this.setData({
-      showModal: true
     })
   },
   onShareAppMessage: function (res) {
@@ -99,6 +100,10 @@ Page({
     }
   },
   onLoad: function () {
+    this.setData({
+      showModal: true
+    })
+
     // wx.showToast({
     //   title: '加载包',
     //   icon: 'loading',
@@ -116,9 +121,15 @@ Page({
 
     wx.getSystemInfo({
       success: res => {
-        that.setData({
-          height: res.windowHeight
-        })
+        if (res.windowHeight> 420){
+          that.setData({
+            height: res.windowHeight+40
+          })
+        } else {
+          that.setData({
+            height: res.windowHeight
+          })
+        }        
       },
     })
 

@@ -356,7 +356,7 @@
 <view style='width: {{width}}px; height: {{height}}px' wx:if='{{showModalLogin}}' class='loginModal'>
   <view class='boxLogin' style='width: {{width-80}}px'>
     <image class='imageLogoLogin' src='../../images/icono.png'></image>
-    <text>Login</text>
+    <text>快速登录资产</text>
     <view class='boxInputs'>
       <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='请填写您的手机'></input>
       <view class='codeBox'>

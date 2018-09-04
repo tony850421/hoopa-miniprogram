@@ -4,7 +4,7 @@
   <!-- 1  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ddd950cd9f8d86ff66c9.jpg'></image>
+       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ddd950cd9f8d86ff66c9.jpg'></image> 
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
