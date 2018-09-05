@@ -214,7 +214,7 @@
   }
 }
 
-@media (min-width: 420px) {
+@media (min-width: 414px) {
   .imagePackage {
     width: 130px;
     height: 95px;

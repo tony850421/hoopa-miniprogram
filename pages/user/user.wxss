@@ -107,6 +107,24 @@
     top: 40px;
     left: 20px;
   }
+
+  .imagePackage {
+    width: 120px;
+    height: 95px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 110px;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 150px;
+  }
 }
 
 @media (min-width: 360px) {
@@ -135,6 +153,24 @@
     height: 40px !important;
     margin-top: 5px !important;
   }
+
+  .imagePackage {
+    width: 120px;
+    height: 95px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 110px;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 180px;
+  }
 }
 
 @media (min-width: 375px) {
@@ -162,7 +198,7 @@
     width: 7px !important;
     height: 60px !important;
     margin-top: 5px !important;
-  }
+  }  
 }
 
 @media (min-width: 414px) {
@@ -200,6 +236,24 @@
     z-index: 5;
     top: 30px;
     left: 20px;
+  }
+
+  .imagePackage {
+    width: 130px;
+    height: 95px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 120px;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 205px;
   }
 }
 
@@ -240,6 +294,24 @@
     z-index: 5;
     top: 30px;
     left: 20px;
+  }
+
+  .imagePackage {
+    width: 130px;
+    height: 95px;
+  }
+
+  .iconWish {
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    left: 120px;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .priceTag, .provinceTag {
+    margin-top: 200px;
   }
 }
 
@@ -356,4 +428,20 @@
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
+}
+
+.iconCount {
+  width: 17px;
+  height: 17px;
+}
+
+.TextCount {
+  color: #7c7c7c;
+  font-size: 10px;
+}
+
+.countSign {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #7c7c7c;
 }

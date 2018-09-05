@@ -43,11 +43,10 @@
   }
 
   .newsImageOne {
-    position: absolute;
     width: 96%;
     height: 170px;
     z-index: 1;
-    left: 2%;
+    margin-left: 2%;
   }
 
   .newsImageTwo {
@@ -62,12 +61,14 @@
   .newsBox {
     width: 80%;
     z-index: 3;
-    margin-left: 7%;
+    left: 7%;
+    position: absolute;
+    margin-top: -275px;
   }
 
   .newsBoxBackground {
-    margin-top: -215px;
     margin-bottom: 20px !important;
+    margin-top: 60px !important;
     height: 210px !important;
   }
 }
@@ -90,14 +91,13 @@
   }
 
   .newsImageOne {
-    position: absolute;
     width: 96%;
     height: 200px;
     z-index: 1;
-    left: 2%;
+    margin-left: 2%;
   }
 
-  .newsImageTwo {
+  .newsImageTwo {     
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -109,12 +109,14 @@
   .newsBox {
     width: 80%;
     z-index: 3;
-    margin-left: 7%;
+    left: 7%;
+    position: absolute;
+    margin-top: -305px;
   }
 
   .newsBoxBackground {
-    margin-top: -245px;
-    margin-bottom: 20px !important;
+    margin-bottom: 20px !important;    
+    margin-top: 60px !important;
     height: 240px !important;
   }
 }
@@ -135,17 +137,15 @@
   swiper#swiperNews {
     height: 270px !important;
   }
-
   
   .newsImageOne {
-    position: absolute;
     width: 96%;
     height: 200px;
     z-index: 1;
-    left: 2%;
+    margin-left: 2%;
   }
 
-  .newsImageTwo {
+  .newsImageTwo {    
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -157,12 +157,14 @@
   .newsBox {
     width: 80%;
     z-index: 3;
-    margin-left: 7%;
+    left: 7%;
+    position: absolute;
+    margin-top: -305px;
   }
 
   .newsBoxBackground {
-    margin-top: -245px;
     margin-bottom: 20px !important;
+    margin-top: 60px !important;
     height: 240px !important;
   }
 }
@@ -185,14 +187,13 @@
   }
 
   .newsImageOne {
-    position: absolute;
     width: 96%;
     height: 230px;
     z-index: 1;
-    left: 2%;
+    margin-left: 2%;
   }
 
-  .newsImageTwo {
+  .newsImageTwo {     
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -204,12 +205,14 @@
   .newsBox {
     width: 80%;
     z-index: 3;
-    margin-left: 7%;
+    left: 7%;
+    position: absolute;
+    margin-top: -335px;
   }
 
   .newsBoxBackground {
-    margin-top: -275px;
     margin-bottom: 20px !important;
+    margin-top: 60px !important;
     height: 270px !important;
   }
 }
@@ -232,14 +235,13 @@
   }
 
   .newsImageOne {
-    position: absolute;
     width: 96%;
     height: 270px;
     z-index: 1;
     left: 2%;
   }
 
-  .newsImageTwo {
+  .newsImageTwo {    
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -251,12 +253,14 @@
   .newsBox {
     width: 80%;
     z-index: 3;
-    margin-left: 7%;
+    left: 7%;
+    position: absolute;
+    margin-top: -375px;
   }
 
   .newsBoxBackground {
-    margin-top: -315px;
     margin-bottom: 20px !important;
+    margin-top: 60px !important;
     height: 310px !important;
   }
 }
@@ -541,4 +545,16 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
+}
+
+swiper-item{
+  background-color: black !important;
+}
+
+.textSwiperItem{
+  color: white !important;
+}
+
+swiper{
+  z-index: 100 !important;
 }
