@@ -31,6 +31,12 @@
   flex-direction: row;
   background-color: white;
   border-bottom: 1px #d6dadb solid;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: -20px;
+  z-index: 6;
+  position: absolute;
+  padding-top: 10px;
 }
 
 .infoData {
@@ -58,120 +64,12 @@
 }
 
 .BackgroundProfile {
-  background-color: #ff6801;
+  background-image: url('../../images/Banner_Profileuser.jpg');
+  background-repeat: repeat-x;
 }
 
-@media (max-width: 480px) {
-  .BackgroundProfile {
-    height: 280px;
-  }
 
-  .info {
-    height: 70px;
-  }
-
-  .imageIconUserCar {
-    width: 40px;
-    height: 35px;
-    margin-top: 5px;
-  }
-
-  .imageIconUserNotification {
-    width: 35px;
-    height: 35px;
-    margin-top: 5px;
-  }
-
-  .lineVBar {
-    width: 7px !important;
-    height: 60px !important;
-    margin-top: 5px !important;
-  }
-}
-
-@media (max-width: 414px) {
-  .BackgroundProfile {
-    height: 260px;
-  }
-
-  .info {
-    height: 60px;
-  }
-
-  .imageIconUserCar {
-    width: 30px;
-    height: 25px;
-  }
-
-  .imageIconUserNotification {
-    width: 25px;
-    height: 25px;
-  }
-
-  .lineVBar {
-    width: 7px !important;
-    height: 40px !important;
-    margin-top: 5px !important;
-  }
-}
-
-@media (max-width: 375px) {
-  .BackgroundProfile {
-    height: 240px;
-  }
-
-  .info {
-    height: 55px;
-  }
-
-  .imageIconUserCar {
-    width: 30px;
-    height: 25px;
-    margin-top: 3px;
-  }
-
-  .imageIconUserNotification {
-    width: 25px;
-    height: 25px;
-    margin-top: 3px;
-  }
-
-  .lineVBar {
-    width: 7px !important;
-    height: 60px !important;
-    margin-top: 5px !important;
-  }
-}
-
-@media (max-width: 360px) {
-  .BackgroundProfile {
-    height: 240px;
-  }
-
-  .info {
-    height: 55px;
-  }
-
-  .imageIconUserCar {
-    width: 30px;
-    height: 25px;
-    margin-top: 3px;
-  }
-
-  .imageIconUserNotification {
-    width: 25px;
-    height: 25px;
-    margin-top: 3px;
-  }
-
-  .lineVBar {
-    width: 7px !important;
-    height: 40px !important;
-    margin-top: 5px !important;
-  }
-}
-
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .BackgroundProfile {
     height: 240px;
   }
@@ -197,11 +95,158 @@
     height: 40px !important;
     margin-top: 5px !important;
   }
+
+  .bannerUser{
+    width: 100%;
+    height: 220px;
+  }
+
+  .boxUserInfo{
+    position: absolute;
+    z-index: 5;
+    top: 40px;
+    left: 20px;
+  }
 }
+
+@media (min-width: 360px) {
+  .BackgroundProfile {
+    height: 240px;
+  }
+
+  .info {
+    height: 55px;
+  }
+
+  .imageIconUserCar {
+    width: 30px;
+    height: 25px;
+    margin-top: 3px;
+  }
+
+  .imageIconUserNotification {
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .BackgroundProfile {
+    height: 240px;
+  }
+
+  .info {
+    height: 55px;
+  }
+
+  .imageIconUserCar {
+    width: 30px;
+    height: 25px;
+    margin-top: 3px;
+  }
+
+  .imageIconUserNotification {
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 60px !important;
+    margin-top: 5px !important;
+  }
+}
+
+@media (min-width: 414px) {
+  .BackgroundProfile {
+    height: 260px;
+  }
+
+  .info {
+    height: 60px;
+  }
+
+  .imageIconUserCar {
+    width: 30px;
+    height: 25px;
+  }
+
+  .imageIconUserNotification {
+    width: 25px;
+    height: 25px;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
+
+  .bannerUser{
+    width: 100%;
+    height: 220px;
+  }
+
+  .boxUserInfo{
+    position: absolute;
+    z-index: 5;
+    top: 30px;
+    left: 20px;
+  }
+}
+
+@media (min-width: 480px) {
+  .BackgroundProfile {
+    height: 280px;
+  }
+
+  .info {
+    height: 70px;
+  }
+
+  .imageIconUserCar {
+    width: 40px;
+    height: 35px;
+    margin-top: 5px;
+  }
+
+  .imageIconUserNotification {
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 60px !important;
+    margin-top: 5px !important;
+  }
+
+   .bannerUser{
+    width: 100%;
+    height: 240px;
+  }
+
+  .boxUserInfo{
+    position: absolute;
+    z-index: 5;
+    top: 30px;
+    left: 20px;
+  }
+}
+
 
 .dataUserInfoCover {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   width: 100%;
 }

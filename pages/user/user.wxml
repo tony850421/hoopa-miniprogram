@@ -1,6 +1,23 @@
 <!--pages/user/user.wxml-->
+<image class='bannerUser' mode='aspectFill' src='../../images/Banner_Profileuser.jpg'></image>
+<view class='boxUserInfo'>
+  <view class='dataUserInfoCover' wx:if="{{!user}}">
+    <view class='imageContainer'>
+      <image class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
+    </view>
+    <button plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
+  </view>
+  <view class='dataUserInfoCover' wx:if="{{user}}">
+    <view class='imageContainer'>
+      <image wx:if="{{user.avatarUrl}}" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+      <image wx:if="{{!user.avatarUrl}}" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
+    </view>
+    <text wx:if="{{user.fullName}}" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
+    <text wx:if="{{!user.fullName}}" class="userinfo-nickname font-size-13">{{user.nickName}}</text>    
+  </view>
+</view>
 <view>
-  <view class="userinfo BackgroundProfile">
+  <!-- <view class="userinfo BackgroundProfile">
     <block wx:if="{{!user}}">
       <view class='dataUserInfoCover'>
         <view class='imageContainer'>
@@ -24,15 +41,15 @@
         </view>
       </view>
     </block>
-  </view>
+  </view> -->
   <view class='info'>
     <view class='infoData' bindtap='goToContact'>
-      <image class='imageIconUserCar' src='../../images/contactSelected.png'></image>
+      <image class='imageIconUserCar' src='../../images/contact.png'></image>
       <text class='font-size-13'>我的报价</text>
     </view>
     <image class='lineVBar' src='../../images/lineV.jpg'></image>
     <view class='infoData' bindtap='goToNotifications'>
-      <image class='imageIconUserNotification' src='../../images/notificationsSelected.png'></image>
+      <image class='imageIconUserNotification' src='../../images/notifications.png'></image>
       <text class='font-size-13'>通知</text>
     </view>
   </view>
