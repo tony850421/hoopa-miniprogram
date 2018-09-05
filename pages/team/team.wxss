@@ -1,4 +1,5 @@
 /* pages/team/team.wxss */
+
 .imageTeam {
   width: 80px;
   height: 80px;
@@ -32,7 +33,7 @@
 
 .services {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   border: 1px #d6dadb solid;
   background-color: white;
   margin-left: 5px;
@@ -41,16 +42,48 @@
   padding-top: 10px;
 }
 
-.styleTeam{
+.styleTeam {
   margin-top: -20px;
   position: absolute;
   z-index: 5;
 }
 
-.textBanner{
+.textWhite {
+  color: white;
+}
+
+.boxTextBanner {
   position: absolute;
-  top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  color: red;
+  z-index: 5;
+  top: 60rpx;
+}
+
+@media (min-width: 320px) {
+  .boxTextBanner {
+    margin-left: 35%;
+  }
+}
+
+@media (min-width: 360px) {
+  .boxTextBanner {
+    margin-left: 35%;
+  }
+}
+
+@media (min-width: 375px) {
+  .boxTextBanner {
+    margin-left: 35%;
+  }
+}
+
+@media (min-width: 414px) {
+  .boxTextBanner {
+    margin-left: 35%;
+  }
+}
+
+@media (min-width: 480px) {
+  .boxTextBanner {
+    margin-left: 35%;
+  }
 }

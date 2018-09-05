@@ -12,7 +12,7 @@ Page({
     accuracy: '',
     nameSelected: '杭州胡巴资产管理有限公司',
     directionSelected: '杭州市江干区钱江国际时代广场三幢2701',
-    phoneSelected: '杭州市江干区钱江国际时代广场三幢2701',
+    phoneSelected: '+864008001682',
     partners: [
       {
         id: 0,
@@ -26,7 +26,7 @@ Page({
         height: 50,
         classSelected: 'branchesSelected',
         selected: true,
-        phone: '+86057185267521'
+        phone: '+864008001682'
       },
       {
         id: 1,

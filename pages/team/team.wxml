@@ -1,5 +1,7 @@
-<image class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d1efc61825a93ad84625.jpg'></image>
-<text class='textBanner'>合作伙伴</text>
+<image mode='aspectFill' class='imageService' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7e7a65c8d888b66379f1.jpg'></image>
+<view class='boxTextBanner'>
+  <text class='textWhite'>核心管理团队</text>
+</view>
 <view class='styleTeam'>
   <!-- 1  -->
   <view class='services margin-bottom-5'>
@@ -8,8 +10,8 @@
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团创始人，董事长</text>
-        <text class='font-size-13 font-weight'>李传宏</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>李传宏</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产创始人 董事长</text>
         <text class='font-size-12'>武汉大学法学硕士，精通不良资产方面的法律，具有20年的不良资产处置和管理经验，曾在广东、河南、四川、山东、浙江等地区主管不良资产的清收，主管不良资产包账面额达300亿人民币。</text>
       </view>
     </view>
@@ -22,8 +24,8 @@
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人</text>
-        <text class='font-size-13 font-weight'>林庄</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>林庄</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产事务合伙人</text>
         <text class='font-size-12'>天使投资人，在传统企业、文化传媒等领域有丰富的投资经验，曾成功运作多个房地产项目。</text>
       </view>
     </view>
@@ -36,9 +38,9 @@
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人</text>
-        <text class='font-size-13 font-weight'>杨林榆</text>
-        <text class='font-size-12'>在不良债权及不动产投资领域拥有长达25年的经验。他带领团队参与众多不良资产、特殊机会投资项目的尽职调查、投资决策、投后管理以及项目退出。投资项目遍及广东、江苏、浙江等八个省份。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>刘杰</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产事务合伙人，广州、南京事业部总经理</text>
+        <text class='font-size-12'>华南理工大学法学毕业，近十年的不良资产处置和管理经验，带领团队完成对河南、山东、浙江、上海等地的业务拓展，累计管理不良资产账面金额50亿元。</text>
       </view>
     </view>
   </view>
@@ -46,13 +48,13 @@
   <!-- 4  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/2cbb9c93991cf6ee1ec0.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/af7e4da3a6e85010d3d6.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人</text>
-        <text class='font-size-13 font-weight'>赵昕</text>
-        <text class='font-size-12'>曾创立泽盛律师事务所、房地产开发和营销策划、投资基金等多家企业，在金融诉讼和房地产领域辛勤耕耘近二十年，代表银行处理经济纠纷案件数百件，在股权投资和私募基金领域中具有专业的判断性和敏锐性，积累了丰富的不良资产处置经验和优质的金融机构人脉关系。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>余会林</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产事务合伙人，河南事业部总经理</text>
+        <text class='font-size-12'>曾任河南中赢旗晟律师事务所律所、合伙人。胡巴资产处置负责人。十多年律师专职工作，累计处理和参与百余起诉讼纠纷案件，具有丰富的办案经验。</text>
       </view>
     </view>
   </view>
@@ -60,13 +62,13 @@
   <!-- 5  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/612687a732d113e291ec.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/a60b2d4908bccddb6846.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人，乐道胡巴总经理</text>
-        <text class='font-size-13 font-weight'>杜筱丹</text>
-        <text class='font-size-12'>从2000年起，一直从事银行、信托的不良资产处置和大型国企、上市公司的并购工作，与四大资产管理公司及地方AMC均有良好的合作关系。先后管理和处置的不良资产本金近300亿。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>詹柳莺</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产事务合伙人，创新事业部总经理</text>
+        <text class='font-size-12'>华东政法大学法学本科、浙江大学法学硕士，多年不良资产从业经验，主导及组织尽调的债务人近500户，债权资产本金超过100亿，负责多个资产包交易结构设计并完成资产包收购，现负责多个资产包的处置管理和退出工作。</text>
       </view>
     </view>
   </view>
@@ -74,13 +76,13 @@
   <!-- 6  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/af7e4da3a6e85010d3d6.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/870a7e9af147b7a9af82.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人，河南事业部总经理</text>
-        <text class='font-size-13 font-weight'>余会林</text>
-        <text class='font-size-12'>曾任河南中赢旗晟律师事务所律所、合伙人。胡巴资产处置负责人。十多年律师专职工作，累计处理和参与百余起诉讼纠纷案件，具有丰富的办案经验。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>王静</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产事务合伙人，浙江大区事业部总经理</text>
+        <text class='font-size-12'>浙江大学法学专业，具备深厚的法律背景和丰富的办案经验。2014年以来投入不良资产行业。累计管理债权规模达几十亿元，不良资产包年处置回现账面值数亿元，帮助投资人实现超额回报。</text>
       </view>
     </view>
   </view>
@@ -88,13 +90,13 @@
   <!-- 7  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/b1fe55260ac951a2b841.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/612687a732d113e291ec.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人，广州事业部总经理</text>
-        <text class='font-size-13 font-weight'>刘杰</text>
-        <text class='font-size-12'>华南理工大学法学毕业，近十年的不良资产处置和管理经验，带领团队完成对河南、山东、浙江、上海等地的业务拓展，累计管理不良资产账面金额50亿元。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>杜筱丹</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产事务合伙人，乐道胡巴总经理</text>
+        <text class='font-size-12'>从2000年起，一直从事银行、信托的不良资产处置和大型国企、上市公司的并购工作，与四大资产管理公司及地方AMC均有良好的合作关系。先后管理和处置的不良资产本金近300亿。</text>
       </view>
     </view>
   </view>
@@ -102,13 +104,13 @@
   <!-- 8  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/a60b2d4908bccddb6846.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d866ead0e75ee6dae854.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人，创新事业部总经理</text>
-        <text class='font-size-13 font-weight'>詹柳莺</text>
-        <text class='font-size-12'>华东政法大学法学学士，浙江大学法学硕士。参与完成国内多个资产包项目的收购工作，累计收购金额上百亿元，具备良好的团队协作精神与全局观念。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>冯凯</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产事务合伙人，宝融胡巴总经理</text>
+        <text class='font-size-12'>十余年商业运作管理经验，曾创办多家企业涉及TMT、金融等领域，擅长挖掘潜在的投资项目、投资项目分析及投后管理工作；对不良资产整个产业链充分理解，对不良资产重组业务有独到见解，曾主导及参与多项不良资产收购处置业务。</text>
       </view>
     </view>
   </view>
@@ -116,13 +118,13 @@
   <!-- 9  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/870a7e9af147b7a9af82.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/f5fdc24fc111f4cfaf39.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人，浙江大区事业部总经理</text>
-        <text class='font-size-13 font-weight'>王静</text>
-        <text class='font-size-12'>浙江大学法学学士，具有丰富的执业经验，2014年投身不良资产行业，至2018年累计管理债权规模达几十亿，不良资产包年处置回现账面值数亿元，为投资人实现超额回报。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>吴刚</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>长沙锐达胡巴总经理</text>
+        <text class='font-size-12'>早年任职于建行信贷部门及资产保全部门，从事信贷工作以及资产保全工作，后为海岸投资资深服务商，从事不良资产行业超过15年，曾经创下资产包处置收益率638%的记录。</text>
       </view>
     </view>
   </view>
@@ -130,13 +132,13 @@
   <!-- 10  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d866ead0e75ee6dae854.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/913e5dae05437caa1aeb.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴集团事务合伙人，宝融胡巴总经理</text>
-        <text class='font-size-13 font-weight'>冯凯</text>
-        <text class='font-size-12'>十余年商业运作管理经验，曾创办多家企业涉及TMT、金融等领域，擅长挖掘潜在的投资项目、投资项目分析及投后管理工作；对不良资产整个产业链充分理解，对不良资产重组业务有独到见解，曾主导及参与多项不良资产收购处置业务。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>何建安</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>合肥胡巴董事长</text>
+        <text class='font-size-12'>注册高级经济师，从事房地产开发及经营多家民营企业多年，对各种项目投资有着精准的直觉和独特的眼光，能够结合自身多年经验综合判断资产的可操作性，充分挖掘资产的价值，以实现投资收益最大化。在浙皖等政商界拥有广泛的人脉资源。</text>
       </view>
     </view>
   </view>
@@ -144,13 +146,13 @@
   <!-- 11  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/f5fdc24fc111f4cfaf39.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e48d8d45cb49b2d0dec2.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>湖南长沙锐达胡巴总经理</text>
-        <text class='font-size-13 font-weight'>吴刚</text>
-        <text class='font-size-12'>早年任职于中国建设银行信贷部及资产保全部，从事信贷及资产保全工作，后为海岸投资资深服务商，从事不良资产行业超过15年，曾经创下资产包处置收益率638%。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>王成宝</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>合肥胡巴总经理</text>
+        <text class='font-size-12'>任职温州市多个民营企业总经理，精通不良资产操作及法律法规，优秀的融资和处置变现能力，快速判断资产的可操作性并完成项目的快速融资，善于开拓国内新市场，拥有广泛的人脉优势，四大AMC、商会、知名律所、拍卖行、资管公司等，管理、清收资产累计约25亿元。</text>
       </view>
     </view>
   </view>
@@ -158,13 +160,13 @@
   <!-- 12  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/913e5dae05437caa1aeb.jpg'></image>
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d4e84a315e4aba729fe2.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>合肥胡巴董事长</text>
-        <text class='font-size-13 font-weight'>何建安</text>
-        <text class='font-size-12'>注册高级经济师，从事房地产开发及经营多家民营企业多年，对各种项目投资有着精准的直觉和独特的眼光，能够结合自身多年经验综合判断资产的可操作性，充分挖掘资产的价值，以实现投资收益最大化，在浙皖等政商界拥有广泛的人脉资源。</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>潘秀伟</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>无锡乐道胡巴副总经理</text>
+        <text class='font-size-12'>对收购包有独特眼光和分析，擅长对风控的判断，对存在的风险及评估有充分的经验，对项目处置的方法有准确的决断和指导方向，卓越的资金调动能力。广泛的人脉资源，浙江四大AMC、地方性AMC、民营资管等；管理资产包金融达30亿左右，累计管理不良资产账面金额20亿。</text>
       </view>
     </view>
   </view>
@@ -172,40 +174,12 @@
   <!-- 13  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e48d8d45cb49b2d0dec2.jpg'></image>
-    </view>
-    <view class='servicesText'>
-      <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>合肥胡巴总经理</text>
-        <text class='font-size-13 font-weight'>王成宝</text>
-        <text class='font-size-12'>任职温州市多个民营企业总经理，精通不良资产操作环节及法律法规，优秀的融资和处置变现能力，快速判断资产的可操作性并完成项目的快速融资，善于开拓国内新市场，拥有广泛的人脉优势，四大AMC、商会、知名律所、拍卖行、资管公司等，管理、清收资产累计约25亿元。</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 14  -->
-  <view class='services margin-bottom-5'>
-    <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d4e84a315e4aba729fe2.jpg'></image>
-    </view>
-    <view class='servicesText'>
-      <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>无锡乐道胡巴 副总经理</text>
-        <text class='font-size-13 font-weight'>潘秀伟</text>
-        <text class='font-size-12'>对收购包有独特眼光和分析，擅长对风控的判断，对存在的风险及评估有充分的经验，对项目处置的方法有准确的决断和指导方向，卓越的资金调动能力。广泛的人脉资源，浙江四大AMC、地方性AMC、民营资管等；管理资产包金融达30亿左右，累计管理不良资产账面金额20亿。</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 15  -->
-  <view class='services margin-bottom-5'>
-    <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/f7238ec63d94299148d4.jpg'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
-        <text class='font-size-13 font-weight'>胡巴资产市场部总经理</text>
-        <text class='font-size-13 font-weight'>魏强</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>魏强</text>
+        <text class='font-size-13 font-weight colorTextPrimary'>胡巴资产市场部总经理</text>
         <text class='font-size-12'>2010年就职于阿里巴巴集团，任国际事业部资深经理、“天猫”消费者体验与发展事业部专家、浙江大学EMBA总裁班特聘老师、中国人民大学EMBA总裁班讲师、商务部培训中心讲师、中国第一届诚信大会主讲嘉宾、企业品牌营销专家、擅长SNS运营。</text>
       </view>
     </view>

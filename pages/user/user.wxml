@@ -1,5 +1,5 @@
 <!--pages/user/user.wxml-->
-<image class='bannerUser' mode='aspectFill' src='../../images/Banner_Profileuser.jpg'></image>
+<image class='bannerUser' mode='aspectFill' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1b8221a42243dd8c438e.jpg'></image>
 <view class='boxUserInfo'>
   <view class='dataUserInfoCover' wx:if="{{!user}}">
     <view class='imageContainer'>

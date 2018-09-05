@@ -27,8 +27,8 @@
     </view>
 
     <view class='newsBoxBackground'>
-      <image mode='aspectFill' class='newsImageOne' src='../../images/4.jpg'></image>
-      <image mode='aspectFill' class='newsImageTwo' src='../../images/4.jpg'></image>
+      <image mode='aspectFill' class='newsImageOne' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/0edf0cca8c7c3a6a2403.jpg'></image>
+      <image mode='aspectFill' class='newsImageTwo' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7e7a65c8d888b66379f1.jpg'></image>
     </view>
 
     <view class='padding-10 margin-top-20 newsBox'>
@@ -36,7 +36,7 @@
          <block wx:for="{{news}}" wx:for-item="image"> 
           <swiper-item class="text-center" id="{{image.id}}" bindtap='goToNews'>
              <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
-             <text class='text-center font-size-13'>{{image.title}}</text> 
+             <text class='textSwiperItem text-center font-size-13'>{{image.title}}</text> 
           </swiper-item>
         </block>
       </swiper>
@@ -62,7 +62,7 @@
     </view>
   </view> -->
     <view class='backgroundModalHome' style='width: {{width}}px; height: {{height+100}}px' wx:if='{{showModal}}'>
-      <image mode='widthFix' style='width: {{width-80}}px' class='imageModalHome' src='../../images/promocion-07.jpg'></image>
+      <image mode='widthFix' style='width: {{width-80}}px' class='imageModalHome' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1104075df75b82a26c68.jpg'></image>
       <image bindtap='quitModal' style='margin-left: {{(width-30)/2}}px' class='buttonClose' src='../../images/close.png'></image>
     </view>
   </view>

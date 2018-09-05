@@ -1,4 +1,5 @@
 /* pages/aboutUs/aboutUs.wxss */
+
 .projectsGroupAbout {
   display: flex;
   flex-direction: column;
@@ -13,11 +14,47 @@
   width: 100%;
 }
 
-.aboutus{
+.aboutus {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   margin-top: -20px;
   z-index: 5;
   position: absolute;
+}
+
+.textWhite {
+  color: white;
+}
+
+.boxTextBanner {
+  position: absolute;
+  z-index: 5;
+  top: 60rpx;
+}
+
+@media (min-width: 320px) {
+  .boxTextBanner {
+    margin-left: 37%;
+  }
+}
+@media (min-width: 360px) {
+  .boxTextBanner {
+    margin-left: 37%;
+  }
+}
+@media (min-width: 375px) {
+  .boxTextBanner {
+    margin-left: 37%;
+  }
+}
+@media (min-width: 414px) {
+  .boxTextBanner {
+    margin-left: 37%;
+  }
+}
+@media (min-width: 480px) {
+  .boxTextBanner {
+    margin-left: 37%;
+  }
 }
