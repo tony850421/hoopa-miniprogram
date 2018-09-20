@@ -162,6 +162,10 @@ Page({
       success: function(res) {},
     })
 
+    wx.setNavigationBarTitle({
+      title: '我的',
+    })
+
     var user = AV.User.current()
     if (user) {
       var query = new AV.Query('Offert');

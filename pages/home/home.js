@@ -92,6 +92,10 @@ Page({
       key: 'type',
       success: function (res) { },
     })
+
+    wx.setNavigationBarTitle({
+      title: '首页',
+    })
   },
   onShareAppMessage: function (res) {
     return {
@@ -103,12 +107,6 @@ Page({
     this.setData({
       showModal: true
     })
-
-    // wx.showToast({
-    //   title: '加载包',
-    //   icon: 'loading',
-    //   duration: 2000
-    // })
 
     var that = this
     wx.getSystemInfo({
@@ -166,6 +164,11 @@ Page({
   goToBranches: function (e) {
     wx.navigateTo({
       url: '../branches/branches',
+    })
+  },
+  goToPartners: function (e) {
+    wx.navigateTo({
+      url: '../partners/partners',
     })
   },
   goToTeam: function (e) {

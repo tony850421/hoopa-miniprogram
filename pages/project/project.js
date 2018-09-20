@@ -115,7 +115,7 @@ Page({
         query4.find().then(images => {
 
           for (var i = 0; i < images.length; i++) {
-            images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 150, 100))
+            images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 720, 480))
           }
 
           this.setData({
@@ -179,7 +179,7 @@ Page({
   },
   goToHome: function () {
     wx.switchTab({
-      url: '../index/index',
+      url: '../home/home',
     })
   },
   onShow: function (options) {
@@ -203,6 +203,10 @@ Page({
         console.log(error);
       });
     }
+
+    wx.setNavigationBarTitle({
+      title: '资产信息',
+    })
   },
   sendToShopCar: function () {
     const user = AV.User.current()
@@ -261,7 +265,7 @@ Page({
     if (res.from == 'menu') {
       return {
         title: '自定义转发标题',
-        path: 'pages/index/index'
+        path: 'pages/home/home'
       }
     } else {
       return {

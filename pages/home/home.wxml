@@ -20,7 +20,7 @@
         <image mode='aspectFit' class='IconsButtons' src='../../images/branch.png'></image>
         <text class='font-size-13'>分支机构</text>
       </view>
-      <view class='buttonsBox' bindtap='goToTeam'>
+      <view class='buttonsBox' bindtap='goToPartners'>
         <image mode='widthFix' class='IconsButtons' src='../../images/partners.png'></image>
         <text class='font-size-13'>合作伙伴</text>
       </view>

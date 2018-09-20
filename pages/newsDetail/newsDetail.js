@@ -47,7 +47,9 @@ Page({
 
   },
   onShow: function () {
-    
+    wx.setNavigationBarTitle({
+      title: '新闻动态',
+    })
   },
   onHide: function () {
 

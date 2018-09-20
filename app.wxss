@@ -237,3 +237,7 @@ kind-list__item:first-child {
   flex-direction: row;
   align-items: center;
 }
+
+.text-indent-20{
+  text-indent: 20px;
+}
