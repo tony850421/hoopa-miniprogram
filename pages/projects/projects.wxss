@@ -93,6 +93,8 @@
   color: #ff6801;
   margin-right: 5px;
   border-radius: 5px;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
   padding: 0;
   border: 1px #ff6801 solid;
   font-size: 9px;
@@ -109,7 +111,9 @@
 
 .packageBox {
   background-color: white;
-  padding: 10px;
+  padding-top: 6px;
+  padding-right: 6px;
+  padding-left: 6px;
   display: flex;
   flex-direction: column;
 }
@@ -154,12 +158,24 @@
 }
 
 .provinceTag {
-  left: 15px;
+  font-size: 9px;
+}
+
+.iconLocation {
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+}
+
+.locationBox{
+  left: 10px;
   position: absolute;
   z-index: 5;
+  margin-top: 77px;
+  display: flex;
+  flex-direction: row;
   background-color: lightgray;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-right: 2px;
 }
 
 .tagsBox {
@@ -188,10 +204,6 @@
     position: absolute;
     z-index: 5;
   }
-
-  .priceTag, .provinceTag {
-    margin-top: 150px;
-  }
 }
 
 @media (min-width: 360px) {
@@ -207,10 +219,6 @@
     left: 110px;
     position: absolute;
     z-index: 5;
-  }
-
-  .priceTag, .provinceTag {
-    margin-top: 180px;
   }
 }
 
@@ -228,10 +236,6 @@
     position: absolute;
     z-index: 5;
   }
-
-  .priceTag, .provinceTag {
-    margin-top: 205px;
-  }
 }
 
 @media (min-width: 480px) {
@@ -247,10 +251,6 @@
     left: 120px;
     position: absolute;
     z-index: 5;
-  }
-
-  .priceTag, .provinceTag {
-    margin-top: 200px;
   }
 }
 
