@@ -120,7 +120,7 @@ Page({
               res[i].set('provincesTags', provinces)
               res[i].set('province', res[i].get('province'))
               res[i].set('tags', arrivalTypeTags)
-              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
             }
 
             that.setData({
@@ -185,7 +185,7 @@ Page({
               res[i].set('provincesTags', provinces)
               res[i].set('province', res[i].get('province'))
               res[i].set('tags', arrivalTypeTags)
-              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
             }
 
             that.setData({
@@ -250,7 +250,7 @@ Page({
               res[i].set('provincesTags', provinces)
               res[i].set('province', res[i].get('province'))
               res[i].set('tags', arrivalTypeTags)
-              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
             }
 
             that.setData({
@@ -315,7 +315,7 @@ Page({
               res[i].set('provincesTags', provinces)
               res[i].set('province', res[i].get('province'))
               res[i].set('tags', arrivalTypeTags)
-              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
             }
 
             that.setData({
@@ -381,7 +381,7 @@ Page({
               res[i].set('provincesTags', provinces)
               res[i].set('province', res[i].get('province'))
               res[i].set('tags', arrivalTypeTags)
-              res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+              res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
             }
 
             that.setData({
@@ -702,7 +702,7 @@ Page({
         res[i].set('province', province)
         res[i].set('title', title)
         res[i].set('tags', arrivalTypeTags)
-        res[i].set('mainImage', res[i].get('image').thumbnailURL(480, 280, 100))
+        res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
 
 
         this.setWish(res, i, res[i], user)

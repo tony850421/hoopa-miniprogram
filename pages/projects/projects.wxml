@@ -62,7 +62,7 @@
                 <view class='displayFlexRow weui-flex font-size-13 margin-top-5' id="{{product.objectId}}" bindtap='goToProject'>
                   <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
                 </view>
-                <view class='displayFlexRow weui-flex margin-top-5' id="{{product.objectId}}" bindtap='goToProject'>
+                <view class='displayFlexRow weui-flex margin-top-5 width20P' id="{{product.objectId}}" bindtap='goToProject'>
                   <image class='iconCount' src='../../images/count_love.png'></image>
                   <text class='TextCount margin-left-5'>{{product.countLove}}</text>
                 </view>
