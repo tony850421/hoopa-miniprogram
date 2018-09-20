@@ -6,13 +6,13 @@
       <image class='imageNewsView' mode='widthFix' src='{{news.imageUrl}}'></image>
     </view>
     <view class='newsContent'>
-      <view class='contentTitle font-size-12 text-indent-20'>{{news.content}}</view>
+      <view class='contentTitle font-size-12 text-indent-20 lineHeightNews'>{{news.content}}</view>
       <view wx:for="{{medias}}" wx:for-item="media">
         <view wx:if="{{media.imageUrl.length > 0}}">
           <image class='imageNewsView margin-top-10' mode='widthFix' src='{{media.imageUrl}}'></image>
           <view class='contentTitle font-size-12 text-align-center'>{{media.caption}}</view>
         </view>
-        <view class='contentTitle font-size-12 margin-top-10 text-indent-20'>{{media.content}}</view>
+        <view class='contentTitle font-size-12 margin-top-10 text-indent-20 lineHeightNews'>{{media.content}}</view>
       </view>
     </view>
   </view>

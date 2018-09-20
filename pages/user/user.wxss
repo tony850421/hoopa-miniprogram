@@ -412,8 +412,11 @@
 .offersBox{
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 10px;
-  margin-top: 66px;
+  padding-bottom: 10px;  
+}
+
+.marginTop56{
+  margin-top: 56px;
 }
 
 .tags {
@@ -429,7 +432,6 @@
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
-  margin-top: 20px;
 }
 
 .iconCount {

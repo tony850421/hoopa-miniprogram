@@ -2,7 +2,7 @@
 
 .image1 {
   width: 35%;
-  height: 95px;
+  height: 92px;
   margin-right: 2%;
   object-fit: cover;
   box-shadow: 5px 5px 7px #999;
@@ -11,13 +11,13 @@
 .image2 {
   width: 63%;
   object-fit: cover;
-  height: 95px;
+  height: 92px;
   box-shadow: 5px 5px 7px #999;
 }
 
 .image3 {
   width: 49%;
-  height: 95px;
+  height: 92px;
   margin-right: 2%;
   object-fit: cover;
   box-shadow: 5px 5px 7px #999;
@@ -26,13 +26,13 @@
 .image4 {
   width: 49%;
   object-fit: cover;
-  height: 95px;
+  height: 92px;
   box-shadow: 5px 5px 7px #999;
 }
 
 .image5 {
   width: 100%;
   object-fit: cover;
-  height: 95px;
+  height: 92px;
   box-shadow: 5px 5px 7px #999;
 }

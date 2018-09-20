@@ -13,6 +13,10 @@
   flex-direction: column;
 }
 
+.lineHeightNews{
+  line-height: 1.7;
+}
+
 .imageNewsView{
   width: 100%;  
   border-radius: 5px;

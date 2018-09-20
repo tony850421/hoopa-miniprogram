@@ -54,7 +54,8 @@
     </view>
   </view>
 </view>
-<view class='offersBox'>
+<view class='marginTop56'></view>
+<view class='offersBox' wx:if="{{offers.length > 0}}">
   <view class='projectsGroup' wx:for="{{offers}}" wx:for-item="offer" data-id='{{offer.project.objectId}}' bindtap='goToProject'>
     <view class='projectTitleGroup'>
       <image class='imageIconUserNotification' src='../../images/projectsSelected.png'></image>
@@ -67,6 +68,7 @@
     </view>
   </view>
 </view>
+<view wx:if="{{offers.length > 0}}" class="margin-top-10"></view>
 <view class='likesBox' wx:if="{{offers.length == 0}}">
   <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}" id="{{product.objectId}}" bindtap='goToProject'>
     <view class='packageBox'>
@@ -100,6 +102,7 @@
     </view>
   </view>
 </view>
+<view wx:if="{{offers.length > 0 || products.length> 0}}" class="margin-top-10"></view>
 <view class='recommendedProjectBox' wx:if="{{products.length == 0 && offers.length == 0}}">
   <view class='product' wx:for="{{recommended}}" wx:for-item="product" wx:key="{{product.id}}" id="{{product.objectId}}" bindtap='goToProject'>
     <view class='packageBox'>

@@ -99,7 +99,7 @@ Page({
           res[i].set('title', title)
           res[i].set('provincesTags', provinces)
           res[i].set('tags', arrivalTypeTags)
-          res[i].set('mainImage', res[i].get('image').thumbnailURL(80, 75, 100))
+          res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
         }
 
         this.setData({
@@ -249,7 +249,7 @@ Page({
               title = tAux
 
               res[i].set('tags', arrivalTypeTags)
-              res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
+              res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(320, 240, 100))
               res[i].set('title', title)
               res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
               res[i].set('companyName', res[i].get('project').get('companyName'))
@@ -425,7 +425,7 @@ Page({
                       title = tAux
 
                       res[i].set('tags', arrivalTypeTags)
-                      res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
+                      res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(320, 240, 100))
                       res[i].set('title', title)
                       res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
                       res[i].set('companyName', res[i].get('project').get('companyName'))
@@ -558,7 +558,7 @@ Page({
                   title = tAux
 
                   res[i].set('tags', arrivalTypeTags)
-                  res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(80, 75, 100))
+                  res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(320, 240, 100))
                   res[i].set('title', title)
                   res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
                   res[i].set('companyName', res[i].get('project').get('companyName'))
