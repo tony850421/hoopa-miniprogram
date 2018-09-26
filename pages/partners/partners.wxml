@@ -2,25 +2,25 @@
 <scroll-view scroll-y="true" style="height: {{height}}px" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="red" scroll-top="100">
   <view class='padding-10'>
     <view class='displayFlexRow'>
-      <image class='image1' src='../../images/partners/01-01.jpg'></image>
-      <image class='image2' src='../../images/partners/01-02.jpg'></image>
+      <image class='image1' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/4b9d97fe1c704ebb8aca.jpg'></image>
+      <image class='image2' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/76a97e9d6f48674a02d8.jpg'></image>
     </view>
 
     <view class='displayFlexRow margin-top-10'>
-      <image class='image3' src='../../images/partners/01-04.jpg'></image>
-      <image class='image4' src='../../images/partners/01-03.jpg'></image>
+      <image class='image3' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/85f84b1d8c8233546805.jpg'></image>
+      <image class='image4' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1ace861acd88d7fb034e.jpg'></image>
     </view>
 
     <view class='displayFlexRow margin-top-10'>
-      <image class='image5' src='../../images/partners/01-05.jpg'></image>
+      <image class='image5' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/29ca848b7dbef2509152.jpg'></image>
     </view>
 
     <view class='displayFlexRow margin-top-10'>
-      <image class='image5' src='../../images/partners/01-06.jpg'></image>
+      <image class='image5' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/fb6edf3a3f4eaedd2f46.jpg'></image>
     </view>
 
     <view class='displayFlexRow margin-top-10'>
-      <image class='image5' src='../../images/partners/01-07.jpg'></image>
+      <image class='image5' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ddf524619953a8010f38.jpg'></image>
     </view>
   </view>
 </scroll-view>
