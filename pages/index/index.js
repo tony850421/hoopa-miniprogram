@@ -6,7 +6,7 @@ Page({
   data: {
     height: '',
     width: '',
-    textSkip: '10'
+    textSkip: '3'
   },
 
   /**
@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
 
-    var timer = 9, seconds;
+    var timer = 3, seconds;
     var intervalStart = setInterval(function () {
       seconds = parseInt(timer % 60, 10);
       seconds = seconds < 10 ? "0" + seconds : seconds;
