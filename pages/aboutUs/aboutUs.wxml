@@ -42,7 +42,8 @@
   <!-- 3  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e9d8f277659bd30b257b.jpg'></image>
+      <!-- <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e9d8f277659bd30b257b.jpg'></image> -->
+      <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/858a7544a2cde22257e2.png'></image>
     </view>
     <view class='servicesText'>
       <view class='projectsGroup'>
