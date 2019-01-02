@@ -20,7 +20,7 @@
       </view> -->
 
       <view class='projectTitle font-size-13'>
-        <text class='titleProject'>快嘎撒打算大苏打</text>
+        <text class='titleProject'>{{product.title}}</text>
         <view class='displayFlexRow weui-flex margin-top-5'>
           <text>债权本金:</text>
           <text class='margin-left-5 colorTextPrimary'>¥{{product.debitAmount}}万</text>
@@ -73,7 +73,7 @@
       <!-- credits highlights  -->
       <view class='projectsLabel font-size-13' wx:if="{{product.creditHighlights.length > 0}}">
         <view class='projectTitleGroupLabel'>
-          <text>学分亮点</text>
+          <text>资产亮点</text>
         </view>
       </view>
 

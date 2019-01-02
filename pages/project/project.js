@@ -114,8 +114,9 @@ Page({
         query4.equalTo('project', project)
         query4.find().then(images => {
 
-          for (var i = 0; i < images.length; i++) {
-            images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 720, 480))
+          for (var i = 0; i < images.length; i++) {            
+            console.log(this.data.width)
+            images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 480, 100))
           }
 
           this.setData({

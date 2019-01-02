@@ -54,7 +54,7 @@
         "pagePath": "pages/user/user",
         "iconPath": "images/user.png",
         "selectedIconPath": "images/userSelected.png",
-        "text": "我的"
+        "text": "个人中心"
       }
     ]
   }

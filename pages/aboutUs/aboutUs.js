@@ -27,7 +27,7 @@ Page({
    */
   onShow: function () {
    wx.setNavigationBarTitle({
-     title: '集团背景',
+     title: '公司介绍',
    })
   },
 

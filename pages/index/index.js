@@ -6,7 +6,7 @@ Page({
   data: {
     height: '',
     width: '',
-    textSkip: '3'
+    textSkip: '03'
   },
 
   /**

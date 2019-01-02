@@ -163,7 +163,7 @@ Page({
     })
 
     wx.setNavigationBarTitle({
-      title: '我的',
+      title: '个人中心',
     })
 
     var user = AV.User.current()
