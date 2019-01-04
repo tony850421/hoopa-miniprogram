@@ -71,7 +71,7 @@
 <view wx:if="{{offers.length > 0}}" class="margin-top-10"></view>
 <view class='likesBox' wx:if="{{offers.length == 0}}">
   <view class='product' wx:for="{{products}}" wx:for-item="product" wx:if="{{product}}" id="{{product.objectId}}" bindtap='goToProject'>
-    <view class='packageBox'>
+    <!-- <view class='packageBox'>
       <view>
         <view class='displayFlexRow'>
           <view>
@@ -96,6 +96,36 @@
               <image class='iconCount' src='../../images/count_love.png'></image>
               <text class='TextCount margin-left-5'>{{product.countLove}}</text>
             </view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+
+    <view class='packageBox'>
+      <view>
+        <view class='displayFlexRow'>
+          <view>
+            <image wx:if="{{!product.wished}}" id="{{product.objectId}}" bindtap='sendToShopCar' class='iconWish' src='../../images/heart.png'></image>
+            <image wx:if="{{product.wished}}" id="{{product.objectId}}" bindtap='removeWish' class='iconWish' src='../../images/heartFull.png'></image>
+            <view class='locationBox'>
+              <image src='../../images/icon_location.png' class='iconLocation'></image>
+              <text class='provinceTag'>{{product.province}}</text>
+            </view>
+            <image class='imagePackage' src='{{product.mainImage}}' id="{{product.objectId}}" bindtap='goToProject'></image>
+          </view>
+          <view class='margin-left-10 width100P displayFlexColumn'>
+            <text class='font-size-13 margin-top-5' id="{{product.objectId}}" bindtap='goToProject'>{{product.title}}</text>
+            <view class='displayFlexRow weui-flex font-size-13 margin-top-5' id="{{product.objectId}}" bindtap='goToProject'>
+              <text>债权本金：</text>
+              <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
+            </view>
+            <view class='displayFlexRow weui-flex font-size-13 margin-top-5' id="{{product.objectId}}" bindtap='goToProject'>
+              <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
+            </view>
+            <!-- <view class='displayFlexRow weui-flex margin-top-5 width20P' id="{{product.objectId}}" bindtap='goToProject'>
+              <image class='iconCount' src='../../images/count_love.png'></image>
+              <text class='TextCount margin-left-5'>{{product.countLove}}</text>
+            </view> -->
           </view>
         </view>
       </view>

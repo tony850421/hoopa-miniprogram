@@ -14,6 +14,37 @@
   border-radius: 50%;
 }
 
+.iconLocation {
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+}
+
+.locationBox{
+  left: 20px;
+  position: absolute;
+  z-index: 5;
+  margin-top: 77px;
+  display: flex;
+  flex-direction: row;
+  background-color: lightgray;
+  padding-right: 2px;
+}
+
+.provinceTag {
+  font-size: 9px;
+}
+
+.packageBox {
+  background-color: white;
+  padding-top: 6px;
+  padding-right: 6px;
+  padding-left: 6px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .imageContainer {
   background-color: white;
   width: 242rpx;
@@ -122,7 +153,7 @@
     z-index: 5;
   }
 
-  .priceTag, .provinceTag {
+  .priceTag {
     margin-top: 150px;
   }
 }
@@ -168,7 +199,7 @@
     z-index: 5;
   }
 
-  .priceTag, .provinceTag {
+  .priceTag {
     margin-top: 180px;
   }
 }
@@ -252,7 +283,7 @@
     z-index: 5;
   }
 
-  .priceTag, .provinceTag {
+  .priceTag {
     margin-top: 205px;
   }
 }
@@ -310,7 +341,7 @@
     z-index: 5;
   }
 
-  .priceTag, .provinceTag {
+  .priceTag {
     margin-top: 200px;
   }
 }
@@ -437,6 +468,11 @@
 .iconCount {
   width: 17px;
   height: 17px;
+}
+
+.width20P{
+  width: 25% !important;
+  align-self: flex-end;
 }
 
 .TextCount {

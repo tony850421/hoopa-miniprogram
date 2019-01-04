@@ -98,6 +98,7 @@ Page({
 
           res[i].set('title', title)
           res[i].set('provincesTags', provinces)
+          res[i].set('province', res[i].get('province'))
           res[i].set('tags', arrivalTypeTags)
           res[i].set('mainImage', res[i].get('image').thumbnailURL(320, 240, 100))
         }
@@ -132,6 +133,35 @@ Page({
         }
       })
     }
+  },
+  setWish: function (array, index, project, user) {
+    var query = new AV.Query("ShopCar")
+    query.equalTo("project", project)
+    query.equalTo("user", user)
+    query.count().then(res => {
+      if (res > 0) {
+        array[index].set("wished", true)
+      } else {
+        array[index].set("wished", false)
+      }
+      array[index].set("countLove", res)
+      this.data.products.splice(index, 0, array[index])
+      // this.data.products = this.data.products.concat(array[index])
+      this.setData({
+        products: this.data.products
+      })
+    }).catch(console.error);
+
+    // var query6 = new AV.Query("ProjectVisit")
+    // query6.equalTo('project', project)
+    // query6.count().then(visit => {
+    //   array[index].set("countVisit", visit)
+    //   this.data.products.splice(index, 0, array[index])
+    //   // this.data.products = this.data.products.concat(array[index])
+    //   this.setData({
+    //     products: this.data.products
+    //   })
+    // }).catch(console.error);
   },
   verifyRole: function() {
     var user = AV.User.current()
@@ -251,6 +281,7 @@ Page({
               res[i].set('tags', arrivalTypeTags)
               res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(320, 240, 100))
               res[i].set('title', title)
+              res[i].set('province', res[i].get('project').get('province'))
               res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
               res[i].set('companyName', res[i].get('project').get('companyName'))
               res[i].set('provincesTags', provinces)
@@ -427,6 +458,7 @@ Page({
                       res[i].set('tags', arrivalTypeTags)
                       res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(320, 240, 100))
                       res[i].set('title', title)
+                      res[i].set('province', res[i].get('province'))
                       res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
                       res[i].set('companyName', res[i].get('project').get('companyName'))
                       res[i].set('provincesTags', provinces)
@@ -560,6 +592,7 @@ Page({
                   res[i].set('tags', arrivalTypeTags)
                   res[i].set('mainImage', res[i].get('project').get('image').thumbnailURL(320, 240, 100))
                   res[i].set('title', title)
+                  res[i].set('province', res[i].get('province'))
                   res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
                   res[i].set('companyName', res[i].get('project').get('companyName'))
                   res[i].set('provincesTags', provinces)

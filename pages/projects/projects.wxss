@@ -200,7 +200,7 @@
     width: 17px;
     height: 17px;
     margin-top: 5px;
-    left: 110px;
+    left: 103px;
     position: absolute;
     z-index: 5;
   }
@@ -216,7 +216,7 @@
     width: 17px;
     height: 17px;
     margin-top: 5px;
-    left: 110px;
+    left: 103px;
     position: absolute;
     z-index: 5;
   }
@@ -232,7 +232,7 @@
     width: 17px;
     height: 17px;
     margin-top: 5px;
-    left: 120px;
+    left: 113px;
     position: absolute;
     z-index: 5;
   }
@@ -248,7 +248,7 @@
     width: 17px;
     height: 17px;
     margin-top: 5px;
-    left: 120px;
+    left: 113px;
     position: absolute;
     z-index: 5;
   }

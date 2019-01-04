@@ -651,7 +651,7 @@ Page({
     queryAndSearchBar.skip(this.data.products.length);
     queryAndSearchBar.descending('createdAt')
     queryAndSearchBar.find().then(res => {
-      
+     
       var arrivalType = []
       var provinces = ''
       var province = ''
@@ -710,9 +710,10 @@ Page({
         // this.setCountVisit(res, i, res[i], user)
         // this.data.products = this.data.products.concat(res[i])
       }
-      // this.setData({
-      //   products: this.data.products
-      // })
+      
+      this.setData({
+        products: this.data.products
+      })
     })
 
     if (this.data.list[0].name.length > 5) {
