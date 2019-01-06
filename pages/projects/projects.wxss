@@ -167,7 +167,7 @@
   object-fit: cover;
 }
 
-.locationBox{
+.locationBox {
   left: 10px;
   position: absolute;
   z-index: 5;
@@ -204,6 +204,11 @@
     position: absolute;
     z-index: 5;
   }
+
+  .width20P {
+    width: 18% !important;
+    align-self: flex-end;
+  }
 }
 
 @media (min-width: 360px) {
@@ -219,6 +224,11 @@
     left: 103px;
     position: absolute;
     z-index: 5;
+  }
+
+  .width20P {
+    width: 15% !important;
+    align-self: flex-end;
   }
 }
 
@@ -236,6 +246,11 @@
     position: absolute;
     z-index: 5;
   }
+
+  .width20P {
+    width: 25% !important;
+    align-self: flex-end;
+  }
 }
 
 @media (min-width: 480px) {
@@ -251,6 +266,19 @@
     left: 113px;
     position: absolute;
     z-index: 5;
+  }
+
+  .width20P {
+    width: 10% !important;
+    align-self: flex-end;
+  }
+}
+
+@media (min-width: 481px) {  
+
+  .width20P {
+    width: 5% !important;
+    align-self: flex-end;
   }
 }
 
@@ -268,9 +296,4 @@
   width: 20px;
   height: 20px;
   border: 1px solid #7c7c7c;
-}
-
-.width20P{
-  width: 25% !important;
-  align-self: flex-end;
 }

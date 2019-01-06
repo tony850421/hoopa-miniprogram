@@ -9,13 +9,13 @@ var offersProduct = [];
 Page({
   data: {
     height: '',
+    width: '',
     products: [],
     offers: [],
     permitScroll: false,
     inputShowed: false,
     inputVal: "",
-    list: [
-      {
+    list: [{
         id: 'type',
         name: '类型',
         nameShow: '类型',
@@ -38,29 +38,22 @@ Page({
       }
     ],
     searchLoading: false, //"上拉加载"的变量，默认false，隐藏  
-    searchLoadingComplete: false  //“没有数据”的变量，默认false，隐藏  
+    searchLoadingComplete: false //“没有数据”的变量，默认false，隐藏  
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.getSystemInfo({
       success: res => {
         this.setData({
-          height: res.windowHeight
+          height: res.windowHeight,
+          width: res.windowWidth
         })
       },
     })
-  },
-  onReady: function () {
-    const user = AV.User.current();
-  },
-  onUnload: function () {
-  },
-  onPullDownRefresh: function () {
-  },
-  onShow: function () {
+
     var that = this
     wx.getStorage({
       key: 'type',
-      success: function (res) {
+      success: function(res) {
         const query = new AV.Query('Project');
         if (res.data == '推荐') {
           query.equalTo('isRecommended', true)
@@ -68,7 +61,7 @@ Page({
           query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
-            
+
             that.setData({
               products: []
             })
@@ -105,11 +98,25 @@ Page({
                 }
               }
 
+              var lengthTitle = 50;
+
+              if (this.data.width < 360) {
+                lengthTitle = 12
+              } else if (this.data.width < 361) {
+                lengthTitle = 15
+              } else if (this.data.width < 376) {
+                lengthTitle = 16
+              } else if (this.data.width < 415) {
+                lengthTitle = 19
+              } else if (this.data.width < 481) {
+                lengthTitle = 23
+              }
+
               var title = res[i].get('title')
               var tAux = title
-              if (title.length >= 15) {
+              if (title.length >= lengthTitle) {
                 var tAux = ''
-                for (var x = 0; x < 14; x++) {
+                for (var x = 0; x < lengthTitle-1; x++) {
                   tAux = tAux + title[x]
                 }
                 tAux = tAux + "..."
@@ -133,7 +140,7 @@ Page({
           query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
-            
+
             that.setData({
               products: []
             })
@@ -170,11 +177,25 @@ Page({
                 }
               }
 
+              var lengthTitle = 50;
+
+              if (this.data.width < 360) {
+                lengthTitle = 12
+              } else if (this.data.width < 361) {
+                lengthTitle = 15
+              } else if (this.data.width < 376) {
+                lengthTitle = 16
+              } else if (this.data.width < 415) {
+                lengthTitle = 19
+              } else if (this.data.width < 481) {
+                lengthTitle = 23
+              }
+
               var title = res[i].get('title')
               var tAux = title
-              if (title.length >= 15) {
+              if (title.length >= lengthTitle) {
                 var tAux = ''
-                for (var x = 0; x < 14; x++) {
+                for (var x = 0; x < lengthTitle - 1; x++) {
                   tAux = tAux + title[x]
                 }
                 tAux = tAux + "..."
@@ -198,7 +219,7 @@ Page({
           query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
-            
+
             that.setData({
               products: []
             })
@@ -235,11 +256,25 @@ Page({
                 }
               }
 
+              var lengthTitle = 50;
+
+              if (this.data.width < 360) {
+                lengthTitle = 12
+              } else if (this.data.width < 361) {
+                lengthTitle = 15
+              } else if (this.data.width < 376) {
+                lengthTitle = 16
+              } else if (this.data.width < 415) {
+                lengthTitle = 19
+              } else if (this.data.width < 481) {
+                lengthTitle = 23
+              }
+
               var title = res[i].get('title')
               var tAux = title
-              if (title.length >= 15) {
+              if (title.length >= lengthTitle) {
                 var tAux = ''
-                for (var x = 0; x < 14; x++) {
+                for (var x = 0; x < lengthTitle - 1; x++) {
                   tAux = tAux + title[x]
                 }
                 tAux = tAux + "..."
@@ -263,7 +298,7 @@ Page({
           query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
-            
+
             that.setData({
               products: []
             })
@@ -300,11 +335,25 @@ Page({
                 }
               }
 
+              var lengthTitle = 50;
+
+              if (this.data.width < 360) {
+                lengthTitle = 12
+              } else if (this.data.width < 361) {
+                lengthTitle = 15
+              } else if (this.data.width < 376) {
+                lengthTitle = 16
+              } else if (this.data.width < 415) {
+                lengthTitle = 19
+              } else if (this.data.width < 481) {
+                lengthTitle = 23
+              }
+
               var title = res[i].get('title')
               var tAux = title
-              if (title.length >= 15) {
+              if (title.length >= lengthTitle) {
                 var tAux = ''
-                for (var x = 0; x < 14; x++) {
+                for (var x = 0; x < lengthTitle - 1; x++) {
                   tAux = tAux + title[x]
                 }
                 tAux = tAux + "..."
@@ -329,7 +378,7 @@ Page({
           query.include('image');
           query.descending('createdAt');
           query.find().then(res => {
-            
+
             that.setData({
               products: []
             })
@@ -366,11 +415,25 @@ Page({
                 }
               }
 
+              var lengthTitle = 50;
+
+              if (this.data.width < 360) {
+                lengthTitle = 12
+              } else if (this.data.width < 361) {
+                lengthTitle = 15
+              } else if (this.data.width < 376) {
+                lengthTitle = 16
+              } else if (this.data.width < 415) {
+                lengthTitle = 19
+              } else if (this.data.width < 481) {
+                lengthTitle = 23
+              }
+
               var title = res[i].get('title')
               var tAux = title
-              if (title.length >= 15) {
+              if (title.length >= lengthTitle) {
                 var tAux = ''
-                for (var x = 0; x < 14; x++) {
+                for (var x = 0; x < lengthTitle - 1; x++) {
                   tAux = tAux + title[x]
                 }
                 tAux = tAux + "..."
@@ -393,7 +456,7 @@ Page({
           permitScroll: false
         })
       },
-      fail: function () {
+      fail: function() {
         that.setData({
           permitScroll: true
         })
@@ -401,22 +464,30 @@ Page({
       }
     })
   },
-  onHide: function () {
+  onReady: function() {
+    const user = AV.User.current();
+  },
+  onUnload: function() {},
+  onPullDownRefresh: function() {},
+  onShow: function() {
 
   },
-  onReachBottom: function () {
+  onHide: function() {
 
   },
-  onShareAppMessage: function (res) {
+  onReachBottom: function() {
+
+  },
+  onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
       path: '/index/index'
     }
   },
-  makeAnOffer: function () {
+  makeAnOffer: function() {
 
   },
-  goToProject: function (e) {
+  goToProject: function(e) {
     var user = AV.User.current()
     if (!user) {
       wx.login({
@@ -434,15 +505,15 @@ Page({
       })
     }
   },
-  showInput: function () {
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
-  hideInput: function () {
+  hideInput: function() {
     this.search();
   },
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
       inputVal: "",
       inputShowed: false
@@ -456,14 +527,15 @@ Page({
 
     this.applyFilters()
   },
-  inputTyping: function (e) {
+  inputTyping: function(e) {
     this.setData({
       inputVal: e.detail.value
     });
     this.closeFilters();
   },
-  kindToggle: function (e) {
-    var id = e.currentTarget.id, list = this.data.list;
+  kindToggle: function(e) {
+    var id = e.currentTarget.id,
+      list = this.data.list;
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
         list[i].open = !list[i].open
@@ -475,7 +547,7 @@ Page({
       list: list
     });
   },
-  selectFilter: function (e) {
+  selectFilter: function(e) {
     for (var i = 0; i < this.data.list.length; i++) {
       if (this.data.list[i].id == e.target.dataset.filterheader) {
         this.data.list[i].name = this.data.list[i].pages[e.target.dataset.filter]
@@ -495,7 +567,7 @@ Page({
 
     this.applyFilters()
   },
-  search: function () {
+  search: function() {
     this.data.products = []
 
     this.setData({
@@ -504,7 +576,7 @@ Page({
 
     this.applyFilters()
   },
-  closeFilters: function () {
+  closeFilters: function() {
     for (var i = 0; i < this.data.list.length; i++) {
       this.data.list[i].open = false
     }
@@ -513,15 +585,15 @@ Page({
       list: this.data.list
     })
   },
-  bindscrolltolower: function (e) {
+  bindscrolltolower: function(e) {
     if (this.data.permitScroll) {
       this.applyFilters()
     }
   },
-  applyFilters: function () {
+  applyFilters: function() {
     wx.removeStorage({
       key: 'type',
-      success: function (res) { },
+      success: function(res) {},
     })
 
     const user = AV.User.current()
@@ -651,7 +723,7 @@ Page({
     queryAndSearchBar.skip(this.data.products.length);
     queryAndSearchBar.descending('createdAt')
     queryAndSearchBar.find().then(res => {
-     
+
       var arrivalType = []
       var provinces = ''
       var province = ''
@@ -687,11 +759,25 @@ Page({
           }
         }
 
+        var lengthTitle = 50;
+        
+        if (this.data.width < 360) {
+          lengthTitle = 12
+        } else if (this.data.width < 361) {
+          lengthTitle =  15
+        } else if (this.data.width < 376) {
+          lengthTitle =  16
+        } else if (this.data.width < 415) {
+          lengthTitle = 19
+        } else if (this.data.width < 481) {
+          lengthTitle = 23
+        }
+
         var title = res[i].get('title')
         var tAux = title
-        if (title.length >= 15) {
+        if (title.length >= lengthTitle) {
           var tAux = ''
-          for (var x = 0; x < 14; x++) {
+          for (var x = 0; x < lengthTitle-1; x++) {
             tAux = tAux + title[x]
           }
           tAux = tAux + "..."
@@ -710,7 +796,7 @@ Page({
         // this.setCountVisit(res, i, res[i], user)
         // this.data.products = this.data.products.concat(res[i])
       }
-      
+
       this.setData({
         products: this.data.products
       })
@@ -738,7 +824,7 @@ Page({
       list: this.data.list
     });
   },
-  sendToShopCar: function (e) {
+  sendToShopCar: function(e) {
     const user = AV.User.current()
     if (user) {
       var query = new AV.Query("Project")
@@ -749,8 +835,8 @@ Page({
         shop.set('checked', false);
         shop.set('project', project)
         shop.save().then(res => {
-          for (var i = 0; i < this.data.products.length; i++){
-            if (this.data.products[i].id == e.currentTarget.id){
+          for (var i = 0; i < this.data.products.length; i++) {
+            if (this.data.products[i].id == e.currentTarget.id) {
               this.data.products[i].set('wished', true);
               break;
             }
@@ -762,7 +848,7 @@ Page({
       }).catch(console.error);
     }
   },
-  setWish: function (array, index, project, user) {
+  setWish: function(array, index, project, user) {
     var query = new AV.Query("ShopCar")
     query.equalTo("project", project)
     query.equalTo("user", user)
@@ -816,7 +902,7 @@ Page({
   //     })
   //   }).catch(console.error);
   // },
-  removeWish: function (e) {
+  removeWish: function(e) {
     var that = this
     const user = AV.User.current()
     var query = new AV.Query("Project")
@@ -828,7 +914,7 @@ Page({
       query.find().then(res => {
         for (var i = 0; i < res.length; i++) {
           var product = AV.Object.createWithoutData('ShopCar', res[i].id);
-          product.destroy().then(function (prod) {
+          product.destroy().then(function(prod) {
             for (var i = 0; i < that.data.products.length; i++) {
               if (that.data.products[i].id == e.currentTarget.id) {
                 that.data.products[i].set('wished', false);
@@ -843,7 +929,7 @@ Page({
       }).catch(console.error);
     }).catch(console.error);
   },
-  goToOffer: function (e) {
+  goToOffer: function(e) {
     wx.setStorage({
       key: "projectID",
       data: e.currentTarget.id

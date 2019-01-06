@@ -7,20 +7,13 @@
   border-bottom: 1px #d6dadb solid;
 }
 
-.userinfo-avatar {
-  width: 230rpx;
-  height: 230rpx;
-  margin: 7rpx;
-  border-radius: 50%;
-}
-
 .iconLocation {
   width: 15px;
   height: 15px;
   object-fit: cover;
 }
 
-.locationBox{
+.locationBox {
   left: 20px;
   position: absolute;
   z-index: 5;
@@ -43,14 +36,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.imageContainer {
-  background-color: white;
-  width: 242rpx;
-  height: 242rpx;
-  margin: 20rpx;
-  border-radius: 50%;
 }
 
 .userinfo-nickname {
@@ -99,7 +84,6 @@
   background-repeat: repeat-x;
 }
 
-
 @media (min-width: 320px) {
   .BackgroundProfile {
     height: 240px;
@@ -121,18 +105,12 @@
     margin-top: 2px;
   }
 
-  .lineVBar {
-    width: 7px !important;
-    height: 40px !important;
-    margin-top: 5px !important;
-  }
-
-  .bannerUser{
+  .bannerUser {
     width: 100%;
     height: 220px;
   }
 
-  .boxUserInfo{
+  .boxUserInfo {
     position: absolute;
     z-index: 5;
     top: 40px;
@@ -155,6 +133,31 @@
 
   .priceTag {
     margin-top: 150px;
+  }
+
+  .marginTop56 {
+    margin-top: 56px;
+  }
+
+  .imageContainer {
+    background-color: white;
+    width: 242rpx;
+    height: 242rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-avatar {
+    width: 230rpx;
+    height: 230rpx;
+    margin: 7rpx;
+    border-radius: 50%;
+  }
+  
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
   }
 }
 
@@ -202,6 +205,31 @@
   .priceTag {
     margin-top: 180px;
   }
+
+  .marginTop56 {
+    margin-top: 56px;
+  }
+
+  .imageContainer {
+    background-color: white;
+    width: 242rpx;
+    height: 242rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-avatar {
+    width: 230rpx;
+    height: 230rpx;
+    margin: 7rpx;
+    border-radius: 50%;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
 }
 
 @media (min-width: 375px) {
@@ -229,7 +257,33 @@
     width: 7px !important;
     height: 60px !important;
     margin-top: 5px !important;
-  }  
+  }
+
+  .marginTop56 {
+    margin-top: 56px;
+  }
+
+  .imageContainer {
+    background-color: white;
+    width: 242rpx;
+    height: 242rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-avatar {
+    width: 230rpx;
+    height: 230rpx;
+    margin: 7rpx;
+    border-radius: 50%;
+  }
+
+  
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
 }
 
 @media (min-width: 414px) {
@@ -257,12 +311,12 @@
     margin-top: 5px !important;
   }
 
-  .bannerUser{
+  .bannerUser {
     width: 100%;
     height: 220px;
   }
 
-  .boxUserInfo{
+  .boxUserInfo {
     position: absolute;
     z-index: 5;
     top: 30px;
@@ -285,6 +339,31 @@
 
   .priceTag {
     margin-top: 205px;
+  }
+
+  .marginTop56 {
+    margin-top: 56px;
+  }
+
+  .imageContainer {
+    background-color: white;
+    width: 242rpx;
+    height: 242rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-avatar {
+    width: 230rpx;
+    height: 230rpx;
+    margin: 7rpx;
+    border-radius: 50%;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
   }
 }
 
@@ -315,12 +394,12 @@
     margin-top: 5px !important;
   }
 
-   .bannerUser{
+  .bannerUser {
     width: 100%;
     height: 240px;
   }
 
-  .boxUserInfo{
+  .boxUserInfo {
     position: absolute;
     z-index: 5;
     top: 30px;
@@ -344,8 +423,55 @@
   .priceTag {
     margin-top: 200px;
   }
+
+  .marginTop56 {
+    margin-top: 70px;
+  }
+
+  .imageContainer {
+    background-color: white;
+    width: 242rpx;
+    height: 242rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-avatar {
+    width: 230rpx;
+    height: 230rpx;
+    margin: 7rpx;
+    border-radius: 50%;
+  }
+
+  .lineVBar {
+    width: 7px !important;
+    height: 50px !important;
+    margin-top: 5px !important;
+  }
 }
 
+@media (min-width: 481px) {
+  .imageContainer {
+    background-color: white;
+    width: 162rpx;
+    height: 162rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-avatar {
+    width: 150rpx;
+    height: 150rpx;
+    margin: 6rpx;
+    border-radius: 50%;
+  }
+  
+  .lineVBar {
+    width: 7px !important;
+    height: 50px !important;
+    margin-top: 5px !important;
+  }
+}
 
 .dataUserInfoCover {
   display: flex;
@@ -403,7 +529,7 @@
   height: 45px;
 }
 
-.offers{
+.offers {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -412,7 +538,7 @@
 
 .imageProductCar {
   width: 80px !important;
-  height:75px !important;
+  height: 75px !important;
 }
 
 .projectsGroup {
@@ -421,7 +547,7 @@
   align-items: center;
   background-color: white;
   border-radius: 5px;
-  padding:10px;
+  padding: 10px;
   border: 1px #d6dadb solid;
   margin-top: 5px;
 }
@@ -440,14 +566,10 @@
   text-align: center;
 }
 
-.offersBox{
+.offersBox {
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 10px;  
-}
-
-.marginTop56{
-  margin-top: 56px;
+  padding-bottom: 10px;
 }
 
 .tags {
@@ -459,7 +581,7 @@
   font-size: 9px;
 }
 
-.recommendedProjectBox, .likesBox{
+.recommendedProjectBox, .likesBox {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -470,7 +592,7 @@
   height: 17px;
 }
 
-.width20P{
+.width20P {
   width: 25% !important;
   align-self: flex-end;
 }

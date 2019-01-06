@@ -1,10 +1,5 @@
 /* pages/partners/partners.wxss */
 
-map {
-  height: 250px;
-  width: 100%;
-}
-
 .branchesTextBox {
   display: flex;
   flex-direction: column;
@@ -21,8 +16,8 @@ map {
 }
 
 .dateBox {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: white;
@@ -30,16 +25,23 @@ map {
 }
 
 .iconCall {
-  width: 25px;
-  height: 25px;
-  margin-left: 8px !important;
-  margin-top: 7px;
+  width: 22px;
+  height: 22px;
+  margin-left: 6px !important;
+  margin-top: 6px;
+}
+
+.iconNavigation {
+  width: 21px;
+  height: 21px;
+  margin-left: 7px !important;
+  margin-top: 8px;
 }
 
 .boxIconCall {
-  margin-left: 10px;
-  width: 50px;
-  height: 40px;
+  margin-left: 5px;
+  width: 48px;
+  height: 35px;
   border-radius: 50px;
   background-color: #e2e2e2;
   align-content: center;
@@ -49,4 +51,9 @@ map {
 
 .namePartner {
   font-weight: bold;
+}
+
+#map {
+  height: 220px !important;
+  width: 100%;
 }

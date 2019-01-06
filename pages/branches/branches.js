@@ -13,8 +13,7 @@ Page({
     nameSelected: '杭州胡巴资产管理有限公司',
     directionSelected: '杭州市江干区钱江国际时代广场三幢2701',
     phoneSelected: '+864008001682',
-    partners: [
-      {
+    partners: [{
         id: 0,
         name: '杭州总部',
         direction: '杭州市江干区城星路111号钱江国际时代广场3幢2701室',
@@ -146,7 +145,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.getSystemInfo({
       success: res => {
         this.setData({
@@ -159,14 +158,14 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     wx.setNavigationBarTitle({
       title: '机构',
     })
@@ -175,41 +174,41 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
       path: '/index/index'
     }
   },
-  tapPartner: function (e) {
+  tapPartner: function(e) {
     var name = ''
     var address = ''
     var phone = ''
@@ -239,9 +238,17 @@ Page({
       phoneSelected: phone
     })
   },
-  callPhoneNumber: function (e) {
+  callPhoneNumber: function(e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone.toString()
     })
   },
+  navigationToPartnet: function() {
+    wx.openLocation({
+      latitude: this.data.latitudeSelected,
+      longitude: this.data.longitudeSelected,
+      name: this.data.nameSelected,
+      scale: 28
+    })
+  }
 })

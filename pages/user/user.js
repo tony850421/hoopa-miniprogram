@@ -85,11 +85,25 @@ Page({
             }
           }
 
+          var lengthTitle = 50;
+
+          if (this.data.width < 360) {
+            lengthTitle = 12
+          } else if (this.data.width < 361) {
+            lengthTitle = 15
+          } else if (this.data.width < 376) {
+            lengthTitle = 16
+          } else if (this.data.width < 415) {
+            lengthTitle = 19
+          } else if (this.data.width < 481) {
+            lengthTitle = 23
+          }
+
           var title = res[i].get('title')
           var tAux = title
-          if (title.length >= 15) {
+          if (title.length >= lengthTitle) {
             var tAux = ''
-            for (var x = 0; x < 14; x++) {
+            for (var x = 0; x < lengthTitle - 1; x++) {
               tAux = tAux + title[x]
             }
             tAux = tAux + "..."
@@ -134,7 +148,7 @@ Page({
       })
     }
   },
-  setWish: function (array, index, project, user) {
+  setWish: function(array, index, project, user) {
     var query = new AV.Query("ShopCar")
     query.equalTo("project", project)
     query.equalTo("user", user)
@@ -267,11 +281,25 @@ Page({
                 }
               }
 
+              var lengthTitle = 50;
+
+              if (this.data.width < 360) {
+                lengthTitle = 12
+              } else if (this.data.width < 361) {
+                lengthTitle = 15
+              } else if (this.data.width < 376) {
+                lengthTitle = 16
+              } else if (this.data.width < 415) {
+                lengthTitle = 19
+              } else if (this.data.width < 481) {
+                lengthTitle = 23
+              }
+
               var title = res[i].get('project').get('title')
               var tAux = title
-              if (title.length >= 11) {
+              if (title.length >= lengthTitle) {
                 var tAux = ''
-                for (var x = 0; x < 10; x++) {
+                for (var x = 0; x < lengthTitle - 1; x++) {
                   tAux = tAux + title[x]
                 }
                 tAux = tAux + "..."
@@ -443,12 +471,25 @@ Page({
                           arrivalTypeTags.push(arrivalType[x])
                         }
                       }
+                      var lengthTitle = 50;
+
+                      if (this.data.width < 360) {
+                        lengthTitle = 12
+                      } else if (this.data.width < 361) {
+                        lengthTitle = 15
+                      } else if (this.data.width < 376) {
+                        lengthTitle = 16
+                      } else if (this.data.width < 415) {
+                        lengthTitle = 19
+                      } else if (this.data.width < 481) {
+                        lengthTitle = 23
+                      }
 
                       var title = res[i].get('project').get('title')
                       var tAux = title
-                      if (title.length >= 11) {
+                      if (title.length >= lengthTitle) {
                         var tAux = ''
-                        for (var x = 0; x < 10; x++) {
+                        for (var x = 0; x < lengthTitle - 1; x++) {
                           tAux = tAux + title[x]
                         }
                         tAux = tAux + "..."
@@ -578,11 +619,25 @@ Page({
                     }
                   }
 
+                  var lengthTitle = 50;
+
+                  if (this.data.width < 360) {
+                    lengthTitle = 12
+                  } else if (this.data.width < 361) {
+                    lengthTitle = 15
+                  } else if (this.data.width < 376) {
+                    lengthTitle = 16
+                  } else if (this.data.width < 415) {
+                    lengthTitle = 19
+                  } else if (this.data.width < 481) {
+                    lengthTitle = 23
+                  }
+
                   var title = res[i].get('project').get('title')
                   var tAux = title
-                  if (title.length >= 11) {
+                  if (title.length >= lengthTitle) {
                     var tAux = ''
-                    for (var x = 0; x < 10; x++) {
+                    for (var x = 0; x < lengthTitle - 1; x++) {
                       tAux = tAux + title[x]
                     }
                     tAux = tAux + "..."

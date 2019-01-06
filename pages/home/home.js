@@ -24,17 +24,17 @@ Page({
     activeAbout: false,
     showModal: false
   },
-  goToServices: function () {
+  goToServices: function() {
     wx.navigateTo({
       url: '../services/services',
     })
   },
-  goToAboutUs: function () {
+  goToAboutUs: function() {
     wx.navigateTo({
       url: '../aboutUs/aboutUs',
     })
   },
-  onReady: function () {
+  onReady: function() {
     var user = AV.User.current();
     if (user) {
       var roleQuery = new AV.Query(AV.Role);
@@ -64,46 +64,46 @@ Page({
         } else {
           var roleQueryGuest = new AV.Query(AV.Role);
           roleQueryGuest.equalTo('name', 'guest');
-          roleQueryGuest.find().then(function (results) {
+          roleQueryGuest.find().then(function(results) {
             var role = results[0];
             var relation = role.getUsers();
             relation.add(user);
             return role.save();
-          }).then(function (role) { }).catch(function (error) {
+          }).then(function(role) {}).catch(function(error) {
             console.log(error);
           });
         }
-      }).then(function (administratorRole) {
+      }).then(function(administratorRole) {
 
-      }).catch(function (error) {
+      }).catch(function(error) {
         console.log(error);
       });
     }
 
   },
-  onUnload: function () { 
+  onUnload: function() {
     this.setData({
       showModal: false
     })
   },
-  onPullDownRefresh: function () { },
-  onShow: function () {
+  onPullDownRefresh: function() {},
+  onShow: function() {
     wx.removeStorage({
       key: 'type',
-      success: function (res) { },
+      success: function(res) {},
     })
 
     wx.setNavigationBarTitle({
       title: '首页',
     })
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '自定义转发标题',
       path: 'pages/index/index'
     }
   },
-  onLoad: function () {
+  onLoad: function() {
     this.setData({
       showModal: true
     })
@@ -119,15 +119,15 @@ Page({
 
     wx.getSystemInfo({
       success: res => {
-        if (res.windowHeight> 420){
+        if (res.windowHeight > 420) {
           that.setData({
-            height: res.windowHeight+40
+            height: res.windowHeight + 40
           })
         } else {
           that.setData({
             height: res.windowHeight
           })
-        }        
+        }
       },
     })
 
@@ -156,27 +156,27 @@ Page({
       })
     })
   },
-  goToNews: function (e) {
+  goToNews: function(e) {
     wx.navigateTo({
       url: '../newsDetail/newsDetail?news=' + e.currentTarget.id,
     })
   },
-  goToBranches: function (e) {
+  goToBranches: function(e) {
     wx.navigateTo({
       url: '../branches/branches',
     })
   },
-  goToPartners: function (e) {
+  goToPartners: function(e) {
     wx.navigateTo({
       url: '../partners/partners',
     })
   },
-  goToTeam: function (e) {
+  goToTeam: function(e) {
     wx.navigateTo({
       url: '../team/team',
     })
   },
-  goToFilterProject: function (e) {
+  goToFilterProject: function(e) {
     wx.setStorage({
       key: 'type',
       data: e.currentTarget.dataset.type,
@@ -185,7 +185,7 @@ Page({
       url: '../projects/projects',
     })
   },
-  quitModal: function(){
+  quitModal: function() {
     this.setData({
       showModal: false
     })
