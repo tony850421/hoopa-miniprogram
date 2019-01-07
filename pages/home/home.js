@@ -104,9 +104,16 @@ Page({
     }
   },
   onLoad: function() {
-    this.setData({
-      showModal: true
-    })
+    var that = this
+    var query = new AV.Query('PublishImage');
+    query.get('5c32cb9644d904005d324af6').then(function(data) {
+      var publish = data.get('Publish'); // este es el valor obtenido true o false
+      that.setData({
+        showModal: publish
+      })
+    }, function(error) {
+      alert(JSON.stringify(error));
+    });
 
     var that = this
     wx.getSystemInfo({
