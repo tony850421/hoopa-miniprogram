@@ -1,3 +1,3 @@
 <!--index.wxml-->
-<image style='height: {{height}}px; width: {{width}}px' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/64f8268c1746b97017a1.jpg'></image>
+<image style='height: {{height}}px; width: {{width}}px' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/9346286b8f681a9eec01.jpg'></image>
 <text bindtap='quitSplash' class='skipText'>跳过({{textSkip}})</text>
