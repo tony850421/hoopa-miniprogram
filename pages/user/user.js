@@ -313,6 +313,7 @@ Page({
               res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
               res[i].set('companyName', res[i].get('project').get('companyName'))
               res[i].set('provincesTags', provinces)
+              res[i].set("productId", res[i].get('project').id)
             }
           }
 
@@ -502,7 +503,9 @@ Page({
                       res[i].set('province', res[i].get('province'))
                       res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
                       res[i].set('companyName', res[i].get('project').get('companyName'))
-                      res[i].set('provincesTags', provinces)
+                      res[i].set('provincesTags', provinces)              
+                      res[i].set("productId", res[i].get('project').id)
+
                     }
                   }
 
@@ -651,6 +654,7 @@ Page({
                   res[i].set('debitAmount', res[i].get('project').get('debitAmount'))
                   res[i].set('companyName', res[i].get('project').get('companyName'))
                   res[i].set('provincesTags', provinces)
+                  res[i].set("productId", res[i].get('project').id)                  
                 }
               }
 
@@ -669,6 +673,7 @@ Page({
     })
   },
   goToProject: function(e) {
+    console.log(e.currentTarget.id)
     wx.navigateTo({
       url: '../project/project?projectID=' + e.currentTarget.id,
     })

@@ -61,9 +61,7 @@
   .newsBox {
     width: 80%;
     z-index: 3;
-    left: 7%;
-    position: absolute;
-    margin-top: -275px;
+    margin-left: 6%;
   }
 
   .newsBoxBackground {

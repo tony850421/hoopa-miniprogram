@@ -162,9 +162,10 @@
 }
 
 .iconLocation {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 13px;
   object-fit: cover;
+  margin-top: 1px;
 }
 
 .locationBox {
@@ -283,8 +284,8 @@
 }
 
 .iconCount {
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
 }
 
 .TextCount {

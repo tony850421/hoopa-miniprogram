@@ -26,17 +26,17 @@
       </view>
     </view>
 
-    <view class='newsBoxBackground'>
+    <!-- <view class='newsBoxBackground'>
       <image mode='aspectFill' class='newsImageOne' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/0edf0cca8c7c3a6a2403.jpg'></image>
       <image mode='aspectFill' class='newsImageTwo' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/7e7a65c8d888b66379f1.jpg'></image>
-    </view>
+    </view> -->
 
     <view class='padding-10 margin-top-20 newsBox'>
       <swiper id="swiperNews" indicator-dots="true" interval="{{interval}}" duration="{{duration}}">
          <block wx:for="{{news}}" wx:for-item="image"> 
           <swiper-item class="text-center" id="{{image.id}}" bindtap='goToNews'>
-             <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
-             <text class='textSwiperItem text-center font-size-13'>{{image.title}}</text> 
+             <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image imageNewsHome" />
+             <!-- <text class='textSwiperItem text-center font-size-13'>{{image.title}}</text> -->
           </swiper-item>
         </block>
       </swiper>

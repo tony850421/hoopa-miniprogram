@@ -20,7 +20,7 @@
 
 .imageLocation {
   width: 17px;
-  height: 20px;
+  height: 17px;
 }
 
 .imageRecomended{
@@ -223,13 +223,18 @@
 }
 
 .iconCount{
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
+}
+
+.iconCountLove{
+  width: 15px;
+  height: 15px;
 }
 
 .iconCountOffers{
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
 }
 
 .TextCount{

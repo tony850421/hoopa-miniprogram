@@ -26,7 +26,7 @@
           <text class='margin-left-5 colorTextPrimary'>¥{{product.debitAmount}}万</text>
           <image class='iconCount marginLeftAuto' src='../../images/count_views.png'></image>
           <text class='TextCount margin-left-5'>{{visitCount}}</text>
-          <image class='iconCount margin-left-5' src='../../images/count_love.png'></image>
+          <image class='iconCountLove margin-left-5' src='../../images/heart.png'></image>
           <text class='TextCount margin-left-5'>{{loveCount}}</text>
           <image class='iconCountOffers margin-left-5' src='../../images/offers_gray.png'></image>
           <text class='TextCount margin-left-5'>{{offersCount}}</text>
@@ -361,7 +361,7 @@
       <input type='number' maxlength='11' value='{{phone}}' bindinput='inputPhone' class='inputLogin' placeholder='请填写您的手机'></input>
       <view class='codeBox'>
         <input value='{{code}}' maxlength="6" bindinput='codeConfirm' type='number' class='inputLogin' placeholder='请填写验证码'></input>
-        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' class='font-size-13 buttonSenCode'>{{codeText}}</button>
+        <button plain='true' size='mini' disabled='{{buttonSendCodeDisabled}}' class='font-size-13 buttonSenCode' bindtap='sendCode'>{{codeText}}</button>
       </view>
       <button wx:if="{{!buttonRegisterDisabled}}" bindtap='register' class='buttonSave'>注册</button>
     </view>

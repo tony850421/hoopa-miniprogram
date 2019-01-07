@@ -114,8 +114,7 @@ Page({
         query4.equalTo('project', project)
         query4.find().then(images => {
 
-          for (var i = 0; i < images.length; i++) {            
-            console.log(this.data.width)
+          for (var i = 0; i < images.length; i++) {
             images[i].set('imageUrl', images[i].get('image').thumbnailURL(this.data.width, 480, 100))
           }
 
@@ -158,7 +157,7 @@ Page({
   },
   goToOffer: function (e) {
     var that = this
-    if (this.data.officialFlag) {
+    if (that.data.officialFlag) {
       wx.navigateTo({
         url: '../offer/offer?projectID=' + e.currentTarget.id,
       })
@@ -275,15 +274,14 @@ Page({
       }
     }
   },
-  sendCode: function () {
+  sendCode: function () {    
     var phoneAux = this.data.phone;
     var that = this
 
-    // var user = AV.User.current();
-    if (that.data.user) {
+    var user = AV.User.current();
+    if (user) {
       // that.data.user.setMobilePhoneNumber(phoneAux);
       // that.data.user.save();
-
       AV.Cloud.requestSmsCode({
         mobilePhoneNumber: phoneAux,
         name: '应用名称',
@@ -361,12 +359,12 @@ Page({
     var that = this
     var user = AV.User.current()
     if (user) {
-      var that = this
       var mobilePhone = this.data.phone;
-
       AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
         user.setMobilePhoneNumber(mobilePhone);
-        user.save().then(function () { }, function (err) {
+        user.save().then(function () { 
+
+        }, function (err) {
           wx.showModal({
             title: '错误',
             content: err.rawMessage,
@@ -378,13 +376,16 @@ Page({
         roleQuery.find().then(function (results) {
           var role = results[0];
           var relation = role.getUsers();
-          relation.add(that.data.user);
+          relation.add(user);
           return role.save();
         }).then(function (role) {
           //save role official in the storage
           wx.setStorage({
             key: 'role',
             data: 'official',
+          })
+          that.setData({
+            officialFlag: true
           })
         }).catch(function (error) {
           console.log(error);
