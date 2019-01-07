@@ -5,21 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    longitudeSelected: 120.212645,
-    latitudeSelected: 30.245479,
+    longitudeSelected: 120.200631,
+    latitudeSelected: 30.211588,
     height: '',
     speed: '',
     accuracy: '',
-    nameSelected: '杭州胡巴资产管理有限公司',
-    directionSelected: '杭州市江干区钱江国际时代广场三幢2701',
+    nameSelected: '杭州总部',
+    directionSelected: '杭州市滨江区滨盛路1786号汉氏大厦15F',
     phoneSelected: '+864008001682',
     partners: [{
         id: 0,
         name: '杭州总部',
-        direction: '杭州市江干区城星路111号钱江国际时代广场3幢2701室',
+        direction: '杭州市滨江区滨盛路1786号汉氏大厦15F',
         show: true,
-        latitude: 30.245479,
-        longitude: 120.212645,
+        latitude: 30.208980,
+        longitude: 120.205131,
         iconPath: "../../images/markerWork.png",
         width: 42,
         height: 50,

@@ -121,7 +121,7 @@ page {
 }
 
 .margin-left-0 {
-  margin-left: 5px !important;
+  margin-left: 0px !important;
 }
 
 .weui-search-bar__form, .weui-search-bar__label {

@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
-<view>
-  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">
+<view class='swiperBox'>
+  <swiper indicator-dots="true" autoplay='true' interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{slides}}" wx:for-item="image">
       <swiper-item bindtap="goToFilterProject" data-type="{{image.type}}">
         <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
@@ -12,7 +12,7 @@
 <view class='HomePage'>
   <view class='section margin-top-20'>
     <view class="buttonsGroup">
-      <view class='buttonsBox' bindtap='goToAboutUs'>
+      <view class='buttonsBox margin-left-0' bindtap='goToAboutUs'>
         <image mode='aspectFit' class='IconsButtons' src='../../images/about.png'></image>
         <text class='font-size-13'>关于胡巴</text>
       </view>

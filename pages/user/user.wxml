@@ -1,16 +1,16 @@
 <!--pages/user/user.wxml-->
 <image class='bannerUser' mode='aspectFill' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/1b8221a42243dd8c438e.jpg'></image>
 <view class='boxUserInfo'>
-  <view class='dataUserInfoCover' wx:if="{{!user}}">
+  <view class='dataUserInfoCover' wx:if="{{!user.avatarUrl}}">
     <view class='imageContainer'>
       <image class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
     </view>
     <button plain='true' open-type="getUserInfo" bindgetuserinfo="getWechatUserInfo" class="buttonGetUserInfo font-size-13">给我们微信用户信息</button>
   </view>
-  <view class='dataUserInfoCover' wx:if="{{user}}">
+  <view class='dataUserInfoCover' wx:if="{{user.avatarUrl}}">
     <view class='imageContainer'>
       <image wx:if="{{user.avatarUrl}}" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
-      <image wx:if="{{!user.avatarUrl}}" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image>
+      <!-- <image wx:if="{{!user.avatarUrl}}" class="userinfo-avatar" src="../../images/userSelected.png" background-size="cover"></image> -->
     </view>
     <text wx:if="{{user.fullName}}" class="userinfo-nickname font-size-13">{{user.fullName}}</text>
     <text wx:if="{{!user.fullName}}" class="userinfo-nickname font-size-13">{{user.nickName}}</text>
@@ -30,7 +30,7 @@
   </view>
 </view>
 <view class='marginTop56'></view>
-<view class='offersBox' wx:if="{{offers.length > 0}}">
+<view class='offersBox' wx:if="{{offers.length > 0}}" wx:if="">
   <view class='projectsGroup' wx:for="{{offers}}" wx:for-item="offer" data-id='{{offer.project.objectId}}' bindtap='goToProject'>
     <view class='projectTitleGroup'>
       <image class='imageIconUserNotification' src='../../images/projectsSelected.png'></image>

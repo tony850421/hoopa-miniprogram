@@ -284,7 +284,7 @@
   margin-right: 1px;
   padding-bottom: 12px;
   padding-top: 12px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px #d6dadb solid;
 }
 
@@ -301,6 +301,8 @@
 .buttonsGroup {
   display: flex;
   flex-direction: row;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .IconsButtons {
@@ -338,6 +340,11 @@
 
 .slide-image {
   width: 100%;
+  border-radius: 10px;
+}
+
+swiper-item{
+  border-radius: 10px;
 }
 
 .scrollHorizontalNews {
@@ -557,4 +564,8 @@ swiper-item{
 
 swiper{
   z-index: 100 !important;
+}
+
+.swiperBox{
+  padding: 5px;
 }
