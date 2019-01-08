@@ -34,10 +34,6 @@
     height: 120px;
   }
 
-  .slide-image {
-    height: 160px;
-  }
-
   swiper#swiperNews {
     height: 240px !important;
   }
@@ -59,9 +55,7 @@
   }
 
   .newsBox {
-    width: 80%;
-    z-index: 3;
-    margin-left: 6%;
+    width: 96%;
   }
 
   .newsBoxBackground {
@@ -80,10 +74,6 @@
     height: 140px;
   }
 
-  .slide-image {
-    height: 180px;
-  }
-
   swiper#swiperNews {
     height: 270px !important;
   }
@@ -95,7 +85,7 @@
     margin-left: 2%;
   }
 
-  .newsImageTwo {     
+  .newsImageTwo {
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -113,7 +103,7 @@
   }
 
   .newsBoxBackground {
-    margin-bottom: 20px !important;    
+    margin-bottom: 20px !important;
     margin-top: 60px !important;
     height: 240px !important;
   }
@@ -128,14 +118,10 @@
     height: 140px;
   }
 
-  .slide-image {
-    height: 180px;
-  }
-
   swiper#swiperNews {
     height: 270px !important;
   }
-  
+
   .newsImageOne {
     width: 96%;
     height: 200px;
@@ -143,7 +129,7 @@
     margin-left: 2%;
   }
 
-  .newsImageTwo {    
+  .newsImageTwo {
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -176,10 +162,6 @@
     height: 160px;
   }
 
-  .slide-image {
-    height: 190px;
-  }
-
   swiper#swiperNews {
     height: 300px !important;
   }
@@ -191,7 +173,7 @@
     margin-left: 2%;
   }
 
-  .newsImageTwo {     
+  .newsImageTwo {
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -224,10 +206,6 @@
     height: 170px;
   }
 
-  .slide-image {
-    height: 230px;
-  }
-
   swiper#swiperNews {
     height: 340px !important;
   }
@@ -239,7 +217,7 @@
     left: 2%;
   }
 
-  .newsImageTwo {    
+  .newsImageTwo {
     position: absolute;
     z-index: 2;
     width: 88%;
@@ -341,7 +319,7 @@
   border-radius: 10px;
 }
 
-swiper-item{
+swiper-item {
   border-radius: 10px;
 }
 
@@ -552,18 +530,75 @@ swiper-item{
   cursor: pointer;
 }
 
-swiper-item{
+swiper-item {
   background-color: black !important;
 }
 
-.textSwiperItem{
+.textContentSwiperItem {
   color: white !important;
+  position: absolute;
+  left: 10px;
+  top: 165px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left !important;
+  width: 60%;
 }
 
-swiper{
+.textTitleSwiperItem {
+  color: white !important;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left !important;
+  width: 60%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.textTypeSwiperItem {
+  color: white !important;
+  position: absolute;
+  left: 20px;
+  top: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left !important;
+  font-size: 8px;
+  background-color: black;
+}
+
+.textCountSwiperItem {
+  color: white !important;
+  position: absolute;
+  left: 10px;
+  bottom: 90px;
+  padding-left: 10px;
+  font-size: 22px;
+}
+
+.textCountSeparatorSwiperItem {
+  color: white !important;
+  position: absolute;
+  left: 40px;
+  bottom: 93px;
+  font-size: 15px;
+}
+
+.textCountTwoSwiperItem {
+  color: white !important;
+  position: absolute;
+  left: 53px;
+  bottom: 91px;
+  font-size: 17px;
+}
+
+swiper {
   z-index: 100 !important;
 }
 
-.swiperBox{
+.swiperBox {
   padding: 5px;
 }

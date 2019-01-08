@@ -673,7 +673,6 @@ Page({
     })
   },
   goToProject: function(e) {
-    console.log(e.currentTarget.id)
     wx.navigateTo({
       url: '../project/project?projectID=' + e.currentTarget.id,
     })

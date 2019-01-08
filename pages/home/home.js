@@ -156,6 +156,32 @@ Page({
       for (var i = 0; i < res.length; i++) {
         res[i].set('imageUrl', res[i].get('image').thumbnailURL(1080, 720))
         res[i].set('id', res[i].id)
+
+        var content = res[i].get('content')
+        if (content.length > 40) {
+          var cont = ''
+          for (var t = 0; t < 40; t++) {
+            cont = cont + content[t]
+          }
+          content = cont + "..."
+        }
+        res[i].set('contentHome', content)
+
+        var title = res[i].get('title')
+        if (title.length > 15) {
+          var tit = ''
+          for (var t = 0; t < 15; t++) {
+            tit = tit + title[t]
+          }
+          title = tit + "..."
+        }
+        res[i].set('titleHome', title)
+
+        if (res[i].get('type') == 0){
+          res[i].set('typeHome', '公司')
+        } else {
+          res[i].set('typeHome', '行业')
+        }
       }
 
       that.setData({

@@ -132,7 +132,7 @@ Page({
   },
   cancel: function() {
     wx.navigateTo({
-      url: '../project/project',
+      url: '../project/project?projectID=' + this.data.id,
     })
   }
 })

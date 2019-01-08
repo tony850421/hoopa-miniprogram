@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+.padding-5{
+  padding: 5px;
+}
+
 .fontWhite {
   color: white !important;
 }
