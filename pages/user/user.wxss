@@ -142,8 +142,8 @@
 
   .imageContainer {
     background-color: white;
-    width: 242rpx;
-    height: 242rpx;
+    width: 244rpx;
+    height: 244rpx;
     margin: 20rpx;
     border-radius: 50%;
   }
@@ -151,7 +151,7 @@
   .userinfo-avatar {
     width: 230rpx;
     height: 230rpx;
-    margin: 7rpx;
+    margin: 8rpx;
     border-radius: 50%;
   }
   
@@ -213,8 +213,8 @@
 
   .imageContainer {
     background-color: white;
-    width: 242rpx;
-    height: 242rpx;
+    width: 243rpx;
+    height: 243rpx;
     margin: 20rpx;
     border-radius: 50%;
   }
@@ -266,8 +266,8 @@
 
   .imageContainer {
     background-color: white;
-    width: 242rpx;
-    height: 242rpx;
+    width: 244rpx;
+    height: 244rpx;
     margin: 20rpx;
     border-radius: 50%;
   }
@@ -275,7 +275,7 @@
   .userinfo-avatar {
     width: 230rpx;
     height: 230rpx;
-    margin: 7rpx;
+    margin: 8rpx;
     border-radius: 50%;
   }
 

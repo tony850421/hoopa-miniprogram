@@ -27,7 +27,7 @@
   ],
   "window": {
     "backgroundColor": "#ffffff",
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#030303",
     "navigationBarTitleText": "胡巴资产",
     "navigationBarTextStyle": "white"

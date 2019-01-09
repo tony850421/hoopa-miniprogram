@@ -1,7 +1,7 @@
 <!--pages/project/project.wxml-->
 <view>
   <scroll-view scroll-y="true" style="height: {{height-44}}px" scroll-top="100">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper id='swiperTop' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imageList}}" wx:for-item="image">
         <swiper-item>
           <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />

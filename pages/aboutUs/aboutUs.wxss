@@ -61,7 +61,7 @@
   }
 
   .styleTeam {
-    margin-top: 270px;
+    margin-top: 255px;
     padding: 6px;
   }
 }
@@ -72,7 +72,7 @@
   }
 
   .styleTeam {
-    margin-top: 220px;
+    margin-top: 235px;
     padding-left: 6px !important;
     padding-right: 10px !important;
   }

@@ -38,31 +38,117 @@
     height: 240px !important;
   }
 
-  .newsImageOne {
-    width: 96%;
-    height: 170px;
-    z-index: 1;
-    margin-left: 2%;
+  swiper#swiperTop {
+    height: 160px !important;
   }
 
-  .newsImageTwo {
+  .textContentSwiperItem {
+    color: white !important;
     position: absolute;
-    z-index: 2;
-    width: 88%;
+    left: 10px;
+    bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
+  }
+
+  .textTitleSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .textTypeSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    font-size: 10px;
+    background-color: black;
+  }
+
+  .textCountSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 10px;
+    bottom: 90px;
+    padding-left: 10px;
+    font-size: 22px;
+  }
+
+  .textCountSeparatorSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 40px;
+    bottom: 93px;
+    font-size: 15px;
+  }
+
+  .textCountTwoSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 53px;
+    bottom: 91px;
+    font-size: 17px;
+  }
+  
+  .pictureNewsOne, .pictureNewsTwo{
     height: 200px;
-    left: 6%;
-    margin-top: -15px;
   }
+}
 
-  .newsBox {
-    width: 96%;
-  }
+.marginLeft8P{
+  margin-left: 8%
+}
 
-  .newsBoxBackground {
-    margin-bottom: 20px !important;
-    margin-top: 60px !important;
-    height: 210px !important;
-  }
+.slide-image{
+  width: 81%;
+  z-index: 3;  
+  border-radius: 10px;
+}
+
+.slide-imageTop{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.pictureNewsOne {
+  width: 50%;
+  left: 3%;
+  margin-top: 20px;
+  position: absolute;
+  border-radius: 10px;
+  opacity: 0.8;
+  z-index: -1;
+  -webkit-transform: skew(2deg); /* Chrome, Opera */
+      -ms-transform: skew(2deg); /* IE */
+          transform: skew(2deg); /* Padrão */
+          
+}
+
+.pictureNewsTwo {
+  width: 50%;
+  right: 3%;
+  margin-top: 20px;
+  position: absolute;
+  border-radius: 10px;
+  opacity: 0.8;  
+  z-index: -2;
+  -webkit-transform: skew(-2deg); /* Chrome, Opera */
+      -ms-transform: skew(-2deg); /* IE */
+          transform: skew(-2deg); /* Padrão */
+          
 }
 
 @media (min-width: 360px) {
@@ -75,37 +161,80 @@
   }
 
   swiper#swiperNews {
-    height: 270px !important;
+    height: 300px !important;
   }
 
-  .newsImageOne {
-    width: 96%;
-    height: 200px;
-    z-index: 1;
-    margin-left: 2%;
+  .slide-image {
+    height: 300px !important;
   }
 
-  .newsImageTwo {
+  swiper#swiperTop {
+    height: 200px !important;
+  }
+
+  .textContentSwiperItem {
+    color: white !important;
     position: absolute;
-    z-index: 2;
-    width: 88%;
-    height: 230px;
-    left: 6%;
-    margin-top: -15px;
+    left: 10px;
+    bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
   }
 
-  .newsBox {
-    width: 80%;
-    z-index: 3;
-    left: 7%;
+  .textTitleSwiperItem {
+    color: white !important;
     position: absolute;
-    margin-top: -305px;
+    left: 10px;
+    top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
+    font-size: 20px;
+    font-weight: bold;
   }
 
-  .newsBoxBackground {
-    margin-bottom: 20px !important;
-    margin-top: 60px !important;
-    height: 240px !important;
+  .textTypeSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    font-size: 8px;
+    background-color: black;
+  }
+
+  .textCountSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 10px;
+    bottom: 120px;
+    padding-left: 10px;
+    font-size: 22px;
+  }
+
+  .textCountSeparatorSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 40px;
+    bottom: 123px;
+    font-size: 15px;
+  }
+
+  .textCountTwoSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 53px;
+    bottom: 121px;
+    font-size: 17px;
+  }
+
+  .pictureNewsOne, .pictureNewsTwo{
+    height: 260px;
   }
 }
 
@@ -119,37 +248,80 @@
   }
 
   swiper#swiperNews {
-    height: 270px !important;
+    height: 300px !important;
   }
 
-  .newsImageOne {
-    width: 96%;
-    height: 200px;
-    z-index: 1;
-    margin-left: 2%;
+  .slide-image {
+    height: 300px !important;
   }
 
-  .newsImageTwo {
+  swiper#swiperTop {
+    height: 200px !important;
+  }
+
+  .textContentSwiperItem {
+    color: white !important;
     position: absolute;
-    z-index: 2;
-    width: 88%;
-    height: 230px;
-    left: 6%;
-    margin-top: -15px;
+    left: 10px;
+    bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
   }
 
-  .newsBox {
-    width: 80%;
-    z-index: 3;
-    left: 7%;
+  .textTitleSwiperItem {
+    color: white !important;
     position: absolute;
-    margin-top: -305px;
+    left: 10px;
+    top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
+    font-size: 20px;
+    font-weight: bold;
   }
 
-  .newsBoxBackground {
-    margin-bottom: 20px !important;
-    margin-top: 60px !important;
-    height: 240px !important;
+  .textTypeSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    font-size: 8px;
+    background-color: black;
+  }
+
+  .textCountSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 10px;
+    bottom: 130px;
+    padding-left: 10px;
+    font-size: 22px;
+  }
+
+  .textCountSeparatorSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 40px;
+    bottom: 133px;
+    font-size: 15px;
+  }
+
+  .textCountTwoSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 53px;
+    bottom: 131px;
+    font-size: 17px;
+  }
+  
+  .pictureNewsOne, .pictureNewsTwo{
+    height: 260px;
   }
 }
 
@@ -163,37 +335,80 @@
   }
 
   swiper#swiperNews {
-    height: 300px !important;
+    height: 310px !important;
   }
 
-  .newsImageOne {
-    width: 96%;
-    height: 230px;
-    z-index: 1;
-    margin-left: 2%;
+  .slide-image {
+    height: 310px !important;
   }
 
-  .newsImageTwo {
+  swiper#swiperTop {
+    height: 210px !important;
+  }
+
+  .textContentSwiperItem {
+    color: white !important;
     position: absolute;
-    z-index: 2;
-    width: 88%;
-    height: 260px;
-    left: 6%;
-    margin-top: -15px;
+    left: 10px;
+    bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
   }
 
-  .newsBox {
-    width: 80%;
-    z-index: 3;
-    left: 7%;
+  .textTitleSwiperItem {
+    color: white !important;
     position: absolute;
-    margin-top: -335px;
+    left: 10px;
+    top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
+    font-size: 20px;
+    font-weight: bold;
   }
 
-  .newsBoxBackground {
-    margin-bottom: 20px !important;
-    margin-top: 60px !important;
-    height: 270px !important;
+  .textTypeSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    font-size: 8px;
+    background-color: black;
+  }
+
+  .textCountSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 10px;
+    bottom: 130px;
+    padding-left: 10px;
+    font-size: 22px;
+  }
+
+  .textCountSeparatorSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 40px;
+    bottom: 133px;
+    font-size: 15px;
+  }
+
+  .textCountTwoSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 53px;
+    bottom: 131px;
+    font-size: 17px;
+  }
+  
+  .pictureNewsOne, .pictureNewsTwo{
+    height: 270px;
   }
 }
 
@@ -210,34 +425,77 @@
     height: 340px !important;
   }
 
-  .newsImageOne {
-    width: 96%;
-    height: 270px;
-    z-index: 1;
-    left: 2%;
+  .slide-image {
+    height: 340px !important;
   }
 
-  .newsImageTwo {
+  swiper#swiperTop {
+    height: 240px !important;
+  }
+
+  .textContentSwiperItem {
+    color: white !important;
     position: absolute;
-    z-index: 2;
-    width: 88%;
+    left: 10px;
+    bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
+  }
+
+  .textTitleSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    width: 60%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .textTypeSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left !important;
+    font-size: 8px;
+    background-color: black;
+  }
+
+  .textCountSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 10px;
+    bottom: 130px;
+    padding-left: 10px;
+    font-size: 22px;
+  }
+
+  .textCountSeparatorSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 40px;
+    bottom: 133px;
+    font-size: 15px;
+  }
+
+  .textCountTwoSwiperItem {
+    color: white !important;
+    position: absolute;
+    left: 53px;
+    bottom: 131px;
+    font-size: 17px;
+  }
+
+  .pictureNewsOne, .pictureNewsTwo{
     height: 300px;
-    left: 6%;
-    margin-top: -15px;
-  }
-
-  .newsBox {
-    width: 80%;
-    z-index: 3;
-    left: 7%;
-    position: absolute;
-    margin-top: -375px;
-  }
-
-  .newsBoxBackground {
-    margin-bottom: 20px !important;
-    margin-top: 60px !important;
-    height: 310px !important;
   }
 }
 
@@ -312,11 +570,6 @@
 .scrollHorizontal {
   width: 100%;
   height: 100px;
-}
-
-.slide-image {
-  width: 100%;
-  border-radius: 10px;
 }
 
 swiper-item {
@@ -500,10 +753,6 @@ swiper-item {
   height: 40px !important;
 }
 
-.textSwiper {
-  position: absolute;
-}
-
 .text-center {
   text-align: center !important;
 }
@@ -528,75 +777,6 @@ swiper-item {
   width: 30px;
   height: 30px;
   cursor: pointer;
-}
-
-swiper-item {
-  background-color: black !important;
-}
-
-.textContentSwiperItem {
-  color: white !important;
-  position: absolute;
-  left: 10px;
-  top: 165px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: left !important;
-  width: 60%;
-}
-
-.textTitleSwiperItem {
-  color: white !important;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: left !important;
-  width: 60%;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.textTypeSwiperItem {
-  color: white !important;
-  position: absolute;
-  left: 20px;
-  top: 80px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: left !important;
-  font-size: 8px;
-  background-color: black;
-}
-
-.textCountSwiperItem {
-  color: white !important;
-  position: absolute;
-  left: 10px;
-  bottom: 90px;
-  padding-left: 10px;
-  font-size: 22px;
-}
-
-.textCountSeparatorSwiperItem {
-  color: white !important;
-  position: absolute;
-  left: 40px;
-  bottom: 93px;
-  font-size: 15px;
-}
-
-.textCountTwoSwiperItem {
-  color: white !important;
-  position: absolute;
-  left: 53px;
-  bottom: 91px;
-  font-size: 17px;
-}
-
-swiper {
-  z-index: 100 !important;
 }
 
 .swiperBox {

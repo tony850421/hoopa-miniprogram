@@ -1,5 +1,4 @@
 /* pages/project/project.wxss */
-
 .generalData {
   display: flex;
   flex-direction: column;
@@ -316,4 +315,34 @@
   width: 30px;
   height: 30px;  
   cursor: pointer;
+}
+
+@media (min-width: 320px) {
+  swiper#swiperTop {
+    height: 160px !important;
+  }
+}
+
+@media (min-width: 360px) {
+  swiper#swiperTop {
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 375px) {
+  swiper#swiperTop {
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 414px) {
+  swiper#swiperTop {
+    height: 210px !important;
+  }
+}
+
+@media (min-width: 480px) {
+  swiper#swiperTop {
+    height: 240px !important;
+  }
 }

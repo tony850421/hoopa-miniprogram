@@ -26,50 +26,59 @@ Page({
     buttonSendCodeDisabled: true,
     buttonRegisterDisabled: true
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this
-    wx.getStorage({
-      key: 'widthWithout',
-      success: function (res) {
-        that.setData({
-          width: res.data
-        })
-      },
-      fail: function (err) {
-        wx.getSystemInfo({
-          success: res => {
-            that.setData({
-              width: res.windowWidth
-            })
-            wx.setStorage({
-              key: 'widthWithout',
-              data: res.windowWidth
-            })
-          },
-        })
-      }
-    })
+    // wx.getStorage({
+    //   key: 'widthWithout',
+    //   success: function (res) {
+    //     that.setData({
+    //       width: res.data
+    //     })
+    //   },
+    //   fail: function (err) {
+    //     wx.getSystemInfo({
+    //       success: res => {
+    //         that.setData({
+    //           width: res.windowWidth
+    //         })
+    //         wx.setStorage({
+    //           key: 'widthWithout',
+    //           data: res.windowWidth
+    //         })
+    //       },
+    //     })
+    //   }
+    // })
 
-    wx.getStorage({
-      key: 'heightWithout',
-      success: function (res) {
+    // wx.getStorage({
+    //   key: 'heightWithout',
+    //   success: function (res) {
+    //     that.setData({
+    //       height: res.data
+    //     })
+    //   },
+    //   fail: function (err) {
+    //     wx.getSystemInfo({
+    //       success: res => {
+    //         that.setData({
+    //           height: res.windowHeight
+    //         })
+    //         wx.setStorage({
+    //           key: 'heightWithout',
+    //           data: res.windowHeight
+    //         })
+    //       },
+    //     })
+    //   }
+    // })
+
+    wx.getSystemInfo({
+      success: function(res) {
         that.setData({
-          height: res.data
+          width: res.windowWidth,
+          height: res.windowHeight
         })
       },
-      fail: function (err) {
-        wx.getSystemInfo({
-          success: res => {
-            that.setData({
-              height: res.windowHeight
-            })
-            wx.setStorage({
-              key: 'heightWithout',
-              data: res.windowHeight
-            })
-          },
-        })
-      }
     })
 
     const user = AV.User.current();
@@ -155,7 +164,7 @@ Page({
       }).catch(console.error)
     }
   },
-  goToOffer: function (e) {
+  goToOffer: function(e) {
     var that = this
     if (that.data.officialFlag) {
       wx.navigateTo({
@@ -165,9 +174,9 @@ Page({
       wx.setStorage({
         key: 'redirect',
         data: '../project/project',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
       })
       // wx.navigateTo({
       //   url: '../register/register',
@@ -177,19 +186,19 @@ Page({
       })
     }
   },
-  goToHome: function () {
+  goToHome: function() {
     wx.switchTab({
       url: '../home/home',
     })
   },
-  onShow: function (options) {
+  onShow: function(options) {
     var that = this
     var user = AV.User.current()
     if (user) {
       var roleQuery = new AV.Query(AV.Role);
       roleQuery.equalTo('name', 'official');
       roleQuery.equalTo('users', user);
-      roleQuery.find().then(function (results) {
+      roleQuery.find().then(function(results) {
         if (results.length > 0) {
           that.setData({
             officialFlag: true
@@ -199,7 +208,7 @@ Page({
             officialFlag: false
           })
         }
-      }).catch(function (error) {
+      }).catch(function(error) {
         console.log(error);
       });
     }
@@ -208,7 +217,7 @@ Page({
       title: '资产信息',
     })
   },
-  sendToShopCar: function () {
+  sendToShopCar: function() {
     const user = AV.User.current()
     if (user) {
       var shop = new AV.Object('ShopCar')
@@ -223,32 +232,32 @@ Page({
       })
     }
   },
-  goToCar: function () {
+  goToCar: function() {
     wx.navigateTo({
       url: '../shop-car/shop-car'
     })
   },
-  goToForum: function () {
+  goToForum: function() {
     wx.navigateTo({
       url: '../forumProject/forumProject'
     })
   },
-  goToRecommended: function () {
+  goToRecommended: function() {
     wx.navigateTo({
       url: '../recommended/recommended'
     })
   },
-  goToNearby: function () {
+  goToNearby: function() {
     wx.navigateTo({
       url: '../mapProjectNearby/mapProjectNearby?projectID=' + this.data.product.id
     })
   },
-  callPhoneNumber: function (e) {
+  callPhoneNumber: function(e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone.toString()
     })
   },
-  goToAsset: function (e) {
+  goToAsset: function(e) {
     wx.setStorage({
       key: 'latitude',
       data: e.currentTarget.dataset.latitude,
@@ -261,7 +270,7 @@ Page({
       url: '../assetsMap/assetsMap'
     })
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     if (res.from == 'menu') {
       return {
         title: '自定义转发标题',
@@ -274,7 +283,7 @@ Page({
       }
     }
   },
-  sendCode: function () {    
+  sendCode: function() {
     var phoneAux = this.data.phone;
     var that = this
 
@@ -287,14 +296,15 @@ Page({
         name: '应用名称',
         op: '某种操作',
         ttl: 2
-      }).then(function () {
+      }).then(function() {
 
         that.setData({
           buttonSendCodeDisabled: true
         })
 
-        var timer = 59, seconds;
-        var intervalStart = setInterval(function () {
+        var timer = 59,
+          seconds;
+        var intervalStart = setInterval(function() {
           seconds = parseInt(timer % 60, 10);
           seconds = seconds < 10 ? "0" + seconds : seconds;
 
@@ -318,7 +328,7 @@ Page({
           icon: 'success',
           duration: 2000
         })
-      }, function (err) {
+      }, function(err) {
         wx.showModal({
           title: '错误',
           content: err.rawMessage,
@@ -326,7 +336,7 @@ Page({
       });
     }
   },
-  inputPhone: function (e) {
+  inputPhone: function(e) {
     this.setData({
       phone: e.detail.value
     })
@@ -345,7 +355,7 @@ Page({
       })
     }
   },
-  codeConfirm: function (e) {
+  codeConfirm: function(e) {
     this.setData({
       code: e.detail.value
     })
@@ -355,16 +365,16 @@ Page({
       })
     }
   },
-  register: function () {
+  register: function() {
     var that = this
     var user = AV.User.current()
     if (user) {
       var mobilePhone = this.data.phone;
-      AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function () {
+      AV.Cloud.verifySmsCode(this.data.code, this.data.phone).then(function() {
         user.setMobilePhoneNumber(mobilePhone);
-        user.save().then(function () { 
+        user.save().then(function() {
 
-        }, function (err) {
+        }, function(err) {
           wx.showModal({
             title: '错误',
             content: err.rawMessage,
@@ -373,12 +383,12 @@ Page({
 
         var roleQuery = new AV.Query(AV.Role);
         roleQuery.equalTo('name', 'official');
-        roleQuery.find().then(function (results) {
+        roleQuery.find().then(function(results) {
           var role = results[0];
           var relation = role.getUsers();
           relation.add(user);
           return role.save();
-        }).then(function (role) {
+        }).then(function(role) {
           //save role official in the storage
           wx.setStorage({
             key: 'role',
@@ -387,17 +397,17 @@ Page({
           that.setData({
             officialFlag: true
           })
-        }).catch(function (error) {
+        }).catch(function(error) {
           console.log(error);
         });
         that.setData({
           showModalLogin: false
         })
-      }, function (err) {
+      }, function(err) {
         wx.showModal({
           title: '错误',
           content: err.rawMessage,
-          success: function (res) {
+          success: function(res) {
             that.setData({
               code: '',
               buttonSendCodeDisabled: false,
@@ -408,7 +418,7 @@ Page({
       });
     }
   },
-  quitModal: function () {
+  quitModal: function() {
     this.setData({
       showModalLogin: false
     })

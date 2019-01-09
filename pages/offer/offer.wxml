@@ -1,4 +1,5 @@
 <!--pages/offer/offer.wxml-->
+<image class='bannerOffer' mode='aspectFill' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/0f2eb0dca02b185820b4.png'></image>
 <view class='offer'>
   <view class='projectsGroup font-size-13'>
     <view class='projectTitleGroup'>
@@ -20,7 +21,7 @@
     <input class='textAreaOffer' bindinput='inputDescription' value='{{description}}' placeholder='介绍您的报价说明'></input>
   </view> -->
 
-  <view class='saveBox'>    
+  <view class='saveBox'>
     <button bindtap='makeOffer' disabled='{{disableOffer}}' class='buttonSave backgroundColorPrimary'>提交</button>
     <button bindtap='cancel' class='buttonCancel'>取消</button>
   </view>
