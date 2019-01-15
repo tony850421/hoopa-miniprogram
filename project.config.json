@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.98",
+	"libVersion": "2.5.0",
 	"appid": "wx49ce705db23c8b16",
 	"projectname": "Hoopa",
 	"isGameTourist": false,

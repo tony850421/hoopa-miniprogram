@@ -29,7 +29,7 @@ Page({
       },
       {
         id: 1,
-        name: '浙江宝融胡巴投资管理有限公司',
+        name: '南京事业部',
         direction: '黑龙江省哈尔滨市道里区建国北六道街8号院内独栋四楼',
         show: false,
         latitude: 45.759068,
@@ -42,7 +42,7 @@ Page({
         phone: '+86045158958877'
       },
       {
-        name: '无锡乐道胡巴投资管理有限公司',
+        name: '广州事业部',
         direction: '无锡市滨海区建筑西路599号无锡国家工业设计园1栋12楼',
         show: false,
         latitude: 31.553973,
@@ -70,7 +70,7 @@ Page({
         phone: '+8617398963601'
       },
       {
-        name: '南京事业部',
+        name: '武汉项目部',
         direction: '南京市中山东路东路218号长安国际中心905室',
         show: false,
         latitude: 32.046944,
@@ -84,7 +84,7 @@ Page({
         phone: '+8602552240552'
       },
       {
-        name: '广州事业部',
+        name: '宝融胡巴',
         direction: '广州市珠江新城华夏路16号富力盈凯广场3407室',
         show: false,
         latitude: 23.124425,
@@ -98,7 +98,7 @@ Page({
         phone: '+8618947286690'
       },
       {
-        name: '杭州总部',
+        name: '无锡乐道胡巴',
         direction: '杭州市江干区城星路111号钱江国际时代广场3幢2701室',
         show: false,
         latitude: 30.246225,
@@ -112,7 +112,7 @@ Page({
         phone: '+86057185267521'
       },
       {
-        name: '长沙锐达胡巴商务咨询有限公司',
+        name: '长沙锐达胡巴',
         direction: '长沙市芙蓉区银华大酒店4楼',
         show: false,
         latitude: 28.201072,
@@ -126,13 +126,27 @@ Page({
         phone: '+8615857133501'
       },
       {
-        name: '合肥胡巴资产管理有限公司',
+        name: '上海麦黍稷',
         direction: '合肥市徽州大道396号东方广场B座12层',
         show: false,
         latitude: 31.855039,
         longitude: 117.293235,
         iconPath: "../../images/markerWork.png",
         id: 8,
+        width: 50,
+        height: 50,
+        classSelected: 'branchesUnselected',
+        selected: false,
+        phone: '+86055165616683'
+      },
+      {
+        name: '福建胡巴航捷',
+        direction: '合肥市徽州大道396号东方广场B座12层',
+        show: false,
+        latitude: 31.855039,
+        longitude: 117.293235,
+        iconPath: "../../images/markerWork.png",
+        id: 9,
         width: 50,
         height: 50,
         classSelected: 'branchesUnselected',
