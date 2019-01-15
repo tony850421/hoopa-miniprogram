@@ -64,9 +64,9 @@
               <text>债权本金：</text>
               <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
             </view>
-            <view class='displayFlexRow weui-flex font-size-13 margin-top-5' id="{{product.productId}}" bindtap='goToProject'>
+            <!-- <view class='displayFlexRow weui-flex font-size-13 margin-top-5' id="{{product.productId}}" bindtap='goToProject'>
               <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-            </view>
+            </view> -->
           </view>
         </view>
       </view>
@@ -94,9 +94,9 @@
               <text>债权本金：</text>
               <text class='colorTextPrimary'>¥{{product.debitAmount}}万</text>
             </view>
-            <view class='displayFlexRow weui-flex font-size-13 margin-top-5' id="{{product.objectId}}" bindtap='goToProject'>
+            <!-- <view class='displayFlexRow weui-flex font-size-13 margin-top-5' id="{{product.objectId}}" bindtap='goToProject'>
               <text wx:for="{{product.tags}}" wx:for-item="tag" class='tags'>{{tag}}</text>
-            </view>
+            </view> -->
           </view>
         </view>
       </view>
