@@ -12,7 +12,20 @@
 
 <view class='styleTeam'>
   <!-- 1  -->
-  <view class='services margin-bottom-5'>
+  <view class='services margin-bottom-5' wx:for="{{team}}" wx:for-item="member" wx:key="{{member.id}}" id="{{member.id}}">
+    <view class='groupNumber'>
+      <image class='imageTeam' src='{{member.image}}'></image>
+    </view>
+    <view class='servicesText'>
+      <view class='projectsGroup'>
+        <text class='font-size-13 font-weight'>{{member.name}}</text>
+        <text class='font-size-13 font-weight'>{{member.charge}}</text>
+        <text class='font-size-12'>{{member.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/ddd950cd9f8d86ff66c9.jpg'></image>
     </view>
@@ -25,7 +38,6 @@
     </view>
   </view>
 
-  <!-- 2  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/959d9a1321fe81f5634b.jpg'></image>
@@ -39,10 +51,8 @@
     </view>
   </view>
 
-  <!-- 3  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
-      <!-- <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e9d8f277659bd30b257b.jpg'></image> -->
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/858a7544a2cde22257e2.png'></image>
     </view>
     <view class='servicesText'>
@@ -54,7 +64,6 @@
     </view>
   </view>
 
-  <!-- 4  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/af7e4da3a6e85010d3d6.jpg'></image>
@@ -68,7 +77,6 @@
     </view>
   </view>
 
-  <!-- 5  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/a60b2d4908bccddb6846.jpg'></image>
@@ -82,7 +90,6 @@
     </view>
   </view>
 
-  <!-- 6  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/870a7e9af147b7a9af82.jpg'></image>
@@ -96,7 +103,6 @@
     </view>
   </view>
 
-  <!-- 7  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/612687a732d113e291ec.jpg'></image>
@@ -110,7 +116,6 @@
     </view>
   </view>
 
-  <!-- 8  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d866ead0e75ee6dae854.jpg'></image>
@@ -124,7 +129,6 @@
     </view>
   </view>
 
-  <!-- 9  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/f5fdc24fc111f4cfaf39.jpg'></image>
@@ -138,7 +142,6 @@
     </view>
   </view>
 
-  <!-- 10  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/913e5dae05437caa1aeb.jpg'></image>
@@ -152,7 +155,6 @@
     </view>
   </view>
 
-  <!-- 11  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/e48d8d45cb49b2d0dec2.jpg'></image>
@@ -166,7 +168,6 @@
     </view>
   </view>
 
-  <!-- 12  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/d4e84a315e4aba729fe2.jpg'></image>
@@ -180,7 +181,6 @@
     </view>
   </view>
 
-  <!-- 13  -->
   <view class='services margin-bottom-5'>
     <view class='groupNumber'>
       <image class='imageTeam' src='http://lc-qpv1wnqe.cn-n1.lcfile.com/f7238ec63d94299148d4.jpg'></image>
@@ -192,5 +192,5 @@
         <text class='font-size-12'>2010年就职于阿里巴巴集团，任国际事业部资深经理、“天猫”消费者体验与发展事业部专家、浙江大学EMBA总裁班特聘老师、中国人民大学EMBA总裁班讲师、商务部培训中心讲师、中国第一届诚信大会主讲嘉宾、企业品牌营销专家、擅长SNS运营。</text>
       </view>
     </view>
-  </view>
+  </view> -->
 </view>
