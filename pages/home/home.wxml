@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <view class='swiperBox'>
   <swiper id='swiperTop' indicator-dots="true" indicator-color='rgba(255,255,255,0.5)' indicator-active-color='#FFFFFF' circular='true' autoplay='true' interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{slides}}" wx:for-item="image">
+    <block wx:for="{{slides}}" wx:for-item="image" wx:key="{{image.id}}">
       <swiper-item bindtap="goToFilterProject" data-type="{{image.type}}">
         <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-imageTop" />
       </swiper-item>
@@ -26,8 +26,8 @@
       </view>
     </view>
     <view class='padding-5 margin-top-5 newsBox'>
-      <swiper id="swiperNews" circular='true' interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{news}}" wx:for-item="image">
+      <swiper id="swiperNews" autoplay='true' circular='true' interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{news}}" wx:for-item="image" wx:key="{{image.id}}">
           <swiper-item class="text-center" id="{{image.id}}" bindtap='goToNews'>
             <image mode='aspectFill' src="{{image.imageUrl}}" class="slide-image" />
             <image wx:if="{{index == 0}}" class='pictureNewsOne' mode='aspectFill' src='{{news[news.length-1].imageUrl}}'></image>

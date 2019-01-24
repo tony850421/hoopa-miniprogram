@@ -1,8 +1,8 @@
 // pages/projects/projects.js
 
-const AV = require('../../utils/av-weapp-min');
-const AVLive = require('../../utils/av-live-query-weapp-min');
-const bind = require('../../utils/live-query-binding');
+const AV = require('../../utils/av-weapp-min.js');
+const AVLive = require('../../utils/av-live-query-weapp-min.js');
+const bind = require('../../utils/live-query-binding.js');
 
 var offersProduct = [];
 

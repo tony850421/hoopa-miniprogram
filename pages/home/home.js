@@ -1,7 +1,5 @@
 // pages/home/home.js
-const AV = require('../../utils/av-weapp-min');
-const AVLive = require('../../utils/av-live-query-weapp-min');
-const bind = require('../../utils/live-query-binding');
+const AV = require('../../utils/av-weapp-min.js');
 
 const appInstance = getApp()
 

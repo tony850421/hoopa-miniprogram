@@ -1,17 +1,17 @@
 //app.js
-const AV = require('./utils/av-weapp-min');
-const AVLive = require('./utils/av-live-query-weapp-min');
-const bind = require('./utils/live-query-binding');
+const AV = require('./utils/av-weapp-min.js');
+// const AVLive = require('./utils/av-live-query-weapp-min.js');
+// const bind = require('./utils/live-query-binding.js');
 
 AV.init({
-  appId: 'qPv1WNQew34FTEuaGxEKHzqt-gzGzoHsz',
-  appKey: 'W7HA63OOB6oWtMQPOj6Cenr7',
+  appId: 'JFuqWjSPODy08snVJFtXD6IP-gzGzoHsz',
+  appKey: 'vaUr4WV0p1nRFKlypzN374jx',
 });
 
-AVLive.init({
-  appId: 'qPv1WNQew34FTEuaGxEKHzqt-gzGzoHsz',
-  appKey: 'W7HA63OOB6oWtMQPOj6Cenr7',
-});
+// AVLive.init({
+//   appId: 'JFuqWjSPODy08snVJFtXD6IP-gzGzoHsz',
+//   appKey: 'vaUr4WV0p1nRFKlypzN374jx',
+// });
 
 App({
   onLaunch: function () {
@@ -37,7 +37,8 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        AV.User.loginWithWeapp().then(user => {
+
+        AV.User.loginWithWeapp().then(user => {          
           this.globalData.user = user.toJSON();
         }).catch(console.error);
       }

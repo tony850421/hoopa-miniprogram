@@ -1,159 +1,22 @@
 // pages/markers/markers.js
+
+const AV = require('../../utils/av-weapp-min.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    longitudeSelected: 120.200631,
-    latitudeSelected: 30.211588,
+    longitudeSelected: '',
+    latitudeSelected: '',
     height: '',
     speed: '',
     accuracy: '',
-    nameSelected: '杭州总部',
-    directionSelected: '杭州市滨江区滨盛路1786号汉氏大厦15F',
-    phoneSelected: '+864008001682',
-    partners: [{
-        id: 0,
-        name: '杭州总部',
-        direction: '杭州市滨江区滨盛路1786号汉氏大厦15F',
-        show: true,
-        latitude: 30.208980,
-        longitude: 120.205131,
-        iconPath: "../../images/markerWork.png",
-        width: 50,
-        height: 50,
-        classSelected: 'branchesSelected',
-        selected: true,
-        phone: '+864008001682'
-      },
-      {
-        id: 1,
-        name: '南京事业部',
-        direction: '黑龙江省哈尔滨市道里区建国北六道街8号院内独栋四楼',
-        show: false,
-        latitude: 45.759068,
-        longitude: 126.605935,
-        iconPath: "../../images/markerWork.png",
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+86045158958877'
-      },
-      {
-        name: '广州事业部',
-        direction: '无锡市滨海区建筑西路599号无锡国家工业设计园1栋12楼',
-        show: false,
-        latitude: 31.553973,
-        longitude: 120.253013,
-        iconPath: "../../images/markerWork.png",
-        id: 2,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+86051085162133'
-      },
-      {
-        name: '河南事业部',
-        direction: '郑州市民生路与祥盛街交叉口福晟国际2号楼7楼  ',
-        show: false,
-        latitude: 34.767745,
-        longitude: 113.756223,
-        iconPath: "../../images/markerWork.png",
-        id: 3,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+8617398963601'
-      },
-      {
-        name: '武汉项目部',
-        direction: '南京市中山东路东路218号长安国际中心905室',
-        show: false,
-        latitude: 32.046944,
-        longitude: 118.800583,
-        iconPath: "../../images/markerWork.png",
-        id: 4,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+8602552240552'
-      },
-      {
-        name: '宝融胡巴',
-        direction: '广州市珠江新城华夏路16号富力盈凯广场3407室',
-        show: false,
-        latitude: 23.124425,
-        longitude: 113.328309,
-        iconPath: "../../images/markerWork.png",
-        id: 5,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+8618947286690'
-      },
-      {
-        name: '无锡乐道胡巴',
-        direction: '杭州市江干区城星路111号钱江国际时代广场3幢2701室',
-        show: false,
-        latitude: 30.246225,
-        longitude: 120.212576,
-        iconPath: "../../images/markerWork.png",
-        id: 6,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+86057185267521'
-      },
-      {
-        name: '长沙锐达胡巴',
-        direction: '长沙市芙蓉区银华大酒店4楼',
-        show: false,
-        latitude: 28.201072,
-        longitude: 112.995415,
-        iconPath: "../../images/markerWork.png",
-        id: 7,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+8615857133501'
-      },
-      {
-        name: '上海麦黍稷',
-        direction: '合肥市徽州大道396号东方广场B座12层',
-        show: false,
-        latitude: 31.855039,
-        longitude: 117.293235,
-        iconPath: "../../images/markerWork.png",
-        id: 8,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+86055165616683'
-      },
-      {
-        name: '福建胡巴航捷',
-        direction: '合肥市徽州大道396号东方广场B座12层',
-        show: false,
-        latitude: 31.855039,
-        longitude: 117.293235,
-        iconPath: "../../images/markerWork.png",
-        id: 9,
-        width: 50,
-        height: 50,
-        classSelected: 'branchesUnselected',
-        selected: false,
-        phone: '+86055165616683'
-      }
-    ]
+    nameSelected: '',
+    directionSelected: '',
+    phoneSelected: '',
+    partners: []
   },
 
   /**
@@ -183,6 +46,58 @@ Page({
     wx.setNavigationBarTitle({
       title: '机构',
     })
+
+    var that = this
+
+    var Branchs = new AV.Query('Branch');
+    Branchs.find().then(function(res) {      
+      for (var i = 0; i < res.length; i++) {
+        var id = res[i].id;
+        var address = res[i].get('address');
+        var name = res[i].get('name');
+        var phone = res[i].get('phone');
+        var latitude = parseFloat(res[i].get('latitude'));
+        var longitude = parseFloat(res[i].get('longitude'));
+        var iconPath = "../../images/markerWork.png";
+        var width = 50;
+        var height = 50;
+        var selected = false;
+        var show = false;
+        var classSelected = 'branchesUnselected';
+        if (i == 0) {
+          selected = true;
+          show = false;
+          classSelected = 'branchesSelected';
+        } else {
+          selected = true;
+          show = false;
+          classSelected = 'branchesUnselected';
+        }
+
+        res[i].set("id", id);
+        res[i].set("direction", address);
+        res[i].set("name", name);
+        res[i].set("phone", phone);
+        res[i].set("latitude", latitude);
+        res[i].set("longitude", longitude);
+        res[i].set("iconPath", iconPath);
+        res[i].set("width", width);
+        res[i].set("height", height);
+        res[i].set("selected", selected);
+        res[i].set("show", show);
+        res[i].set("classSelected", classSelected);
+
+      }
+
+      that.setData({
+        partners: res,
+        longitudeSelected: res[0].get('longitude'),
+        latitudeSelected: res[0].get('latitude'),
+        nameSelected: res[0].get('name'),
+        directionSelected: res[0].get('address'),
+        phoneSelected: res[0].get('phone')
+      })
+    });
   },
 
   /**
@@ -228,19 +143,19 @@ Page({
     var phone = ''
 
     for (var i = 0; i < this.data.partners.length; i++) {
-      if (this.data.partners[i].id == e.currentTarget.id) {
-        this.data.partners[i].show = true
-        this.data.longitudeSelected = this.data.partners[i].longitude
-        this.data.latitudeSelected = this.data.partners[i].latitude
-        this.data.partners[i].classSelected = 'branchesSelected'
-        this.data.partners[i].selected = true
-        name = this.data.partners[i].name
-        address = this.data.partners[i].direction
-        phone = this.data.partners[i].phone
+      if (this.data.partners[i].get('id') == e.currentTarget.id) {
+        this.data.partners[i].set('show', true)
+        this.data.longitudeSelected = this.data.partners[i].get('longitude')
+        this.data.latitudeSelected = this.data.partners[i].get('latitude')
+        this.data.partners[i].set('classSelected', 'branchesSelected')
+        this.data.partners[i].set('selected', true)
+        name = this.data.partners[i].get('name')
+        address = this.data.partners[i].get('direction')
+        phone = this.data.partners[i].get('phone')
       } else {
-        this.data.partners[i].show = false
-        this.data.partners[i].classSelected = 'branchesUnselected'
-        this.data.partners[i].selected = false
+        this.data.partners[i].set('show', false)
+        this.data.partners[i].set('classSelected','branchesUnselected')
+        this.data.partners[i].set('selected', false)
       }
     }
     this.setData({
